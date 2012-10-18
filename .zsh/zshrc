@@ -1,0 +1,229 @@
+#--------------------------------------------------------------------------------
+# source plugins
+#--------------------------------------------------------------------------------
+autoload -Uz compinit
+compinit
+
+source ~/.zsh/packages.zsh
+
+#--------------------------------------------------------------------------------
+# zsh settings
+#--------------------------------------------------------------------------------
+
+#cdを付けなくてもディレクトリ名で移動
+setopt auto_cd
+#移動したディレクトリを記録
+setopt auto_pushd
+#タブキーで補完候補を順に表示
+setopt auto_menu
+#補完候補一覧でファイルの種別を識別マーク表示
+setopt list_types
+#コマンド訂正
+setopt correct
+#補完候補を詰めて表示
+setopt list_packed
+#ビープ音をならないように
+setopt nolistbeep
+setopt no_beep
+#言語と文字コード
+export LANG=ja_JP.UTF-8
+# コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
+setopt magic_equal_subst
+# グロブ機能を拡張する
+setopt extended_glob
+# ファイルグロブで大文字小文字を区別しない
+unsetopt caseglob
+#EDITOR=vimの場合zshもvimバインドになるので明示指定
+bindkey -e
+
+#----------------------------------------
+# completion style
+#----------------------------------------
+
+# 補完時に大文字小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 
+zstyle ':completion:*' completer _oldlist _complete _match 
+zstyle ':completion:*' menu select
+zstyle ':completion:*' format '%F{blue}%d%f'
+zstyle ':completion:*' group-name ''
+
+#----------------------------------------
+# prompt settings 
+#----------------------------------------
+
+#branch名を表示する
+autoload -Uz add-zsh-hook
+autoload -Uz colors
+colors
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable git svn hg bzr
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+zstyle ':vcs_info:bzr:*' use-simple true
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
+zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
+zstyle ':vcs_info:git:*' formats '[%b] %c%u'
+zstyle ':vcs_info:git:*' actionformats '[%b|%a] %c%u'
+
+function _update_vcs_info_msg() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+add-zsh-hook precmd _update_vcs_info_msg
+RPROMPT="%1(v|%F{green}%1v%f|)"
+
+case ${UID} in
+0)
+    PROMPT="%{[31m%}%n%%%{[m%} "
+    RPROMPT="%1(v|%F{green}%1v%f|) [%~]"
+    PROMPT2="%B%{[31m%}%_#%{[m%}%b "
+    SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+    ;;
+*)
+    PROMPT="%{[31m%}%n%%%{[m%} "
+    RPROMPT="%1(v|%F{green}%1v%f|) [%~]"
+    PROMPT2="%{[31m%}%_%%%{[m%} "
+    SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+    ;;
+esac
+
+#ターミナルのタイトルの設定
+case "${TERM}" in
+kterm*|xterm)
+    precmd() {
+        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+    }
+    ;;
+esac
+#----------------------------------------
+# history settings 
+#----------------------------------------
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data
+#履歴検索
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+#--------------------------------------------------------------------------------
+# alias and function settings
+#--------------------------------------------------------------------------------
+
+#----------------------------------------
+# alias
+#----------------------------------------
+
+#lsを色付き表示
+case $(uname) in
+    *BSD|Darwin)
+    alias ls="ls -G"
+	;;
+    *)
+    alias ls="ls --color=auto"
+	;;
+esac
+
+#詳細表示
+alias ll="ls-AlhF"
+
+#cdした後に自動的にls
+function chpwd() {
+    ls
+}
+
+# ^ で cd ..
+# ^を入力したいときはCtrl-V
+function cdup() {
+    echo
+    cd ..
+    zle reset-prompt
+}
+zle -N cdup
+bindkey '\^' cdup
+
+#cdする前の場所に戻る
+alias pd='popd'
+
+# L でページャー起動
+alias -g L="|& $PAGER"
+
+#ブラックホール
+alias -g NL=">/dev/null"
+alias -g NLL=">/dev/null 2>&1"
+
+#Ubuntuでもopenで開けるように
+if [ -x "$(which gnome-open)" ]; then
+    alias open="gnome-open"
+fi
+
+#----------------------------------------
+# encoding function
+#----------------------------------------
+
+function utf8(){
+    nkf -w --overwrite $1
+}
+function sjis(){
+    nkf -s --overwrite $1
+}
+
+#----------------------------------------
+# git settings 
+#----------------------------------------
+
+#git ルートディレクトリのパスを表示
+alias git-root="git rev-parse --show-toplevel"
+
+#git ルートディレクトリに移動
+function cd-git-root() {
+    cd `git-root`
+} 
+
+#----------------------------------------
+# tmux settings
+#----------------------------------------
+
+#常に -2 オプションで起動するように (強制的に端末が256色だと認識させる)
+alias tmux='tmux -2'
+
+#tmuxの自動起動
+if [ -z "$PS1" ] ; then return ; fi
+
+if [ -z $TMUX ] ; then
+    tmuxls=`tmux ls`
+    if [ -z $tmuxls ] ; then
+            tmux
+    else
+            tmux attach
+    fi
+fi
+
+#tmuxのプレフィックスを任意のキーに変更
+function tmux-set-prefix(){
+    tmux set-option -g prefix $1
+}
+
+#tmuxのプレフィックスをC-bに変更
+function tmux-change-prefix(){
+    tmux-set-prefix C-b
+}
+
+#tmuxのプレフィックスをC-tに戻す
+function tmux-reset-prefix(){
+    tmux-set-prefix C-t
+}
