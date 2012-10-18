@@ -10,7 +10,7 @@ source ~/.zsh/zshenv
 # PC固有の設定を追加するときは
 # ~/.zsh/zshenv.local ファイルを作成し
 # その中に記述すること
-local_settings="~/.zsh/zshenv.local"
+local_settings=~/.zsh/zshenv.local
 if [ -e $local_settings ]; then
     source $local_settings
 fi
