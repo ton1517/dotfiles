@@ -139,7 +139,7 @@ case $(uname) in
 esac
 
 #詳細表示
-alias ll="ls-AlhF"
+alias ll="ls -AlhF"
 
 #cdした後に自動的にls
 function chpwd() {
