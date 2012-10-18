@@ -18,10 +18,6 @@ fpath=($(package-directory zsh-users/zsh-completions)/src $fpath)
 package-install github m4i/cdd
 source $(package-directory m4i/cdd)/cdd
 
-function chpwd() {
-    _cdd_chpwd
-}
-
 #----------------------------------------
 # z
 #----------------------------------------
