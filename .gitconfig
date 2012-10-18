@@ -1,0 +1,24 @@
+[core]
+	excludesfile = ~/.gitignore.global
+	editor = vim
+	pager = lv -c
+	ui = auto
+[include]
+    path = ~/.gitconfig.local
+[alias]
+    co = checkout
+    st = status
+    sh = show
+    cm = commit
+    ps = push
+    pl = pull
+    br = branch
+    df = diff
+[color]
+	ui = true
+
+[tig "bind"]
+    generic = g move-first-line
+    generic = G move-last-line
+    generic = ^F move-page-down
+    generic = ^B move-page-up
