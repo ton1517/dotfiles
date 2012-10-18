@@ -28,7 +28,8 @@ setopt extended_glob
 unsetopt caseglob
 #EDITOR=vimの場合zshもvimバインドになるので明示指定
 bindkey -e
-
+#処理に時間がかかった場合に自動的に処理時間を表示する
+REPORTTIME=1
 #----------------------------------------
 # completion style
 #----------------------------------------
