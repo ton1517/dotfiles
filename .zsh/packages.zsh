@@ -37,3 +37,10 @@ package-install github nakamuray/zaw
 source $(package-directory nakamuray/zaw)/zaw.zsh
 
 bindkey '^R' zaw-history
+
+#----------------------------------------
+# zsh-syntax-highlighting
+#----------------------------------------
+
+package-install github zsh-users/zsh-syntax-highlighting
+source $(package-directory zsh-users/zsh-syntax-highlighting)/zsh-syntax-highlighting.zsh
