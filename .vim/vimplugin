@@ -152,6 +152,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
 " ハイライトのサイズを小さく
 let g:indent_guides_guide_size = 1
+
 "----------------------------------------
 " NERDTree
 "----------------------------------------
@@ -167,4 +168,18 @@ nnoremap <silent> ,nt :NERDTreeToggle<CR>
 
 let g:Powerline_symbols='fancy'
 set t_Co=256
+
+"----------------------------------------
+" easymotion
+"----------------------------------------
+
+" 候補キーをアルファベットのみにする
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+" easymotionのLeader設定
+let g:EasyMotion_leader_key="\\"
+" 1 ストローク選択を優先する
+" let g:EasyMotion_grouping=1
+" カラー設定
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionShade  ctermbg=none ctermfg=blue
 
