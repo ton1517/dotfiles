@@ -5,6 +5,8 @@
 	ui = auto
 [include]
     path = ~/.gitconfig.local
+[merge]
+	ff = false
 [alias]
     co = checkout
     st = status
