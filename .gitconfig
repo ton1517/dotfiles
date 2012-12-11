@@ -16,5 +16,7 @@
     pl = pull
     br = branch
     df = diff
+
+    rmall = "!git status | grep deleted: | awk '{print $3}'  | xargs git rm"
 [color]
 	ui = true
