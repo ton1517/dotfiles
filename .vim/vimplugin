@@ -49,6 +49,13 @@ NeoBundle 'git://github.com/scrooloose/nerdtree.git'
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 " vim-easymotion
 NeoBundle 'git://github.com/Lokaltog/vim-easymotion.git'
+" vimproc
+NeoBundle 'https://github.com/Shougo/vimproc.git', {
+\ 'build' : {
+\     'mac'     : 'make -f make_mac.mak',
+\     'unix'    : 'make -f make_unix.mak',
+\    },
+\ }
 
 "--------------------
 
@@ -182,4 +189,10 @@ let g:EasyMotion_leader_key="\\"
 " カラー設定
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
+
+"----------------------------------------
+" quickrun
+"----------------------------------------
+
+let g:quickrun_config = {'runner' : 'vimproc'}
 

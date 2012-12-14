@@ -40,6 +40,8 @@ set hlsearch
 set tabstop=4
 " タブを挿入するときの幅
 set shiftwidth=4
+" <Tab>と<BS>を押した時の挙動をいい感じにする
+set smarttab
 " タブをスペースに展開する
 set expandtab
 " 自動的にインデントする
@@ -129,6 +131,12 @@ if isdirectory(&directory) == 0
     echo &directory
     call mkdir(&directory)
 endif
+
+if has('persistent_undo')
+    set undodir=&directory
+    set undofile
+endif
+
 "----------------------------------------
 " encoding settings 
 "----------------------------------------
