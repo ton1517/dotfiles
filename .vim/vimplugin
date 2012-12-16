@@ -58,6 +58,14 @@ NeoBundle 'https://github.com/Shougo/vimproc.git', {
 \ }
 
 "--------------------
+" color scheme
+NeoBundle 'ujihisa/unite-colorscheme'
+
+NeoBundle 'tomasr/molokai'
+NeoBundle 'nanotech/jellybeans.vim'
+
+
+"--------------------
 
 filetype plugin indent on     " Required!
 
@@ -195,4 +203,11 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 "----------------------------------------
 
 let g:quickrun_config = {'runner' : 'vimproc'}
+
+"----------------------------------------
+" unite-colorscheme
+"----------------------------------------
+
+nnoremap <silent> ,uc :<C-u>Unite colorscheme -auto-preview<CR>
+
 
