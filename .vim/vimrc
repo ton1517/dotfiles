@@ -76,7 +76,7 @@ set nf = "hex"
 
 syntax on
 " カラー設定
-colorscheme desert
+colorscheme molokai
 " 行番号を非表示 (number:表示)
 set number
 " ルーラーを表示 (noruler:非表示)
