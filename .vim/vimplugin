@@ -56,6 +56,8 @@ NeoBundle 'https://github.com/Shougo/vimproc.git', {
 \     'unix'    : 'make -f make_unix.mak',
 \    },
 \ }
+" ctrlp.vim
+NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 
 "--------------------
 " color scheme
