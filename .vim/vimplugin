@@ -23,6 +23,8 @@ NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 " unite-outline
 NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
+" unite-build
+NeoBundle 'git://github.com/Shougo/unite-build.git'
 " neocomplcache
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 " neocomplcache-snippets-complete
@@ -212,4 +214,9 @@ let g:quickrun_config = {'runner' : 'vimproc'}
 
 nnoremap <silent> ,uc :<C-u>Unite colorscheme -auto-preview<CR>
 
+"----------------------------------------
+" unite-build
+"----------------------------------------
+
+nnoremap <silent> ,m :<C-u>Unite build:!<CR>
 
