@@ -220,3 +220,8 @@ nnoremap <silent> ,uc :<C-u>Unite colorscheme -auto-preview<CR>
 
 nnoremap <silent> ,m :<C-u>Unite build:!<CR>
 
+"----------------------------------------
+" ctrlp
+"----------------------------------------
+
+let g:ctrlp_map = ',p'
