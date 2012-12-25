@@ -60,6 +60,8 @@ NeoBundle 'https://github.com/Shougo/vimproc.git', {
 \ }
 " ctrlp.vim
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
+" vim-ref
+NeoBundle 'git://github.com/thinca/vim-ref.git'
 
 "--------------------
 " color scheme
@@ -129,6 +131,16 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default'    : '',
+    \ 'perl'       : $HOME . '/.vim/dict/perl.dict'
+    \ }
+
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 "----------------------------------------
 " neocomplcache-snippets-complete
