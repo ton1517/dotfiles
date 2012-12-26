@@ -62,6 +62,8 @@ NeoBundle 'https://github.com/Shougo/vimproc.git', {
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 " vim-ref
 NeoBundle 'git://github.com/thinca/vim-ref.git'
+" syntastic
+NeoBundle 'git://github.com/scrooloose/syntastic.git'
 
 "--------------------
 " color scheme
