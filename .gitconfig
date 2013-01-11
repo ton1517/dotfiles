@@ -9,7 +9,7 @@
     co = checkout
     st = status
     sh = show
-    cm = commit
+    cm = commit --verbose
     ps = push
     pl = pull
     br = branch
