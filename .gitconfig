@@ -18,3 +18,5 @@
     rmall = "!git status | grep deleted: | awk '{print $3}'  | xargs git rm"
 [color]
 	ui = true
+[push]
+	default = simple
