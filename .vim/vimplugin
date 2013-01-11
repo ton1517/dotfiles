@@ -222,6 +222,14 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 let g:quickrun_config = {'runner' : 'vimproc'}
 
+let g:quickrun_config.markdown = {
+    \ 'outputter/buffer/close_on_empty' : 1,
+    \ 'command' : 'open',
+    \ 'cmdopt'  : '-a',
+    \ 'args'    : 'Marked',
+    \ 'exec'    : '%c %o %a %s',
+    \ }
+
 "----------------------------------------
 " unite-colorscheme
 "----------------------------------------
