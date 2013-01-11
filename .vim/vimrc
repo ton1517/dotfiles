@@ -11,9 +11,6 @@ nnoremap <silent> ,tn <C-]>
 nnoremap <silent> ,tp <C-t>
 " ノーマルモード時にOで改行
 nnoremap O o<ESC>
-" スペースキーで画面スクロール
-nnoremap <Space> jzz
-nnoremap <S-Space> kzz
 " hlsearchのハイライトを消去
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
@@ -99,6 +96,13 @@ set showcmd
 set title
 " カーソルのある行を強調表示
 set cursorline
+
+"----------------------------------------
+" filetype settings
+"----------------------------------------
+
+autocmd BufNewFile,BufRead vimplugin set filetype=vim
+autocmd BufNewFile,BufRead *md set filetype=markdown
 
 "----------------------------------------
 " ex settings
