@@ -28,7 +28,7 @@ NeoBundle 'git://github.com/Shougo/unite-build.git'
 " neocomplcache
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 " neocomplcache-snippets-complete
-NeoBundle 'git://github.com/Shougo/neocomplcache-snippets-complete.git'
+NeoBundle 'git://github.com/Shougo/neosnippet.git'
 " vimfiler
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
 " vim-quickrun
@@ -145,12 +145,12 @@ endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 "----------------------------------------
-" neocomplcache-snippets-complete
+" neosnippet
 "----------------------------------------
 
-let g:neocomplcache_snippets_dir = '~/.vim/snippets'
-imap <C-j> <plug>(neocomplcache_snippets_expand)
-smap <C-j> <plug>(neocomplcache_snippets_expand)
+let g:neosnippet#snippets_directory= '~/.vim/snippets'
+imap <C-j> <plug>(neosnippet_expand_or_jump)
+smap <C-j> <plug>(neosnippet_expand_or_jump)
 
 "----------------------------------------
 " vimfile
