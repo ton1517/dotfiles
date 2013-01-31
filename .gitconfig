@@ -5,6 +5,10 @@
 	ui = auto
 [include]
     path = ~/.gitconfig.local
+[color]
+	ui = true
+[push]
+	default = simple
 [alias]
     co = checkout
     st = status
@@ -15,8 +19,12 @@
     br = branch
     df = diff
 
+    #すでに削除されているファイルを全てgit rmする 
     rmall = "!git status | grep deleted: | awk '{print $3}'  | xargs git rm"
-[color]
-	ui = true
-[push]
-	default = simple
+
+    #gitの管理下にあるファイルを無視する
+    skip = update-index --skip-worktree
+    #もとに戻す
+    noskip = update-index --no-skip-worktree
+
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
