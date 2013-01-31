@@ -69,6 +69,10 @@ set nf = "hex"
 " 画面端まで行かなくてもスクロールできる
 set scrolloff=10
 
+" インデントで折りたたみ
+set foldmethod=indent
+set foldlevel=99
+
 "----------------------------------------
 " display settings
 "----------------------------------------
@@ -103,7 +107,6 @@ set cursorline
 
 autocmd BufNewFile,BufRead vimplugin set filetype=vim
 autocmd BufNewFile,BufRead *md set filetype=markdown
-
 "----------------------------------------
 " ex settings
 "----------------------------------------
