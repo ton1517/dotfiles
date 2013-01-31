@@ -64,6 +64,10 @@ NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 " syntastic
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
+" ropevim
+" require : rope, ropemode
+" pip install rope ropemode
+NeoBundle 'git://github.com/sontek/rope-vim'
 
 "--------------------
 " color scheme
@@ -144,6 +148,12 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
 "----------------------------------------
 " neosnippet
 "----------------------------------------
@@ -151,6 +161,10 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 let g:neosnippet#snippets_directory= '~/.vim/snippets'
 imap <C-j> <plug>(neosnippet_expand_or_jump)
 smap <C-j> <plug>(neosnippet_expand_or_jump)
+
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+  endif
 
 "----------------------------------------
 " vimfile
