@@ -68,6 +68,8 @@ NeoBundle 'git://github.com/scrooloose/syntastic.git'
 " require : rope, ropemode
 " pip install rope ropemode
 NeoBundle 'git://github.com/sontek/rope-vim'
+" jedi-vim
+NeoBundle 'git://github.com/davidhalter/jedi-vim.git'
 
 "--------------------
 " color scheme
@@ -261,3 +263,11 @@ nnoremap <silent> ,m :<C-u>Unite build:!<CR>
 "----------------------------------------
 
 let g:ctrlp_map = ',p'
+
+"----------------------------------------
+" jedi-vim
+"----------------------------------------
+
+let g:jedi#popup_on_dot = 0
+
+
