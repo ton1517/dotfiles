@@ -267,7 +267,6 @@ let g:ctrlp_map = ',p'
 "----------------------------------------
 " jedi-vim
 "----------------------------------------
-
 let g:jedi#popup_on_dot = 0
-
+let g:jedi#rename_command = "<leader>R"
 
