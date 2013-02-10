@@ -273,9 +273,11 @@ let g:ctrlp_map = ',p'
 "----------------------------------------
 " syntastic
 "----------------------------------------
-" require jshint
+" require jshint or gjslint
 " npm install -g jshint
-let g:syntastic_javascript_checker = "jshint"
+" easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
+" let g:syntastic_javascript_checker = "jshint"
+let g:syntastic_javascript_checker = "gjslint"
 
 "----------------------------------------
 " jedi-vim
