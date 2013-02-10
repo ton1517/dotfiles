@@ -70,6 +70,12 @@ NeoBundle 'git://github.com/scrooloose/syntastic.git'
 NeoBundle 'git://github.com/sontek/rope-vim'
 " jedi-vim
 NeoBundle 'git://github.com/davidhalter/jedi-vim.git'
+" simple-javascript-indenter
+NeoBundle 'git://github.com/jiangmiao/simple-javascript-indenter.git'
+" vim-javascript-syntax
+NeoBundle 'git://github.com/jelera/vim-javascript-syntax.git'
+" jscomplete-vim
+NeoBundle 'git://github.com/teramako/jscomplete-vim.git'
 
 "--------------------
 " color scheme
@@ -265,8 +271,25 @@ nnoremap <silent> ,m :<C-u>Unite build:!<CR>
 let g:ctrlp_map = ',p'
 
 "----------------------------------------
+" syntastic
+"----------------------------------------
+" require jshint
+" npm install -g jshint
+let g:syntastic_javascript_checker = "jshint"
+
+"----------------------------------------
 " jedi-vim
 "----------------------------------------
 let g:jedi#popup_on_dot = 0
 let g:jedi#rename_command = "<leader>R"
+
+"----------------------------------------
+" simple-javascript-indenter
+"----------------------------------------
+let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+"----------------------------------------
+" jscomplete-vim
+"----------------------------------------
+autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
 
