@@ -16,23 +16,12 @@ path=(
       /opt/local/bin(N-/)
       /usr/local/bin(N-/)
       /usr/bin(N-/)
+      /sbin(N-/)
+      /usr/local/sbin(N-/)
+      /opt/local/sbin(N-/)
+      /usr/sbin(N-/)
+      /usr/pkg/sbin(N-/)
      )
-
-#----------------------------------------
-# sudo path settings
-#----------------------------------------
-
-# sudo時のパスの設定
-typeset -xT SUDO_PATH sudo_path
-## 重複したパスを登録しない。
-typeset -U sudo_path
-
-sudo_path=(
-        /sbin(N-/)
-        /usr/pkg/sbin(N-/)
-        /usr/local/sbin(N-/)
-        /usr/sbin(N-/)
-        )
 
 #----------------------------------------
 # man path settings
