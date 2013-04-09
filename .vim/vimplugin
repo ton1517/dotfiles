@@ -76,6 +76,8 @@ NeoBundle 'git://github.com/jiangmiao/simple-javascript-indenter.git'
 NeoBundle 'git://github.com/jelera/vim-javascript-syntax.git'
 " jscomplete-vim
 NeoBundle 'git://github.com/teramako/jscomplete-vim.git'
+" vim-golang
+NeoBundle 'git://github.com/jnwhiteh/vim-golang.git'
 
 "--------------------
 " color scheme
