@@ -27,7 +27,12 @@ typeset -xT SUDO_PATH sudo_path
 ## 重複したパスを登録しない。
 typeset -U sudo_path
 
-sudo_path=({,/usr/pkg,/usr/local,/usr}/sbin(N-/))
+sudo_path=(
+        /sbin(N-/)
+        /usr/pkg/sbin(N-/)
+        /usr/local/sbin(N-/)
+        /usr/sbin(N-/)
+        )
 
 #----------------------------------------
 # man path settings
