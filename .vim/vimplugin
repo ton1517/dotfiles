@@ -206,9 +206,13 @@ let g:yankring_window_height = 20
 " ハイライトをデフォルトで有効
 let g:indent_guides_enable_on_vim_startup = 1
 " 自動的なカラーをオフに
-let g:indent_guides_auto_colors = 1
+let g:indent_guides_auto_colors = 0
 " ハイライトのサイズを小さく
 let g:indent_guides_guide_size = 1
+" 奇数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#888888 ctermbg=gray
+" 偶数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgray
 
 "----------------------------------------
 " NERDTree
