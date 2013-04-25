@@ -218,6 +218,12 @@ alias -g L="|& $PAGER"
 alias -g NL=">/dev/null"
 alias -g NLL=">/dev/null 2>&1"
 
+#上の階層
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
 #Ubuntuでもopenで開けるように
 if type gnome-open > /dev/null 2>&1; then
     alias open="gnome-open"
