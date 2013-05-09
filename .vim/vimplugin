@@ -85,7 +85,9 @@ NeoBundle 'ujihisa/unite-colorscheme'
 
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
-
+NeoBundle 'jnurmine/Zenburn'
+NeoBundle 'fugalh/desert.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 
 "--------------------
 
