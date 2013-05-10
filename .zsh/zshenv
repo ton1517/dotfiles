@@ -10,12 +10,12 @@
 typeset -U path
 
 path=(
-      /bin(N-/)
       $HOME/bin(N-/)
       $HOME/local/bin(N-/)
       /opt/local/bin(N-/)
       /usr/local/bin(N-/)
       /usr/bin(N-/)
+      /bin(N-/)
       /sbin(N-/)
       /usr/local/sbin(N-/)
       /opt/local/sbin(N-/)
