@@ -18,8 +18,6 @@ setopt list_packed
 #ビープ音をならないように
 setopt nolistbeep
 setopt no_beep
-#言語と文字コード
-export LANG=ja_JP.UTF-8
 # コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
 setopt magic_equal_subst
 # グロブ機能を拡張する
