@@ -90,24 +90,21 @@ function _update_vcs_info_msg() {
     psvar[2]=`git_prompt_stash_count`
 }
 add-zsh-hook precmd _update_vcs_info_msg
-RPROMPT="%1(v|%F{green}%1v%f%F{yellow}%2v%f|) [%~]"
 
-case ${UID} in
-0)
-    PROMPT="%{[31m%}%n%%%{[m%} "
-    PROMPT2="%B%{[31m%}%_#%{[m%}%b "
-    SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-    ;;
-*)
-    PROMPT="%{[31m%}%n%%%{[m%} "
-    PROMPT2="%{[31m%}%_%%%{[m%} "
-    SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-    ;;
-esac
+# プロンプト
+PROMPT="%F{cyan}[%D{%m/%d %T}] %1(v|%F{green}%1v%f%F{yellow}%2v%f|) [%~]
+%{[31m%}%n%%%{[m%} "
+
+# 複数行でのプロンプトの左側
+PROMPT2="%{[31m%}%_%%%{[m%} "
+
+# 入力ミスの確認
+SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
+
+# ssh接続時はホスト名を表示
+[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+    PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+
 
 #ターミナルのタイトルの設定
 case "${TERM}" in
