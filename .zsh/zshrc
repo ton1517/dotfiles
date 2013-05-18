@@ -24,6 +24,11 @@ setopt magic_equal_subst
 setopt extended_glob
 # ファイルグロブで大文字小文字を区別しない
 unsetopt caseglob
+# グロブを数値順にソート
+setopt numeric_glob_sort
+# カーソル位置で補完
+setopt complete_in_word
+
 #EDITOR=vimの場合zshもvimバインドになるので明示指定
 bindkey -e
 #処理に時間がかかった場合に自動的に処理時間を表示する
@@ -37,10 +42,18 @@ compdef mosh=ssh
 
 # 補完時に大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 
-zstyle ':completion:*' completer _oldlist _complete _match 
+# 補完の種類
+zstyle ':completion:*' completer _oldlist _complete _match _expand _prefix _history
+# 補完一覧をカーソルで選択できるように
 zstyle ':completion:*' menu select
+# 補完の色
 zstyle ':completion:*' format '%F{blue}%d%f'
+# 補完候補をグループ分け
 zstyle ':completion:*' group-name ''
+# 補完候補に色を付ける
+zstyle ':completion:*:default' list-colors ''
+# 補完候補をキャッシュする。
+zstyle ':completion:*' use-cache yes
 
 #----------------------------------------
 # prompt settings 
@@ -58,8 +71,8 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
 zstyle ':vcs_info:bzr:*' use-simple true
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
-zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
+zstyle ':vcs_info:git:*' stagedstr "+" # 追加の変更点があったときの文字
+zstyle ':vcs_info:git:*' unstagedstr "-"  # 削除の変更点が会った時の文字
 zstyle ':vcs_info:git:*' formats '[%b] %c%u'
 zstyle ':vcs_info:git:*' actionformats '[%b|%a] %c%u'
 
@@ -113,6 +126,8 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
+#履歴にタイムスタンプや実行時間を含める
+setopt extended_history
 #履歴検索
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -178,7 +193,7 @@ case $(uname) in
 esac
 
 #詳細表示
-alias ll="ls -AlhF"
+alias ll="ls -AlhFv"
 
 #cdした後に自動的にls
 function chpwd() {
