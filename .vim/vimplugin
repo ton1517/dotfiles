@@ -308,6 +308,6 @@ autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
 "----------------------------------------
 " bg.vim
 "----------------------------------------
-" Ctrl-Mでmakeを行う
-nnoremap <C-m>  :Background make<CR>
+" F5でmakeを行う
+nnoremap <F5>  :Background make<CR>
 
