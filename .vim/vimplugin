@@ -18,7 +18,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " my plugins
 
 " NeoBundle
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+NeoBundle 'git://github.com/Shougo/neobundle.vim.git', { 'rev' : 'ver.2.1' }
 " unite
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 " unite-outline
