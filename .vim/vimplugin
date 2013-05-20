@@ -78,6 +78,8 @@ NeoBundle 'git://github.com/jelera/vim-javascript-syntax.git'
 NeoBundle 'git://github.com/teramako/jscomplete-vim.git'
 " vim-golang
 NeoBundle 'git://github.com/jnwhiteh/vim-golang.git'
+" bg.vim
+NeoBundle 'git://github.com/yuratomo/bg.vim.git'
 
 "--------------------
 " color scheme
@@ -302,4 +304,10 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 " jscomplete-vim
 "----------------------------------------
 autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
+
+"----------------------------------------
+" bg.vim
+"----------------------------------------
+" Ctrl-Mでmakeを行う
+nnoremap <C-m>  :Background make<CR>
 
