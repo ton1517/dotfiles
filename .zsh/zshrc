@@ -35,6 +35,8 @@ bindkey -e
 REPORTTIME=1
 #moshでもsshと同じ補完がでるように
 compdef mosh=ssh
+#ターミナルでCtrl+sを押してしまった時にロックされるのを防ぐ
+stty stop undef
 
 #----------------------------------------
 # completion style
