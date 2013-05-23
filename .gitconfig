@@ -19,6 +19,9 @@
     br = branch
     df = diff
 
+    stage = add
+    unstage = reset HEAD
+
     #すでに削除されているファイルを全てgit rmする 
     rmall = "!git status | grep deleted: | awk '{print $3}'  | xargs git rm"
 
