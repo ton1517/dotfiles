@@ -21,6 +21,9 @@ nnoremap <silent> ,tp <C-t>
 nnoremap O o<ESC>
 " hlsearchのハイライトを消去
 nnoremap <ESC><ESC> :nohlsearch<CR>
+" Ctrl-sで保存
+inoremap <C-s> <Esc>:w<CR>
+nnoremap <C-s> <Esc>:w<CR>
 
 "----------------------------------------
 " search settings
