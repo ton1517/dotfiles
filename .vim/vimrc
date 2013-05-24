@@ -14,6 +14,12 @@ nnoremap ggq <Esc>ggVGgq
 " mapping settings
 "----------------------------------------
 
+" 移動をちょっと早く
+nnoremap <C-h> 5h
+nnoremap <C-j> 5j
+nnoremap <C-k> 5k
+nnoremap <C-l> 5l
+
 " タグジャンプ
 nnoremap <silent> ,tn <C-]>
 nnoremap <silent> ,tp <C-t>
