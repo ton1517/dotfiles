@@ -317,7 +317,7 @@ nnoremap <F5>  :Background make<CR>
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
 " uncrustifyの設定ファイル
-let g:uncrustify_cfg_file_path = '~/.uncrustify.conf'
+let g:uncrustify_cfg_file_path = '~/.uncrustifyconfig'
 
 " uncrustifyでフォーマットする言語
 " let g:uncrustify_lang = ""
