@@ -316,20 +316,19 @@ nnoremap <F5>  :Background make<CR>
 "----------------------------------------
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
+" Shift-Fでコードのフォーマットを行う．
+nnoremap <S-f> :call UncrustifyAuto()<CR>
+
 " uncrustifyの設定ファイル
 let g:uncrustify_cfg_file_path = '~/.uncrustifyconfig'
 
 " uncrustifyでフォーマットする言語
-" let g:uncrustify_lang = ""
-autocmd FileType c :call SetUncrustifyLang("c")
-autocmd FileType cpp :call SetUncrustifyLang("cpp")
-autocmd FileType java :call SetUncrustifyLang("java")
-autocmd FileType objc :call SetUncrustifyLang("oc")
-
-function! SetUncrustifyLang(lang)
-    let g:uncrustify_lang = a:lang
-    nnoremap gq :call UncrustifyAuto()<CR>
-endfunction
+let g:uncrustify_lang = ""
+autocmd FileType c let g:uncrustify_lang = "c"
+autocmd FileType cpp let g:uncrustify_lang = "cpp"
+autocmd FileType java let g:uncrustify_lang = "java"
+autocmd FileType objc let g:uncrustify_lang = "oc"
+autocmd FileType cs let g:uncrustify_lang = "cs"
 
 " Restore cursor position, window position, and last search after running a
 " command.
@@ -361,6 +360,10 @@ function! Uncrustify(language)
 endfunction
 
 function! UncrustifyAuto()
-    call Uncrustify(g:uncrustify_lang)
+    if g:uncrustify_lang != ""
+        call Uncrustify(g:uncrustify_lang)
+    else
+        echo "not supported filetype"
+    endif
 endfunction
 
