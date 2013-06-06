@@ -11,13 +11,13 @@
 #
 # @author ton1517 <tonton1517@gmail.com>
 
-branchName=$1
-gitRootDir=`git rev-parse --show-toplevel`
-
 if [ $# -ne 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     echo "usage: $0 <new-branch>"
     exit
 fi
+
+branchName=$1
+gitRootDir=`git rev-parse --show-toplevel`
 
 if [ ! -n "$gitRootDir" ]; then
     exit
