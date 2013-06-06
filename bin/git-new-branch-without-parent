@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#----------------------------------------
+# git-new-branch-without-parent
+#----------------------------------------
+#
+# make branch without parent
+#
+# example :
+# git-new-branch-without-parent gh-pages
+#
+# @author ton1517 <tonton1517@gmail.com>
+
+branchName=$1
+gitRootDir=`git rev-parse --show-toplevel`
+
+if [ ! -n "$gitRootDir" ]; then
+    exit
+fi
+
+cd $gitRootDir
+
+git symbolic-ref HEAD refs/heads/$branchName
+rm .git/index
+git clean -fdx
+
