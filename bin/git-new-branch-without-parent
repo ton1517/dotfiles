@@ -14,6 +14,11 @@
 branchName=$1
 gitRootDir=`git rev-parse --show-toplevel`
 
+if [ $# -ne 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    echo "usage: $0 <new-branch>"
+    exit
+fi
+
 if [ ! -n "$gitRootDir" ]; then
     exit
 fi
