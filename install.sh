@@ -1,5 +1,8 @@
 #!/bin/sh
 
+binDir="$HOME/bin"
+mkdir -p $binDir
+
 cd $(dirname $0)
 
 touch ".zsh/zshrc.local"
@@ -14,4 +17,9 @@ do
     fi
 done
 
-
+for binfile in bin/*
+do
+    chmod 755 "$PWD/$binfile"
+    ln -Fis "$PWD/$binfile" $binDir
+    echo $PWD/$binfile
+done
