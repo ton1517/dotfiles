@@ -207,6 +207,13 @@ NeoBundleLazy 'jdonaldson/vaxe', {
 \   }
 \}
 
+" switch.vim
+NeoBundleLazy 'AndrewRadev/switch.vim', {
+\   "autoload" : {
+\       "commands" : "Switch"
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -557,4 +564,10 @@ endfunction
 "----------------------------------------
 
 nnoremap <silent> ,tb :TagbarToggle<CR>
+
+"----------------------------------------
+" switch.vim
+"----------------------------------------
+
+nnoremap - :Switch<cr>
 
