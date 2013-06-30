@@ -214,6 +214,13 @@ NeoBundleLazy 'AndrewRadev/switch.vim', {
 \   }
 \}
 
+" gundo.vim
+NeoBundleLazy 'sjl/gundo.vim', {
+\   "autoload" : {
+\       "commands" : "GundoToggle"
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -571,3 +578,8 @@ nnoremap <silent> ,tb :TagbarToggle<CR>
 
 nnoremap - :Switch<cr>
 
+"----------------------------------------
+" gundo.vim
+"----------------------------------------
+
+nnoremap <Leader>u :<C-u>GundoToggle<CR>
