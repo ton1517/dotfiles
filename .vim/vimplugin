@@ -235,6 +235,9 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'jnurmine/Zenburn'
 NeoBundle 'fugalh/desert.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'vim-scripts/rdark'
 
 "--------------------
 
