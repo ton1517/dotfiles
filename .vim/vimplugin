@@ -23,7 +23,7 @@ NeoBundle 'Shougo/neobundle.vim'
 " unite
 NeoBundleLazy 'Shougo/unite.vim', {
 \   "autoload" : {
-\       "commands" : "Unite"
+\       "commands" : ["Unite", "UniteWithBufferDir"]
 \   }
 \}
 
