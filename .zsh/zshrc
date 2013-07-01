@@ -45,7 +45,7 @@ stty stop undef
 # 補完時に大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 
 # 補完の種類
-zstyle ':completion:*' completer _oldlist _complete _match _expand _prefix _history
+zstyle ':completion:*' completer _oldlist _complete _match _expand _prefix
 # 補完一覧をカーソルで選択できるように
 zstyle ':completion:*' menu select
 # 補完の色
