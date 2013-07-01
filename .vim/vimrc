@@ -82,6 +82,9 @@ set scrolloff=10
 set foldmethod=indent
 set foldlevel=99
 
+" クリップボードを共有
+set clipboard+=unnamed
+
 "----------------------------------------
 " display settings
 "----------------------------------------

@@ -221,6 +221,9 @@ NeoBundleLazy 'sjl/gundo.vim', {
 \   }
 \}
 
+" vim-fakeclip
+NeoBundle 'kana/vim-fakeclip'
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
