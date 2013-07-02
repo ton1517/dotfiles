@@ -126,6 +126,8 @@ autocmd BufNewFile,BufRead *md set filetype=markdown
 "ファイルを開いたらそのファイルのディレクトリに移動する
 au   BufEnter *   execute ":lcd " . expand("%:p:h") 
 
+"自動保存
+set autowrite
 "外部で変更があった場合自動的にファイルを読みなおす
 set autoread
 "頻繁に読み直すように

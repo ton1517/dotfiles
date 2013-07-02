@@ -80,6 +80,10 @@ NeoBundle 'git://github.com/teramako/jscomplete-vim.git'
 NeoBundle 'git://github.com/jnwhiteh/vim-golang.git'
 " bg.vim
 NeoBundle 'git://github.com/yuratomo/bg.vim.git'
+" tagbar
+NeoBundle 'git://github.com/majutsushi/tagbar.git'
+" vaxe
+NeoBundle 'git://github.com/jdonaldson/vaxe.git'
 
 "--------------------
 " color scheme
@@ -161,6 +165,11 @@ if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -366,4 +375,10 @@ function! UncrustifyAuto()
         echo "not supported filetype"
     endif
 endfunction
+
+"----------------------------------------
+" tagbar
+"----------------------------------------
+
+nnoremap <silent> ,tb :TagbarToggle<CR>
 
