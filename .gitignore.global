@@ -18,3 +18,9 @@ Desktop.ini
 *.un~
 Session.vim
 
+*.py[cod]
+
+TAGS
+!TAGS/
+tags
+!tags/
