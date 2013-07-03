@@ -88,11 +88,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/Indent-Guides'
 
 " tComment
-NeoBundleLazy 'vim-scripts/tComment', {
-\   "autoload" : {
-\       "commands" : ["TComment", "TCommentAs", "TCommentBlock", "TCommentInline", "TCommentMaybeInline", "TCommentRight"]
-\   }
-\}
+NeoBundle 'vim-scripts/tComment'
 
 " sudo.vim
 NeoBundle 'vim-scripts/sudo.vim'
