@@ -36,7 +36,7 @@ NeoBundle 'thinca/vim-quickrun'
 " vim-fugitive
 NeoBundle 'tpope/vim-fugitive'
 " YankRing
-NeoBundle 'vim-scripts/YankRing.vim'
+" NeoBundle 'vim-scripts/YankRing.vim'
 " Indent-Guides
 NeoBundle 'vim-scripts/Indent-Guides'
 " tComment
@@ -112,6 +112,9 @@ endif
 
 " インサートモードで開始する
 let g:unite_enable_start_insert=1
+
+let g:unite_source_history_yank_enable = 1
+
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
@@ -125,11 +128,15 @@ nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
+" ヤンク一覧
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+
 "----------------------------------------
 " unite-outline
 "----------------------------------------
 
 " ソースの関数一覧表示
+
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 " ソースの関数一覧を上下分割で常に表示
 nnoremap <silent> ,uho :<C-u>Unite -winheight=15 -no-quit outline<CR>
@@ -200,17 +207,17 @@ let g:vimfiler_as_default_explorer = 1
 " YankRing
 "----------------------------------------
 
-" 履歴の保存ファイルを指定
-let g:yankring_history_dir = expand('$HOME')
-let g:yankring_history_file = '.yankring_history'
-" 最大保存件数
-let g:yankring_max_history = 100
-" 重複を許可しない
-let g:yankring_ignore_duplicate = 1
-" ウィンドウの高さ
-let g:yankring_window_height = 20 
-" F7でYRShowを実行
-:nnoremap <silent> <F7> :YRShow<CR>
+" " 履歴の保存ファイルを指定
+" let g:yankring_history_dir = expand('$HOME')
+" let g:yankring_history_file = '.yankring_history'
+" " 最大保存件数
+" let g:yankring_max_history = 100
+" " 重複を許可しない
+" let g:yankring_ignore_duplicate = 1
+" " ウィンドウの高さ
+" let g:yankring_window_height = 20 
+" " F7でYRShowを実行
+" :nnoremap <silent> <F7> :YRShow<CR>
 
 "----------------------------------------
 " indent-guides
