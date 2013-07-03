@@ -19,38 +19,100 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " NeoBundle
 NeoBundle 'Shougo/neobundle.vim'
+
 " unite
-NeoBundle 'Shougo/unite.vim'
+NeoBundleLazy 'Shougo/unite.vim', {
+\   "autoload" : {
+\       "commands" : "Unite"
+\   }
+\}
+
 " unite-outline
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundleLazy 'h1mesuke/unite-outline', {
+\   "depends" : "Shougo/unite.vim",
+\   "autoload" : {
+\       "unite_sources" : "outline"
+\   }
+\}
+
 " unite-build
-NeoBundle 'Shougo/unite-build'
+NeoBundleLazy 'Shougo/unite-build', {
+\   "depends" : "Shougo/unite.vim",
+\   "autoload" : {
+\       "unite_sources" : "build"
+\   }
+\}
+
 " neocomplcache
-NeoBundle 'Shougo/neocomplcache'
-" neocomplcache-snippets-complete
-NeoBundle 'Shougo/neosnippet'
+NeoBundleLazy 'Shougo/neocomplcache', {
+\   "autoload" : {
+\       "insert" : 1
+\   }
+\}
+
+" neosnippet
+NeoBundleLazy 'Shougo/neosnippet', {
+\   "autoload" : {
+\       "insert" : 1
+\   }
+\}
+
 " vimfiler
-NeoBundle 'Shougo/vimfiler'
+NeoBundleLazy 'Shougo/vimfiler', {
+\   'depends' : 'Shougo/unite.vim',
+\   'autoload' : {
+\       'commands' : [{ 'name' : 'VimFiler',
+\                    'complete' : 'customlist,vimfiler#complete' },
+\                  'VimFilerExplorer',
+\                  'Edit', 'Read', 'Source', 'Write'],
+\   'mappings' : ['<Plug>(vimfiler_switch)'],
+\   'explorer' : 1,
+\   }
+\}
+
 " vim-quickrun
-NeoBundle 'thinca/vim-quickrun'
+NeoBundleLazy 'thinca/vim-quickrun', {
+\   "autoload" : {
+\       'mappings' : '<Plug>(quickrun)',
+\       "commands" : "QuickRun"
+\   }
+\}
+
 " vim-fugitive
 NeoBundle 'tpope/vim-fugitive'
+
 " YankRing
 " NeoBundle 'vim-scripts/YankRing.vim'
+
 " Indent-Guides
 NeoBundle 'vim-scripts/Indent-Guides'
+
 " tComment
-NeoBundle 'vim-scripts/tComment'
+NeoBundleLazy 'vim-scripts/tComment', {
+\   "autoload" : {
+\       "commands" : ["TComment", "TCommentAs", "TCommentBlock", "TCommentInline", "TCommentMaybeInline", "TCommentRight"]
+\   }
+\}
+
 " sudo.vim
 NeoBundle 'vim-scripts/sudo.vim'
+
 " surround.vim
 NeoBundle 'tpope/vim-surround'
+
 " NERDTree.vim
-NeoBundle 'scrooloose/nerdtree'
+NeoBundleLazy 'scrooloose/nerdtree', {
+\   "autoload" : {
+\       "commands" : "NERDTreeToggle"
+\   }
+\}
+
 " vim-powerline
 NeoBundle 'Lokaltog/vim-powerline'
+
 " vim-easymotion
 NeoBundle 'Lokaltog/vim-easymotion'
+
 " vimproc
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
@@ -58,36 +120,105 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix'    : 'make -f make_unix.mak',
 \    },
 \ }
+
 " ctrlp.vim
-NeoBundle 'kien/ctrlp.vim'
+NeoBundleLazy 'kien/ctrlp.vim', {
+\   "autoload" : {
+\       "commands" : "CtrlP"
+\   }
+\}
+
 " vim-ref
-NeoBundle 'thinca/vim-ref'
+NeoBundleLazy 'thinca/vim-ref', {
+\   "autoload" : {
+\       "commands" : "Ref"
+\   }
+\}
+
+
 " syntastic
 NeoBundle 'scrooloose/syntastic'
+
 " ropevim
-" require : rope, ropemode
-" pip install rope ropemode
-NeoBundle 'sontek/rope-vim'
+NeoBundleLazy 'sontek/rope-vim', {
+\   "build" : {
+\       "others" : "pip install rope ropemode"
+\   },
+\   "autoload" : {
+\       "filetypes" : "python"
+\   }
+\}
+
 " jedi-vim
-NeoBundle 'davidhalter/jedi-vim'
+NeoBundleLazy 'davidhalter/jedi-vim', {
+\   "build" : {
+\       "others" : "git submodule update --init"
+\   },
+\   "autoload" : {
+\       "filetypes" : "python"
+\   }
+\}
+
 " simple-javascript-indenter
-NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
+\   "autoload" : {
+\       "filetypes" : "javascript"
+\   }
+\}
+
 " vim-javascript-syntax
-NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+\   "autoload" : {
+\       "filetypes" : "javascript"
+\   }
+\}
+
 " jscomplete-vim
-NeoBundle 'teramako/jscomplete-vim'
+NeoBundleLazy 'teramako/jscomplete-vim', {
+\   "autoload" : {
+\       "filetypes" : "javascript"
+\   }
+\}
+
 " vim-golang
-NeoBundle 'jnwhiteh/vim-golang'
+NeoBundleLazy 'jnwhiteh/vim-golang', {
+\   "autoload" : {
+\       "filetypes" : "go"
+\   }
+\}
+
 " bg.vim
-NeoBundle 'yuratomo/bg.vim'
+NeoBundleLazy 'yuratomo/bg.vim', {
+\   "autoload" : {
+\       "commands" : "Background"
+\   }
+\}
+
 " tagbar
-NeoBundle 'majutsushi/tagbar'
+NeoBundleLazy 'majutsushi/tagbar', {
+\   "build" : {
+\       "mac" : "brew install ctags"
+\   },
+\   "autoload" : {
+\       "commands" : "TagbarToggle"
+\   }
+\}
+
 " vaxe
-NeoBundle 'jdonaldson/vaxe'
+NeoBundleLazy 'jdonaldson/vaxe', {
+\   "autoload" : {
+\       "filetypes" : "haxe"
+\   }
+\}
 
 "--------------------
 " color scheme
-NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundleLazy 'ujihisa/unite-colorscheme', {
+\   "depends" : "Shougo/unite.vim",
+\   "autoload" : {
+\       "unite_sources" : "colorscheme"
+\   }
+\}
 
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
@@ -107,13 +238,18 @@ echomsg 'Please execute ":NeoBundleInstall" command.'
 endif
 
 "----------------------------------------
-" unite
+" unite.vim
 "----------------------------------------
+let s:bundle = neobundle#get("unite.vim")
+function! s:bundle.hooks.on_source(bundle)
 
 " インサートモードで開始する
 let g:unite_enable_start_insert=1
 
 let g:unite_source_history_yank_enable = 1
+
+endfunction
+unlet s:bundle
 
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
@@ -136,7 +272,6 @@ nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 "----------------------------------------
 
 " ソースの関数一覧表示
-
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 " ソースの関数一覧を上下分割で常に表示
 nnoremap <silent> ,uho :<C-u>Unite -winheight=15 -no-quit outline<CR>
@@ -147,6 +282,17 @@ nnoremap <silent> ,uvo :<C-u>Unite -vertical -winwidth=25 -no-quit outline<CR>
 " neocomplcache
 "----------------------------------------
 
+" タブキーで補完
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" 補完ウィンドウが正しく閉じられるようにする
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+let s:bundle = neobundle#get("neocomplcache")
+function! s:bundle.hooks.on_source(bundle)
+
 " 自動的に開始
 let g:neocomplcache_enable_at_startup = 1
 " バッファの補完を2文字目から開始
@@ -155,13 +301,6 @@ let g:neocomplcache_min_keyword_length = 2
 let g:neocomplcache_min_syntax_length = 2
 " アンダーバー補完を有効化
 let g:neocomplcache_enable_underbar_completion = 1
-" タブキーで補完
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" 補完ウィンドウが正しく閉じられるようにする
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default'    : '',
@@ -184,24 +323,27 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+endfunction
+unlet s:bundle
+
 "----------------------------------------
 " neosnippet
 "----------------------------------------
 
-let g:neosnippet#snippets_directory= '~/.vim/snippets'
 imap <C-j> <plug>(neosnippet_expand_or_jump)
 smap <C-j> <plug>(neosnippet_expand_or_jump)
 
+let s:bundle = neobundle#get("neosnippet")
+function! s:bundle.hooks.on_source(bundle)
+
+let g:neosnippet#snippets_directory= '~/.vim/snippets'
+
 if has('conceal')
     set conceallevel=2 concealcursor=i
-  endif
+ endif
 
-"----------------------------------------
-" vimfile
-"----------------------------------------
-
-" vimfilerをデフォルトのファイラーとする
-let g:vimfiler_as_default_explorer = 1
+endfunction
+unlet s:bundle
 
 "----------------------------------------
 " YankRing
@@ -265,8 +407,13 @@ hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 "----------------------------------------
-" quickrun
+" vim-quickrun
 "----------------------------------------
+
+nmap <Leader>r <Plug>(quickrun)
+
+let s:bundle = neobundle#get("vim-quickrun")
+function! s:bundle.hooks.on_source(bundle)
 
 let g:quickrun_config = {
 \    "_" : {
@@ -280,6 +427,9 @@ let g:quickrun_config = {
 \       'exec'    : '%c %o %a %s',
 \    },
 \}
+
+endfunction
+unlet s:bundle
 
 "----------------------------------------
 " unite-colorscheme
@@ -296,8 +446,8 @@ nnoremap <silent> ,m :<C-u>Unite build:!<CR>
 "----------------------------------------
 " ctrlp
 "----------------------------------------
-
-let g:ctrlp_map = ',p'
+          
+nnoremap <silent> ,p :<C-U>CtrlP<CR>
 
 "----------------------------------------
 " syntastic
@@ -311,28 +461,45 @@ let g:syntastic_javascript_checker = "gjslint"
 "----------------------------------------
 " jedi-vim
 "----------------------------------------
+
+let s:bundle = neobundle#get("jedi-vim")
+function! s:bundle.hooks.on_source(bundle)
+
 let g:jedi#popup_on_dot = 0
 let g:jedi#rename_command = "<leader>R"
+
+endfunction
+unlet s:bundle
 
 "----------------------------------------
 " simple-javascript-indenter
 "----------------------------------------
+
+let s:bundle = neobundle#get("simple-javascript-indenter")
+function! s:bundle.hooks.on_source(bundle)
+
 let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+endfunction
+unlet s:bundle
 
 "----------------------------------------
 " jscomplete-vim
 "----------------------------------------
+
 autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
 
 "----------------------------------------
 " bg.vim
 "----------------------------------------
+
 " F5でmakeを行う
 nnoremap <F5>  :Background make<CR>
 
 "----------------------------------------
 " uncrustify
 "----------------------------------------
+
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
 " Shift-Fでコードのフォーマットを行う．
