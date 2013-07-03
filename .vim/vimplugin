@@ -18,72 +18,72 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " my plugins
 
 " NeoBundle
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git', { 'rev' : 'ver.2.1' }
+NeoBundle 'Shougo/neobundle.vim', { 'rev' : 'ver.2.1' }
 " unite
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'Shougo/unite.vim'
 " unite-outline
-NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
+NeoBundle 'h1mesuke/unite-outline'
 " unite-build
-NeoBundle 'git://github.com/Shougo/unite-build.git'
+NeoBundle 'Shougo/unite-build'
 " neocomplcache
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neocomplcache'
 " neocomplcache-snippets-complete
-NeoBundle 'git://github.com/Shougo/neosnippet.git'
+NeoBundle 'Shougo/neosnippet'
 " vimfiler
-NeoBundle 'git://github.com/Shougo/vimfiler.git'
+NeoBundle 'Shougo/vimfiler'
 " vim-quickrun
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'thinca/vim-quickrun'
 " vim-fugitive
-NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+NeoBundle 'tpope/vim-fugitive'
 " YankRing
-NeoBundle 'git://github.com/vim-scripts/YankRing.vim.git'
+NeoBundle 'vim-scripts/YankRing.vim'
 " Indent-Guides
-NeoBundle 'git://github.com/vim-scripts/Indent-Guides.git'
+NeoBundle 'vim-scripts/Indent-Guides'
 " tComment
-NeoBundle 'git://github.com/vim-scripts/tComment.git'
+NeoBundle 'vim-scripts/tComment'
 " sudo.vim
-NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
+NeoBundle 'vim-scripts/sudo.vim'
 " surround.vim
-NeoBundle 'git://github.com/tpope/vim-surround.git'
+NeoBundle 'tpope/vim-surround'
 " NERDTree.vim
-NeoBundle 'git://github.com/scrooloose/nerdtree.git'
+NeoBundle 'scrooloose/nerdtree'
 " vim-powerline
-NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
+NeoBundle 'Lokaltog/vim-powerline'
 " vim-easymotion
-NeoBundle 'git://github.com/Lokaltog/vim-easymotion.git'
+NeoBundle 'Lokaltog/vim-easymotion'
 " vimproc
-NeoBundle 'git://github.com/Shougo/vimproc.git', {
+NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
 \     'mac'     : 'make -f make_mac.mak',
 \     'unix'    : 'make -f make_unix.mak',
 \    },
 \ }
 " ctrlp.vim
-NeoBundle 'git://github.com/kien/ctrlp.vim.git'
+NeoBundle 'kien/ctrlp.vim'
 " vim-ref
-NeoBundle 'git://github.com/thinca/vim-ref.git'
+NeoBundle 'thinca/vim-ref'
 " syntastic
-NeoBundle 'git://github.com/scrooloose/syntastic.git'
+NeoBundle 'scrooloose/syntastic'
 " ropevim
 " require : rope, ropemode
 " pip install rope ropemode
-NeoBundle 'git://github.com/sontek/rope-vim'
+NeoBundle 'sontek/rope-vim'
 " jedi-vim
-NeoBundle 'git://github.com/davidhalter/jedi-vim.git'
+NeoBundle 'davidhalter/jedi-vim'
 " simple-javascript-indenter
-NeoBundle 'git://github.com/jiangmiao/simple-javascript-indenter.git'
+NeoBundle 'jiangmiao/simple-javascript-indenter'
 " vim-javascript-syntax
-NeoBundle 'git://github.com/jelera/vim-javascript-syntax.git'
+NeoBundle 'jelera/vim-javascript-syntax'
 " jscomplete-vim
-NeoBundle 'git://github.com/teramako/jscomplete-vim.git'
+NeoBundle 'teramako/jscomplete-vim'
 " vim-golang
-NeoBundle 'git://github.com/jnwhiteh/vim-golang.git'
+NeoBundle 'jnwhiteh/vim-golang'
 " bg.vim
-NeoBundle 'git://github.com/yuratomo/bg.vim.git'
+NeoBundle 'yuratomo/bg.vim'
 " tagbar
-NeoBundle 'git://github.com/majutsushi/tagbar.git'
+NeoBundle 'majutsushi/tagbar'
 " vaxe
-NeoBundle 'git://github.com/jdonaldson/vaxe.git'
+NeoBundle 'jdonaldson/vaxe'
 
 "--------------------
 " color scheme
