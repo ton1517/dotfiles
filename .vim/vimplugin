@@ -28,7 +28,7 @@ NeoBundleLazy 'Shougo/unite.vim', {
 \}
 
 " unite-outline
-NeoBundleLazy 'h1mesuke/unite-outline', {
+NeoBundleLazy 'Shougo/unite-outline', {
 \   "depends" : "Shougo/unite.vim",
 \   "autoload" : {
 \       "unite_sources" : "outline"
@@ -240,6 +240,7 @@ endif
 "----------------------------------------
 " unite.vim
 "----------------------------------------
+
 let s:bundle = neobundle#get("unite.vim")
 function! s:bundle.hooks.on_source(bundle)
 
@@ -386,6 +387,7 @@ nnoremap <silent> ,nt :NERDTreeToggle<CR>
 "----------------------------------------
 " vim-powerline
 "----------------------------------------
+
 " 正しく表示するにはvim-powerline用のパッチフォントを生成すること
 " https://github.com/Lokaltog/vim-powerline
 
@@ -452,6 +454,7 @@ nnoremap <silent> ,p :<C-U>CtrlP<CR>
 "----------------------------------------
 " syntastic
 "----------------------------------------
+
 " require jshint or gjslint
 " npm install -g jshint
 " easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
