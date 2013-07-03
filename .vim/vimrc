@@ -116,6 +116,8 @@ set cursorline
 
 autocmd BufNewFile,BufRead vimplugin set filetype=vim
 autocmd BufNewFile,BufRead *md set filetype=markdown
+autocmd BufNewFile,BufRead *.go set filetype=go
+
 "----------------------------------------
 " ex settings
 "----------------------------------------
