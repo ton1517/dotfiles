@@ -21,18 +21,23 @@ elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14
 else
-  set guifont=Ricty\ 14
+  set guifont=Ricty\ 12
   set linespace=1
 endif
+
+"---------------------------------------------------------------------------
+" ディスプレイ設定:
+
+set novisualbell
 
 "---------------------------------------------------------------------------
 " ウインドウに関する設定:
 "
 " ウインドウの幅
 set columns=160
-" ウインドウの高さ
-set lines=60
-" コマンドラインの高さ(GUI使用時)
+" " ウインドウの高さ
+set lines=55
+" " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
 
 "---------------------------------------------------------------------------
@@ -83,5 +88,3 @@ set guioptions+=a
 if &guioptions =~# 'M'
   let &guioptions = substitute(&guioptions, '[mT]', '', 'g')
 endif
-
-"---------------------------------------------------------------------------
