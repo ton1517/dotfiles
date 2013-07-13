@@ -231,6 +231,13 @@ NeoBundleLazy 'mattn/zencoding-vim', {
 \   }
 \}
 
+" vim-textobj-user
+NeoBundleLazy 'kana/vim-textobj-user', {
+\   "autoload" : {
+\       "functions" : "textobj#user#plugin"
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -596,3 +603,16 @@ nnoremap - :Switch<cr>
 "----------------------------------------
 
 nnoremap <Leader>u :<C-u>GundoToggle<CR>
+
+"----------------------------------------
+" vim-textobj-user
+"----------------------------------------
+
+" htmlタグとタグの間のテキストをオブジェクト化する
+call textobj#user#plugin('html', {
+\   'text': {
+\     'pattern': ['>', '<'],
+\     'select-a': 'a>',
+\     'select-i': 'i>',
+\   },
+\ })
