@@ -224,6 +224,13 @@ NeoBundleLazy 'sjl/gundo.vim', {
 " vim-fakeclip
 NeoBundle 'kana/vim-fakeclip'
 
+" zencoding-vim
+NeoBundleLazy 'mattn/zencoding-vim', {
+\   "autoload" : {
+\       "filetypes" : "html"
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
