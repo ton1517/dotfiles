@@ -249,6 +249,13 @@ NeoBundleLazy 'tyru/open-browser.vim', {
 \   }
 \}
 
+" DrawIt
+NeoBundleLazy 'vim-scripts/DrawIt', {
+\   "autoload" : {
+\       "mappings" : "<Plug>DrawItStart"
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -636,3 +643,8 @@ let g:netrw_nogx = 1
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
+"----------------------------------------
+" DrawIt
+"----------------------------------------
+
+map <unique> <Leader>di <Plug>DrawItStart
