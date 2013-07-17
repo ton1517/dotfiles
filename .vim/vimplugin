@@ -238,6 +238,17 @@ NeoBundleLazy 'kana/vim-textobj-user', {
 \   }
 \}
 
+" open-browser.vim
+NeoBundleLazy 'tyru/open-browser.vim', {
+\   "autoload" : {
+\       "mappings" : [
+\           "<Plug>(openbrowser-smart-search)",
+\           "<Plug>(openbrowser-open)",
+\           "<Plug>(openbrowser-search)"
+\       ]
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -616,3 +627,12 @@ call textobj#user#plugin('html', {
 \     'select-i': 'i>',
 \   },
 \ })
+
+"----------------------------------------
+" open-browser.vim
+"----------------------------------------
+
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
