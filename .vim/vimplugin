@@ -256,6 +256,20 @@ NeoBundleLazy 'vim-scripts/DrawIt', {
 \   }
 \}
 
+" vim-textmanip
+NeoBundleLazy 't9md/vim-textmanip', {
+\   "autoload" : {
+\       "mappings" : [
+\           '<Plug>(textmanip-move-down)',
+\           '<Plug>(textmanip-move-up)',
+\           '<Plug>(textmanip-move-left)',
+\           '<Plug>(textmanip-move-right)',
+\           '<Plug>(textmanip-duplicate-down)',
+\           '<Plug>(textmanip-duplicate-up)'
+\       ]
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -648,3 +662,18 @@ vmap gx <Plug>(openbrowser-smart-search)
 "----------------------------------------
 
 map <unique> <Leader>di <Plug>DrawItStart
+
+"----------------------------------------
+" vim-textmanip
+"----------------------------------------
+
+xmap <S-j> <Plug>(textmanip-move-down)
+xmap <S-k> <Plug>(textmanip-move-up)
+xmap <S-h> <Plug>(textmanip-move-left)
+xmap <S-l> <Plug>(textmanip-move-right)
+
+map <Space>d <Plug>(textmanip-duplicate-down)
+nmap <Space>d <Plug>(textmanip-duplicate-down)
+xmap <Space>D <Plug>(textmanip-duplicate-up)
+nmap <Space>D <Plug>(textmanip-duplicate-up)
+
