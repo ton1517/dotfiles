@@ -103,8 +103,8 @@ NeoBundleLazy 'scrooloose/nerdtree', {
 \   }
 \}
 
-" vim-powerline
-NeoBundle 'Lokaltog/vim-powerline'
+" vim-airline
+NeoBundle 'bling/vim-airline'
 
 " vim-easymotion
 NeoBundle 'Lokaltog/vim-easymotion'
