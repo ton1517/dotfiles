@@ -270,10 +270,11 @@ NeoBundleLazy 't9md/vim-textmanip', {
 \   }
 \}
 
-NeoBundle 'kannokanno/previm', {
+" previm
+NeoBundleLazy 'kannokanno/previm', {
 \   "depends" : "tyru/open-browser.vim",
 \   "autoload" : {
-\       "commands" : "PrevimOpen"
+\       "filetypes" : "markdown"
 \   }
 \}
 
