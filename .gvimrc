@@ -15,7 +15,7 @@ if has('win32')
     set ambiwidth=auto
   endif
 elseif has('mac')
-  set guifont=Ricty:h14
+  set guifont=Ricty_Discord_for_Powerline:h14
   " set guifont=DejaVu_Sans_Mono:h12
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
