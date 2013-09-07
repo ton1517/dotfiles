@@ -278,6 +278,14 @@ NeoBundleLazy 'kannokanno/previm', {
 \   }
 \}
 
+" vim-textobj-entire
+NeoBundle 'kana/vim-textobj-entire'
+
+" vim-textobj-indent
+NeoBundle 'kana/vim-textobj-indent'
+
+" vim-textobj-line
+NeoBundle 'kana/vim-textobj-line'
 
 "--------------------
 " color scheme
