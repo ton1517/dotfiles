@@ -1,6 +1,8 @@
 #--------------------------------------------------------------------------------
 # plugin settings
 #--------------------------------------------------------------------------------
+ autoload -Uz compinit
+ compinit
 
 source ~/.zsh/packages/package.zsh/package.zsh
 
@@ -16,7 +18,7 @@ fpath=($(package-directory zsh-users/zsh-completions)/src $fpath)
 #----------------------------------------
 
 package-install github m4i/cdd
-source $(package-directory m4i/cdd)/cdd
+. $(package-directory m4i/cdd)/cdd
 
 #----------------------------------------
 # z
