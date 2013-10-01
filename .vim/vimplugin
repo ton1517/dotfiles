@@ -287,6 +287,9 @@ NeoBundle 'kana/vim-textobj-indent'
 " vim-textobj-line
 NeoBundle 'kana/vim-textobj-line'
 
+" vim-pultiple-cursors
+NeoBundle 'terryma/vim-multiple-cursors'
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
