@@ -21,7 +21,7 @@ elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14
 else
-  set guifont=Ricty\ 12
+  set guifont=Ricty\ Discord\ for\ Powerline\ 11
   set linespace=1
 endif
 
