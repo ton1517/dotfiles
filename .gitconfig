@@ -3,6 +3,8 @@
 	editor = vim
 	pager = lv -c
 	ui = auto
+[init]
+	templatedir = ~/.git_template
 [include]
     path = ~/.gitconfig.local
 [color]

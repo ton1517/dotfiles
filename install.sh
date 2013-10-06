@@ -23,3 +23,6 @@ do
     ln -Fis "$PWD/$binfile" $binDir
     echo $PWD/$binfile
 done
+
+chmod -R 755 .git_template/
+
