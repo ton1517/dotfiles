@@ -16,25 +16,25 @@
     st = status
     sh = show
     cm = commit --verbose
+    cmm = commit -m
     ps = push
     pl = pull
     br = branch
     df = diff
-
+    dfc = diff --cached
+    ls = ls-files -v
     stage = add
     unstage = reset HEAD
-
+    # ignoreファイルを表示
+    ignored = ls-files --others -i --exclude-standard
     #コミットメッセージを変えずにamend
     amend = commit --amend -C HEAD
-
     #すでに削除されているファイルを全てgit rmする 
     rmall = !git rm $(git ls-files -d)
-
     #gitの管理下にあるファイルを無視する
     skip = update-index --skip-worktree
     #もとに戻す
     noskip = update-index --no-skip-worktree
-
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
 [diff]
 	tool = vimdiff
