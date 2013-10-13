@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import subprocess
+
+FILE_NAME = "SAFETY_AMEND_CHECK_HEAD"
+
+def call(commands):
+    try:
+        result = subprocess.check_output(commands, shell=True, stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError:
+        sys.exit(0)
+    return result
+ 
+try:
+    f = open(FILE_NAME)
+    old_head = f.read()
+    f.close()
+except:
+    sys.exit(0)
+
+os.remove(FILE_NAME)
+
+head, prev_head = call("git rev-list -n 2 HEAD")[:-1].split("\n")
+
+if old_head != prev_head:
+    err_msg = "Warning: detect unsafe commit --amend.\n" + \
+    "%s commit has already been pushed\n" % old_head[:6] + \
+    "you should execute the following command\n\n" + \
+    "git reset %s\n\n" % old_head
+    sys.stderr.write(err_msg)

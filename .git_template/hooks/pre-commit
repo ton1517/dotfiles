@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import subprocess
+
+FILE_NAME = "SAFETY_AMEND_CHECK_HEAD"
+
+def call(commands):
+    try:
+        result = subprocess.check_output(commands, shell=True, stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError:
+        sys.exit(0)
+    return result
+   
+head = call("git rev-list -n 1 HEAD")[:-1]
+
+remote_refs = map(lambda s: s.strip(), call("git branch -r")[:-1].split("\n"))
+
+for ref in remote_refs:
+    pushed_shas = call("git rev-list ^%s^@ refs/remotes/%s" % (head, ref))
+    if head in pushed_shas.split("\n"):
+        break
+else:
+    # if HEAD is only local commit, don't write file."
+    sys.exit(0)
+
+f = open(FILE_NAME, "w")
+f.write(head)
+f.close()
