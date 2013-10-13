@@ -36,3 +36,5 @@
     noskip = update-index --no-skip-worktree
 
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+[diff]
+	tool = vimdiff
