@@ -320,6 +320,7 @@ if type gnome-open > /dev/null 2>&1; then
     alias open="gnome-open"
 fi
 
+alias g='git'
 
 #----------------------------------------
 # encoding function
