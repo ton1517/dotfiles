@@ -21,7 +21,7 @@
     pl = pull
     br = branch
     df = diff
-    dfc = diff --cached
+    dfs = diff --staged
     ls = ls-files -v
     stage = add
     unstage = reset HEAD
