@@ -34,7 +34,7 @@ set smartcase
 " 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
 set wrapscan
 " インクリメンタルサーチ
-set incsearch 
+set incsearch
 " 検索パターンにマッチしたテキストのハイライト
 set hlsearch
 
@@ -68,7 +68,7 @@ set wildmenu
 " テキスト挿入中の自動折り返しを日本語に対応させる
 set formatoptions+=mM
 " 日本語整形スクリプト(by. 西岡拓洋さん)用の設定
-let format_allow_over_tw = 1	" ぶら下り可能幅
+let format_allow_over_tw = 1" ぶら下り可能幅
 " ビープ音を鳴らさないように
 set visualbell
 
@@ -134,7 +134,7 @@ autocmd BufNewFile,BufRead *.hx set filetype=haxe
 :set runtimepath+=$HOME/.vim,$HOME/.vim/after
 
 "ファイルを開いたらそのファイルのディレクトリに移動する
-au   BufEnter *   execute ":lcd " . expand("%:p:h") 
+au   BufEnter *   execute ":lcd " . expand("%:p:h")
 
 "自動保存
 set autowrite
@@ -168,7 +168,7 @@ if has('persistent_undo')
 endif
 
 "----------------------------------------
-" encoding settings 
+" encoding settings
 "----------------------------------------
 
 if &encoding !=# 'utf-8'
