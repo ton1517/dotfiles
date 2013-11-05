@@ -477,6 +477,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgr
 " ,nt でNERDTreeを開く
 nnoremap <silent> ,nt :NERDTreeToggle<CR>
 
+" 除外ファイル
+let NERDTreeIgnore = ['\~$', '\.pyc$', '\.sw[a-z]']
+
 "----------------------------------------
 " vim-powerline
 "----------------------------------------
