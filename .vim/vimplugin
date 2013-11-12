@@ -82,7 +82,7 @@ NeoBundleLazy 'thinca/vim-quickrun', {
 NeoBundle 'tpope/vim-fugitive'
 
 " YankRing
-" NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'vim-scripts/YankRing.vim'
 
 " Indent-Guides
 NeoBundle 'vim-scripts/Indent-Guides'
