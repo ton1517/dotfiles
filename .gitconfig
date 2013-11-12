@@ -30,7 +30,7 @@
     # ignoreファイルを表示
     ignored = ls-files --others -i --exclude-standard
     #コミットメッセージを変えずにamend
-    amend = commit --amend -C HEAD
+    amend = commit --amend --no-edit
     #すでに削除されているファイルを全てgit rmする 
     rmall = !git rm $(git ls-files -d)
     #gitの管理下にあるファイルを無視する
