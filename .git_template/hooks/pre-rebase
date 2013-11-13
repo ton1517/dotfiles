@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 pre-rebase hook
@@ -8,7 +9,14 @@ that has already been pushed to remote branch.
 """
 
 import sys
-from commands import getoutput
+from subprocess import Popen, PIPE
+
+def git(cmd):
+    out, err = Popen("git "+cmd, shell=True, stdout=PIPE, stderr=PIPE, stdin=PIPE).communicate()
+    if err:
+        return ""
+
+    return out.decode()[:-1]
 
 base_branch = sys.argv[1]
 if len(sys.argv) > 2:
@@ -16,19 +24,25 @@ if len(sys.argv) > 2:
 else:
     topic_branch = "HEAD"
 
-target_shas = getoutput("git rev-list %s..%s" % (base_branch, topic_branch)).split("\n")
-remote_refs = map(lambda s: s.strip(), getoutput("git branch -r").split("\n"))
+target_shas = git("rev-list %s..%s" % (base_branch, topic_branch)).split("\n")
+remote_refs = map(lambda s: s.strip(), git("branch -r").split("\n"))
 
 for sha in target_shas:
     for ref in remote_refs:
-        pushed_shas = getoutput("git rev-list ^%s^@ refs/remotes/%s" % (sha, ref))
-        if sha in pushed_shas.split("\n"):
-            print(getoutput("git log %s -n 1 --oneline" % sha))
-            print("has already been pushed to %s\n" % ref)
+        pushed_shas = git("rev-list ^%s^@ refs/remotes/%s" % (sha, ref)).split("\n")
+        if sha in pushed_shas:
+            print(git("log %s -n 1 --oneline" % sha))
+            print("already has been pushed to %s\n" % ref)
             while True:
-                result = raw_input("continue ? (y/[n]) : ")
+                try:
+                    result = raw_input("continue ? (y/[n]) : ")
+                except NameError:
+                    result = input("continue ? (y/[n]) : ")
+
                 if result in ["yes", "y"]:
                     sys.exit(0)
                 elif result in ["no", "n", ""]:
                     sys.exit(1)
+
+
 

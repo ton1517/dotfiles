@@ -1,24 +1,24 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import os
 import sys
-import subprocess
+from subprocess import Popen, PIPE
 
 FILE_NAME = "SAFETY_AMEND_CHECK_HEAD"
 
-def call(commands):
-    try:
-        result = subprocess.check_output(commands, shell=True, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError:
-        sys.exit(0)
-    return result
-   
-head = call("git rev-list -n 1 HEAD")[:-1]
+def git(cmd):
+    out, err = Popen("git "+cmd, shell=True, stdout=PIPE, stderr=PIPE, stdin=PIPE).communicate()
+    if err:
+        return ""
 
-remote_refs = map(lambda s: s.strip(), call("git branch -r")[:-1].split("\n"))
+    return out.decode()[:-1]
+
+head = git("rev-list -n 1 HEAD")
+remote_refs = map(lambda s: s.strip(), git("branch -r").split("\n"))
 
 for ref in remote_refs:
-    pushed_shas = call("git rev-list ^%s^@ refs/remotes/%s" % (head, ref))
+    pushed_shas = git("rev-list ^%s^@ refs/remotes/%s" % (head, ref))
     if head in pushed_shas.split("\n"):
         break
 else:
