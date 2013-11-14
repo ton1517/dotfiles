@@ -263,6 +263,11 @@ function do_enter() {
 zle -N do_enter
 bindkey '^m' do_enter
 
+#mkdirしてcd
+function mkcd() {
+    mkdir $1 && cd $_
+}
+
 #----------------------------------------
 # alias
 #----------------------------------------
