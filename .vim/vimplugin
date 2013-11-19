@@ -292,6 +292,8 @@ NeoBundleLazy "jmcantrell/vim-virtualenv", {
 \   "filetypes": ["python", "python3"]
 \ }}
 
+NeoBundle 'ervandew/supertab'
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -760,3 +762,9 @@ endfunction
 
 " w!!でスーパーユーザーとして保存
 cmap w!! w sudo:%
+
+"----------------------------------------
+" supertab
+"----------------------------------------
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
