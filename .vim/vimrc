@@ -121,6 +121,8 @@ set title
 " カーソルのある行を強調表示
 set cursorline
 
+set colorcolumn=80
+
 " 特殊文字の色設定
 hi NonText ctermbg=NONE ctermfg=darkgray
 hi SpecialKey ctermbg=red ctermfg=white
