@@ -742,3 +742,9 @@ function! MyFugitive()
     return &ft !~? 'vimfiler' && exists("*fugitive#head") && strlen(fugitive#head()) ? '⭠ '.fugitive#head() : ''
 endfunction
 
+"----------------------------------------
+" sudo.vim
+"----------------------------------------
+
+" w!!でスーパーユーザーとして保存
+cmap w!! w sudo:%
