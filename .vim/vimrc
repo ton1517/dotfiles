@@ -23,6 +23,14 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> <Esc>:w<CR>
 
+" 折り返されたテキストを自然に移動
+nnoremap j gj
+nnoremap k gk
+
+"タブで対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
+
 "----------------------------------------
 " search settings
 "----------------------------------------
