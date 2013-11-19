@@ -43,7 +43,7 @@ stty stop undef
 #----------------------------------------
 
 # 補完時に大文字小文字を区別しない
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完の種類
 zstyle ':completion:*' completer _oldlist _complete _match _expand _prefix
 # 補完一覧をカーソルで選択できるように
@@ -58,7 +58,7 @@ zstyle ':completion:*:default' list-colors ''
 zstyle ':completion:*' use-cache yes
 
 #----------------------------------------
-# prompt settings 
+# prompt settings
 #----------------------------------------
 
 #branch名を表示する
@@ -104,7 +104,7 @@ PROMPT2="%{[31m%}%_%%%{[m%} "
 SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
 
 # ssh接続時はホスト名を表示
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
     PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
 
 
@@ -117,7 +117,7 @@ kterm*|xterm)
     ;;
 esac
 #----------------------------------------
-# history settings 
+# history settings
 #----------------------------------------
 
 HISTFILE=~/.zsh_history
@@ -279,10 +279,10 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 case $(uname) in
     *BSD|Darwin)
     alias ls="ls -G"
-	;;
+    ;;
     *)
     alias ls="ls --color=auto"
-	;;
+    ;;
 esac
 
 #詳細表示
@@ -339,7 +339,7 @@ function sjis(){
 }
 
 #----------------------------------------
-# git settings 
+# git settings
 #----------------------------------------
 
 #git ルートディレクトリのパスを表示
@@ -348,7 +348,7 @@ alias git-root="git rev-parse --show-toplevel"
 #git ルートディレクトリに移動
 function cd-git-root() {
     cd `git-root`
-} 
+}
 
 #----------------------------------------
 # tmux settings
