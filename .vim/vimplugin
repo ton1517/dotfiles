@@ -287,6 +287,11 @@ NeoBundle 'kana/vim-textobj-indent'
 " vim-textobj-line
 NeoBundle 'kana/vim-textobj-line'
 
+NeoBundleLazy "jmcantrell/vim-virtualenv", {
+\ "autoload": {
+\   "filetypes": ["python", "python3"]
+\ }}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
