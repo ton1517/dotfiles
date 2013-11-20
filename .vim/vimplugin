@@ -655,6 +655,18 @@ function! UncrustifyAuto()
 endfunction
 
 "----------------------------------------
+" autopep8
+"----------------------------------------
+" require autopep8
+" pip install autopep8
+
+autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
+
+function! Autopep8()
+    call Preserve(':silent %!autopep8 -')
+endfunction
+
+"----------------------------------------
 " tagbar
 "----------------------------------------
 
