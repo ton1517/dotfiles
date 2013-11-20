@@ -169,12 +169,6 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', {
 \   }
 \}
 
-" jscomplete-vim
-NeoBundleLazy 'teramako/jscomplete-vim', {
-\   "autoload" : {
-\       "filetypes" : "javascript"
-\   }
-\}
 
 " vim-golang
 NeoBundleLazy 'jnwhiteh/vim-golang', {
@@ -592,12 +586,6 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 endfunction
 unlet s:bundle
-
-"----------------------------------------
-" jscomplete-vim
-"----------------------------------------
-
-autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
 
 "----------------------------------------
 " bg.vim
