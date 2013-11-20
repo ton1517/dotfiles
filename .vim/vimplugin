@@ -488,16 +488,6 @@ nnoremap <silent> ,nt :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\~$', '\.pyc$', '\.sw[a-z]']
 
 "----------------------------------------
-" vim-powerline
-"----------------------------------------
-
-" 正しく表示するにはvim-powerline用のパッチフォントを生成すること
-" https://github.com/Lokaltog/vim-powerline
-
-let g:Powerline_symbols='fancy'
-set t_Co=256
-
-"----------------------------------------
 " easymotion
 "----------------------------------------
 
