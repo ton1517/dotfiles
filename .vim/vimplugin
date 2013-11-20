@@ -81,8 +81,8 @@ NeoBundleLazy 'thinca/vim-quickrun', {
 " vim-fugitive
 NeoBundle 'tpope/vim-fugitive'
 
-" yankround
-NeoBundle 'LeafCage/yankround.vim'
+" YankRing
+NeoBundle 'vim-scripts/YankRing.vim'
 
 " Indent-Guides
 NeoBundle 'vim-scripts/Indent-Guides'
@@ -444,15 +444,20 @@ endfunction
 unlet s:bundle
 
 "----------------------------------------
-" yankround
+" YankRing
 "----------------------------------------
 
-nmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-
-let g:yankround_max_history = 100
+" " 履歴の保存ファイルを指定
+" let g:yankring_history_dir = expand('$HOME')
+" let g:yankring_history_file = '.yankring_history'
+" " 最大保存件数
+" let g:yankring_max_history = 100
+" " 重複を許可しない
+" let g:yankring_ignore_duplicate = 1
+" " ウィンドウの高さ
+" let g:yankring_window_height = 20 
+" " F7でYRShowを実行
+" :nnoremap <silent> <F7> :YRShow<CR>
 
 "----------------------------------------
 " indent-guides
