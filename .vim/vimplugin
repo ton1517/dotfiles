@@ -85,7 +85,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/YankRing.vim'
 
 " Indent-Guides
-NeoBundle 'vim-scripts/Indent-Guides'
+" NeoBundle 'vim-scripts/Indent-Guides'
 
 " tComment
 NeoBundle 'vim-scripts/tComment'
@@ -457,16 +457,16 @@ let g:yankring_window_height = 20
 " indent-guides
 "----------------------------------------
 
-" ハイライトをデフォルトで有効
-let g:indent_guides_enable_on_vim_startup = 1
-" 自動的なカラーをオフに
-let g:indent_guides_auto_colors = 0
-" ハイライトのサイズを小さく
-let g:indent_guides_guide_size = 1
-" 奇数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#888888 ctermbg=gray
-" 偶数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgray
+" " ハイライトをデフォルトで有効
+" let g:indent_guides_enable_on_vim_startup = 1
+" " 自動的なカラーをオフに
+" let g:indent_guides_auto_colors = 0
+" " ハイライトのサイズを小さく
+" let g:indent_guides_guide_size = 1
+" " 奇数インデントのカラー
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#888888 ctermbg=gray
+" " 偶数インデントのカラー
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgray
 
 "----------------------------------------
 " NERDTree
