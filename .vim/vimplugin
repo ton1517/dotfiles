@@ -601,9 +601,6 @@ nnoremap <F5>  :Background make<CR>
 
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
-" Shift-Fでコードのフォーマットを行う．
-nnoremap <S-f> :call UncrustifyAuto()<CR>
-
 " uncrustifyの設定ファイル
 let g:uncrustify_cfg_file_path = '~/.uncrustifyconfig'
 
@@ -614,6 +611,11 @@ autocmd FileType cpp let g:uncrustify_lang = "cpp"
 autocmd FileType java let g:uncrustify_lang = "java"
 autocmd FileType objc let g:uncrustify_lang = "oc"
 autocmd FileType cs let g:uncrustify_lang = "cs"
+
+" Shift-Fでコードのフォーマットを行う．
+if g:uncrustify_lang != ""
+    nnoremap <S-f> :call UncrustifyAuto()<CR>
+endif
 
 " Restore cursor position, window position, and last search after running a
 " command.
