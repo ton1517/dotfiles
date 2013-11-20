@@ -87,6 +87,9 @@ NeoBundle 'vim-scripts/YankRing.vim'
 " Indent-Guides
 " NeoBundle 'vim-scripts/Indent-Guides'
 
+" indentLine
+NeoBundle 'Yggdroot/indentLine'
+
 " tComment
 NeoBundle 'vim-scripts/tComment'
 
@@ -467,6 +470,12 @@ let g:yankring_window_height = 20
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#888888 ctermbg=gray
 " " 偶数インデントのカラー
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgray
+
+"----------------------------------------
+" indentLine
+"----------------------------------------
+
+let g:indentLine_color_term = 240
 
 "----------------------------------------
 " NERDTree
