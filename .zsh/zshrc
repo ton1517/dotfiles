@@ -177,6 +177,11 @@ ls_abbrev() {
     fi
 }
 
+#cdした後に自動的にls
+typeset -ga chpwd_functions
+chpwd_functions+=ls_abbrev
+
+
 # 圧縮ファイルの解凍
 function extract() {
     case $1 in
@@ -239,12 +244,6 @@ esac
 
 #詳細表示
 alias ll="ls -AlhFv"
-
-#cdした後に自動的にls
-function chpwd() {
-    _cdd_chpwd
-    ls_abbrev
-}
 
 # ^ で cd ..
 # ^を入力したいときはCtrl-V
