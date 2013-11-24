@@ -3,6 +3,9 @@
 binDir="$HOME/bin"
 mkdir -p $binDir
 
+confDir="$HOME/.config"
+mkdir -p confDir$
+
 cd $(dirname $0)
 
 touch ".zsh/zshrc.local"
@@ -22,6 +25,12 @@ do
     chmod 755 "$PWD/$binfile"
     ln -Fis "$PWD/$binfile" $binDir
     echo $PWD/$binfile
+done
+
+for conffile in .config/*
+do
+    ln -Fis "$PWD/$conffile" $confDir
+    echo $PWD/conffile$
 done
 
 chmod -R 755 .git_template/
