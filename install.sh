@@ -4,7 +4,7 @@ binDir="$HOME/bin"
 mkdir -p $binDir
 
 confDir="$HOME/.config"
-mkdir -p confDir$
+mkdir -p $confDir
 
 cd $(dirname $0)
 
@@ -30,7 +30,7 @@ done
 for conffile in .config/*
 do
     ln -Fis "$PWD/$conffile" $confDir
-    echo $PWD/conffile$
+    echo $PWD/$conffile
 done
 
 chmod -R 755 .git_template/
