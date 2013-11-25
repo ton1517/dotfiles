@@ -292,6 +292,8 @@ NeoBundleLazy "jmcantrell/vim-virtualenv", {
 
 NeoBundle 'ervandew/supertab'
 
+NeoBundle 'vim-scripts/Align'
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
