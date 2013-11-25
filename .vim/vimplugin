@@ -63,8 +63,9 @@ NeoBundleLazy 'Shougo/vimfiler', {
 \   'autoload' : {
 \       'commands' : [{ 'name' : 'VimFiler',
 \                    'complete' : 'customlist,vimfiler#complete' },
-\                  'VimFilerExplorer',
-\                  'Edit', 'Read', 'Source', 'Write'],
+\                    'VimFilerExplorer',
+\                    'VimFilerTab',
+\                    'Edit', 'Read', 'Source', 'Write'],
 \   'mappings' : ['<Plug>(vimfiler_switch)'],
 \   'explorer' : 1,
 \   }
@@ -776,3 +777,16 @@ cmap w!! w sudo:%
 "----------------------------------------
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+"----------------------------------------
+" vimfiler
+"----------------------------------------
+
+nnoremap <silent> ,vf :VimFilerExplorer<CR>
+
+let s:hooks = neobundle#get_hooks("vimfiler")
+function! s:hooks.on_source(bundle)
+    let g:vimfiler_as_default_explorer = 1
+    let g:vimfiler_enable_auto_cd = 1
+    let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
+endfunction
