@@ -38,6 +38,9 @@ compdef mosh=ssh
 #ターミナルでCtrl+sを押してしまった時にロックされるのを防ぐ
 stty stop undef
 
+#zmvコマンドを使用
+autoload -Uz zmv
+
 #----------------------------------------
 # completion style
 #----------------------------------------
@@ -277,6 +280,8 @@ if type gnome-open > /dev/null 2>&1; then
 fi
 
 alias g='git'
+
+alias zmv='noglob zmv -W'
 
 #----------------------------------------
 # encoding function
