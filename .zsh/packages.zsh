@@ -38,8 +38,8 @@ precmd() {
 # zaw
 #----------------------------------------
 
-package-install github nakamuray/zaw
-source $(package-directory nakamuray/zaw)/zaw.zsh
+package-install github zsh-users/zaw
+source $(package-directory zsh-users/zaw)/zaw.zsh
 
 bindkey '^R' zaw-history
 
