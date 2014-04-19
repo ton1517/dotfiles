@@ -8,7 +8,6 @@ set show-author = yes
 set show-date = yes
 set show-refs = yes
 set show-rev-graph = yes
-set show-id = yes
 set show-changes = yes
 
 set author-width = 7
