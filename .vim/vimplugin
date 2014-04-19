@@ -139,16 +139,6 @@ NeoBundleLazy 'thinca/vim-ref', {
 " syntastic
 NeoBundle 'scrooloose/syntastic'
 
-" ropevim
-NeoBundleLazy 'sontek/rope-vim', {
-\   "build" : {
-\       "others" : "pip install rope ropemode"
-\   },
-\   "autoload" : {
-\       "filetypes" : "python"
-\   }
-\}
-
 " jedi-vim
 NeoBundleLazy 'davidhalter/jedi-vim', {
 \   "build" : {
@@ -170,14 +160,6 @@ NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
 NeoBundleLazy 'jelera/vim-javascript-syntax', {
 \   "autoload" : {
 \       "filetypes" : "javascript"
-\   }
-\}
-
-
-" vim-golang
-NeoBundleLazy 'jnwhiteh/vim-golang', {
-\   "autoload" : {
-\       "filetypes" : "go"
 \   }
 \}
 
