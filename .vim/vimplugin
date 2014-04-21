@@ -276,6 +276,16 @@ NeoBundle 'ervandew/supertab'
 
 NeoBundle 'vim-scripts/Align'
 
+" tagbar-phpctags
+NeoBundle 'vim-scripts/tagbar-phpctags', {
+\   'build' : {
+\     'windows' : '',
+\     'others' : 'chmod +x bin/phpctags',
+\   },
+\   "autoload": {
+\       "filetypes": ["php"]
+\ }}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
