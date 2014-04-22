@@ -286,6 +286,9 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
 \       "filetypes": ["php"]
 \ }}
 
+" QFixHowm
+NeoBundle 'fuenor/qfixhowm'
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -784,3 +787,17 @@ function! s:hooks.on_source(bundle)
     let g:vimfiler_enable_auto_cd = 1
     let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
 endfunction
+
+"----------------------------------------
+" QFixHowm
+"----------------------------------------
+
+let QFixHowm_Key = 'g'
+
+let howm_dir             = '~/howm'
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+let howm_fileencoding    = 'utf-8'
+let howm_fileformat      = 'unix'
+
+let QFixHowm_FileType = 'markdown'
+let QFixHowm_Title = '#'
