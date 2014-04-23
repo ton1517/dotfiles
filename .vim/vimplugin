@@ -289,6 +289,14 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
 " QFixHowm
 NeoBundle 'fuenor/qfixhowm'
 
+" neomru
+NeoBundleLazy 'Shougo/neomru.vim', {
+\   "depends" : "Shougo/unite.vim",
+\   "autoload" : {
+\       "unite_sources" : "file_mru"
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
