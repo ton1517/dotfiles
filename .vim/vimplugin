@@ -57,6 +57,13 @@ NeoBundleLazy 'Shougo/neosnippet', {
 \   }
 \}
 
+" neosnippet-snippets
+NeoBundleLazy 'Shougo/neosnippet-snippets', {
+\   "autoload" : {
+\       "insert" : 1
+\   }
+\}
+
 " vimfiler
 NeoBundleLazy 'Shougo/vimfiler', {
 \   'depends' : 'Shougo/unite.vim',
