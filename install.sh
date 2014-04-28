@@ -1,5 +1,8 @@
 #!/bin/sh
 
+git submodule init
+git submodule update
+
 binDir="$HOME/bin"
 mkdir -p $binDir
 
@@ -32,6 +35,4 @@ do
     ln -Fis "$PWD/$conffile" $confDir
     echo $PWD/$conffile
 done
-
-chmod -R 755 .git_template/
 
