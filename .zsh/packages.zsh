@@ -50,3 +50,12 @@ bindkey '^@' zaw-cdr
 
 package-install github zsh-users/zsh-syntax-highlighting
 source $(package-directory zsh-users/zsh-syntax-highlighting)/zsh-syntax-highlighting.zsh
+
+#----------------------------------------
+# zsh-fuzzy-match
+#----------------------------------------
+
+package-install github tarruda/zsh-fuzzy-match
+source $(package-directory tarruda/zsh-fuzzy-match)/fuzzy-match.zsh
+
+bindkey '^F' fuzzy-match
