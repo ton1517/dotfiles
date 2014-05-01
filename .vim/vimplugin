@@ -108,7 +108,7 @@ NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'tpope/vim-surround'
 
 " NERDTree.vim
-NeoBundleLazy 'scrooloose/nerdtree', {
+NeoBundleLazy 'Xuyuanp/git-nerdtree', {
 \   "autoload" : {
 \       "commands" : "NERDTreeToggle"
 \   }
