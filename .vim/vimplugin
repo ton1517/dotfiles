@@ -727,8 +727,8 @@ nnoremap <Leader>u :<C-u>GundoToggle<CR>
 call textobj#user#plugin('html', {
 \   'text': {
 \     'pattern': ['>', '<'],
-\     'select-a': 'a>',
-\     'select-i': 'i>',
+\     'select-a': 'a^',
+\     'select-i': 'i^',
 \   },
 \ })
 
