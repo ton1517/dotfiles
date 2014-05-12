@@ -211,8 +211,8 @@ NeoBundleLazy 'sjl/gundo.vim', {
 " vim-fakeclip
 NeoBundle 'kana/vim-fakeclip'
 
-" zencoding-vim
-NeoBundleLazy 'mattn/zencoding-vim', {
+" emmet-vim
+NeoBundleLazy 'mattn/emmet-vim', {
 \   "autoload" : {
 \       "filetypes" : "html"
 \   }
