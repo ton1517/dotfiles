@@ -121,7 +121,7 @@ set showcmd
 " タイトルを表示
 set title
 " カーソルのある行を強調表示
-set cursorline
+" set cursorline
 
 " 特殊文字の色設定
 hi NonText ctermbg=NONE ctermfg=darkgray
