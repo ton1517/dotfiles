@@ -15,8 +15,10 @@ if filereadable(expand('~/.vim/vimrc'))
 endif
 
 "----------------------------------------
-" additional settings
+" local settings
 "----------------------------------------
 "
-" write additional settings
-" ..
+" write additional local settings in ~/.vim/vimrc.local
+if filereadable(expand('~/.vim/vimrc.local'))
+  source ~/.vim/vimrc.local
+endif
