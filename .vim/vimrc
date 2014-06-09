@@ -93,6 +93,8 @@ set foldlevel=99
 " クリップボードを共有
 set clipboard+=unnamed
 
+" 特定の場所ではバックアップをとらない
+set backupskip=/tmp/*,/private/tmp/*
 "----------------------------------------
 " display settings
 "----------------------------------------
