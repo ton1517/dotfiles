@@ -111,7 +111,7 @@ set ruler
 " タブや改行を表示 (list:表示)
 set list
 " どの文字でタブや改行を表示するかを設定
-set listchars=tab:>-,extends:⇢,precedes:⇠,trail:»,eol:↲
+set listchars=tab:->,extends:⇢,precedes:⇠,trail:»
 " 長い行を折り返して表示 (nowrap:折り返さない)
 set wrap
 " 常にステータス行を表示 (詳細は:he laststatus)
@@ -127,7 +127,7 @@ set title
 
 " 特殊文字の色設定
 hi NonText ctermbg=NONE ctermfg=darkgray
-hi SpecialKey ctermbg=red ctermfg=white
+hi SpecialKey ctermbg=NONE ctermfg=yellow
 
 "----------------------------------------
 " filetype settings
