@@ -853,5 +853,5 @@ let QFixHowm_Title = '#:'
 nnoremap <silent> ,gcon :<C-u>Unite gtags/context<CR>
 nnoremap <silent> ,gr :<C-u>Unite gtags/ref<CR>
 nnoremap <silent> ,gd :<C-u>Unite gtags/def<CR>
-nnoremap <silent> ,gr :<C-u>Unite gtags/grep<CR>
+nnoremap <silent> ,gg :<C-u>Unite gtags/grep<CR>
 nnoremap <silent> ,gcom :<C-u>Unite gtags/completion<CR>
