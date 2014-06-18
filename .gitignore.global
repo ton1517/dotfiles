@@ -24,3 +24,7 @@ TAGS
 !TAGS/
 tags
 !tags/
+
+GTAGS
+GRTAGS
+GPATH
