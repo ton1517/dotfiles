@@ -325,6 +325,13 @@ NeoBundleLazy 'cakebaker/scss-syntax.vim', {
 \    }
 \}
 
+" unite-gtags
+NeoBundleLazy 'hewes/unite-gtags', {
+\   "depends" : "Shougo/unite.vim",
+\   "autoload" : {
+\       "unite_sources" : ["gtags/context", "gtags/ref", "gtags/def", "gtags/grep", "gtags/completion"]
+\   }
+\}
 
 "--------------------
 " color scheme
@@ -838,3 +845,13 @@ let howm_fileformat      = 'unix'
 
 let QFixHowm_FileType = 'markdown'
 let QFixHowm_Title = '#:'
+
+"----------------------------------------
+" unite-gtags
+"----------------------------------------
+
+nnoremap <silent> ,gcon :<C-u>Unite gtags/context<CR>
+nnoremap <silent> ,gr :<C-u>Unite gtags/ref<CR>
+nnoremap <silent> ,gd :<C-u>Unite gtags/def<CR>
+nnoremap <silent> ,gr :<C-u>Unite gtags/grep<CR>
+nnoremap <silent> ,gcom :<C-u>Unite gtags/completion<CR>
