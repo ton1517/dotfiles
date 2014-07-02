@@ -432,12 +432,18 @@ function! s:bundle.hooks.on_source(bundle)
 
 " 自動的に開始
 let g:neocomplcache_enable_at_startup = 1
-" バッファの補完を2文字目から開始
-let g:neocomplcache_min_keyword_length = 2
-" シンタックスファイルからの補完を２文字目から開始
-let g:neocomplcache_min_syntax_length = 2
+" 自動保管を行う入力数
+let g:neocomplcache_auto_completion_start_length = 3
+" バッファの補完を3文字目から開始
+let g:neocomplcache_min_keyword_length = 3
+" シンタックスファイルからの補完を4文字目から開始
+let g:neocomplcache_min_syntax_length = 4
+" 大文字が入力されるまで大文字小文字を区別しない
+let g:neocomplcache_enable_camel_case_completion = 1
 " アンダーバー補完を有効化
 let g:neocomplcache_enable_underbar_completion = 1
+" 候補の最大数
+let g:neocomplcache_max_list = 10
 
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default'    : '',
@@ -448,11 +454,6 @@ if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
