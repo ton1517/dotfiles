@@ -279,7 +279,6 @@ NeoBundleLazy "jmcantrell/vim-virtualenv", {
 \   "filetypes": ["python", "python3"]
 \ }}
 
-NeoBundle 'ervandew/supertab'
 
 NeoBundle 'vim-scripts/Align'
 
@@ -806,12 +805,6 @@ endfunction
 
 " w!!でスーパーユーザーとして保存
 cmap w!! w sudo:%
-
-"----------------------------------------
-" supertab
-"----------------------------------------
-
-let g:SuperTabDefaultCompletionType = "<c-n>"
 
 "----------------------------------------
 " vimfiler
