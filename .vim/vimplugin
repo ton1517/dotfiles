@@ -99,7 +99,7 @@ NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'Yggdroot/indentLine'
 
 " tComment
-NeoBundle 'vim-scripts/tComment'
+NeoBundle 'tomtom/tcomment_vim'
 
 " sudo.vim
 NeoBundle 'vim-scripts/sudo.vim'
