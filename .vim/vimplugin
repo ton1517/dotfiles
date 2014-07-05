@@ -411,6 +411,8 @@ nnoremap <silent> ,uvo :<C-u>Unite -vertical -winwidth=25 -no-quit outline<CR>
 " neocomplcache
 "----------------------------------------
 
+" <C-Space>で補完開始
+inoremap <Nul> <C-x><C-u>
 " タブキーで補完
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " 補完ウィンドウが正しく閉じられるようにする
@@ -424,12 +426,14 @@ function! s:bundle.hooks.on_source(bundle)
 
 " 自動的に開始
 let g:neocomplcache_enable_at_startup = 1
+" 自動補完は無効
+let g:neocomplcache_disable_auto_complete = 1
 " 自動保管を行う入力数
-let g:neocomplcache_auto_completion_start_length = 3
+" let g:neocomplcache_auto_completion_start_length = 3
 " バッファの補完を3文字目から開始
-let g:neocomplcache_min_keyword_length = 3
+" let g:neocomplcache_min_keyword_length = 3
 " シンタックスファイルからの補完を4文字目から開始
-let g:neocomplcache_min_syntax_length = 4
+" let g:neocomplcache_min_syntax_length = 4
 " 大文字が入力されるまで大文字小文字を区別しない
 let g:neocomplcache_enable_camel_case_completion = 1
 " アンダーバー補完を有効化
