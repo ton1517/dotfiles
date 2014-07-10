@@ -1,16 +1,8 @@
 bind generic g move-first-line
 bind generic G move-last-line
-bind generic ^F move-page-down
-bind generic ^B move-page-up
-
-set show-line-numbers = yes
-set show-author = yes
-set show-date = yes
-set show-refs = yes
-set show-rev-graph = yes
-set show-changes = yes
-
-set author-width = 7
+bind generic <Ctrl-F> move-page-down
+bind generic <Ctrl-B> move-page-up
 
 set line-graphics = utf-8
-set line-number-interval = 1
+
+set main-view = id date author commit-title:graph=yes,refs=yes
