@@ -369,6 +369,9 @@ let g:unite_source_history_yank_enable = 1
 endfunction
 unlet s:bundle
 
+" プロジェクトルートに移動
+nnoremap <Leader>cd :execute 'cd' unite#util#path2project_directory(getcwd())<CR>
+
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
