@@ -358,4 +358,39 @@ function tmux-reset-prefix(){
     tmux-set-prefix C-t
 }
 
+#----------------------------------------
+# peco
+#----------------------------------------
 
+function peco-git-branch() {
+    local current_buffer=$BUFFER
+
+    local selected_line="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/heads refs/remotes | column -t -s '|' | peco | head -n 1 | awk '{print $1}')"
+
+    if [ -n "$selected_line" ]; then
+        BUFFER="${current_buffer} ${selected_line}"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N peco-git-branch
+bindkey '^g^b' peco-git-branch
+
+function peco-git-status() {
+    local current_buffer=$BUFFER
+    local selected_lines="$(git status --porcelain | peco | awk '{print $NF}')"
+
+    if [ -n "$selected_lines" ]; then
+        BUFFER="${current_buffer} $(echo "$selected_lines" | tr '\n' ' ')"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N peco-git-status
+bindkey "^g^s" peco-git-status
+
+function agvim () {
+    local selected_line="$(ag $@ | peco | head -n 1)"
+
+    if [ -n "$selected_line" ]; then
+        vim $(echo ${selected_line} | awk -F : '{print "-c " $2 " " $1}')
+    fi
+}
