@@ -1,9 +1,6 @@
 #--------------------------------------------------------------------------------
 # plugin settings
 #--------------------------------------------------------------------------------
- autoload -Uz compinit
- compinit
-
 source ~/.zsh/packages/package.zsh/package.zsh
 
 #----------------------------------------
@@ -50,3 +47,7 @@ bindkey '^@' zaw-cdr
 
 package-install github zsh-users/zsh-syntax-highlighting
 source $(package-directory zsh-users/zsh-syntax-highlighting)/zsh-syntax-highlighting.zsh
+
+autoload -Uz compinit
+compinit
+
