@@ -407,10 +407,10 @@ function peco-history() {
         tac="tail -r"
     fi
 
-    local selected_line = $(history -n 1 | eval $tac | peco --query "$LBUFFER" | head -n 1)
+    local selected_line="$(history -n 1 | eval $tac | peco --query "$LBUFFER" | head -n 1)"
 
-    if [ -n "$selected_line" ]; then
-        BUFFER=$selected_line
+    if [ -n "${selected_line}" ]; then
+        BUFFER="${selected_line}"
         CURSOR=$#BUFFER
     fi
 }
@@ -425,7 +425,7 @@ function peco_z() {
         tac="tail -r"
     fi
 
-    local selected_line=$(_z -r 2>&1 | eval $tac | peco --query "$LBUFFER" | awk '{ print $2 }' | head -n 1)
+    local selected_line="$(_z -r 2>&1 | eval $tac | peco --query "$LBUFFER" | awk '{ print $2 }' | head -n 1)"
 
     if [ -n "${selected_line}" ]; then
         BUFFER="cd ${selected_line}"
