@@ -398,3 +398,21 @@ function agvim () {
         vim $(echo ${selected_line} | awk -F : '{print "-c " $2 " " $1}')
     fi
 }
+
+function peco-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+
+    local selected_line = $(history -n 1 | eval $tac | peco --query "$LBUFFER" | head -n 1)
+
+    if [ -n "$selected_line" ]; then
+        BUFFER=$selected_line
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N peco-history
+bindkey '^r' peco-history
