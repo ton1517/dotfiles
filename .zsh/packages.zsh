@@ -32,16 +32,6 @@ precmd() {
 }
 
 #----------------------------------------
-# zaw
-#----------------------------------------
-
-package-install github zsh-users/zaw
-source $(package-directory zsh-users/zaw)/zaw.zsh
-
-# bindkey '^R' zaw-history
-bindkey '^@' zaw-cdr
-
-#----------------------------------------
 # zsh-syntax-highlighting
 #----------------------------------------
 
