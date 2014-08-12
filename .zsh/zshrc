@@ -139,8 +139,12 @@ esac
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+# 履歴が重複していたら最新のもののみ保存
+setopt hist_ignore_all_dups
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
+# スペースで始まるコマンドは履歴に保存しない
+setopt hist_ignore_space
 #履歴にタイムスタンプや実行時間を含める
 setopt extended_history
 #履歴検索
