@@ -1,4 +1,5 @@
 {
+    "Prompt": ">>",
     "Style": {
         "Basic": ["on_default", "default"],
         "SavedSelection": ["bold", "on_black", "green"],
