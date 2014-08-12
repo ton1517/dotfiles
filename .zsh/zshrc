@@ -416,3 +416,21 @@ function peco-history() {
 }
 zle -N peco-history
 bindkey '^r' peco-history
+
+function peco_z() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+
+    local selected_line=$(_z -r 2>&1 | eval $tac | peco --query "$LBUFFER" | awk '{ print $2 }' | head -n 1)
+
+    if [ -n "${selected_line}" ]; then
+        BUFFER="cd ${selected_line}"
+        zle accept-line
+    fi
+}
+zle -N peco_z
+bindkey "^@" peco_z
