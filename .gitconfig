@@ -8,7 +8,7 @@
 [color]
 	ui = true
 [push]
-	default = current
+	default = simple
 [alias]
     co = checkout
     st = status
