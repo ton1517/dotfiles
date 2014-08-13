@@ -393,6 +393,19 @@ function peco-git-status() {
 zle -N peco-git-status
 bindkey "^g^s" peco-git-status
 
+# git logを表示し、選択したコミットのハッシュを返す
+function peco-git-log() {
+    local current_buffer=$BUFFER
+    local selected_line="$( git log --pretty=format:"%h  %cd  %cn  %s" --date=short | peco | awk '{print $1}')"
+
+    if [ -n "$selected_line" ]; then
+        BUFFER="${current_buffer}${selected_line}"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N peco-git-log
+bindkey "^g^l" peco-git-log
+
 # agで検索し、選択したものをvimで編集する
 function agvim () {
     local selected_line="$(ag $@ | peco | head -n 1)"
