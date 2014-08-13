@@ -366,6 +366,7 @@ function tmux-reset-prefix(){
 # peco
 #----------------------------------------
 
+# gitのブランチを選択する
 function peco-git-branch() {
     local current_buffer=$BUFFER
 
@@ -379,6 +380,7 @@ function peco-git-branch() {
 zle -N peco-git-branch
 bindkey '^g^b' peco-git-branch
 
+# gitで変更のあるファイルを選択する
 function peco-git-status() {
     local current_buffer=$BUFFER
     local selected_lines="$(git status --porcelain | peco | awk '{print $NF}')"
@@ -391,6 +393,7 @@ function peco-git-status() {
 zle -N peco-git-status
 bindkey "^g^s" peco-git-status
 
+# agで検索し、選択したものをvimで編集する
 function agvim () {
     local selected_line="$(ag $@ | peco | head -n 1)"
 
@@ -399,6 +402,7 @@ function agvim () {
     fi
 }
 
+# 履歴を選択する
 function peco-history() {
     local tac
     if which tac > /dev/null; then
@@ -417,6 +421,7 @@ function peco-history() {
 zle -N peco-history
 bindkey '^r' peco-history
 
+# zを利用し、ディレクトリのあいまい検索を行う
 function peco_z() {
     local tac
     if which tac > /dev/null; then
