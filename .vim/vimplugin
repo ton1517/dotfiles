@@ -90,7 +90,7 @@ NeoBundleLazy 'thinca/vim-quickrun', {
 NeoBundle 'tpope/vim-fugitive'
 
 " YankRing
-NeoBundle 'vim-scripts/YankRing.vim'
+" NeoBundle 'vim-scripts/YankRing.vim'
 
 " Indent-Guides
 " NeoBundle 'vim-scripts/Indent-Guides'
@@ -332,6 +332,16 @@ NeoBundleLazy 'hewes/unite-gtags', {
 \   }
 \}
 
+NeoBundleLazy 'LeafCage/yankround.vim', {
+\   "autoload" : {
+\       "mappings" : [
+\           "<Plug>(yankround"
+\       ],
+\       "unite_sources" : ["yankround"],
+\       "commands" : ["CtrlPYankRound"],
+\   }
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -488,17 +498,17 @@ unlet s:bundle
 " YankRing
 "----------------------------------------
 
-" 履歴の保存ファイルを指定
-let g:yankring_history_dir = expand('$HOME')
-let g:yankring_history_file = '.yankring_history'
-" 最大保存件数
-let g:yankring_max_history = 100
-" 重複を許可しない
-let g:yankring_ignore_duplicate = 1
-" ウィンドウの高さ
-let g:yankring_window_height = 20
-" F7でYRShowを実行
-:nnoremap <silent> <F7> :YRShow<CR>
+" " 履歴の保存ファイルを指定
+" let g:yankring_history_dir = expand('$HOME')
+" let g:yankring_history_file = '.yankring_history'
+" " 最大保存件数
+" let g:yankring_max_history = 100
+" " 重複を許可しない
+" let g:yankring_ignore_duplicate = 1
+" " ウィンドウの高さ
+" let g:yankring_window_height = 20
+" " F7でYRShowを実行
+" :nnoremap <silent> <F7> :YRShow<CR>
 
 "----------------------------------------
 " indent-guides
@@ -851,3 +861,17 @@ nnoremap <silent> ,gr :<C-u>Unite gtags/ref<CR>
 nnoremap <silent> ,gd :<C-u>Unite gtags/def<CR>
 nnoremap <silent> ,gg :<C-u>Unite gtags/grep<CR>
 nnoremap <silent> ,gcom :<C-u>Unite gtags/completion<CR>
+
+"----------------------------------------
+" yankround.vim'
+"----------------------------------------
+
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+
