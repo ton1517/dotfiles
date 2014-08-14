@@ -279,8 +279,11 @@ NeoBundleLazy "jmcantrell/vim-virtualenv", {
 \   "filetypes": ["python", "python3"]
 \ }}
 
-
-NeoBundle 'vim-scripts/Align'
+NeoBundleLazy 'vim-scripts/Align', {
+\   "autoload" : {
+\       "commands" : "Align"
+\   }
+\}
 
 " tagbar-phpctags
 NeoBundle 'vim-scripts/tagbar-phpctags', {
@@ -875,3 +878,9 @@ nmap gP <Plug>(yankround-gP)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 
+"----------------------------------------
+" Align
+"----------------------------------------
+
+vnoremap <silent> > :Align =><CR>
+vnoremap <silent> = :Align =<CR>
