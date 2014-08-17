@@ -138,7 +138,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 
 " ctrlp.vim
-NeoBundleLazy 'kien/ctrlp.vim', {
+NeoBundleLazy 'ctrlpvim/ctrlp.vim', {
 \   "autoload" : {
 \       "commands" : "CtrlP"
 \   }
