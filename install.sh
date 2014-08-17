@@ -3,8 +3,6 @@
 git submodule init
 git submodule update
 
-sh ./.vim/bundle/neobundle.vim/bin/neoinstall
-
 binDir="$HOME/bin"
 mkdir -p $binDir
 
@@ -39,3 +37,4 @@ do
     echo $PWD/$conffile
 done
 
+sh ./.vim/bundle/neobundle.vim/bin/neoinstall
