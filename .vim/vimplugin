@@ -43,12 +43,21 @@ NeoBundleLazy 'Shougo/unite-build', {
 \   }
 \}
 
+if has('lua')
+" neocomplete
+NeoBundleLazy 'Shougo/neocomplete', {
+\   "autoload" : {
+\       "insert" : 1
+\   }
+\}
+else
 " neocomplcache
 NeoBundleLazy 'Shougo/neocomplcache', {
 \   "autoload" : {
 \       "insert" : 1
 \   }
 \}
+endif
 
 " neosnippet
 NeoBundleLazy 'Shougo/neosnippet', {
@@ -426,8 +435,52 @@ nnoremap <silent> ,uho :<C-u>Unite -winheight=15 -no-quit outline<CR>
 nnoremap <silent> ,uvo :<C-u>Unite -vertical -winwidth=25 -no-quit outline<CR>
 
 "----------------------------------------
+" neocomplete
+"----------------------------------------
+
+if neobundle#is_installed('neocomplete')
+
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+let s:bundle = neobundle#get("neocomplete")
+function! s:bundle.hooks.on_source(bundle)
+
+let g:neocomplete#enable_at_startup  = 1
+let g:neocomplete#max_list = 10
+let g:neocomplete#auto_completion_start_length = 4
+let g:neocomplete#min_keyword_length = 4
+let g:neocomplete#enable_ignore_case = 1
+let g:neocomplete#enable_smart_case  = 1
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#enable_fuzzy_completion = 1
+let g:neocomplete#skip_auto_completion_time = '0.2'
+let g:neocomplete#sources#syntax#min_keyword_length = 4
+
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns._ = '\h\w*'
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+
+endfunction
+unlet s:bundle
+
+endif
+
+"----------------------------------------
 " neocomplcache
 "----------------------------------------
+
+if neobundle#is_installed('neocomplcache')
 
 " <C-Space>で補完開始
 inoremap <Nul> <C-x><C-u>
@@ -477,6 +530,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 endfunction
 unlet s:bundle
+
+endif
 
 "----------------------------------------
 " neosnippet
