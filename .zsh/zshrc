@@ -249,6 +249,11 @@ function mkcd() {
 # alias
 #----------------------------------------
 
+#上書きを防ぐ
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
 #圧縮ファイルを実行すると解凍するように
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
