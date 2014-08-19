@@ -21,11 +21,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundle 'Shougo/neobundle.vim'
 
 " unite
-NeoBundleLazy 'Shougo/unite.vim', {
-\   "autoload" : {
-\       "commands" : ["Unite", "UniteWithBufferDir", "UniteWithCursorWord"]
-\   }
-\}
+NeoBundle 'Shougo/unite.vim'
 
 " unite-outline
 NeoBundleLazy 'Shougo/unite-outline', {
@@ -389,16 +385,10 @@ endif
 " unite.vim
 "----------------------------------------
 
-let s:bundle = neobundle#get("unite.vim")
-function! s:bundle.hooks.on_source(bundle)
-
 " インサートモードで開始する
 let g:unite_enable_start_insert=1
 
 let g:unite_source_history_yank_enable = 1
-
-endfunction
-unlet s:bundle
 
 " プロジェクトルートに移動
 nnoremap <Leader>cd :execute 'cd' unite#util#path2project_directory(getcwd())<CR>
