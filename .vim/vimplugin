@@ -354,6 +354,15 @@ NeoBundleLazy 'LeafCage/yankround.vim', {
 \   }
 \}
 
+NeoBundle 'soramugi/auto-ctags.vim'
+
+NeoBundleLazy 'tsukkee/unite-tag', {
+\   'autoload' : {
+\       'unite_sources' : ['tag', 'tag/file', 'tag/include']
+\   }
+\}
+
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -939,3 +948,21 @@ nmap <C-n> <Plug>(yankround-next)
 
 vnoremap <silent> a> :Align =><CR>
 vnoremap <silent> a= :Align =<CR>
+
+"----------------------------------------
+" unite-tag
+"----------------------------------------
+
+autocmd BufEnter *
+\   if empty(&buftype)
+\|     nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+\|  endif
+
+"----------------------------------------
+" auto-ctags
+"----------------------------------------
+
+let g:auto_ctags = 1
+let g:auto_ctags_directory_list = ['.git', '.svn']
+let g:auto_ctags_tags_args = '--tag-relative --append=yes --recurse=yes --sort=yes --links=no'
+let g:auto_ctags_filetype_mode = 1
