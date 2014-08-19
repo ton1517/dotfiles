@@ -937,5 +937,5 @@ nmap <C-n> <Plug>(yankround-next)
 " Align
 "----------------------------------------
 
-vnoremap <silent> > :Align =><CR>
-vnoremap <silent> = :Align =<CR>
+vnoremap <silent> a> :Align =><CR>
+vnoremap <silent> a= :Align =<CR>
