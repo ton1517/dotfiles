@@ -475,11 +475,6 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
 endfunction
 unlet s:bundle
 
@@ -491,10 +486,9 @@ endif
 
 if neobundle#is_installed('neocomplcache')
 
-" <C-Space>で補完開始
-inoremap <Nul> <C-x><C-u>
 " タブキーで補完
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " 補完ウィンドウが正しく閉じられるようにする
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
@@ -507,13 +501,13 @@ function! s:bundle.hooks.on_source(bundle)
 " 自動的に開始
 let g:neocomplcache_enable_at_startup = 1
 " 自動補完は無効
-let g:neocomplcache_disable_auto_complete = 1
+" let g:neocomplcache_disable_auto_complete = 1
 " 自動保管を行う入力数
-" let g:neocomplcache_auto_completion_start_length = 3
+let g:neocomplcache_auto_completion_start_length = 4
 " バッファの補完を3文字目から開始
-" let g:neocomplcache_min_keyword_length = 3
+let g:neocomplcache_min_keyword_length = 4
 " シンタックスファイルからの補完を4文字目から開始
-" let g:neocomplcache_min_syntax_length = 4
+let g:neocomplcache_min_syntax_length = 4
 " 大文字が入力されるまで大文字小文字を区別しない
 let g:neocomplcache_enable_camel_case_completion = 1
 " アンダーバー補完を有効化
