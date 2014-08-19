@@ -946,7 +946,8 @@ autocmd BufEnter *
 " auto-ctags
 "----------------------------------------
 
+let project_root = unite#util#path2project_directory(getcwd())
 let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git', '.svn']
+let g:auto_ctags_directory_list = [project_root.'/.git', project_root.'/.svn', project_root]
 let g:auto_ctags_tags_args = '--tag-relative --append=yes --recurse=yes --sort=yes --links=no'
 let g:auto_ctags_filetype_mode = 1
