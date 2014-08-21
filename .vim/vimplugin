@@ -653,6 +653,12 @@ nnoremap <silent> ,p :<C-U>CtrlP<CR>
 " syntastic
 "----------------------------------------
 
+" marker
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+
 " require jshint or gjslint
 " npm install -g jshint
 " easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
