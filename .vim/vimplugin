@@ -358,6 +358,7 @@ NeoBundleLazy 'tsukkee/unite-tag', {
 \   }
 \}
 
+NeoBundle 'sheerun/vim-polyglot'
 
 "--------------------
 " color scheme
