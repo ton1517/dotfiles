@@ -94,12 +94,6 @@ NeoBundleLazy 'thinca/vim-quickrun', {
 " vim-fugitive
 NeoBundle 'tpope/vim-fugitive'
 
-" YankRing
-" NeoBundle 'vim-scripts/YankRing.vim'
-
-" Indent-Guides
-" NeoBundle 'vim-scripts/Indent-Guides'
-
 " indentLine
 NeoBundle 'Yggdroot/indentLine'
 
@@ -147,7 +141,6 @@ NeoBundleLazy 'thinca/vim-ref', {
 \   }
 \}
 
-
 " syntastic
 NeoBundle 'scrooloose/syntastic'
 
@@ -158,20 +151,6 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 \   },
 \   "autoload" : {
 \       "filetypes" : "python"
-\   }
-\}
-
-" simple-javascript-indenter
-NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
-\   "autoload" : {
-\       "filetypes" : "javascript"
-\   }
-\}
-
-" vim-javascript-syntax
-NeoBundleLazy 'jelera/vim-javascript-syntax', {
-\   "autoload" : {
-\       "filetypes" : "javascript"
 \   }
 \}
 
@@ -309,27 +288,6 @@ NeoBundleLazy 'Shougo/neomru.vim', {
 \   "autoload" : {
 \       "unite_sources" : "file_mru"
 \   }
-\}
-
-" html5.vim
-NeoBundleLazy 'othree/html5.vim', {
-\    "autoload" : {
-\       "filetype" : "html"
-\    }
-\}
-
-" vim-css3-syntax
-NeoBundleLazy 'hail2u/vim-css3-syntax', {
-\    "autoload" : {
-\       "filetype" : "css"
-\    }
-\}
-
-" scss-syntax.vim
-NeoBundleLazy 'cakebaker/scss-syntax.vim', {
-\    "autoload" : {
-\       "filetype" : "scss"
-\    }
 \}
 
 " unite-gtags
@@ -684,18 +642,6 @@ let g:jedi#popup_on_dot = 0
 
 let g:jedi#rename_command = "<leader>R"
 let g:jedi#goto_assignments_command = '<Leader>G'
-
-endfunction
-unlet s:bundle
-
-"----------------------------------------
-" simple-javascript-indenter
-"----------------------------------------
-
-let s:bundle = neobundle#get("simple-javascript-indenter")
-function! s:bundle.hooks.on_source(bundle)
-
-let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 endfunction
 unlet s:bundle
