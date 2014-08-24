@@ -318,6 +318,8 @@ NeoBundleLazy 'tsukkee/unite-tag', {
 
 NeoBundle 'sheerun/vim-polyglot'
 
+NeoBundle 'airblade/vim-gitgutter'
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
