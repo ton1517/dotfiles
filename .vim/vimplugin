@@ -416,7 +416,6 @@ let g:neocomplete#auto_completion_start_length = 4
 let g:neocomplete#min_keyword_length = 4
 let g:neocomplete#enable_ignore_case = 1
 let g:neocomplete#enable_smart_case  = 1
-let g:neocomplete#enable_auto_delimiter = 1
 let g:neocomplete#enable_fuzzy_completion = 1
 let g:neocomplete#skip_auto_completion_time = '0.2'
 let g:neocomplete#sources#syntax#min_keyword_length = 4
