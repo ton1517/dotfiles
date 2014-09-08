@@ -388,7 +388,7 @@ bindkey '^g^b' peco-git-branch
 # gitで変更のあるファイルを選択する
 function peco-git-status() {
     local current_buffer=$BUFFER
-    local selected_lines="$(git status --porcelain | peco | awk '{print $NF}')"
+    local selected_lines="$(git status --short | peco | awk '{print $NF}')"
 
     if [ -n "$selected_lines" ]; then
         BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
