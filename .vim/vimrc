@@ -129,6 +129,10 @@ set title
 hi NonText ctermbg=NONE ctermfg=darkgray
 hi SpecialKey ctermbg=NONE ctermfg=yellow
 
+" 高速化
+set ttyfast
+set lazyredraw
+
 "----------------------------------------
 " filetype settings
 "----------------------------------------
