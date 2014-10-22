@@ -308,7 +308,10 @@ NeoBundleLazy 'LeafCage/yankround.vim', {
 \   }
 \}
 
-NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundleLazy 'soramugi/auto-ctags.vim', {
+\   "autoload": {
+\       "filetypes": ["php", "c", "cpp", "python", "javascript"]
+\ }}
 
 NeoBundleLazy 'tsukkee/unite-tag', {
 \   'autoload' : {
@@ -900,8 +903,14 @@ autocmd BufEnter *
 " auto-ctags
 "----------------------------------------
 
+let s:bundle = neobundle#get("auto-ctags.vim")
+function! s:bundle.hooks.on_source(bundle)
+
 let project_root = unite#util#path2project_directory(getcwd())
 let g:auto_ctags = 1
-let g:auto_ctags_directory_list = [project_root.'/.git', project_root.'/.svn', project_root]
+let g:auto_ctags_directory_list = [project_root.'/.git', project_root.'/.svn']
 let g:auto_ctags_tags_args = '--tag-relative --append=yes --recurse=yes --sort=yes --links=no'
 let g:auto_ctags_filetype_mode = 1
+
+endfunction
+unlet s:bundle
