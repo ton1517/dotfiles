@@ -323,6 +323,10 @@ NeoBundle 'sheerun/vim-polyglot'
 
 NeoBundle 'airblade/vim-gitgutter'
 
+NeoBundle 'FelikZ/ctrlp-py-matcher', {
+\   'depends' : 'ctrlpvim/ctrlp.vim'
+\}
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -611,6 +615,17 @@ nnoremap <silent> ,m :<C-u>Unite build:!<CR>
 "----------------------------------------
 
 nnoremap <silent> ,p :<C-U>CtrlP<CR>
+
+let s:bundle = neobundle#get("ctrlp.vim")
+function! s:bundle.hooks.on_source(bundle)
+
+    let g:ctrlp_max_files = 0
+    let g:ctrlp_lazy_update = 10
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+endfunction
+unlet s:bundle
 
 "----------------------------------------
 " syntastic
