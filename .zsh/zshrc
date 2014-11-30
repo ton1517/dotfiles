@@ -457,3 +457,13 @@ function peco_z() {
 }
 zle -N peco_z
 bindkey "^@" peco_z
+
+function peco-src () {
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N peco-src
+bindkey '^g^h' peco-src
