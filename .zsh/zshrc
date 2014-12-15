@@ -467,3 +467,16 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^g^h' peco-src
+
+# カレントディレクトリ内のファイルを選択する
+function peco-ls() {
+    local current_buffer=$BUFFER
+    local selected_lines="$(ls | peco | awk '{print $NF}')"
+
+    if [ -n "$selected_lines" ]; then
+        BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N peco-ls
+bindkey '^l^s' peco-ls
