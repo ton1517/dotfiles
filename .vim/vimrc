@@ -31,6 +31,9 @@ nnoremap k gk
 nnoremap <Tab> %
 vnoremap <Tab> %
 
+" 行末までヤンク
+nnoremap Y y$
+
 "----------------------------------------
 " search settings
 "----------------------------------------
