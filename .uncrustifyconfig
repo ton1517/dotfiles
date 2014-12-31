@@ -1159,19 +1159,19 @@ sp_inside_oc_at_sel_parens              = Remove        # string (Add/Force/Igno
 sp_inside_angle                         = Remove        # string (Add/Force/Ignore/Remove)
 
 # Space inside braces
-sp_inside_braces                        = Add           # string (Add/Force/Ignore/Remove)
+sp_inside_braces                        = Remove        # string (Add/Force/Ignore/Remove)
 
 # Space inside cast parentheses
 sp_inside_paren_cast                    = Remove        # string (Add/Force/Ignore/Remove)
 
 # Space inside empty braces
-sp_inside_braces_empty                  = Add           # string (Add/Force/Ignore/Remove)
+sp_inside_braces_empty                  = Remove        # string (Add/Force/Ignore/Remove)
 
 # Space inside empty function parentheses
 sp_inside_fparens                       = Remove        # string (Add/Force/Ignore/Remove)
 
 # Space inside enum braces
-sp_inside_braces_enum                   = Add           # string (Add/Force/Ignore/Remove)
+sp_inside_braces_enum                   = Remove        # string (Add/Force/Ignore/Remove)
 
 # Space inside function parentheses
 sp_inside_fparen                        = Remove        # string (Add/Force/Ignore/Remove)
@@ -1189,4 +1189,4 @@ sp_inside_square                        = Ignore        # string (Add/Force/Igno
 sp_inside_paren                         = Remove        # string (Add/Force/Ignore/Remove)
 
 # Space inside struct/union braces
-sp_inside_braces_struct                 = Add           # string (Add/Force/Ignore/Remove)
+sp_inside_braces_struct                 = Remove        # string (Add/Force/Ignore/Remove)
