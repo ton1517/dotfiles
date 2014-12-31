@@ -691,7 +691,7 @@ nl_class_leave_one_liners               = false         # boolean (false/true)
 nl_enum_leave_one_liners                = false         # boolean (false/true)
 
 # Don’t split one-line function definitions
-nl_func_leave_one_liners                = false         # boolean (false/true)
+nl_func_leave_one_liners                = true         # boolean (false/true)
 
 # Don’t split one-line get/set functions
 nl_getset_leave_one_liners              = false         # boolean (false/true)
