@@ -215,7 +215,7 @@ nl_between_get_set                      = 0             # number
 ## Other
 
 # Maximum consecutive newlines
-nl_max                                  = 0             # number
+nl_max                                  = 2             # number
 
 # Newline count around C# property
 nl_around_cs_property                   = 0             # number
