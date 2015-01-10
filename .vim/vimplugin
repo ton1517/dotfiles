@@ -680,18 +680,8 @@ nnoremap <F5>  :Background make<CR>
 " uncrustifyの設定ファイル
 let g:uncrustify_cfg_file_path = '~/.uncrustifyconfig'
 
-" uncrustifyでフォーマットする言語
-let g:uncrustify_lang = ""
-autocmd FileType c let g:uncrustify_lang = "c"
-autocmd FileType cpp let g:uncrustify_lang = "cpp"
-autocmd FileType java let g:uncrustify_lang = "java"
-autocmd FileType objc let g:uncrustify_lang = "oc"
-autocmd FileType cs let g:uncrustify_lang = "cs"
-
 " Shift-Fでコードのフォーマットを行う．
-if g:uncrustify_lang != ""
-    nnoremap <S-f> :call UncrustifyAuto()<CR>
-endif
+nnoremap <S-f> :call UncrustifyAuto()<CR>
 
 " Restore cursor position, window position, and last search after running a
 " command.
@@ -723,11 +713,8 @@ function! Uncrustify(language)
 endfunction
 
 function! UncrustifyAuto()
-    if g:uncrustify_lang != ""
-        call Uncrustify(g:uncrustify_lang)
-    else
-        echo "not supported filetype"
-    endif
+    call Preserve(':silent %!uncrustify'.' -q '.' -c '.
+                \shellescape(fnamemodify(g:uncrustify_cfg_file_path, ':p')))
 endfunction
 
 "----------------------------------------
