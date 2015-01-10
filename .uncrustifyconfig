@@ -294,7 +294,7 @@ mod_paren_on_return                     = Remove        # string (Add/Force/Igno
 mod_pawn_semicolon                      = false         # boolean (false/true)
 
 # Remove superflous semicolons
-mod_Remove_extra_semicolon              = true          # boolean (false/true)
+mod_Remove_extra_semicolon              = false         # boolean (false/true)
 
 ## Sorting
 
