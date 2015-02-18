@@ -41,6 +41,9 @@ stty stop undef
 #zmvコマンドを使用
 autoload -Uz zmv
 
+## Ctrl+G send-breakを無効化
+bindkey -r '^G'
+
 #----------------------------------------
 # chpwd_recent_dirs & cdr
 #----------------------------------------
