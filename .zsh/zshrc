@@ -371,19 +371,34 @@ function tmux-reset-prefix(){
 # peco
 #----------------------------------------
 
-# gitのブランチを選択する
-function peco-git-branch() {
+# gitのローカルブランチを選択する
+function peco-git-branch-local() {
     local current_buffer=$BUFFER
 
-    local selected_line="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/heads refs/remotes | column -t -s '|' | peco | head -n 1 | awk '{print $1}')"
+    local selected_line="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/heads | column -t -s '|' | peco | head -n 1 | awk '{print $1}')"
 
     if [ -n "$selected_line" ]; then
         BUFFER="${current_buffer}${selected_line}"
         CURSOR=$#BUFFER
     fi
 }
-zle -N peco-git-branch
-bindkey '^g^b' peco-git-branch
+zle -N peco-git-branch-local
+bindkey '^g^b^l' peco-git-branch-local
+
+# gitのリモートブランチを選択する
+function peco-git-branch-remote() {
+    local current_buffer=$BUFFER
+
+    local selected_line="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/remotes | column -t -s '|' | peco | head -n 1 | awk '{print $1}')"
+
+    if [ -n "$selected_line" ]; then
+        BUFFER="${current_buffer}${selected_line}"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N peco-git-branch-remote
+bindkey '^g^b^r' peco-git-branch-remote
+
 
 # gitで変更のあるファイルを選択する
 function peco-git-status() {
