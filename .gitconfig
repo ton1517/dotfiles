@@ -15,6 +15,7 @@
     sh = show
     cm = commit --verbose
     cmm = commit -m
+    tags = tag -l
     ps = push
     pl = pull
     br = branch
