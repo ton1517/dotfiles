@@ -1,7 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore.global
 	editor = vim
-	pager = lv -c
 	ui = auto
 [include]
     path = ~/.gitconfig.local
@@ -44,3 +43,7 @@
 	prompt = false
 [mergetool]
     keepBackup = false
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
