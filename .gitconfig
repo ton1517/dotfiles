@@ -20,6 +20,7 @@
     br = branch
     df = diff
     dfs = diff --staged
+    diff-branch = diff --stat -p develop...HEAD
     dt = difftool
     dts = difftool --staged
     ls = ls-files -v
