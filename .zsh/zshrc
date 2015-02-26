@@ -43,6 +43,8 @@ autoload -Uz zmv
 
 ## Ctrl+G send-breakを無効化
 bindkey -r '^G'
+## Ctrl+S fwd-i-searchを無効化
+bindkey -r '^S'
 
 #----------------------------------------
 # chpwd_recent_dirs & cdr
