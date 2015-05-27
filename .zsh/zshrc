@@ -376,4 +376,10 @@ function tmux-reset-prefix(){
 # peco
 #----------------------------------------
 
-source ~/.zsh/peco.zsh
+# source ~/.zsh/peco.zsh
+
+#----------------------------------------
+# fzf
+#----------------------------------------
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source ~/.zsh/fzf.zsh

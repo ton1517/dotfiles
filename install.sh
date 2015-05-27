@@ -38,3 +38,7 @@ do
 done
 
 sh ./.vim/bundle/neobundle.vim/bin/neoinstall
+
+# install fzf
+git clone https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
