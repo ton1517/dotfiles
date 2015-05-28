@@ -128,7 +128,7 @@ bindkey '^l^s' fzf-ls
 # locateを使ってファイルを検索する
 function fzf-locate() {
     local current_buffer=$BUFFER
-    local selected_lines="$(locate / | fzf -q "$LBUFFER")"
+    local selected_lines="$(locate / | $(__fzfcmd) -q "$LBUFFER")"
     if [ -n "$selected_lines" ]; then
         BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
         CURSOR=$#BUFFER
