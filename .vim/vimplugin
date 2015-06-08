@@ -326,6 +326,8 @@ NeoBundle 'FelikZ/ctrlp-py-matcher', {
 \   'depends' : 'ctrlpvim/ctrlp.vim'
 \}
 
+NeoBundle 'chrisbra/csv.vim'
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
