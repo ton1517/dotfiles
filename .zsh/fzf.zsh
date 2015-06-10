@@ -2,10 +2,10 @@
 # fzf
 #----------------------------------------
 
-export FZF_DEFAULT_OPTS='-m -x'
+export FZF_DEFAULT_OPTS='-m -x --reverse'
 
 function __fzfcmd() {
-    [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -u80%" || echo "fzf"
+    [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux" || echo "fzf"
 }
 
 # gitのローカルブランチを選択する
