@@ -12,10 +12,10 @@ function __fzfcmd() {
 function fzf-git-branch-local() {
     local current_buffer=$BUFFER
 
-    local selected_line="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/heads | column -t -s '|' | $(__fzfcmd) | head -n 1 | awk '{print $1}')"
+    local selected_lines="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/heads | column -t -s '|' | $(__fzfcmd) | awk '{print $1}')"
 
-    if [ -n "$selected_line" ]; then
-        BUFFER="${current_buffer}${selected_line}"
+    if [ -n "$selected_lines" ]; then
+        BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
         CURSOR=$#BUFFER
     fi
 }
@@ -26,10 +26,10 @@ bindkey '^g^b^l' fzf-git-branch-local
 function fzf-git-branch-remote() {
     local current_buffer=$BUFFER
 
-    local selected_line="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/remotes | column -t -s '|' | $(__fzfcmd) | head -n 1 | awk '{print $1}')"
+    local selected_lines="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/remotes | column -t -s '|' | $(__fzfcmd) | awk '{print $1}')"
 
-    if [ -n "$selected_line" ]; then
-        BUFFER="${current_buffer}${selected_line}"
+    if [ -n "$selected_lines" ]; then
+        BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
         CURSOR=$#BUFFER
     fi
 }
