@@ -37,6 +37,11 @@ do
     echo $PWD/$conffile
 done
 
+# install homebrew
+if [ "$(uname)" == 'Darwin' ]; then
+    sh ./brewfile.sh
+fi
+
 sh ./.vim/bundle/neobundle.vim/bin/neoinstall
 
 # install fzf
