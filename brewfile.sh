@@ -1,7 +1,7 @@
 #!/bin/sh
 
 brews=(
-    brew-cask
+    caskroom/cask/brew-cask
     brew-pip
     ctags
     curl
