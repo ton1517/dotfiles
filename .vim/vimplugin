@@ -328,6 +328,9 @@ NeoBundle 'FelikZ/ctrlp-py-matcher', {
 
 NeoBundle 'chrisbra/csv.vim'
 
+NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+
 "--------------------
 " color scheme
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
@@ -917,3 +920,11 @@ let g:auto_ctags_filetype_mode = 1
 
 endfunction
 unlet s:bundle
+
+"----------------------------------------
+" incsearch.vim and ext
+"----------------------------------------
+
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
