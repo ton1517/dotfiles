@@ -382,4 +382,4 @@ function tmux-reset-prefix(){
 # fzf
 #----------------------------------------
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source ~/.zsh/fzf.zsh
+source ~/.zsh/fzf.zsh
