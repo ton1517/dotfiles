@@ -1,13 +1,16 @@
 #!/bin/sh
 
+function symlink() {
+    orig=$1
+    dest=$2
+
+    if [ "$(readlink $dest)" != "$orig" ]; then
+        ln -Fis $orig $dest
+    fi
+}
+
 git submodule init
 git submodule update
-
-binDir="$HOME/bin"
-mkdir -p $binDir
-
-confDir="$HOME/.config"
-mkdir -p $confDir
 
 cd $(dirname $0)
 
@@ -16,25 +19,28 @@ touch ".zsh/zshrc.local"
 touch ".zsh/zshenv.local"
 touch "$HOME/.gitconfig.local"
 
+# symlink dotfile
 for dotfile in .?*
 do
-    if [ $dotfile != ".." ] && [ $dotfile != ".git" ] && [ $dotfile != ".gitmodules" ]
+    if [ $dotfile != ".." ] && [ $dotfile != ".git" ] && [ $dotfile != ".gitmodules" ] && [ $dotfile != ".config" ]
     then
-        ln -Fis "$PWD/$dotfile" $HOME
+        symlink "$PWD/$dotfile" "$HOME/$dotfile";
     fi
 done
 
+# symlink bin file
+mkdir -p "$HOME/bin"
 for binfile in bin/*
 do
     chmod 755 "$PWD/$binfile"
-    ln -Fis "$PWD/$binfile" $binDir
-    echo $PWD/$binfile
+    symlink "$PWD/$binfile" "$HOME/$binfile"
 done
 
+# symlink config file
+mkdir -p "$HOME/.config"
 for conffile in .config/*
 do
-    ln -Fis "$PWD/$conffile" $confDir
-    echo $PWD/$conffile
+    symlink "$PWD/$conffile" "$HOME/$conffile"
 done
 
 # install homebrew
