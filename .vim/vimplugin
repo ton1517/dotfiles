@@ -127,11 +127,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 
 " ctrlp.vim
-NeoBundleLazy 'ctrlpvim/ctrlp.vim', {
-\   "autoload" : {
-\       "commands" : "CtrlP"
-\   }
-\}
+NeoBundle 'ctrlpvim/ctrlp.vim'
 
 " vim-ref
 NeoBundleLazy 'thinca/vim-ref', {
@@ -618,18 +614,13 @@ nnoremap <silent> ,m :<C-u>Unite build:!<CR>
 " ctrlp
 "----------------------------------------
 
-nnoremap <silent> ,p :<C-U>CtrlP<CR>
+let g:ctrlp_map = ',p'
 
-let s:bundle = neobundle#get("ctrlp.vim")
-function! s:bundle.hooks.on_source(bundle)
+let g:ctrlp_max_files = 0
+let g:ctrlp_lazy_update = 10
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
-    let g:ctrlp_max_files = 0
-    let g:ctrlp_lazy_update = 10
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
-    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-
-endfunction
-unlet s:bundle
 
 "----------------------------------------
 " syntastic
