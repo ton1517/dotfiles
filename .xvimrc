@@ -1,0 +1,38 @@
+"---------------------------------------------------------------------------
+" xvim settings
+"---------------------------------------------------------------------------
+
+"----------------------------------------
+" mapping settings
+"----------------------------------------
+
+nnoremap <C-j> 5j
+vnoremap <C-j> 5j
+nnoremap <C-k> 5k
+vnoremap <C-k> 5k
+
+nnoremap <C-h> ^
+vnoremap <C-h> ^
+nnoremap <C-l> $
+vnoremap <C-l> $
+
+nnoremap O o<ESC>
+nnoremap <ESC><ESC> :nohlsearch<CR>
+nnoremap <C-[><C-[> :nohlsearch<CR>
+inoremap <C-s> <Esc>:w<CR>
+nnoremap <C-s> <Esc>:w<CR>
+
+nnoremap <Tab> %
+vnoremap <Tab> %
+
+nnoremap Y y$
+
+"----------------------------------------
+" search settings
+"----------------------------------------
+
+set ignorecase
+set smartcase
+set wrapscan
+set incsearch
+set hlsearch
