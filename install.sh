@@ -38,12 +38,14 @@ do
 done
 
 # install homebrew
-if [ "$(uname)" == 'Darwin' ]; then
+if [[ "$(uname)" == 'Darwin' && ! -n "$(which brew 2> /dev/null)" ]]; then
     sh ./brewfile.sh
 fi
 
 sh ./.vim/bundle/neobundle.vim/bin/neoinstall
 
 # install fzf
-git clone https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+if [ ! -e ~/.fzf ]; then
+    git clone https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
