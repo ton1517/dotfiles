@@ -889,6 +889,11 @@ nmap gP <Plug>(yankround-gP)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 
+let s:hooks = neobundle#get_hooks("yankround.vim")
+function! s:hooks.on_source(bundle)
+    let g:yankround_dir = "~/.vim/.backup/yankround"
+endfunction
+
 "----------------------------------------
 " Align
 "----------------------------------------
