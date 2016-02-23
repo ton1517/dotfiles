@@ -5,6 +5,7 @@ brews=(
     brew-pip
     ctags
     curl
+    ghq
     "git --with-gettext --with-pcre"
     global
     go
