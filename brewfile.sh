@@ -32,6 +32,7 @@ brews=(
     tree
     uncrustify
     "vim --with-lua --with-luajit --with-python3"
+    watch
     wget
     zsh
 )
