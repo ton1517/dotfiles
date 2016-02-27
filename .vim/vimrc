@@ -263,19 +263,3 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
     set ambiwidth=double
 endif
-
-"----------------------------------------
-" mouse settings
-"----------------------------------------
-
-" http://yskwkzhr.blogspot.jp/2013/02/use-mouse-on-terminal-vim.html
-if has('mouse')
-    set mouse=a
-    if has('mouse_sgr')
-        set ttymouse=sgr
-    elseif v:version > 703 || v:version is 703 && has('patch632')
-        set ttymouse=sgr
-    else
-        set ttymouse=xterm2
-    endif
-endif
