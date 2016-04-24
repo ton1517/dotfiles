@@ -1,0 +1,156 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = 'let g:indentLine_color_term = 24'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'vim-scripts/sudo.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+let g:ctrlp_map = ',p'
+
+let g:ctrlp_max_files = 0
+let g:ctrlp_lazy_update = 10
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+'''
+
+[[plugins]]
+repo = 'FelikZ/ctrlp-py-matcher'
+depends = 'ctrlp.vim'
+
+[[plugins]]
+repo = 'sgur/vim-lazygutter'
+
+[[plugins]]
+repo = 'kana/vim-fakeclip'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+hook_add = '''
+" htmlタグとタグの間のテキストをオブジェクト化する
+call textobj#user#plugin('html', {
+\   'text': {
+\     'pattern': ['>', '<'],
+\     'select-a': 'a^',
+\     'select-i': 'i^',
+\   },
+\ })
+'''
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'fuenor/qfixhowm'
+hook_add = '''
+let QFixHowm_Key = 'g'
+
+let howm_dir             = '~/howm'
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+let howm_fileencoding    = 'utf-8'
+let howm_fileformat      = 'unix'
+
+let QFixHowm_FileType = 'markdown'
+let QFixHowm_Title = '#:'
+'''
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
+repo =  'haya14busa/incsearch.vim'
+hook_add = '''
+map /  <Plug>(incsearch-forward)
+'''
+
+[[plugins]]
+repo = 'haya14busa/incsearch-fuzzy.vim'
+hook_add = '''
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
+'''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+nmap <silent> <Leader>r <Plug>(quickrun)
+
+let g:quickrun_config = {
+\    "_" : {
+\       'runner' : 'vimproc'
+\    },
+\   "markdown" : {
+\       'outputter/buffer/close_on_empty' : 1,
+\       'command' : 'open',
+\       'cmdopt'  : '-a',
+\       'args'    : 'Marked',
+\       'exec'    : '%c %o %a %s',
+\    },
+\   "watchdogs_checker/_" : {
+\       "runner/vimproc/updatetime" : 50,
+\   },
+\}
+'''
+
+[[plugins]]
+repo = "jceb/vim-hier"
+
+[[plugins]]
+repo = "osyo-manga/shabadou.vim"
+
+[[plugins]]
+repo = "dannyob/quickfixstatus"
+
+[[plugins]]
+repo = "osyo-manga/vim-watchdogs"
+depends = [
+    'vim-hier',
+    'quickfixstatus',
+    'shabadou.vim',
+    'vim-quickrun'
+]
+hook_add = '''
+let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_CursorHold_enable = 1
+'''
+hook_post_source = '''
+call watchdogs#setup(g:quickrun_config)
+'''
