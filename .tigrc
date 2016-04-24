@@ -6,3 +6,7 @@ bind generic <Ctrl-B> move-page-up
 set line-graphics = utf-8
 
 set main-view = id date author commit-title:graph=yes,refs=yes
+
+# settings for large repository
+# set main-options = -n 1000
+set commit-order = default
