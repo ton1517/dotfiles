@@ -232,7 +232,7 @@ NeoBundleLazy 'tsukkee/unite-tag', {
 
 NeoBundle 'sheerun/vim-polyglot'
 
-NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'sgur/vim-lazygutter'
 
 NeoBundle 'FelikZ/ctrlp-py-matcher', {
 \   'depends' : 'ctrlpvim/ctrlp.vim'
