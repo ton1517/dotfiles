@@ -123,7 +123,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'ctrlpvim/ctrlp.vim'
 
 " syntastic
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
 
 " switch.vim
 NeoBundleLazy 'AndrewRadev/switch.vim', {
@@ -240,6 +240,14 @@ NeoBundle 'FelikZ/ctrlp-py-matcher', {
 
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+
+NeoBundle "jceb/vim-hier"
+NeoBundle "osyo-manga/shabadou.vim"
+NeoBundle "dannyob/quickfixstatus"
+NeoBundle "osyo-manga/vim-watchdogs"
+
+NeoBundle 'syngan/vim-vimlint', {
+    \ 'depends' : 'ynkdir/vim-vimlparser'}
 
 "--------------------
 " color scheme
@@ -462,9 +470,6 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 nmap <Leader>r <Plug>(quickrun)
 
-let s:bundle = neobundle#get("vim-quickrun")
-function! s:bundle.hooks.on_source(bundle)
-
 let g:quickrun_config = {
 \    "_" : {
 \       'runner' : 'vimproc'
@@ -476,10 +481,10 @@ let g:quickrun_config = {
 \       'args'    : 'Marked',
 \       'exec'    : '%c %o %a %s',
 \    },
+\   "watchdogs_checker/_" : {
+\       "runner/vimproc/updatetime" : 50,
+\   },
 \}
-
-endfunction
-unlet s:bundle
 
 "----------------------------------------
 " unite-colorscheme
@@ -509,19 +514,19 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " syntastic
 "----------------------------------------
 
-" marker
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-
-" require jshint or gjslint
-" npm install -g jshint
-" easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
-" let g:syntastic_javascript_checker = "jshint"
-let g:syntastic_javascript_checker = "gjslint"
-
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+" " marker
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_style_error_symbol = '✗'
+" let g:syntastic_style_warning_symbol = '⚠'
+"
+" " require jshint or gjslint
+" " npm install -g jshint
+" " easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
+" " let g:syntastic_javascript_checker = "jshint"
+" let g:syntastic_javascript_checker = "gjslint"
+"
+" let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 "----------------------------------------
 " uncrustify
@@ -766,3 +771,11 @@ unlet s:bundle
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
+
+"----------------------------------------
+" watchdogs
+"----------------------------------------
+
+let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_CursorHold_enable = 1
+call watchdogs#setup(g:quickrun_config)
