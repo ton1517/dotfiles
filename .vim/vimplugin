@@ -105,13 +105,6 @@ NeoBundle 'vim-scripts/sudo.vim'
 " surround.vim
 NeoBundle 'tpope/vim-surround'
 
-" NERDTree.vim
-NeoBundleLazy 'Xuyuanp/git-nerdtree', {
-\   "autoload" : {
-\       "commands" : "NERDTreeToggle"
-\   }
-\}
-
 " lightline.vim
 NeoBundle 'itchyny/lightline.vim'
 
@@ -129,61 +122,13 @@ NeoBundle 'Shougo/vimproc', {
 " ctrlp.vim
 NeoBundle 'ctrlpvim/ctrlp.vim'
 
-" vim-ref
-NeoBundleLazy 'thinca/vim-ref', {
-\   "autoload" : {
-\       "commands" : "Ref"
-\   }
-\}
-
 " syntastic
 NeoBundle 'scrooloose/syntastic'
-
-" jedi-vim
-NeoBundleLazy 'davidhalter/jedi-vim', {
-\   "build" : {
-\       "others" : "git submodule update --init"
-\   },
-\   "autoload" : {
-\       "filetypes" : "python"
-\   }
-\}
-
-" bg.vim
-NeoBundleLazy 'yuratomo/bg.vim', {
-\   "autoload" : {
-\       "commands" : "Background"
-\   }
-\}
-
-" tagbar
-NeoBundleLazy 'majutsushi/tagbar', {
-\   "build" : {
-\       "mac" : "brew install ctags"
-\   },
-\   "autoload" : {
-\       "commands" : "TagbarToggle"
-\   }
-\}
-
-" vaxe
-NeoBundleLazy 'jdonaldson/vaxe', {
-\   "autoload" : {
-\       "filetypes" : "haxe"
-\   }
-\}
 
 " switch.vim
 NeoBundleLazy 'AndrewRadev/switch.vim', {
 \   "autoload" : {
 \       "commands" : "Switch"
-\   }
-\}
-
-" gundo.vim
-NeoBundleLazy 'sjl/gundo.vim', {
-\   "autoload" : {
-\       "commands" : "GundoToggle"
 \   }
 \}
 
@@ -201,17 +146,6 @@ NeoBundleLazy 'mattn/emmet-vim', {
 NeoBundleLazy 'kana/vim-textobj-user', {
 \   "autoload" : {
 \       "functions" : "textobj#user#plugin"
-\   }
-\}
-
-" open-browser.vim
-NeoBundleLazy 'tyru/open-browser.vim', {
-\   "autoload" : {
-\       "mappings" : [
-\           "<Plug>(openbrowser-smart-search)",
-\           "<Plug>(openbrowser-open)",
-\           "<Plug>(openbrowser-search)"
-\       ]
 \   }
 \}
 
@@ -236,14 +170,6 @@ NeoBundleLazy 't9md/vim-textmanip', {
 \   }
 \}
 
-" previm
-NeoBundleLazy 'kannokanno/previm', {
-\   "depends" : "tyru/open-browser.vim",
-\   "autoload" : {
-\       "filetypes" : "markdown"
-\   }
-\}
-
 " vim-textobj-entire
 NeoBundle 'kana/vim-textobj-entire'
 
@@ -263,16 +189,6 @@ NeoBundleLazy 'vim-scripts/Align', {
 \       "commands" : "Align"
 \   }
 \}
-
-" tagbar-phpctags
-NeoBundle 'vim-scripts/tagbar-phpctags', {
-\   'build' : {
-\     'windows' : '',
-\     'others' : 'chmod +x bin/phpctags',
-\   },
-\   "autoload": {
-\       "filetypes": ["php"]
-\ }}
 
 " QFixHowm
 NeoBundle 'fuenor/qfixhowm'
@@ -321,8 +237,6 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'FelikZ/ctrlp-py-matcher', {
 \   'depends' : 'ctrlpvim/ctrlp.vim'
 \}
-
-NeoBundle 'chrisbra/csv.vim'
 
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
@@ -513,37 +427,6 @@ endfunction
 unlet s:bundle
 
 "----------------------------------------
-" YankRing
-"----------------------------------------
-
-" " 履歴の保存ファイルを指定
-" let g:yankring_history_dir = expand('$HOME')
-" let g:yankring_history_file = '.yankring_history'
-" " 最大保存件数
-" let g:yankring_max_history = 100
-" " 重複を許可しない
-" let g:yankring_ignore_duplicate = 1
-" " ウィンドウの高さ
-" let g:yankring_window_height = 20
-" " F7でYRShowを実行
-" :nnoremap <silent> <F7> :YRShow<CR>
-
-"----------------------------------------
-" indent-guides
-"----------------------------------------
-
-" " ハイライトをデフォルトで有効
-" let g:indent_guides_enable_on_vim_startup = 1
-" " 自動的なカラーをオフに
-" let g:indent_guides_auto_colors = 0
-" " ハイライトのサイズを小さく
-" let g:indent_guides_guide_size = 1
-" " 奇数インデントのカラー
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#888888 ctermbg=gray
-" " 偶数インデントのカラー
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgray
-
-"----------------------------------------
 " indentLine
 "----------------------------------------
 
@@ -641,33 +524,6 @@ let g:syntastic_javascript_checker = "gjslint"
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 "----------------------------------------
-" jedi-vim
-"----------------------------------------
-
-let s:bundle = neobundle#get("jedi-vim")
-function! s:bundle.hooks.on_source(bundle)
-
-autocmd FileType python setlocal omnifunc=jedi#completions
-autocmd FileType python setlocal completeopt-=preview
-
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
-
-let g:jedi#rename_command = "<leader>R"
-let g:jedi#goto_assignments_command = '<Leader>G'
-
-endfunction
-unlet s:bundle
-
-"----------------------------------------
-" bg.vim
-"----------------------------------------
-
-" F5でmakeを行う
-nnoremap <F5>  :Background make<CR>
-
-"----------------------------------------
 " uncrustify
 "----------------------------------------
 
@@ -726,12 +582,6 @@ function! Autopep8()
 endfunction
 
 "----------------------------------------
-" tagbar
-"----------------------------------------
-
-nnoremap <silent> ,tb :TagbarToggle<CR>
-
-"----------------------------------------
 " switch.vim
 "----------------------------------------
 
@@ -755,14 +605,6 @@ call textobj#user#plugin('html', {
 \     'select-i': 'i^',
 \   },
 \ })
-
-"----------------------------------------
-" open-browser.vim
-"----------------------------------------
-
-let g:netrw_nogx = 1
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
 
 "----------------------------------------
 " DrawIt
