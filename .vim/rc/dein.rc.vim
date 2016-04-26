@@ -4,6 +4,10 @@ let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let s:dein_toml      = '~/.vim/rc/dein.toml'
 let s:dein_lazy_toml = '~/.vim/rc/dein_lazy.toml'
 
+if &compatible
+  set nocompatible
+endif
+
 if &runtimepath !~# '/dein.vim'
     if !isdirectory(s:dein_repo_dir)
         execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
@@ -27,3 +31,4 @@ if dein#check_install()
     call dein#install()
 endif
 
+filetype plugin indent on
