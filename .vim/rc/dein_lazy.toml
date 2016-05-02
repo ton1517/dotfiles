@@ -228,3 +228,7 @@ on_path = '.*'
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
 on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+on_i = 1
