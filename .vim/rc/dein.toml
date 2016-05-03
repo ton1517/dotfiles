@@ -49,31 +49,6 @@ repo = 'sgur/vim-lazygutter'
 repo = 'kana/vim-fakeclip'
 
 [[plugins]]
-repo = 'kana/vim-textobj-user'
-hook_add = '''
-" htmlタグとタグの間のテキストをオブジェクト化する
-call textobj#user#plugin('html', {
-\   'text': {
-\     'pattern': ['>', '<'],
-\     'select-a': 'a^',
-\     'select-i': 'i^',
-\   },
-\ })
-'''
-
-[[plugins]]
-repo = 'kana/vim-textobj-entire'
-depends = 'vim-textobj-user'
-
-[[plugins]]
-repo = 'kana/vim-textobj-indent'
-depends = 'vim-textobj-user'
-
-[[plugins]]
-repo = 'kana/vim-textobj-line'
-depends = 'vim-textobj-user'
-
-[[plugins]]
 repo = 'fuenor/qfixhowm'
 hook_add = '''
 let QFixHowm_Key = 'g'

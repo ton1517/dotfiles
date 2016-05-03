@@ -197,3 +197,32 @@ vmap gcc <Plug>(caw:hatpos:toggle)
 hook_source = '''
 let g:caw_no_default_keymappings = 1
 '''
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+on_map = [['ox', 'i^', 'a^']]
+hook_post_source = '''
+" htmlタグとタグの間のテキストをオブジェクト化する
+call textobj#user#plugin('html', {
+\   'text': {
+\     'pattern': ['>', '<'],
+\     'select-a': 'a^',
+\     'select-i': 'i^',
+\   },
+\ })
+'''
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+depends = 'vim-textobj-user'
+on_map = [['ox', 'ie', 'ae']]
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+depends = 'vim-textobj-user'
+on_map = [['ox', 'ii', 'ai', 'iI', 'aI']]
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+depends = 'vim-textobj-user'
+on_map = [['ox', 'il', 'al']]
