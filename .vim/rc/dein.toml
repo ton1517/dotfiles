@@ -187,3 +187,6 @@ let g:yankround_dir = "~/.vim/.backup/yankround"
 let g:yankround_use_region_hl = 1
 let g:yankround_max_history = 100
 '''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
