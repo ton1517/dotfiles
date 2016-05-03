@@ -17,8 +17,15 @@ let g:neocomplete#enable_smart_case  = 1
 let g:neocomplete#enable_fuzzy_completion = 1
 let g:neocomplete#skip_auto_completion_time = '0.2'
 let g:neocomplete#sources#syntax#min_keyword_length = 4
+let g:neocomplete#enable_underbar_completion = 1
+let g:neocomplete#enable_camel_case_completion  =  1
 
 if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'

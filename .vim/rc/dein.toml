@@ -130,3 +130,10 @@ let g:yankround_max_history = 100
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'shawncplus/phpcomplete.vim'
+on_ft = 'php'
+hook_add = '''
+let g:phpcomplete_parse_docblock_comments = 1
+'''
