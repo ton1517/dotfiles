@@ -18,9 +18,6 @@ repo = 'tpope/vim-fugitive'
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
 repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
