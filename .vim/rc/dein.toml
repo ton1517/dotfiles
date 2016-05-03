@@ -25,21 +25,6 @@ repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-hook_add = '''
-let g:ctrlp_map = ',p'
-
-let g:ctrlp_max_files = 0
-let g:ctrlp_lazy_update = 10
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-'''
-
-[[plugins]]
-repo = 'FelikZ/ctrlp-py-matcher'
-depends = 'ctrlp.vim'
-
-[[plugins]]
 repo = 'sgur/vim-lazygutter'
 
 [[plugins]]
