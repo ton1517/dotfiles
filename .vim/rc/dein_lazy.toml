@@ -187,23 +187,6 @@ nnoremap <silent> ,gcom :<C-u>Unite gtags/completion<CR>
 '''
 
 [[plugins]]
-repo = 'LeafCage/yankround.vim'
-on_map = [['nxo', '<Plug>']]
-hook_add = '''
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-'''
-hook_source = '''
-let g:yankround_dir = "~/.vim/.backup/yankround"
-'''
-
-[[plugins]]
 repo = 'tsukkee/unite-tag'
 on_source = 'unite.vim'
 
