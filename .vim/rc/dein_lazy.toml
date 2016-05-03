@@ -24,7 +24,7 @@ nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,uy :<C-u>Unite yankround<CR>
 
 nnoremap <silent> ,ucg  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,ug  :execute 'Unite' 'grep:'.unite#util#path2project_directory(getcwd()).' -buffer-name=search-buffer'<CR>
@@ -47,11 +47,6 @@ nnoremap <silent><expr> tp  &filetype == 'help' ?
 [[plugins]]
 repo = 'Shougo/unite-outline'
 on_source = 'unite.vim'
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_source = 'unite.vim'
-on_path = '.*'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
