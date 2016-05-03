@@ -187,4 +187,4 @@ on_source = 'unite.vim'
 
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
-on_path = '.*'
+on_source = 'neocomplete.vim'
