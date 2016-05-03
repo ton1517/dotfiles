@@ -147,7 +147,6 @@ repo = 'vim-scripts/DrawIt'
 on_map = [['n', '<Plug>']]
 on_cmd = ['DrawIt', 'DrawItStart']
 hook_add = 'map <Leader>di :DrawIt<CR>'
-on_map = [['n', '<Plug>']]
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
