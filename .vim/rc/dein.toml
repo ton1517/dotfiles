@@ -9,9 +9,6 @@ build = 'make'
 repo = 'tomasr/molokai'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]

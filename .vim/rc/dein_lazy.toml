@@ -67,6 +67,9 @@ source ~/.vim/rc/plugins/neocomplcache.rc.vim
 '''
 
 [[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
