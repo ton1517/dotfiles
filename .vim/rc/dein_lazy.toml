@@ -94,14 +94,12 @@ endif
 repo = 'Shougo/vimfiler.vim'
 depends = 'unite.vim'
 on_map = [['n', '<Plug>']]
-on_path = '.*'
 hook_add = 'nnoremap <silent> ,vf :VimFilerExplorer<CR>'
 hook_source = '''
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
 '''
-
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
