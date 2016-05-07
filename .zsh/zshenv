@@ -21,6 +21,7 @@ path=(
       /opt/local/sbin(N-/)
       /usr/sbin(N-/)
       /usr/pkg/sbin(N-/)
+      $path
      )
 
 #----------------------------------------
