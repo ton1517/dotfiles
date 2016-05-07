@@ -2,8 +2,8 @@
 " source vim plugin settings
 "----------------------------------------
 
-if filereadable(expand('~/.vim/vimplugin'))
-  source ~/.vim/vimplugin
+if filereadable(expand('~/.vim/rc/dein.rc.vim'))
+  source ~/.vim/rc/dein.rc.vim
 endif
 
 "----------------------------------------

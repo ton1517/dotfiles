@@ -1,0 +1,226 @@
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+hook_source = '''
+let g:unite_enable_start_insert=1
+
+if executable('ag')
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --ignore-case'
+let g:unite_source_grep_recursive_opt = ''
+endif
+'''
+hook_add = '''
+nnoremap <Leader>cd :execute 'cd' unite#util#path2project_directory(getcwd())<CR>
+
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+nnoremap <silent> ,uy :<C-u>Unite yankround<CR>
+
+nnoremap <silent> ,ucg  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,ug  :execute 'Unite' 'grep:'.unite#util#path2project_directory(getcwd()).' -buffer-name=search-buffer'<CR>
+nnoremap <silent> ,/ucg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,/ug  :execute 'Unite' 'grep:'.unite#util#path2project_directory(getcwd()).' -buffer-name=search-buffer'<CR><C-R><C-W>
+
+" unite-outline
+nnoremap <silent> ,uo :<C-u>Unite outline<CR>
+" unite-colorscheme
+nnoremap <silent> ,uc :<C-u>Unite colorscheme -auto-preview<CR>
+
+" tag jump.
+nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
+\ ":\<C-u>UniteWithCursorWord -buffer-name=tag -immediately
+\  tag tag/include\<CR>"
+nnoremap <silent><expr> tp  &filetype == 'help' ?
+\ ":\<C-u>pop\<CR>" : ":\<C-u>Unite jump\<CR>"
+'''
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+depends = 'context_filetype.vim'
+if = "has('lua')"
+on_i = 1
+hook_source = '''
+let g:neocomplete#enable_at_startup = 1
+source ~/.vim/rc/plugins/neocomplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neocomplcache.vim'
+if = "!has('lua')"
+on_i = 1
+hook_source = '''
+let g:neocomplcache_enable_at_startup = 1
+source ~/.vim/rc/plugins/neocomplcache.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+depends = 'unite.vim'
+on_map = [['n', '<Plug>']]
+hook_add = 'nnoremap <silent> ,vf :VimFilerExplorer<CR>'
+hook_source = '''
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_enable_auto_cd = 1
+let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
+'''
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_map = [['n', '<Plug>']]
+hook_add = '''
+nmap <Leader> <Plug>(easymotion-prefix)
+nmap w <Plug>(easymotion-lineforward)
+nnoremap W     w
+nmap b <Plug>(easymotion-linebackward)
+nnoremap B     b
+map s <Plug>(easymotion-s2)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+let g:EasyMotion_keys = ';HKLYUIOPNM,QWERTASDGZXCVBJF'
+let g:EasyMotion_use_upper = 1
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'context_filetype.vim'
+on_ft = ['toml', 'html', 'markdown']
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+on_cmd = ['Switch']
+hook_add = 'nnoremap - :Switch<cr>'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = 'html'
+
+[[plugins]]
+repo = 'vim-scripts/DrawIt'
+on_cmd = ['DrawIt', 'DrawItStart']
+
+[[plugins]]
+repo = 't9md/vim-textmanip'
+on_map = [['nxo', '<Plug>']]
+hook_add = '''
+xmap <S-j> <Plug>(textmanip-move-down)
+xmap <S-k> <Plug>(textmanip-move-up)
+xmap <S-h> <Plug>(textmanip-move-left)
+xmap <S-l> <Plug>(textmanip-move-right)
+
+map <Space>d <Plug>(textmanip-duplicate-down)
+nmap <Space>d <Plug>(textmanip-duplicate-down)
+xmap <Space>D <Plug>(textmanip-duplicate-up)
+nmap <Space>D <Plug>(textmanip-duplicate-up)
+'''
+
+[[plugins]]
+repo = "jmcantrell/vim-virtualenv"
+on_ft = ["python", "python3"]
+
+[[plugins]]
+repo = 'vim-scripts/Align'
+on_cmd = ['Align']
+hook_add = '''
+vnoremap <silent> a> :Align =><CR>
+vnoremap <silent> a= :Align =<CR>
+'''
+
+[[plugins]]
+repo = 'hewes/unite-gtags'
+on_source = 'unite.vim'
+hook_add = '''
+nnoremap <silent> ,gcon :<C-u>Unite gtags/context<CR>
+nnoremap <silent> ,gr :<C-u>Unite gtags/ref<CR>
+nnoremap <silent> ,gd :<C-u>Unite gtags/def<CR>
+nnoremap <silent> ,gg :<C-u>Unite gtags/grep<CR>
+nnoremap <silent> ,gcom :<C-u>Unite gtags/completion<CR>
+'''
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_source = 'neocomplete.vim'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+on_map = [['ox', 'i^', 'a^']]
+hook_post_source = '''
+" htmlタグとタグの間のテキストをオブジェクト化する
+call textobj#user#plugin('html', {
+\   'text': {
+\     'pattern': ['>', '<'],
+\     'select-a': 'a^',
+\     'select-i': 'i^',
+\   },
+\ })
+'''
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+depends = 'vim-textobj-user'
+on_map = [['ox', 'ie', 'ae']]
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+depends = 'vim-textobj-user'
+on_map = [['ox', 'ii', 'ai', 'iI', 'aI']]
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+depends = 'vim-textobj-user'
+on_map = [['ox', 'il', 'al']]
+
+[[plugins]]
+repo = 'sgur/vim-textobj-parameter'
+depends = 'vim-textobj-user'
+on_map = [['ox', 'i,', 'a,']]
+
+[[plugins]]
+repo =  'haya14busa/incsearch.vim'
+on_map = ['<Plug>']
+hook_add = '''
+map /  <Plug>(incsearch-forward)
+'''
+
+[[plugins]]
+repo = 'haya14busa/incsearch-fuzzy.vim'
+on_map = ['<Plug>']
+hook_add = '''
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
+'''
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+depends = 'ctrlp-py-matcher'
+on_cmd = ['CtrlP']
+hook_add = '''
+nnoremap <silent> ,p :<C-u>CtrlP<CR>
+" let g:ctrlp_map = ',p'
+
+let g:ctrlp_max_files = 0
+let g:ctrlp_lazy_update = 10
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+'''
+
+[[plugins]]
+repo = 'FelikZ/ctrlp-py-matcher'
+on_source = 'ctrlp.vim'
