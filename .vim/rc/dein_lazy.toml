@@ -187,21 +187,6 @@ repo = 'Shougo/neoinclude.vim'
 on_source = 'neocomplete.vim'
 
 [[plugins]]
-repo = 'tyru/caw.vim'
-depends = 'context_filetype.vim'
-on_map = ['<Plug>']
-hook_add = '''
-nmap <C-_> <Plug>(caw:hatpos:toggle)
-vmap <C-_> <Plug>(caw:hatpos:toggle)
-
-nmap gcc <Plug>(caw:hatpos:toggle)
-vmap gcc <Plug>(caw:hatpos:toggle)
-'''
-hook_source = '''
-let g:caw_no_default_keymappings = 1
-'''
-
-[[plugins]]
 repo = 'kana/vim-textobj-user'
 on_map = [['ox', 'i^', 'a^']]
 hook_post_source = '''

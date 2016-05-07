@@ -137,3 +137,6 @@ on_ft = 'php'
 hook_add = '''
 let g:phpcomplete_parse_docblock_comments = 1
 '''
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
