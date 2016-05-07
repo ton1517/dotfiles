@@ -49,8 +49,6 @@ if [[ "$(uname)" == 'Darwin' && ! -n "$(which brew 2> /dev/null)" ]]; then
     sh ./brewfile.sh
 fi
 
-sh ./.vim/bundle/neobundle.vim/bin/neoinstall
-
 # install fzf
 if [ ! -e ~/.fzf ]; then
     git clone https://github.com/junegunn/fzf.git ~/.fzf
