@@ -27,8 +27,6 @@ nnoremap <silent> ,/ug  :execute 'Unite' 'grep:'.unite#util#path2project_directo
 
 " unite-outline
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
-" unite-colorscheme
-nnoremap <silent> ,uc :<C-u>Unite colorscheme -auto-preview<CR>
 
 " tag jump.
 nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
