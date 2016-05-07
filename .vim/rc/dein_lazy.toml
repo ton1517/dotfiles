@@ -109,9 +109,7 @@ on_ft = 'html'
 
 [[plugins]]
 repo = 'vim-scripts/DrawIt'
-on_map = [['n', '<Plug>']]
 on_cmd = ['DrawIt', 'DrawItStart']
-hook_add = 'map <Leader>di :DrawIt<CR>'
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
