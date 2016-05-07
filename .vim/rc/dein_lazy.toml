@@ -11,10 +11,10 @@ endif
 hook_add = '''
 nnoremap <Leader>cd :execute 'cd' unite#util#path2project_directory(getcwd())<CR>
 
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer -start-insert<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file -start-insert<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> ,um :<C-u>Unite file_mru -start-insert<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
@@ -26,7 +26,7 @@ nnoremap <silent> ,/ucg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C
 nnoremap <silent> ,/ug  :execute 'Unite' 'grep:'.unite#util#path2project_directory(getcwd()).' -buffer-name=search-buffer'<CR><C-R><C-W>
 
 " unite-outline
-nnoremap <silent> ,uo :<C-u>Unite outline<CR>
+nnoremap <silent> ,uo :<C-u>Unite outline -start-insert<CR>
 
 " tag jump.
 nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
