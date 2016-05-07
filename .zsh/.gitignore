@@ -1,4 +1,5 @@
 /zshrc.local
 /zshenv.local
+/zprofile.local
 
 *.zwc
