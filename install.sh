@@ -17,6 +17,7 @@ cd $(dirname $0)
 touch ".vim/vimrc.local"
 touch ".zsh/zshrc.local"
 touch ".zsh/zshenv.local"
+touch ".zsh/zprofile.local"
 touch "$HOME/.gitconfig.local"
 
 # symlink dotfile
