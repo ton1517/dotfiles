@@ -67,33 +67,6 @@ source ~/.vim/rc/plugins/neocomplcache.rc.vim
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_i = 1
-on_ft = 'snippet'
-hook_source = '''
-imap <C-j> <plug>(neosnippet_expand_or_jump)
-smap <C-j> <plug>(neosnippet_expand_or_jump)
-xmap <C-j> <Plug>(neosnippet_expand_target)
-
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-let g:neosnippet#snippets_directory= '~/.vim/snippets'
-
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
-'''
-
-[[plugins]]
 repo = 'Shougo/vimfiler.vim'
 depends = 'unite.vim'
 on_map = [['n', '<Plug>']]
