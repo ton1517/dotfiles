@@ -198,7 +198,7 @@ depends = 'ctrlp-py-matcher'
 on_cmd = ['CtrlP']
 hook_add = '''
 nnoremap <silent> ,p :<C-u>CtrlP<CR>
-" let g:ctrlp_map = ',p'
+let g:ctrlp_map = '<Nop>'
 
 let g:ctrlp_max_files = 0
 let g:ctrlp_lazy_update = 10
