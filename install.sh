@@ -53,9 +53,3 @@ fi
 if [ ! -e ~/.zplug ]; then
     git clone https://github.com/zplug/zplug ~/.zplug
 fi
-
-# install fzf
-if [ ! -e ~/.fzf ]; then
-    git clone https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-fi
