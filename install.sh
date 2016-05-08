@@ -49,6 +49,11 @@ if [[ "$(uname)" == 'Darwin' && ! -n "$(which brew 2> /dev/null)" ]]; then
     sh ./brewfile.sh
 fi
 
+# install zplug
+if [ ! -e ~/.zplug ]; then
+    git clone https://github.com/zplug/zplug ~/.zplug
+fi
+
 # install fzf
 if [ ! -e ~/.fzf ]; then
     git clone https://github.com/junegunn/fzf.git ~/.fzf
