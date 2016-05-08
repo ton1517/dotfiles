@@ -5,6 +5,8 @@ autoload -Uz compinit
 compinit
 #cdを付けなくてもディレクトリ名で移動
 setopt auto_cd
+cdpath=(.. ~)
+
 #移動したディレクトリを記録
 setopt auto_pushd
 #タブキーで補完候補を順に表示
