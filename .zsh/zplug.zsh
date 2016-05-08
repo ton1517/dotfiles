@@ -13,6 +13,12 @@ zplug "junegunn/fzf", as:command, use:'bin/fzf-tmux'
 zplug "junegunn/fzf", as:plugin, use:'shell/completion.zsh'
 zplug "~/.zsh/fzf.zsh", from:local
 
+zplug 'b4b4r07/enhancd', use:'enhancd.sh'
+# if zplug check b4b4r07/enhancd; then
+#     # setting if enhancd is available
+#     export ENHANCD_FILTER=fzf-tmux
+# fi
+
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
