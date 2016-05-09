@@ -29,6 +29,22 @@ let g:unite_source_menu_menus = {
 \            ['zshenv', '~/.zsh/zshenv'],
 \        ]
 \    },
+\    'vdebug': {
+\        'description': 'vdebug',
+\        'command_candidates': [
+\            ['(,v5)  実行/次のブレイクポイントまで実行', 'python debugger.run()'],
+\            ['(,v9)  カーソル行まで実行', 'python debugger.run_to_cursor()'],
+\            ['(,v2)  ステップオーバー', 'python debugger.step_over()'],
+\            ['(,v3)  ステップイン', 'python debugger.step_into()'],
+\            ['(,v4)  ステップアウト', 'python debugger.step_out()'],
+\            ['(,v6)  停止', 'python debugger.close()'],
+\            ['(,v7)  デタッチ', 'python debugger.detach()'],
+\            ['(,v10) ブレイクポイントのオン/オフ', 'python debugger.set_breakpoint()'],
+\            ['(,v11) get_context', 'python debugger.get_context()'],
+\            ['(,v12) eval_under_cursor', 'python debugger.eval_under_cursor()'],
+\            ['(,v13) eval_visual', 'python debugger.eval_visual()'],
+\        ]
+\    },
 \}
 
 if executable('ag')
@@ -78,3 +94,5 @@ nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
 nnoremap <silent><expr> tp  &filetype == 'help' ?
 \ ":\<C-u>pop\<CR>" : ":\<C-u>Unite jump\<CR>"
 
+" show vdebug menu
+nnoremap <silent> ,vd :<C-u>Unite menu:vdebug -auto-resize<CR>
