@@ -107,9 +107,6 @@ let g:auto_ctags_filetype_mode = 1
 '''
 
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
-
-[[plugins]]
 repo = 'LeafCage/yankround.vim'
 on_map = [['nxo', '<Plug>']]
 hook_add = '''
