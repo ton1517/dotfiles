@@ -176,28 +176,3 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 [[plugins]]
 repo = 'FelikZ/ctrlp-py-matcher'
 on_source = 'ctrlp.vim'
-
-[[plugins]]
-repo = 'joonty/vdebug'
-on_ft = 'php'
-hook_source = '''
-let g:vdebug_force_ascii = 1
-
-let g:vdebug_options = {
-\    "break_on_open" : 0
-\}
-
-let g:vdebug_keymap = {
-\    "run" : ",v5",
-\    "run_to_cursor" : ",v9",
-\    "step_over" : ",v2",
-\    "step_into" : ",v3",
-\    "step_out" : ",v4",
-\    "close" : ",v6",
-\    "detach" : ",v7",
-\    "set_breakpoint" : ",v10",
-\    "get_context" : ",v11",
-\    "eval_under_cursor" : ",v12",
-\    "eval_visual" : ",v13",
-\}
-'''
