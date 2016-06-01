@@ -179,7 +179,6 @@ on_source = 'ctrlp.vim'
 
 [[plugins]]
 repo = 'joonty/vdebug'
-on_ft = 'php'
 hook_source = '''
 let g:vdebug_force_ascii = 1
 
