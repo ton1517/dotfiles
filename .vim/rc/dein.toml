@@ -45,9 +45,6 @@ let QFixHowm_Title = '#:'
 '''
 
 [[plugins]]
-repo = 'sheerun/vim-polyglot'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
 nmap <silent> <Leader>r <Plug>(quickrun)
@@ -166,4 +163,5 @@ let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
 '''
 
-
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
