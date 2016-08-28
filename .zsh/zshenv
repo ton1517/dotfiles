@@ -76,6 +76,21 @@ fi
 ## 2012-09-04
 export LESS="-R"
 
+case ${OSTYPE} in
+darwin*)
+if command -v /usr/local/bin/src-hilite-lesspipe.sh > /dev/null; then
+    export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+    function lvc() { if [ -f $1 ]; then less $1 | lv -c; fi;  }
+fi
+;;
+linux*)
+if command -v /usr/share/source-highlight/src-hilite-lesspipe.sh > /dev/null; then
+    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+    function lvc() { if [ -f $1 ]; then less $1 | lv -c; fi;  }
+fi
+;;
+esac
+
 #----------------------------------------
 # grep settings
 #----------------------------------------
