@@ -36,6 +36,7 @@ brews=(
     watch
     wget
     zsh
+    source-highlight
 )
 
 casks=(
