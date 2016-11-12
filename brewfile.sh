@@ -12,6 +12,7 @@ brews=(
     imagemagick
     jhead
     jpeg
+    jq
     lua
     luajit
     lv
