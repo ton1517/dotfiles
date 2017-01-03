@@ -19,7 +19,7 @@ if !dein#load_state(s:dein_dir)
     finish
 endif
 
-call dein#begin(s:dein_dir, [$MYVIMRC, s:dein_toml, s:dein_lazy_toml])
+call dein#begin(s:dein_dir, expand('<sfile>'))
 
 call dein#load_toml(s:dein_toml,      {'lazy': 0})
 call dein#load_toml(s:dein_lazy_toml, {'lazy': 1})
