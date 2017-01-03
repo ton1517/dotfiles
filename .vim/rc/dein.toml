@@ -28,23 +28,6 @@ hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
 repo = 'sgur/vim-lazygutter'
 
 [[plugins]]
-repo = 'kana/vim-fakeclip'
-
-[[plugins]]
-repo = 'fuenor/qfixhowm'
-hook_add = '''
-let QFixHowm_Key = 'g'
-
-let howm_dir             = '~/howm'
-let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.md'
-let howm_fileencoding    = 'utf-8'
-let howm_fileformat      = 'unix'
-
-let QFixHowm_FileType = 'markdown'
-let QFixHowm_Title = '#:'
-'''
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
 nmap <silent> <Leader>r <Plug>(quickrun)
