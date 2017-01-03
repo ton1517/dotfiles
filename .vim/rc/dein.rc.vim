@@ -1,3 +1,7 @@
+augroup MyAutoCmd
+autocmd!
+augroup END
+
 let s:dein_dir = expand('~/.vim/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
