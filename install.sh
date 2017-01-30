@@ -51,5 +51,6 @@ fi
 
 # install zplug
 if [ ! -e ~/.zplug ]; then
-    git clone https://github.com/zplug/zplug ~/.zplug
+    git clone -b 2.3.1 https://github.com/zplug/zplug ~/.zplug
+
 fi
