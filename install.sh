@@ -44,7 +44,6 @@ do
     symlink "$PWD/$conffile" "$HOME/$conffile"
 done
 ln -sf ~/.vim $XDG_CONFIG_HOME/nvim
-ln -sf ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 # install homebrew
 if [[ "$(uname)" == 'Darwin' && ! -n "$(which brew 2> /dev/null)" ]]; then
