@@ -153,3 +153,8 @@ let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+hook_add = '''
+" for json
+let g:vim_json_syntax_conceal = 0
+'''
+
