@@ -156,6 +156,7 @@ repo = 'sheerun/vim-polyglot'
 hook_add = '''
 " for json
 let g:vim_json_syntax_conceal = 0
+" for javascript
 let g:jsx_ext_required = 1
 '''
 
