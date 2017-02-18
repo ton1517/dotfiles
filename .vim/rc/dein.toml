@@ -74,6 +74,15 @@ depends = [
 hook_add = '''
 let g:watchdogs_check_BufWritePost_enable = 1
 let g:watchdogs_check_CursorHold_enable = 1
+
+if executable('eslint')
+    let g:quickrun_config['javascript/watchdogs_checker'] = {
+    \   'type' : 'watchdogs_checker/eslint',
+    \ }
+    let g:quickrun_config['vue.html.javascript.css/watchdogs_checker'] = {
+    \   'type' : 'watchdogs_checker/eslint',
+    \ }
+endif
 '''
 hook_post_source = '''
 call watchdogs#setup(g:quickrun_config)
