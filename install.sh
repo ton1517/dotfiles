@@ -53,5 +53,16 @@ fi
 # install zplug
 if [ ! -e ~/.zplug ]; then
     git clone -b 2.3.1 https://github.com/zplug/zplug ~/.zplug
-
 fi
+
+# install anyenv
+# if [ ! -e ~/.anyenv ]; then
+    git clone https://github.com/riywo/anyenv ~/.anyenv
+
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+
+    anyenv install pyenv
+    anyenv install rbenv
+    anyenv install ndenv
+# fi

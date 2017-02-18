@@ -23,8 +23,6 @@ brews=(
     nkf
     node
     peco
-    pyenv
-    pyenv-virtualenv
     python
     python3
     reattach-to-user-namespace
