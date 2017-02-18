@@ -287,12 +287,6 @@ function cdup() {
 zle -N cdup
 bindkey '\^' cdup
 
-#cdする前の場所に戻る
-alias pd='popd'
-
-# L でページャー起動
-alias -g L="|& $PAGER"
-
 #ブラックホール
 alias -g NL=">/dev/null"
 alias -g NLL=">/dev/null 2>&1"
@@ -388,12 +382,6 @@ function tmux-change-prefix(){
 function tmux-reset-prefix(){
     tmux-set-prefix C-t
 }
-
-#----------------------------------------
-# peco
-#----------------------------------------
-
-# source ~/.zsh/peco.zsh
 
 #----------------------------------------
 # fzf
