@@ -180,3 +180,25 @@ let g:auto_ctags_directory_list = [project_root.'/.git', project_root.'/.svn']
 let g:auto_ctags_tags_args = '--tag-relative --append=yes --recurse=yes --sort=yes --links=no'
 let g:auto_ctags_filetype_mode = 1
 '''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+hook_source = '''
+imap <C-j> <plug>(neosnippet_expand_or_jump)
+smap <C-j> <plug>(neosnippet_expand_or_jump)
+xmap <C-j> <Plug>(neosnippet_expand_target)
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+let g:neosnippet#snippets_directory= '~/.vim/snippets'
+
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
+'''
