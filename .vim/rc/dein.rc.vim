@@ -20,21 +20,20 @@ if &runtimepath !~# '/dein.vim'
     execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-if !dein#load_state(s:dein_dir)
-    finish
+if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir, expand('<sfile>'))
+
+    call dein#load_toml(s:dein_toml,              {'lazy': 0})
+    call dein#load_toml(s:dein_lazy_toml,         {'lazy': 1})
+    call dein#load_toml(s:dein_languagepack_toml, {'lazy': 1})
+
+    call dein#end()
+    call dein#save_state()
 endif
-
-call dein#begin(s:dein_dir, expand('<sfile>'))
-
-call dein#load_toml(s:dein_toml,              {'lazy': 0})
-call dein#load_toml(s:dein_lazy_toml,         {'lazy': 1})
-call dein#load_toml(s:dein_languagepack_toml, {'lazy': 1})
-
-call dein#end()
-call dein#save_state()
 
 if dein#check_install()
     call dein#install()
 endif
 
 filetype plugin indent on
+syntax enable
