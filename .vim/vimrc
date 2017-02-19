@@ -139,6 +139,11 @@ hi SpecialKey ctermbg=NONE ctermfg=yellow
 set ttyfast
 set lazyredraw
 
+" カラー
+colorscheme molokai
+highlight Normal ctermbg=none
+highlight Comment ctermfg=246
+
 "----------------------------------------
 " filetype settings
 "----------------------------------------

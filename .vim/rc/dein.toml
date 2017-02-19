@@ -7,11 +7,6 @@ build = 'make'
 
 [[plugins]]
 repo = 'tomasr/molokai'
-hook_add = '''
-au MyAutoCmd VimEnter * nested colorscheme molokai
-au MyAutoCmd VimEnter * nested highlight Normal ctermbg=none
-au MyAutoCmd VimEnter * nested highlight Comment ctermfg=246
-'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
