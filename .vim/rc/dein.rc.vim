@@ -5,8 +5,9 @@ augroup END
 let s:dein_dir = expand('~/.vim/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-let s:dein_toml      = '~/.vim/rc/dein.toml'
-let s:dein_lazy_toml = '~/.vim/rc/dein_lazy.toml'
+let s:dein_toml              = '~/.vim/rc/dein.toml'
+let s:dein_lazy_toml         = '~/.vim/rc/dein_lazy.toml'
+let s:dein_languagepack_toml = '~/.vim/rc/dein_languagepack.toml'
 
 if &compatible
   set nocompatible
@@ -25,8 +26,9 @@ endif
 
 call dein#begin(s:dein_dir, expand('<sfile>'))
 
-call dein#load_toml(s:dein_toml,      {'lazy': 0})
-call dein#load_toml(s:dein_lazy_toml, {'lazy': 1})
+call dein#load_toml(s:dein_toml,              {'lazy': 0})
+call dein#load_toml(s:dein_lazy_toml,         {'lazy': 1})
+call dein#load_toml(s:dein_languagepack_toml, {'lazy': 1})
 
 call dein#end()
 call dein#save_state()
