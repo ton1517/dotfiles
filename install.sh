@@ -56,7 +56,7 @@ if [ ! -e ~/.zplug ]; then
 fi
 
 # install anyenv
-# if [ ! -e ~/.anyenv ]; then
+if [ ! -e ~/.anyenv ]; then
     git clone https://github.com/riywo/anyenv ~/.anyenv
 
     export PATH="$HOME/.anyenv/bin:$PATH"
@@ -65,4 +65,4 @@ fi
     anyenv install pyenv
     anyenv install rbenv
     anyenv install ndenv
-# fi
+fi
