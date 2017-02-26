@@ -100,8 +100,8 @@ set foldlevel=99
 " クリップボードを共有
 set clipboard+=unnamed
 
-" 特定の場所ではバックアップをとらない
-set backupskip=/tmp/*,/private/tmp/*
+" バックアップをとらない
+set nobackup
 "----------------------------------------
 " display settings
 "----------------------------------------
@@ -172,27 +172,6 @@ augroup vimrc-checktime
     autocmd!
     autocmd WinEnter * checktime
 augroup END
-
-"----------------------------------------
-" backup settings
-"----------------------------------------
-
-" バックアップファイルを指定したフォルダに作成する
-set backupdir=$HOME/.vim/.backup
-" スワップファイルを指定したフォルダに作成する
-let &directory=&backupdir
-
-"バックアップフォルダがなければ作成する
-if isdirectory(&directory) == 0
-    echo "make backup directory"
-    echo &directory
-    call mkdir(&directory)
-endif
-
-if has('persistent_undo')
-    set undodir=&directory
-    set undofile
-endif
 
 "----------------------------------------
 " encoding settings
