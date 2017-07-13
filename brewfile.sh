@@ -1,14 +1,16 @@
 #!/bin/sh
 
 brews=(
-    caskroom/cask/brew-cask
+    "git --with-gettext --with-pcre"
+    "vim --with-lua --with-luajit --with-python3"
     brew-pip
+    caskroom/cask/brew-cask
     ctags
     curl
     ghq
-    "git --with-gettext --with-pcre"
     global
     go
+    hub
     imagemagick
     jhead
     jpeg
@@ -20,22 +22,22 @@ brews=(
     mercurial
     mobile-shell
     moreutils
+    neovim
     nkf
     node
-    peco
     python
     python3
     reattach-to-user-namespace
+    source-highlight
+    the_platinum_searcher
     the_silver_searcher
     tig
     tmux
     tree
     uncrustify
-    "vim --with-lua --with-luajit --with-python3"
     watch
     wget
     zsh
-    source-highlight
 )
 
 casks=(
