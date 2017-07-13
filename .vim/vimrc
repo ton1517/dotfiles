@@ -102,6 +102,7 @@ set clipboard+=unnamed
 
 " バックアップをとらない
 set nobackup
+set noswapfile
 "----------------------------------------
 " display settings
 "----------------------------------------
