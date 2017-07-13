@@ -2,6 +2,7 @@
 	excludesfile = ~/.gitignore.global
 	editor = vim
 	ui = auto
+	autocrlf = input
 [include]
     path = ~/.gitconfig.local
 [color]
