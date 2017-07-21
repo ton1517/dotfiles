@@ -30,6 +30,9 @@ unsetopt caseglob
 setopt numeric_glob_sort
 # カーソル位置で補完
 setopt complete_in_word
+# パターン展開でマッチするファイルが存在しないときにエラーをださない。
+# これを指定しないとファイル名に#などがある場合にエラーになってしまう
+setopt nonomatch
 
 #EDITOR=vimの場合zshもvimバインドになるので明示指定
 bindkey -e
