@@ -2,10 +2,6 @@ source ~/.zplug/init.zsh
 
 zplug 'zsh-users/zsh-completions'
 
-zplug 'm4i/cdd', as:plugin, use:'cdd'
-
-zplug 'rupa/z', as:plugin, use:'z.sh'
-
 zplug 'zsh-users/zsh-syntax-highlighting', nice:10
 
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:'fzf'
