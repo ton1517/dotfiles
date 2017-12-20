@@ -156,3 +156,11 @@ function fzf-files() {
 zle -N fzf-files
 bindkey '^@' fzf-files
 
+# tmuxが開いているpaneのディレクトリに移動する
+function cdd() {
+    local selected_line="$(tmux list-panes -s -F "#I.#P:#{pane_current_path}" | $(__fzfcmd) | head -n 1)"
+
+    if [ -n "$selected_line" ]; then
+        cd $(echo ${selected_line} | awk -F : '{print $2}')
+    fi
+}
