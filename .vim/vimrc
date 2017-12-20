@@ -141,9 +141,7 @@ set ttyfast
 set lazyredraw
 
 " カラー
-colorscheme molokai
-highlight Normal ctermbg=none
-highlight Comment ctermfg=246
+colorscheme tender
 
 "----------------------------------------
 " filetype settings

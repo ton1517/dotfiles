@@ -9,6 +9,9 @@ build = 'make'
 repo = 'tomasr/molokai'
 
 [[plugins]]
+repo = 'jacoborus/tender.vim'
+
+[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
