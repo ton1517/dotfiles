@@ -52,7 +52,7 @@ fi
 
 # install zplug
 if [ ! -e ~/.zplug ]; then
-    git clone -b 2.3.1 https://github.com/zplug/zplug ~/.zplug
+    git clone -b 2.4.1 https://github.com/zplug/zplug ~/.zplug
 fi
 
 # install anyenv
