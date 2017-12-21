@@ -12,18 +12,12 @@
 [alias]
     co = checkout
     st = status
-    sh = show
     cm = commit --verbose
-    cmm = commit -m
     tags = tag -l
-    ps = push
-    pl = pull
     br = branch
     df = diff
     dfs = diff --staged
     diff-branch = diff --stat -p develop...HEAD
-    dt = difftool
-    dts = difftool --staged
     ls = ls-files -v
     stage = add
     unstage = reset HEAD
