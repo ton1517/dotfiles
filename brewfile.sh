@@ -1,8 +1,9 @@
 #!/bin/sh
 
 brews=(
-    "git --with-gettext --with-pcre"
+    "git --with-gettext --with-pcre2"
     "vim --with-lua --with-luajit --with-python3"
+    awscli
     brew-pip
     caskroom/cask/brew-cask
     ctags
@@ -10,7 +11,9 @@ brews=(
     ghq
     global
     go
+    htop
     hub
+    hugo
     imagemagick
     jhead
     jpeg
@@ -25,6 +28,7 @@ brews=(
     neovim
     nkf
     node
+    pngquant
     python
     python3
     reattach-to-user-namespace
