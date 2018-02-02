@@ -65,4 +65,5 @@ if [ ! -e ~/.anyenv ]; then
     anyenv install pyenv
     anyenv install rbenv
     anyenv install ndenv
+    anyenv install goenv
 fi
