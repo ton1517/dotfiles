@@ -106,3 +106,9 @@ let g:jsx_ext_required = 1
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add='''
+let g:ale_sign_column_always = 1
+let g:ale_open_list = 1
+'''
