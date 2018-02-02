@@ -47,6 +47,7 @@ casks=(
     bettertouchtool
     caffeine
     charles
+    dash
     docker
     kitematic
     google-chrome
