@@ -47,18 +47,16 @@ casks=(
     bettertouchtool
     caffeine
     charles
-    flash-player
-    flash-player-debugger
+    docker
+    kitematic
     google-chrome
     google-japanese-ime
     istat-menus
     iterm2
-    karabiner
-    licecap
-    limechat
-    totalfinder
+    karabiner-elements
     vagrant
     virtualbox
+    visual-studio-code
 )
 
 # install homebrew
