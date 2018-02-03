@@ -1,7 +1,3 @@
-#--------------------------------------------------------------------------------
-# path
-#--------------------------------------------------------------------------------
-
 #----------------------------------------
 # path settings
 #----------------------------------------
@@ -37,12 +33,13 @@ manpath=(
          /usr/share/man(N-/)
         )
 
-#--------------------------------------------------------------------------------
-# other
-#--------------------------------------------------------------------------------
+#----------------------------------------
+# basic settings
+#----------------------------------------
 
 export TERM=xterm-256color
 export XDG_CONFIG_HOME=$HOME/.config
+export EDITOR=vim
 
 #----------------------------------------
 # language
@@ -52,10 +49,9 @@ export LANG=en_US.UTF-8
 export LC_ALL=$LANG
 
 #----------------------------------------
-# pager settings
+# pager
 #----------------------------------------
 
-# ページャの設定
 if type lv > /dev/null 2>&1; then
     ## lvを優先する。
     export PAGER="lv"
@@ -67,43 +63,13 @@ fi
 # lvの設定
 export LV="-c -l"
 
-if [ "$PAGER" != "lv" ]; then
-    ## lvがなくてもlvでページャーを起動する。
-    alias lv="$PAGER"
-fi
-
 # lessの設定
 ## -R: ANSIエスケープシーケンスのみ素通しする。
 ## 2012-09-04
 export LESS="-R"
 
-case ${OSTYPE} in
-darwin*)
-if command -v /usr/local/bin/src-hilite-lesspipe.sh > /dev/null; then
-    export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
-    function lvc() { if [ -f $1 ]; then less $1 | lv -c; fi;  }
-fi
-;;
-linux*)
-if command -v /usr/share/source-highlight/src-hilite-lesspipe.sh > /dev/null; then
-    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
-    function lvc() { if [ -f $1 ]; then less $1 | lv -c; fi;  }
-fi
-;;
-esac
-
 #----------------------------------------
-# editor
-#----------------------------------------
-
-export EDITOR=vim
-## vimがなくてもvimでviを起動する。
-if ! type vim > /dev/null 2>&1; then
-    alias vim=vi
-fi
-
-#----------------------------------------
-# git pager
+# other
 #----------------------------------------
 
 # git
