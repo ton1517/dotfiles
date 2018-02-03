@@ -106,8 +106,5 @@ fi
 # git pager
 #----------------------------------------
 
-if command -v diff-highlight > /dev/null && command -v nkf > /dev/null; then
-    export GIT_PAGER='diff-highlight | nkf -w | less -R'
-elif command -v lv > /dev/null; then
-    export GIT_PAGER='lv -c'
-fi
+# git
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
