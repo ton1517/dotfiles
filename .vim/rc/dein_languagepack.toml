@@ -51,6 +51,17 @@ let g:vdebug_keymap = {
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_source = '''
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+
+" highlight
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+
 " tagbar settings for golang
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
