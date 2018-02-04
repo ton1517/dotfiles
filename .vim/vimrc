@@ -39,6 +39,11 @@ vnoremap <Tab> %
 " 行末までヤンク
 nnoremap Y y$
 
+" move between errors.
+map <C-n> :cnext<CR>
+map <C-p> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
 "----------------------------------------
 " search settings
 "----------------------------------------
