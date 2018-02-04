@@ -42,3 +42,11 @@ let g:vdebug_keymap = {
 \    "eval_visual" : ",v13",
 \}
 '''
+
+#
+# golang
+#
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
