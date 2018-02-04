@@ -209,3 +209,11 @@ on_cmd = ['TagbarToggle']
 hook_add = '''
 nnoremap <silent> ,tb :TagbarToggle<CR>
 '''
+
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+on_ft = ['go', 'php', 'python', 'javascript', 'html', 'css', 'sass', 'scss']
+hook_source = '''
+nmap ,j :SplitjoinJoin<cr>
+nmap ,s :SplitjoinSplit<cr>
+'''
