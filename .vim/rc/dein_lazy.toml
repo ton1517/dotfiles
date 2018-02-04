@@ -202,3 +202,10 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 '''
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_cmd = ['TagbarToggle']
+hook_add = '''
+nnoremap <silent> ,tb :TagbarToggle<CR>
+'''
