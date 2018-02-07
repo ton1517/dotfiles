@@ -10,6 +10,7 @@ zplug "junegunn/fzf", as:command, use:'bin/fzf-tmux'
 zplug "junegunn/fzf", as:plugin, use:'shell/completion.zsh'
 zplug "~/.zsh/fzf.zsh", from:local
 
+zplug 'rupa/z', as:plugin, use:'z.sh'
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
