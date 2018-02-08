@@ -274,15 +274,14 @@ esac
 #詳細表示
 alias ll="ls -AlhFv"
 
-# ^ で cd ..
-# ^を入力したいときはCtrl-V
 function cdup() {
     echo
     cd ..
     zle reset-prompt
 }
 zle -N cdup
-bindkey '\^' cdup
+# Shift + UP キーで親ディレクトリに移動
+bindkey '^[[1;2A' cdup
 
 #ブラックホール
 alias -g NL=">/dev/null"
