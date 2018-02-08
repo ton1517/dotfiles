@@ -29,6 +29,8 @@
     rmall = !git rm $(git ls-files -d)
     #gitの管理下にあるファイルを無視する
     skip = update-index --skip-worktree
+    #skipされているファイルを表示
+    skipped-list = !git ls-files -v . | grep '^S' | awk '{ print $2}'
     #もとに戻す
     noskip = update-index --no-skip-worktree
     alias = !git config --get-regexp alias |  sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\ = \\2/'
