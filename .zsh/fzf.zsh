@@ -117,7 +117,7 @@ bindkey '^g^h' fzf-ghq
 # カレントディレクトリ内のファイルを選択する
 function fzf-ls() {
     local current_buffer=$BUFFER
-    local selected_lines="$(ls | $(__fzfcmd) | awk '{print $NF}')"
+    local selected_lines="$(ls -A | $(__fzfcmd) | awk '{print $NF}')"
 
     if [ -n "$selected_lines" ]; then
         BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
