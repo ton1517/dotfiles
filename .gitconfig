@@ -22,7 +22,7 @@
     stage = add
     unstage = reset HEAD
     # ignoreファイルを表示
-    ignored = ls-files --others -i --exclude-standard
+    ignored-list = ls-files --others -i --exclude-standard
     #コミットメッセージを変えずにamend
     amend = commit --amend --no-edit
     #すでに削除されているファイルを全てgit rmする 
