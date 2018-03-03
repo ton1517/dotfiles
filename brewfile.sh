@@ -31,7 +31,6 @@ brews=(
     pngquant
     python
     python3
-    reattach-to-user-namespace
     source-highlight
     the_platinum_searcher
     the_silver_searcher
