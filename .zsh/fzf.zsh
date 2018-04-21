@@ -165,3 +165,27 @@ function cdd() {
         cd $(echo ${selected_line} | awk -F : '{print $2}')
     fi
 }
+
+# dockerコンテナにshで入る
+function fzf-docker-in() {
+    local selected_line="$(docker ps --format "{{.ID}} {{.Names}} {{.Image}} {{.Command}}" | $(__fzfcmd) | awk '{ print $1}')"
+
+    if [ -n "$selected_line" ]; then
+        BUFFER="docker exec -it $selected_line sh"
+        zle .accept-line
+    fi
+}
+zle -N fzf-docker-in
+bindkey '^d^i' fzf-docker-in
+
+# docker exec
+function fzf-docker-exec() {
+    local selected_line="$(docker ps --format "{{.ID}} {{.Names}} {{.Image}} {{.Command}}" | $(__fzfcmd) | awk '{ print $1}')"
+
+    if [ -n "$selected_line" ]; then
+        BUFFER="docker exec -it ${selected_line} "
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N fzf-docker-exec
+bindkey '^d^e' fzf-docker-exec 
