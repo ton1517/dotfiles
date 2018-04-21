@@ -21,15 +21,6 @@ source ~/.vim/rc/plugins/neocomplete.rc.vim
 '''
 
 [[plugins]]
-repo = 'Shougo/neocomplcache.vim'
-if = "!has('lua')"
-on_i = 1
-hook_source = '''
-let g:neocomplcache_enable_at_startup = 1
-source ~/.vim/rc/plugins/neocomplcache.rc.vim
-'''
-
-[[plugins]]
 repo = 'easymotion/vim-easymotion'
 on_map = [['n', '<Plug>']]
 hook_add = '''
