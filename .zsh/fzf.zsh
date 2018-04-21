@@ -109,7 +109,7 @@ function fzf-ghq() {
     local selected_dir=$(ghq list -p | $(__fzfcmd) --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
-        zle accept-line
+        zle .accept-line
     fi
 }
 zle -N fzf-ghq
