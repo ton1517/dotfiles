@@ -94,11 +94,12 @@ bindkey '^r' fzf-history
 
 # zを利用し、ディレクトリのあいまい検索を行う
 function fzf-z() {
-    local selected_line="$(_z -l 2>&1 | $(__fzfcmd) +s --tac | awk '{ print $2 }' | head -n 1)"
+    local current_buffer=$BUFFER
+    local selected_line="$(_z -l $current_buffer 2>&1 | $(__fzfcmd) +s --tac | awk '{ print $2 }' | head -n 1)"
 
     if [ -n "${selected_line}" ]; then
         BUFFER="cd ${selected_line}"
-        zle accept-line
+        CURSOR=$#BUFFER
     fi
 }
 zle -N fzf-z
