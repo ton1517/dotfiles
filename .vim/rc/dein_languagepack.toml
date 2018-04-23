@@ -91,3 +91,18 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 '''
+
+[[plugins]]
+# go get -u github.com/nsf/gocode
+repo = 'zchee/deoplete-go'
+depends = 'deoplete.nvim'
+on_i = 1
+on_ft = 'go'
+build = 'make'
+hook_source = '''
+let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#pointer = 1
+'''
+
+
