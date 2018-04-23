@@ -99,7 +99,7 @@ function fzf-z() {
 
     if [ -n "${selected_line}" ]; then
         BUFFER="cd ${selected_line}"
-        CURSOR=$#BUFFER
+        zle .accept-line
     fi
 }
 zle -N fzf-z
