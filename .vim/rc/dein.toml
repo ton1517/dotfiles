@@ -130,3 +130,11 @@ let g:ale_lint_on_text_changed = 'never'
 
 [[plugins]]
 repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+on_if = '!has("nvim")'
+
+[[plugins]]
+on_if = '!has("nvim")'
+repo = 'roxma/vim-hug-neovim-rpc'
