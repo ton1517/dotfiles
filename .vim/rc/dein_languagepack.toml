@@ -68,10 +68,10 @@ let g:tagbar_type_go = {
 	\ 'kinds'     : [
 		\ 'p:package',
 		\ 'i:imports:1',
+		\ 'n:interfaces',
+		\ 't:types',
 		\ 'c:constants',
 		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
 		\ 'w:fields',
 		\ 'e:embedded',
 		\ 'm:methods',
