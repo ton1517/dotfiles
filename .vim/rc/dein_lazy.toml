@@ -11,13 +11,13 @@ on_source = 'unite.vim'
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
+# pip3 install --upgrade neovim
+repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
-if = "has('lua')"
 on_i = 1
 hook_source = '''
-let g:neocomplete#enable_at_startup = 1
-source ~/.vim/rc/plugins/neocomplete.rc.vim
+call deoplete#enable()
+source ~/.vim/rc/plugins/deoplete.rc.vim
 '''
 
 [[plugins]]
