@@ -39,6 +39,24 @@ vnoremap <Tab> %
 " 行末までヤンク
 nnoremap Y y$
 
+
+"
+" ウィンドウ関連操作
+"
+nnoremap s <Nop>
+
+nnoremap ss <C-w>s
+nnoremap sv <C-w>v
+
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+
 "----------------------------------------
 " search settings
 "----------------------------------------
