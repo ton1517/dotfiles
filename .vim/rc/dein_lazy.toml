@@ -24,16 +24,12 @@ source ~/.vim/rc/plugins/deoplete.rc.vim
 repo = 'easymotion/vim-easymotion'
 on_map = [['n', '<Plug>']]
 hook_add = '''
-nmap <Leader> <Plug>(easymotion-prefix)
-nmap w <Plug>(easymotion-lineforward)
-nnoremap W     w
-nmap b <Plug>(easymotion-linebackward)
-nnoremap B     b
-map s <Plug>(easymotion-s2)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-let g:EasyMotion_keys = ';HKLYUIOPNM,QWERTASDGZXCVBJF'
-let g:EasyMotion_use_upper = 1
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+let g:EasyMotion_smartcase = 1
+
+nmap <Leader>e <Plug>(easymotion-overwin-w)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
 '''
 
 [[plugins]]
