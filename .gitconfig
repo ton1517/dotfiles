@@ -50,3 +50,6 @@
     diffFilter = diff-highlight
 [diff-so-fancy]
     stripLeadingSymbols = false
+[color "diff"]
+    oldMoved = 225 bold
+    newMoved = 195 bold
