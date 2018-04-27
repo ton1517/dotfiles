@@ -8,6 +8,7 @@ brews=(
     caskroom/cask/brew-cask
     ctags
     curl
+    diff-so-fancy
     ghq
     global
     go
