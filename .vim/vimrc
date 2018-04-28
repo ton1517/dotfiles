@@ -180,12 +180,6 @@ autocmd BufNewFile,BufRead *.hx set filetype=haxe
 " ex settings
 "----------------------------------------
 
-"Windowsのランタイムパスを他のOSのパスに合わせる
-:set runtimepath+=$HOME/.vim,$HOME/.vim/after
-
-"ファイルを開いたらそのファイルのディレクトリに移動する
-au   BufEnter *   execute ":lcd " . expand("%:p:h")
-
 "自動保存
 set autowrite
 "外部で変更があった場合自動的にファイルを読みなおす
