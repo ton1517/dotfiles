@@ -138,3 +138,10 @@ on_if = '!has("nvim")'
 [[plugins]]
 on_if = '!has("nvim")'
 repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
