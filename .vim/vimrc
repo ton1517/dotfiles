@@ -32,10 +32,6 @@ nnoremap <C-s> <Esc>:w<CR>
 nnoremap j gj
 nnoremap k gk
 
-"タブで対応ペアにジャンプ
-nnoremap <Tab> %
-vnoremap <Tab> %
-
 " 行末までヤンク
 nnoremap Y y$
 
