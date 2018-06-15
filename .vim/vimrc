@@ -6,6 +6,9 @@
 " mapping settings
 "----------------------------------------
 
+" セミコロンでコマンドラインモードに入る
+nnoremap ; :
+
 " 移動をちょっと早く
 nnoremap <C-j> 5j
 vnoremap <C-j> 5j
