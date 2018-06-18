@@ -26,6 +26,7 @@ brews=(
     mercurial
     mobile-shell
     moreutils
+    mycli
     neovim
     nkf
     node
