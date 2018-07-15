@@ -154,3 +154,6 @@ let g:loaded_matchparen = 1
 
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
