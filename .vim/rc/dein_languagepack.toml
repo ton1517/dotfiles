@@ -106,3 +106,6 @@ let g:deoplete#sources#go#pointer = 1
 '''
 
 
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'
