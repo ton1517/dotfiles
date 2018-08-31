@@ -6,9 +6,6 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
 repo = 'jacoborus/tender.vim'
 
 [[plugins]]
