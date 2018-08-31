@@ -13,7 +13,9 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-
+hook_add = '''
+let g:indentLine_faster = 1
+'''
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'
 
