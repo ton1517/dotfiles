@@ -160,16 +160,3 @@ repo = 'itchyny/vim-cursorword'
 
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-hook_add='''
-let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls'],
-    \ 'html': [],
-    \ 'javascript': [],
-    \ 'css': [],
-    \ }
-'''
