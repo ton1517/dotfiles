@@ -33,11 +33,6 @@ nmap <Leader>s <Plug>(easymotion-overwin-f2)
 '''
 
 [[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = 'context_filetype.vim'
-on_ft = ['toml', 'html', 'markdown']
-
-[[plugins]]
 repo = 'AndrewRadev/switch.vim'
 on_cmd = ['Switch']
 hook_add = 'nnoremap - :Switch<cr>'
