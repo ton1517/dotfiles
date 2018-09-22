@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 brews=(
     "git --with-gettext --with-pcre2"
@@ -74,11 +74,11 @@ fi
 # brew
 for app in "${brews[@]}"
 do
-    brew install $app
+    brew install "$app"
 done
 
 # brew cask
 for app in "${casks[@]}"
 do
-    brew cask install $app
+    brew cask install "$app"
 done
