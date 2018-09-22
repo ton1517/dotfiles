@@ -33,6 +33,7 @@ brews=(
     pngquant
     python
     python3
+    shellcheck
     source-highlight
     the_platinum_searcher
     the_silver_searcher
