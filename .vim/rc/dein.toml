@@ -191,3 +191,9 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 '''
 
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+hook_add='''
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+'''
