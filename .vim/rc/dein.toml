@@ -125,12 +125,19 @@ let g:ale_keep_list_window_open = 0
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters = {
+\   'css': ['prettier'],
+\   'scss': ['prettier'],
+\   'javascript': ['eslint'],
+\   'vue': ['eslint', 'prettier']
+\ }
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
+\   'css': ['prettier'],
+\   'scss': ['prettier'],
 \   'javascript': ['eslint'],
-\   'vue': ['eslint'],
-\   'scss': ['prettier']
+\   'vue': ['eslint', 'prettier']
 \}
 '''
 
