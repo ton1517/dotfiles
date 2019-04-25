@@ -139,6 +139,8 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'vue': ['eslint', 'prettier']
 \}
+
+let g:ale_go_langserver_executable = 'gopls'
 '''
 
 [[plugins]]
@@ -178,8 +180,8 @@ build = 'bash install.sh'
 hook_add='''
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_serverCommands = {
-    " go get -u golang.org/x/tools/cmd/golsp
-    " \ 'go': ['golsp'],
+    " go get -u golang.org/x/tools/cmd/gopls
+    \ 'go': ['gopls'],
     " npm install vue-language-server -g
     \ 'vue': ['/usr/local/bin/vls'],
     \ 'html': [],
@@ -189,6 +191,7 @@ let g:LanguageClient_serverCommands = {
     \ 'css': [],
     \ }
 
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 '''
 

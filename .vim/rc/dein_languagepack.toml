@@ -54,6 +54,8 @@ hook_source = '''
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 
+let g:go_def_mode='gopls'
+
 " highlight
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -91,20 +93,6 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 '''
-
-[[plugins]]
-# go get -u github.com/nsf/gocode
-repo = 'zchee/deoplete-go'
-depends = 'deoplete.nvim'
-on_i = 1
-on_ft = 'go'
-build = 'make'
-hook_source = '''
-let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#pointer = 1
-'''
-
 
 [[plugins]]
 repo = 'posva/vim-vue'
