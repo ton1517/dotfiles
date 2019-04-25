@@ -185,6 +185,7 @@ let g:LanguageClient_serverCommands = {
     \ 'html': [],
     " npm install javascript-typescript-langserver -g
     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'typescript': ['/usr/local/bin/javascript-typescript-stdio'],
     \ 'css': [],
     \ }
 
