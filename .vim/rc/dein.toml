@@ -139,8 +139,6 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'vue': ['eslint', 'prettier']
 \}
-
-let g:ale_go_langserver_executable = 'gopls'
 '''
 
 [[plugins]]
