@@ -111,7 +111,7 @@ let g:vim_markdown_conceal = 0
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add='''
 let g:ale_sign_error = '⨉'
 let g:ale_sign_warning = '⚠'
