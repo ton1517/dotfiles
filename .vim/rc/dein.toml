@@ -199,3 +199,9 @@ hook_add='''
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 '''
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add='''
+let g:rainbow_active = 1
+'''
