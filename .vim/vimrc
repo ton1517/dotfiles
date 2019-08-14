@@ -89,6 +89,9 @@ set hlsearch
 " edit settings
 "----------------------------------------
 
+set hidden
+set updatetime=300
+
 " タブの画面上での幅
 set tabstop=4
 " タブを挿入するときの幅
@@ -133,6 +136,7 @@ set clipboard+=unnamed
 
 " バックアップをとらない
 set nobackup
+set nowritebackup
 set noswapfile
 "----------------------------------------
 " display settings
@@ -160,6 +164,9 @@ set cmdheight=2
 set showcmd
 " タイトルを表示
 set title
+
+set signcolumn=yes
+
 " カーソルのある行を強調表示
 " set cursorline
 
