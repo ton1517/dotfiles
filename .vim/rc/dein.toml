@@ -5,8 +5,11 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
+# [[plugins]]
+# repo = 'jacoborus/tender.vim'
+
 [[plugins]]
-repo = 'jacoborus/tender.vim'
+repo = 'joshdick/onedark.vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'

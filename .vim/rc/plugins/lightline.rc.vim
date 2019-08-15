@@ -3,7 +3,7 @@
 "----------------------------------------
 
 let g:lightline = {
-\       'colorscheme': 'wombat',
+\       'colorscheme': 'onedark',
 \       'separator': { 'left': '⮀', 'right': '⮂' },
 \       'subseparator': { 'left': '⮁⮁', 'right': '⮃⮃' },
 \       'active': {
