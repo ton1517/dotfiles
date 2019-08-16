@@ -7,14 +7,19 @@ let g:lightline = {
 \       'separator': { 'left': '⮀', 'right': '⮂' },
 \       'subseparator': { 'left': '⮁⮁', 'right': '⮃⮃' },
 \       'active': {
-\           'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+\           'left': [ [ 'mode', 'paste' ], [ 'cocstatus', 'fugitive', 'filename' ] ],
 \       },
 \       'component_function': {
 \           'fugitive': 'MyFugitive',
 \           'filename': 'MyFilename',
 \           'myreadonly': 'MyReadonly',
+\           'cocstatus': 'coc#status',
 \       },
 \}
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 
 function! MyModified()
     return &ft =~ 'help\|vimfiler' ? '' : &modified ? '+' : &modifiable ? '' : '-'

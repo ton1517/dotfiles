@@ -185,3 +185,8 @@ repo = 'luochen1990/rainbow'
 hook_add='''
 let g:rainbow_active = 1
 '''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
