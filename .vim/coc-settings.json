@@ -6,5 +6,15 @@
             "rootPatterns": ["go.mod", ".git/"],
             "filetypes": ["go"]
         },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        }
     },
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "gosnippets/UltiSnips"
+    ]
 }
