@@ -11,16 +11,6 @@ on_source = 'unite.vim'
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-# pip3 install --upgrade neovim
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_i = 1
-hook_source = '''
-call deoplete#enable()
-source ~/.vim/rc/plugins/deoplete.rc.vim
-'''
-
-[[plugins]]
 repo = 'easymotion/vim-easymotion'
 on_map = [['n', '<Plug>']]
 hook_add = '''
