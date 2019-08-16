@@ -94,7 +94,3 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 '''
-
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = 'vue'
