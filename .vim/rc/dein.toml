@@ -174,28 +174,6 @@ repo = 'itchyny/vim-cursorword'
 repo = 'terryma/vim-multiple-cursors'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-hook_add='''
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_serverCommands = {
-    " go get -u golang.org/x/tools/cmd/gopls
-    \ 'go': ['gopls'],
-    " npm install vue-language-server -g
-    \ 'vue': ['/usr/local/bin/vls'],
-    \ 'html': [],
-    " npm install javascript-typescript-langserver -g
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'typescript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'css': [],
-    \ }
-
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-'''
-
-[[plugins]]
 repo = 'terryma/vim-expand-region'
 hook_add='''
 vmap v <Plug>(expand_region_expand)
