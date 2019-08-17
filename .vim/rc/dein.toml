@@ -190,3 +190,6 @@ let g:rainbow_active = 1
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
