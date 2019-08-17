@@ -52,15 +52,6 @@ let g:quickrun_config = {
 '''
 
 [[plugins]]
-repo = "jceb/vim-hier"
-
-[[plugins]]
-repo = "osyo-manga/shabadou.vim"
-
-[[plugins]]
-repo = "dannyob/quickfixstatus"
-
-[[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_add = '''
 let g:yankround_dir = "~/.vim/.backup/yankround"
@@ -153,13 +144,6 @@ on_if = '!has("nvim")'
 [[plugins]]
 on_if = '!has("nvim")'
 repo = 'roxma/vim-hug-neovim-rpc'
-
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-
-[[plugins]]
-repo = 'junegunn/fzf.vim'
 
 [[plugins]]
 repo = 'itchyny/vim-parenmatch'

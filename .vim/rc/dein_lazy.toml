@@ -8,9 +8,6 @@ repo = 'Shougo/unite-outline'
 on_source = 'unite.vim'
 
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
 repo = 'easymotion/vim-easymotion'
 on_map = [['n', '<Plug>']]
 hook_add = '''
@@ -26,10 +23,6 @@ nmap <Leader>s <Plug>(easymotion-overwin-f2)
 repo = 'AndrewRadev/switch.vim'
 on_cmd = ['Switch']
 hook_add = 'nnoremap - :Switch<cr>'
-
-[[plugins]]
-repo = 'vim-scripts/DrawIt'
-on_cmd = ['DrawIt', 'DrawItStart']
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
@@ -55,25 +48,6 @@ vnoremap <silent> a= :Align =<CR>
 '''
 
 [[plugins]]
-repo = 'hewes/unite-gtags'
-on_source = 'unite.vim'
-hook_add = '''
-nnoremap <silent> ,gcon :<C-u>Unite gtags/context<CR>
-nnoremap <silent> ,gr :<C-u>Unite gtags/ref<CR>
-nnoremap <silent> ,gd :<C-u>Unite gtags/def<CR>
-nnoremap <silent> ,gg :<C-u>Unite gtags/grep<CR>
-nnoremap <silent> ,gcom :<C-u>Unite gtags/completion<CR>
-'''
-
-[[plugins]]
-repo = 'tsukkee/unite-tag'
-on_source = 'unite.vim'
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-on_source = 'neocomplete.vim'
-
-[[plugins]]
 repo = 'kana/vim-textobj-user'
 on_map = [['ox', 'i^', 'a^']]
 hook_post_source = '''
@@ -86,11 +60,6 @@ call textobj#user#plugin('html', {
 \   },
 \ })
 '''
-
-[[plugins]]
-repo = 'kana/vim-textobj-entire'
-depends = 'vim-textobj-user'
-on_map = [['ox', 'ie', 'ae']]
 
 [[plugins]]
 repo = 'kana/vim-textobj-indent'
@@ -115,15 +84,6 @@ map /  <Plug>(incsearch-forward)
 '''
 
 [[plugins]]
-repo = 'haya14busa/incsearch-fuzzy.vim'
-on_map = ['<Plug>']
-hook_add = '''
-map z/ <Plug>(incsearch-fuzzy-/)
-map z? <Plug>(incsearch-fuzzy-?)
-map zg/ <Plug>(incsearch-fuzzy-stay)
-'''
-
-[[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 depends = 'ctrlp-py-matcher'
 on_cmd = ['CtrlP']
@@ -142,20 +102,7 @@ repo = 'FelikZ/ctrlp-py-matcher'
 on_source = 'ctrlp.vim'
 
 [[plugins]]
-repo = 'soramugi/auto-ctags.vim'
-on_ft = ["php", "c", "cpp", "python"]
-depends = 'unite.vim'
-hook_source = '''
-let project_root = unite#util#path2project_directory(getcwd())
-let g:auto_ctags = 1
-let g:auto_ctags_directory_list = [project_root.'/.git', project_root.'/.svn']
-let g:auto_ctags_tags_args = '--tag-relative --append=yes --recurse=yes --sort=yes --links=no'
-let g:auto_ctags_filetype_mode = 1
-'''
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
 hook_source = '''
 imap <C-j> <plug>(neosnippet_expand_or_jump)
 smap <C-j> <plug>(neosnippet_expand_or_jump)
