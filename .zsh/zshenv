@@ -78,3 +78,5 @@ export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 # go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+export GOENV_DISABLE_GOPATH=1
