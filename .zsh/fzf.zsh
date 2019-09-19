@@ -167,7 +167,7 @@ function cdd() {
 }
 
 # dockerコンテナにshで入る
-function fzf-docker-in() {
+function fzf-docker-sh() {
     local selected_line="$(docker ps --format "{{.ID}} {{.Names}} {{.Image}} {{.Command}}" | $(__fzfcmd) | awk '{ print $1}')"
 
     if [ -n "$selected_line" ]; then
@@ -175,8 +175,8 @@ function fzf-docker-in() {
         zle .accept-line
     fi
 }
-zle -N fzf-docker-in
-bindkey '^d^i' fzf-docker-in
+zle -N fzf-docker-sh
+bindkey '^d^s' fzf-docker-sh
 
 # docker exec
 function fzf-docker-exec() {
@@ -189,3 +189,29 @@ function fzf-docker-exec() {
 }
 zle -N fzf-docker-exec
 bindkey '^d^e' fzf-docker-exec 
+
+# docker images list
+function fzf-docker-images() {
+    local current_buffer=$BUFFER
+    local selected_lines="$(docker images --format "{{.ID}} {{.Repository}} {{.Tag}} {{.CreatedSince}} {{.Size}}" | $(__fzfcmd) | awk '{ print $1}' | tr '\n' ' ')"
+
+    if [ -n "$selected_lines" ]; then
+        BUFFER="${current_buffer}${selected_lines}"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N fzf-docker-images
+bindkey '^d^i' fzf-docker-images
+
+# docker containers list
+function fzf-docker-ps() {
+    local current_buffer=$BUFFER
+    local selected_lines="$(docker ps -a --format "{{.ID}} {{.Names}} {{.Image}} {{.Command}}" | $(__fzfcmd) | awk '{ print $1}' | tr '\n' ' ')"
+
+    if [ -n "$selected_lines" ]; then
+        BUFFER="${current_buffer}${selected_lines}"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N fzf-docker-ps
+bindkey '^d^p' fzf-docker-ps
