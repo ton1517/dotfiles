@@ -54,3 +54,5 @@
 [color "diff"]
     oldMoved = 225 bold
     newMoved = 195 bold
+[commit]
+	verbose = true
