@@ -16,8 +16,8 @@
     cm = commit --verbose
     tags = tag -l
     br = branch
-    df = diff
-    dfs = diff --staged
+    df = diff --ignore-space-change
+    dfs = diff --staged --ignore-space-change
     diff-branch = diff --stat -p develop...HEAD
     ls = ls-files -v
     stage = add
