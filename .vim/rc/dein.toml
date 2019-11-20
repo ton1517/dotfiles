@@ -12,6 +12,9 @@ repo = 'joshdick/onedark.vim'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'tpope/vim-rhubarb'
+
+[[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
 let g:indentLine_faster = 1
