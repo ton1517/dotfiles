@@ -1,4 +1,11 @@
 "----------------------------------------
+" for neovim
+"----------------------------------------
+
+let g:python_host_prog = $PYENV_ROOT.'/versions/neovim/bin/python'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim/bin/python'
+
+"----------------------------------------
 " source vim plugin settings
 "----------------------------------------
 
