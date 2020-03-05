@@ -9,6 +9,9 @@ build = 'make'
 repo = 'joshdick/onedark.vim'
 
 [[plugins]]
+repo = 'morhetz/gruvbox'
+
+[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
