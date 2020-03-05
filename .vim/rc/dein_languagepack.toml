@@ -51,6 +51,8 @@ let g:vdebug_keymap = {
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_source = '''
+autocmd FileType go nmap <leader>t  <Plug>(go-test-func)
+
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 
