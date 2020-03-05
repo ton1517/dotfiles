@@ -90,7 +90,7 @@ set hlsearch
 "----------------------------------------
 
 set hidden
-set updatetime=300
+set updatetime=100
 
 " タブの画面上での幅
 set tabstop=4
