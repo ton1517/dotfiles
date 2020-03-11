@@ -4,7 +4,8 @@
 
 # My Setting
 # ---------------
-export FZF_DEFAULT_OPTS='-m -x --reverse'
+export FZF_TMUX=1
+export FZF_DEFAULT_OPTS="--color=fg+:11 -m -x --reverse --bind 'ctrl-j:preview-down' --bind 'ctrl-k:preview-up'"
 
 function __fzfcmd() {
     [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux" || echo "fzf"
@@ -22,7 +23,7 @@ function fzf-git-branch-local() {
     fi
 }
 zle -N fzf-git-branch-local
-bindkey '^g^b^l' fzf-git-branch-local
+bindkey '^g^b' fzf-git-branch-local
 
 # gitのリモートブランチを選択する
 function fzf-git-branch-remote() {
@@ -36,12 +37,12 @@ function fzf-git-branch-remote() {
     fi
 }
 zle -N fzf-git-branch-remote
-bindkey '^g^b^r' fzf-git-branch-remote
+# bindkey '^g^b^r' fzf-git-branch-remote
 
 # gitで変更のあるファイルを選択する
 function fzf-git-status() {
     local current_buffer=$BUFFER
-    local selected_lines="$(git status --short | $(__fzfcmd) | awk '{print $NF}')"
+    local selected_lines="$(git status --short | $(__fzfcmd) --preview 'git diff --color=always {+2} | diff-so-fancy' --preview-window=right:70% | awk '{print $NF}')"
 
     if [ -n "$selected_lines" ]; then
         BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
@@ -54,7 +55,7 @@ bindkey "^g^s" fzf-git-status
 # git logを表示し、選択したコミットのハッシュを返す
 function fzf-git-log() {
     local current_buffer=$BUFFER
-    local selected_line="$( git log --pretty=format:"%h  %cd  %cn  %s" --date=short | $(__fzfcmd) | awk '{print $1}')"
+    local selected_line="$( git log --pretty=format:"%h  %cd  %cn  %s" --date=short | $(__fzfcmd) --preview "git show --color=always {+1} | diff-so-fancy" | awk '{print $1}')"
 
     if [ -n "$selected_line" ]; then
         BUFFER="${current_buffer}${selected_line}"
