@@ -4,6 +4,7 @@ brews=(
     "git --with-gettext --with-pcre2"
     "vim --with-lua --with-luajit --with-python3"
     awscli
+    bat
     brew-pip
     caskroom/cask/brew-cask
     ctags
