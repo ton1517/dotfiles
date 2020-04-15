@@ -160,6 +160,8 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'vue': ['eslint', 'prettier']
 \}
+
+let g:ale_go_golangci_lint_options = ''
 '''
 
 [[plugins]]
