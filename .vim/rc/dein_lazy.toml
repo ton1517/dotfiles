@@ -115,3 +115,10 @@ hook_source = '''
 nmap ,j :SplitjoinJoin<cr>
 nmap ,s :SplitjoinSplit<cr>
 '''
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+on_cmd = ['GundoToggle']
+hook_add = '''
+nnoremap <silent> ,gu :GundoToggle<CR>
+'''
