@@ -56,19 +56,9 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
-" vモードの置換連続ペースト用
-function! Put_text_without_override_register()
-  let line_len = strlen(getline('.'))
-  execute "normal! `>"
-  let col_loc = col('.')
-  execute 'normal! gv"_x'
-  if line_len == col_loc
-    execute 'normal! p'
-  else 
-    execute 'normal! P'
-  endif
-endfunction
-xnoremap <silent> p :call Put_text_without_override_register()<CR>
+" コピーした文字列をC-pで連続でペーストできるように
+" https://qiita.com/fukajun/items/bd97a9b963dae40b63f5
+vnoremap <silent> <C-p> "0p<CR>
 
 "----------------------------------------
 " search settings
