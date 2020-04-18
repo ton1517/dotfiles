@@ -106,8 +106,7 @@ set showmatch
 set wildmenu
 
 set formatoptions=tcqmMro
-" 日本語整形スクリプト(by. 西岡拓洋さん)用の設定
-let format_allow_over_tw = 1" ぶら下り可能幅
+
 " ビープ音を鳴らさないように
 set visualbell
 
