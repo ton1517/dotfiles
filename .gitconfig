@@ -56,3 +56,5 @@
     newMoved = 195 bold
 [commit]
 	verbose = true
+[pull]
+	ff = only
