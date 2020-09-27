@@ -6,13 +6,10 @@ brews=(
     awscli
     bat
     brew-pip
-    caskroom/cask/brew-cask
     ctags
     curl
     diff-so-fancy
     ghq
-    global
-    go
     htop
     hub
     hugo
@@ -30,18 +27,15 @@ brews=(
     mycli
     neovim
     nkf
-    node
     pngquant
     python
     python3
     shellcheck
     source-highlight
-    the_platinum_searcher
     the_silver_searcher
     tig
     tmux
     tree
-    uncrustify
     watch
     wget
     zsh
@@ -52,11 +46,9 @@ casks=(
     atom
     bartender
     bettertouchtool
-    caffeine
     charles
     dash
     docker
-    kitematic
     google-chrome
     google-japanese-ime
     istat-menus
