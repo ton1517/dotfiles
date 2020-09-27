@@ -58,3 +58,5 @@
 	verbose = true
 [pull]
 	ff = only
+[merge]
+	conflictStyle = diff3
