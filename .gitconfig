@@ -1,6 +1,6 @@
 [core]
     excludesfile = ~/.gitignore.global
-    editor = vim
+    editor = nvim
     ui = auto
     autocrlf = input
     pager = diff-so-fancy | less --tabs=4 -RFX
@@ -40,13 +40,17 @@
     delete-merged-branches = !git branch --merged | grep -vE '^\\*|master$|develop$' | xargs -I {} git branch -d {}
     rebase-develop= !git checkout develop && git pull --ff-only && git checkout - && git rebase develop
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
     indentHeuristic = true
     colorMoved=plain
 [difftool]
     prompt = false
 [mergetool]
     keepBackup = false
+[difftool "nvimdiff"]
+    cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "nvimdiff"]
+    cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [interactive]
     diffFilter = diff-highlight
 [diff-so-fancy]
@@ -59,4 +63,5 @@
 [pull]
 	ff = only
 [merge]
+	tool = nvimdiff
 	conflictStyle = diff3
