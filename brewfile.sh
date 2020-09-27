@@ -42,6 +42,7 @@ brews=(
 )
 
 casks=(
+    alacritty
     alfred
     atom
     bartender
