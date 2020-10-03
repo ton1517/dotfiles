@@ -14,11 +14,10 @@ nnoremap <C-j> 5j
 vnoremap <C-j> 5j
 nnoremap <C-k> 5k
 vnoremap <C-k> 5k
-" 行頭、行末にジャンプ
-nnoremap <C-h> ^
-vnoremap <C-h> ^
-nnoremap <C-l> $
-vnoremap <C-l> $
+nnoremap <C-h> 5h
+vnoremap <C-h> 5h
+nnoremap <C-l> 5l
+vnoremap <C-l> 5l
 
 " タグジャンプ
 nnoremap <silent> ,tn <C-]>
