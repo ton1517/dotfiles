@@ -204,3 +204,13 @@ let g:rainbow_active = 1
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = 'vim-operator-user'
+hook_add = '''
+map <C-p> <Plug>(operator-replace)
+'''

@@ -55,10 +55,6 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
-" コピーした文字列をC-pで連続でペーストできるように
-" https://qiita.com/fukajun/items/bd97a9b963dae40b63f5
-vnoremap <silent> <C-p> "0p<CR>
-
 "----------------------------------------
 " search settings
 "----------------------------------------
