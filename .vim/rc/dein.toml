@@ -79,6 +79,11 @@ repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
+hook_add = '''
+" disable mapping
+let g:tcomment_mapleader1 = ''
+let g:tcomment_mapleader2 = ''
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
