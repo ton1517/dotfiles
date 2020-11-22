@@ -2,16 +2,11 @@ augroup MyAutoCmd
 autocmd!
 augroup END
 
-let s:dein_dir = expand('~/.vim/.cache/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-let s:dein_toml              = '~/.vim/rc/dein.toml'
-let s:dein_lazy_toml         = '~/.vim/rc/dein_lazy.toml'
-let s:dein_languagepack_toml = '~/.vim/rc/dein_languagepack.toml'
-
 if &compatible
   set nocompatible
 endif
+
+let s:dein_repo_dir = expand('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 if &runtimepath !~# '/dein.vim'
     if !isdirectory(s:dein_repo_dir)
@@ -20,12 +15,14 @@ if &runtimepath !~# '/dein.vim'
     execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-if dein#load_state(s:dein_dir)
-    call dein#begin(s:dein_dir, expand('<sfile>'))
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
 
-    call dein#load_toml(s:dein_toml,              {'lazy': 0})
-    call dein#load_toml(s:dein_lazy_toml,         {'lazy': 1})
-    call dein#load_toml(s:dein_languagepack_toml, {'lazy': 1})
+    call dein#add(s:dein_repo_dir)
+
+    call dein#load_toml('~/.vim/rc/dein.toml',              {'lazy': 0})
+    call dein#load_toml('~/.vim/rc/dein_lazy.toml',         {'lazy': 1})
+    call dein#load_toml('~/.vim/rc/dein_languagepack.toml', {'lazy': 1})
 
     call dein#end()
     call dein#save_state()
