@@ -57,9 +57,9 @@ let g:quickrun_config = {
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_add = '''
-let g:yankround_dir = "~/.vim/.backup/yankround"
+let g:yankround_dir = "~/.cache/yankround"
 let g:yankround_use_region_hl = 1
-let g:yankround_max_history = 100
+let g:yankround_max_history = 30
 
 nmap p <Plug>(yankround-p)
 xmap p <Plug>(yankround-p)
