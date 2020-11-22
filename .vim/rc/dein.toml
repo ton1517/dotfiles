@@ -34,6 +34,9 @@ hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+hook_add = '''
+let g:gitgutter_map_keys = 0
+'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
