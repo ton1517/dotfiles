@@ -231,7 +231,7 @@ repo = 'kana/vim-operator-user'
 repo = 'kana/vim-operator-replace'
 depends = 'vim-operator-user'
 hook_add = '''
-map <C-r> <Plug>(operator-replace)
+map <S-r> <Plug>(operator-replace)
 '''
 
 [[plugins]]
