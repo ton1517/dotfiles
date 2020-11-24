@@ -211,3 +211,5 @@ augroup END
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
+
+set mouse=a
