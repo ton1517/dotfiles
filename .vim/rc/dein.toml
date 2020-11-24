@@ -244,3 +244,6 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 '''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
