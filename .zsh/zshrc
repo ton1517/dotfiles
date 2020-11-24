@@ -231,6 +231,8 @@ function extract() {
 
 # プロンプトで何も打たずにEnterキーを押すとlsとgit statusを表示する
 accept-line() {
+    zle reset-prompt
+
     if [[ -z "$BUFFER" ]]; then
         echo
         ls_abbrev
