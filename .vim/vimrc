@@ -175,8 +175,8 @@ set background=dark
 
 colorscheme gruvbox
 
-" switch inactive window background color.
 if (has("nvim"))
+    " switch inactive window background color.
     hi ActiveWindow guibg=bg
     hi InactiveWindow guibg=#111111
 
@@ -195,6 +195,9 @@ if (has("nvim"))
     function! Highlight_Leave()
       setlocal winhighlight=Normal:InactiveWindow,NormalNC:InactiveWindow
     endfunction
+
+    " floating windowの背景を透過させる
+    set winblend=15
 endif
 
 "----------------------------------------
