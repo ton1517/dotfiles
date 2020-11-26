@@ -175,25 +175,26 @@ set background=dark
 colorscheme gruvbox
 
 " switch inactive window background color.
+if (has("nvim"))
+    hi ActiveWindow guibg=bg
+    hi InactiveWindow guibg=#111111
 
-hi ActiveWindow guibg=bg
-hi InactiveWindow guibg=#111111
+    augroup WindowManagement
+      autocmd!
+      autocmd WinEnter * call Highlight_Enter()
+      autocmd WinLeave * call Highlight_Leave()
+      autocmd FocusGained * call Highlight_Enter()
+      autocmd FocusLost * call Highlight_Leave()
+    augroup END
 
-augroup WindowManagement
-  autocmd!
-  autocmd WinEnter * call Highlight_Enter()
-  autocmd WinLeave * call Highlight_Leave()
-  autocmd FocusGained * call Highlight_Enter()
-  autocmd FocusLost * call Highlight_Leave()
-augroup END
+    function! Highlight_Enter()
+      setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+    endfunction
 
-function! Highlight_Enter()
-  setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
-endfunction
-
-function! Highlight_Leave()
-  setlocal winhighlight=Normal:InactiveWindow,NormalNC:InactiveWindow
-endfunction
+    function! Highlight_Leave()
+      setlocal winhighlight=Normal:InactiveWindow,NormalNC:InactiveWindow
+    endfunction
+endif
 
 "----------------------------------------
 " ex settings
