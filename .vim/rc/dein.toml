@@ -33,6 +33,9 @@ hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
 let g:gitgutter_map_keys = 0
+let g:gitgutter_sign_added              = ''
+let g:gitgutter_sign_modified           = ''
+let g:gitgutter_sign_removed            = ''
 '''
 
 [[plugins]]
