@@ -1,18 +1,17 @@
 #!/bin/bash
 
 brews=(
-    "git --with-gettext --with-pcre2"
-    "vim --with-lua --with-luajit --with-python3"
     awscli
     bat
     brew-pip
     ctags
     curl
     diff-so-fancy
+    direnv
+    gh
     ghq
+    git
     htop
-    hub
-    hugo
     imagemagick
     jhead
     jpeg
@@ -20,13 +19,10 @@ brews=(
     lua
     luajit
     lv
-    macvim
-    mercurial
-    mobile-shell
     moreutils
-    mycli
     neovim
     nkf
+    oath-toolkit
     pngquant
     python
     python3
@@ -36,6 +32,7 @@ brews=(
     tig
     tmux
     tree
+    vim
     watch
     wget
     zsh
@@ -44,7 +41,7 @@ brews=(
 casks=(
     alacritty
     alfred
-    atom
+    authy
     bartender
     bettertouchtool
     charles
@@ -55,8 +52,6 @@ casks=(
     istat-menus
     iterm2
     karabiner-elements
-    vagrant
-    virtualbox
     visual-studio-code
 )
 
@@ -74,5 +69,5 @@ done
 # brew cask
 for app in "${casks[@]}"
 do
-    brew cask install "$app"
+    brew install --cask "$app"
 done
