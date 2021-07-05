@@ -3,9 +3,6 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'joshdick/onedark.vim'
-
-[[plugins]]
 repo = 'morhetz/gruvbox'
 
 [[plugins]]
