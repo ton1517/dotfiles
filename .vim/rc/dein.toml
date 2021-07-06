@@ -3,7 +3,13 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'morhetz/gruvbox'
+repo = 'sainnhe/sonokai'
+hook_add = '''
+let g:sonokai_style = 'default'
+let g:sonokai_disable_italic_comment = 1
+
+au MyAutoCmd VimEnter * nested colorscheme sonokai
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'

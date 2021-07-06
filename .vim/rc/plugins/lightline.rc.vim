@@ -3,7 +3,7 @@
 "----------------------------------------
 
 let g:lightline = {
-\ 'colorscheme': 'gruvbox',
+\ 'colorscheme': 'sonokai',
 \ 'separator':            {'left': "\ue0b0", 'right': "\ue0b2"},
 \ 'subseparator':         {'left': "\ue0b1", 'right': "\ue0b3"},
 \ 'tabline_separator':    {'left': "\ue0b0", 'right': "\ue0b2"},

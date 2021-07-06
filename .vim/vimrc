@@ -173,8 +173,6 @@ endif
 
 set background=dark
 
-colorscheme gruvbox
-
 "----------------------------------------
 " ex settings
 "----------------------------------------
