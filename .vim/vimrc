@@ -153,6 +153,10 @@ set title
 
 set signcolumn=yes
 
+" disable conceal
+set conceallevel=0
+set concealcursor=""
+
 " カーソルのある行を強調表示
 " set cursorline
 
