@@ -124,6 +124,10 @@ nnoremap <silent> ,gu :GundoToggle<CR>
 '''
 
 [[plugins]]
+repo = 'lukas-reineke/indent-blankline.nvim'
+on_if = 'has("nvim")'
+
+[[plugins]]
 repo = 'Shougo/defx.nvim'
 depends = ['defx-git', 'defx-icons']
 hook_add = '''
