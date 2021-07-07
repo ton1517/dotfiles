@@ -128,6 +128,19 @@ repo = 'lukas-reineke/indent-blankline.nvim'
 on_if = 'has("nvim")'
 
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+on_if = 'has("nvim")'
+hook_post_source = '''
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+  },
+}
+'''
+
+[[plugins]]
 repo = 'Shougo/defx.nvim'
 depends = ['defx-git', 'defx-icons']
 hook_add = '''
