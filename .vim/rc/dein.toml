@@ -181,20 +181,6 @@ let g:loaded_matchparen = 1
 repo = 'itchyny/vim-cursorword'
 
 [[plugins]]
-repo = 'terryma/vim-multiple-cursors'
-hook_add='''
-let g:multi_cursor_use_default_mapping=0
-
-" Default mapping
-let g:multi_cursor_start_word_key      = '<S-n>'
-let g:multi_cursor_start_key           = 'g<S-n>'
-let g:multi_cursor_next_key            = '<S-n>'
-let g:multi_cursor_prev_key            = '<S-p>'
-let g:multi_cursor_skip_key            = '<S-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-'''
-
-[[plugins]]
 repo = 'terryma/vim-expand-region'
 hook_add='''
 vmap v <Plug>(expand_region_expand)
