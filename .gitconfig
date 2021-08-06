@@ -65,3 +65,5 @@
 [merge]
 	tool = nvimdiff
 	conflictStyle = diff3
+[user]
+	useConfigOnly = true
