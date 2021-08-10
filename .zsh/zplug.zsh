@@ -2,6 +2,7 @@ source ~/.zplug/init.zsh
 
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-autosuggestions'
+zplug 'nnao45/zsh-kubectl-completion'
 
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
