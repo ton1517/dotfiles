@@ -171,11 +171,6 @@ call defx#custom#option('_', {
 '''
 [plugins.ftplugin]
 defx = '''
-au WinEnter * call defx#redraw()
-au FocusGained * call defx#redraw()
-au BufWritePost * call defx#redraw()
-au BufEnter * call defx#redraw()
-
 setlocal cursorline
 
 nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
