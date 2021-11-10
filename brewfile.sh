@@ -47,12 +47,11 @@ casks=(
     charles
     dash
     docker
-    google-chrome
     google-japanese-ime
     istat-menus
-    iterm2
     karabiner-elements
     visual-studio-code
+    stay
 )
 
 # install homebrew
