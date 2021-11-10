@@ -70,6 +70,8 @@ fi
     git clone https://github.com/znz/anyenv-git.git ~/.anyenv/plugins/anyenv-git
 
     anyenv install pyenv
+    git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.anyenv/envs/pyenv/plugins/pyenv-virtualenv
+
     anyenv install rbenv
     anyenv install nodenv
     anyenv install goenv
