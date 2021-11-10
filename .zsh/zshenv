@@ -8,11 +8,13 @@ typeset -U path
 path=(
       $HOME/bin(N-/)
       $HOME/local/bin(N-/)
+      /opt/homebrew/bin(N-/)
       /opt/local/bin(N-/)
       /usr/local/bin(N-/)
       /usr/bin(N-/)
       /bin(N-/)
       /sbin(N-/)
+      /opt/homebrew/sbin(N-/)
       /usr/local/sbin(N-/)
       /opt/local/sbin(N-/)
       /usr/sbin(N-/)
@@ -28,6 +30,7 @@ typeset -U manpath
 
 manpath=(
          $HOME/local/share/man(N-/)
+         /opt/homebrew/share/man(N-/)
          /opt/local/share/man(N-/)
          /usr/local/share/man(N-/)
          /usr/share/man(N-/)
@@ -71,9 +74,6 @@ export LESS="-R"
 #----------------------------------------
 # other
 #----------------------------------------
-
-# git
-export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 # go
 export GOPATH=$HOME/go
