@@ -384,11 +384,3 @@ function tmux-reset-prefix(){
 #----------------------------------------
 
 source ~/.zsh/fzf.zsh
-
-#----------------------------------------
-# **env
-#----------------------------------------
-
-# pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
