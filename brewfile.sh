@@ -11,11 +11,13 @@ brews=(
     gh
     ghq
     git
+    git-delta
     htop
     imagemagick
     jhead
     jpeg
     jq
+    less
     lua
     luajit
     lv
