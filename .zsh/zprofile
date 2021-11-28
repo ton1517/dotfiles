@@ -18,10 +18,3 @@ eval "$(pyenv virtualenv-init -)"
 export HOMEBREW_PREFIX=$(brew --prefix)
 
 export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:$FPATH"
-
-#----------------------------------------
-# other
-#----------------------------------------
-
-# git
-export PATH="$PATH:${HOMEBREW_PREFIX}/share/git-core/contrib/diff-highlight"
