@@ -42,7 +42,7 @@ zle -N fzf-git-branch-remote
 # gitで変更のあるファイルを選択する
 function fzf-git-status() {
     local current_buffer=$BUFFER
-    local selected_lines="$(git status --short | $(__fzfcmd) --preview 'git diff --color=always {+2} | diff-so-fancy' --preview-window=right:70% | awk '{print $NF}')"
+    local selected_lines="$(git status --short | $(__fzfcmd) --preview 'git diff -- {-1} | delta --file-style=omit --width=${FZF_PREVIEW_COLUMNS:-$COLUMNS}' --preview-window=right:70% | awk '{print $NF}')"
 
     if [ -n "$selected_lines" ]; then
         BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
@@ -55,7 +55,7 @@ bindkey "^g^s" fzf-git-status
 # git logを表示し、選択したコミットのハッシュを返す
 function fzf-git-log() {
     local current_buffer=$BUFFER
-    local selected_line="$( git log --pretty=format:"%h  %cd  %cn  %s" --date=short | $(__fzfcmd) --preview "git show --color=always {+1} | diff-so-fancy" | awk '{print $1}')"
+    local selected_line="$( git log --pretty=format:"%h  %cd  %cn  %s" --date=short | $(__fzfcmd) --preview "git show --color=always {+1} | delta --width=${FZF_PREVIEW_COLUMNS:-$COLUMNS}" | awk '{print $1}')"
 
     if [ -n "$selected_line" ]; then
         BUFFER="${current_buffer}${selected_line}"

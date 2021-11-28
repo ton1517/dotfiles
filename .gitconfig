@@ -3,7 +3,7 @@
     editor = nvim
     ui = auto
     autocrlf = input
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = less --tabs=4 -RFX
 [include]
     path = ~/.gitconfig.local
 [color]
@@ -17,7 +17,9 @@
     tags = tag -l
     br = branch
     df = diff
+    df-side = !git -c delta.side-by-side=true diff
     dfs = diff --staged
+    dfs-side = !git -c delta.side-by-side=true diff --staged
     diff-branch = diff --stat -p develop...HEAD
     ls = ls-files -v
     stage = add
@@ -52,9 +54,7 @@
 [mergetool "nvimdiff"]
     cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [interactive]
-    diffFilter = diff-highlight
-[diff-so-fancy]
-    stripLeadingSymbols = false
+    diffFilter = delta --color-only
 [color "diff"]
     oldMoved = 225 bold
     newMoved = 195 bold
@@ -67,3 +67,35 @@
 	conflictStyle = diff3
 [user]
 	useConfigOnly = true
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+[delta]
+    syntax-theme                  = "Monokai Extended"
+    navigate                      = true
+    file-style                    = bright-yellow
+    file-decoration-style         = bright-yellow ul ol bold
+    file-added-label              = [+]
+    file-copied-label             = [==]
+    file-modified-label           = [*]
+    file-removed-label            = [-]
+    file-renamed-label            = [->]
+    hunk-header-style             = file line-number syntax
+    hunk-header-decoration-style  = blue box
+    hunk-header-line-number-style = cyan
+    commit-decoration-style       = blue box
+    keep-plus-minus-markers       = false
+    line-numbers                  = true
+    line-numbers-plus-style       = "#3d753d" bold
+    line-numbers-zero-style       = "#777777"
+    line-numbers-minus-style      = "#c25353" bold
+    plus-style                    = syntax "#224222"
+    plus-non-emph-style           = syntax "#224222"
+    plus-emph-style               = syntax "#3d753d"
+    plus-empty-line-marker-style  = syntax "#224222"
+    minus-style                   = syntax "#6e2b2b"
+    minus-non-emph-style          = syntax "#6e2b2b"
+    minus-emph-style              = syntax "#c25353"
+    minus-empty-line-marker-style = syntax "#6e2b2b"
