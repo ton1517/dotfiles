@@ -235,3 +235,27 @@ let g:lightline#ale#indicator_warnings = "\uf071 "
 let g:lightline#ale#indicator_errors = "\uf05e "
 let g:lightline#ale#indicator_ok = "\uf00c "
 '''
+
+[[plugins]]
+repo = 'mhinz/vim-startify'
+hook_add = '''
+function! s:gitModified()
+    let files = systemlist('git ls-files -m 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+function! s:gitUntracked()
+    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+let g:startify_lists = [
+    \ { 'type': 'files',     'header': ['# MRU']            },
+    \ { 'type': 'dir',       'header': ['# MRU '. getcwd()] },
+    \ { 'type': 'sessions',  'header': ['# Sessions']       },
+    \ { 'type': 'bookmarks', 'header': ['# Bookmarks']      },
+    \ { 'type': function('s:gitModified'),  'header': ['# git modified']},
+    \ { 'type': function('s:gitUntracked'), 'header': ['# git untracked']},
+    \ { 'type': 'commands',  'header': ['# Commands']       },
+\ ]
+'''
