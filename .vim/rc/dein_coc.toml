@@ -42,3 +42,7 @@ build = 'yarn install --frozen-lockfile'
 [[plugins]]
 repo = 'fannheyward/coc-sql'
 build = 'yarn install --frozen-lockfile'
+
+[[plugins]]
+repo = 'neoclide/coc-tsserver'
+build = 'yarn install --frozen-lockfile'
