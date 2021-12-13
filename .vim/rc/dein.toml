@@ -52,7 +52,11 @@ let g:quickrun_config = {
 \       'cmdopt'  : '-a',
 \       'args'    : 'Marked',
 \       'exec'    : '%c %o %a %s',
-\    },
+\   },
+\   "typescript" : {
+\       'command' : 'deno',
+\       'cmdopt' : 'run',
+\   },
 \}
 '''
 
