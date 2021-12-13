@@ -258,3 +258,6 @@ let g:startify_lists = [
     \ { 'type': 'commands',  'header': ['# Commands']       },
 \ ]
 '''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
