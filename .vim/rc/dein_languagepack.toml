@@ -1,3 +1,10 @@
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+on_ft = 'c'
+hook_source = '''
+autocmd FileType c ClangFormatAutoEnable
+'''
+
 #
 # html
 #
