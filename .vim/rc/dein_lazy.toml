@@ -144,6 +144,29 @@ require'nvim-treesitter.configs'.setup {
 '''
 
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-textobjects'
+on_if = 'has("nvim")'
+hook_post_source = '''
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>l"] = "@parameter.inner",
+        ["<leader>j"] = "@function.outer",
+      },
+      swap_previous = {
+        ["<leader>h"] = "@parameter.inner",
+        ["<leader>k"] = "@function.outer",
+      },
+    },
+  },
+}
+EOF
+'''
+
+[[plugins]]
 repo = 'Shougo/defx.nvim'
 depends = ['defx-git', 'defx-icons']
 hook_add = '''
