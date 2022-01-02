@@ -146,6 +146,7 @@ let g:ale_linters = {
 \   'css': ['stylelint'],
 \   'scss': ['stylelint'],
 \   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
 \   'vue': ['eslint', 'stylelint']
 \ }
 
@@ -155,6 +156,7 @@ let g:ale_fixers = {
 \   'css': ['stylelint'],
 \   'scss': ['stylelint'],
 \   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
 \   'vue': ['eslint', 'stylelint']
 \}
 
