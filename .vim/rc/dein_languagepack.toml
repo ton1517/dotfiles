@@ -113,3 +113,14 @@ let g:tagbar_type_go = {
 [[plugins]]
 repo = 'buoto/gotests-vim'
 on_ft = 'go'
+
+#
+# terraform
+#
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = 'terraform'
+hook_source = '''
+let g:terraform_fmt_on_save = 1
+'''
