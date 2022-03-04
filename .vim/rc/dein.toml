@@ -145,6 +145,7 @@ let g:ale_linters = {
 \   'go': ['golint', 'govet', 'golangci-lint'],
 \   'css': ['stylelint'],
 \   'scss': ['stylelint'],
+\   'json': ['jq'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
 \   'vue': ['eslint', 'stylelint']
@@ -155,6 +156,7 @@ let g:ale_fixers = {
 \   'go': ['goimports'],
 \   'css': ['stylelint'],
 \   'scss': ['stylelint'],
+\   'json': ['jq'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
 \   'vue': ['eslint', 'stylelint']
