@@ -142,6 +142,7 @@ let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
+\   'dart': ['analysis_server'],
 \   'go': ['golint', 'govet', 'golangci-lint'],
 \   'css': ['stylelint'],
 \   'scss': ['stylelint'],
@@ -153,6 +154,7 @@ let g:ale_linters = {
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
+\   'dart': ['dart-format'],
 \   'go': ['goimports'],
 \   'css': ['stylelint'],
 \   'scss': ['stylelint'],

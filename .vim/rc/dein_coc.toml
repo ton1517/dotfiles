@@ -46,3 +46,7 @@ build = 'yarn install --frozen-lockfile'
 [[plugins]]
 repo = 'neoclide/coc-tsserver'
 build = 'yarn install --frozen-lockfile'
+
+[[plugins]]
+repo = 'iamcco/coc-flutter'
+build = 'yarn install --frozen-lockfile'

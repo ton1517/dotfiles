@@ -195,3 +195,12 @@ augroup END
 set fileformats=unix,dos,mac
 
 set mouse=a
+
+"----------------------------------------
+" language
+"----------------------------------------
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.dart setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
