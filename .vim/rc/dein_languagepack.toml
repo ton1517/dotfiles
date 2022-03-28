@@ -127,3 +127,11 @@ let g:terraform_fmt_on_save = 1
 
 [[plugins]]
 repo = 'thosakwe/vim-flutter'
+on_ft = 'dart'
+hook_source = '''
+nnoremap ,fa :FlutterRun --debug --dart-define=FLAVOR=development<cr>
+nnoremap ,fq :FlutterQuit<cr>
+nnoremap ,fr :FlutterHotReload<cr>
+nnoremap ,fR :FlutterHotRestart<cr>
+nnoremap ,fD :FlutterVisualDebug<cr>
+'''
