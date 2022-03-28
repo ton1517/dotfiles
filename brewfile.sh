@@ -28,6 +28,7 @@ brews=(
     pngquant
     python
     python3
+    ripgrep
     shellcheck
     source-highlight
     the_silver_searcher
