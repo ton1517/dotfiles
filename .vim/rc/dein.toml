@@ -263,3 +263,45 @@ let g:startify_lists = [
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'tami5/sqlite.lua'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+depends = ['plenary.nvim']
+hook_add = '''
+nnoremap ,ff <cmd>Telescope frecency<cr>
+nnoremap ,fg <cmd>Telescope live_grep<cr>
+nnoremap ,fb <cmd>Telescope buffers<cr>
+nnoremap ,fh <cmd>Telescope help_tags<cr>
+
+lua <<EOL
+require('telescope').setup {
+  extensions = {
+    frecency = {
+      show_scores = true,
+      show_unindexed = true,
+      ignore_patterns = {"*.git/*", "*/tmp/*"},
+      disable_devicons = false,
+      default_workspace = 'CWD',
+    },
+  },
+}
+EOL
+'''
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-frecency.nvim'
+depends = ['tami5/sqlite.lua']
+hook_add = '''
+lua <<EOL
+require('telescope').load_extension('frecency')
+EOL
+'''
