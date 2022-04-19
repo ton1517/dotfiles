@@ -277,7 +277,8 @@ repo = 'nvim-lua/plenary.nvim'
 repo = 'nvim-telescope/telescope.nvim'
 depends = ['plenary.nvim']
 hook_add = '''
-nnoremap ,ff <cmd>Telescope frecency<cr>
+nnoremap ,ff <cmd>Telescope find_files<cr>
+nnoremap ,fo <cmd>Telescope oldfiles<cr>
 nnoremap ,fg <cmd>Telescope live_grep<cr>
 nnoremap ,fb <cmd>Telescope buffers<cr>
 nnoremap ,fh <cmd>Telescope help_tags<cr>
