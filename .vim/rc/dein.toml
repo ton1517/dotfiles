@@ -277,6 +277,7 @@ hook_add = '''
 nnoremap ,ff <cmd>Telescope find_files<cr>
 nnoremap ,fo <cmd>Telescope oldfiles<cr>
 nnoremap ,fg <cmd>Telescope live_grep<cr>
+nnoremap ,fG <cmd>Telescope grep_string<cr>
 nnoremap ,fb <cmd>Telescope buffers<cr>
 nnoremap ,fh <cmd>Telescope help_tags<cr>
 '''
