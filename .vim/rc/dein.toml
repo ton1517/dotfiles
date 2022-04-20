@@ -298,3 +298,19 @@ require("telescope").setup{
 }
 EOL
 '''
+
+[[plugins]]
+repo = 'mfussenegger/nvim-ts-hint-textobject'
+hook_add = '''
+omap     <silent> m :<C-U>lua require('tsht').nodes()<CR>
+vnoremap <silent> m :lua require('tsht').nodes()<CR>
+'''
+
+[[plugins]]
+repo = 'David-Kunz/treesitter-unit'
+hook_add = '''
+xnoremap iu :lua require"treesitter-unit".select()<CR>
+xnoremap au :lua require"treesitter-unit".select(true)<CR>
+onoremap iu :<c-u>lua require"treesitter-unit".select()<CR>
+onoremap au :<c-u>lua require"treesitter-unit".select(true)<CR>
+'''
