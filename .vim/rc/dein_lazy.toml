@@ -291,3 +291,7 @@ function! s:setup_auto_git_diff() abort
 endfunction
 autocmd FileType gitrebase call <SID>setup_auto_git_diff()
 '''
+
+[[plugins]]
+repo = 'rhysd/committia.vim'
+on_ft = ['gitcommit']
