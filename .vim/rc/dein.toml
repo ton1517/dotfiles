@@ -77,11 +77,11 @@ nmap <C-n> <Plug>(yankround-next)
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
+repo = 'numToStr/Comment.nvim'
 hook_add = '''
-" disable mapping
-let g:tcomment_mapleader1 = ''
-let g:tcomment_mapleader2 = ''
+lua << EOF
+require('Comment').setup()
+EOF
 '''
 
 [[plugins]]
