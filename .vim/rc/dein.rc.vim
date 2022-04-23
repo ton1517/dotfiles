@@ -18,8 +18,6 @@ endif
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
 
-    call dein#add(s:dein_repo_dir)
-
     call dein#load_toml('~/.vim/rc/dein.toml',              {'lazy': 0})
     call dein#load_toml('~/.vim/rc/dein_coc.toml',          {'lazy': 0})
     call dein#load_toml('~/.vim/rc/dein_lazy.toml',         {'lazy': 1})
