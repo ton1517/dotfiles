@@ -113,8 +113,8 @@ lua require('aerial').setup({})
 
 [[plugins]]
 repo = 'AndrewRadev/splitjoin.vim'
-on_ft = ['go', 'php', 'python', 'javascript', 'html', 'css', 'sass', 'scss']
-hook_source = '''
+on_cmd = ['SplitjoinJoin', 'SplitjoinSplit']
+hook_add = '''
 nmap ,j :SplitjoinJoin<cr>
 nmap ,s :SplitjoinSplit<cr>
 '''
