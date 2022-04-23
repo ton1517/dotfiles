@@ -15,6 +15,11 @@ if &runtimepath !~# '/dein.vim'
     execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
+let g:dein#lazy_rplugins = v:true
+let g:dein#install_progress_type = 'floating'
+let g:dein#install_check_diff = v:true
+let g:dein#enable_notification = v:true
+
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
 
