@@ -303,3 +303,16 @@ on_source = '''
 lua vim.notify = require('notify')
 '''
 
+[[plugins]]
+repo = 's1n7ax/nvim-comment-frame'
+depends = 'nvim-treesitter'
+on_lua = 'nvim-comment-frame'
+on_source = '''
+lua require('nvim-comment-frame').setup({
+    disable_default_keymap = true,
+})
+'''
+hook_add = '''
+nmap <leader>cf :lua require('nvim-comment-frame').add_comment()<CR>
+nmap <leader>Cf :lua require('nvim-comment-frame').add_multiline_comment()<CR>
+'''
