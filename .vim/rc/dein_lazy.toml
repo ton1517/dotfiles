@@ -102,10 +102,13 @@ repo = 'FelikZ/ctrlp-py-matcher'
 on_source = 'ctrlp.vim'
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
-on_cmd = ['TagbarToggle']
+repo = 'stevearc/aerial.nvim'
+on_cmd = 'AerialOpen'
 hook_add = '''
-nnoremap <silent> ,tb :TagbarToggle<CR>
+nnoremap <silent> ,tb :AerialOpen<CR>
+'''
+hook_source = '''
+lua require('aerial').setup({})
 '''
 
 [[plugins]]
