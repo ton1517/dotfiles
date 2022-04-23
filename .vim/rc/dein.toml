@@ -174,14 +174,6 @@ let g:ale_go_golangci_lint_options = ''
 repo = 'tpope/vim-repeat'
 
 [[plugins]]
-repo = 'roxma/nvim-yarp'
-on_if = '!has("nvim")'
-
-[[plugins]]
-on_if = '!has("nvim")'
-repo = 'roxma/vim-hug-neovim-rpc'
-
-[[plugins]]
 repo = 'itchyny/vim-parenmatch'
 hook_add='''
 let g:loaded_matchparen = 1
