@@ -176,16 +176,6 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
   },
-}
-EOF
-'''
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter-textobjects'
-on_if = 'has("nvim")'
-hook_post_source = '''
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
   textobjects = {
     swap = {
       enable = true,
@@ -202,6 +192,11 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-textobjects'
+on_event = 'BufRead'
+depends = 'nvim-treesitter'
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'
