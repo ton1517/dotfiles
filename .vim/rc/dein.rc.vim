@@ -19,7 +19,6 @@ let g:dein#lazy_rplugins = v:true
 let g:dein#install_progress_type = 'floating'
 let g:dein#install_check_diff = v:true
 let g:dein#enable_notification = v:true
-let g:dein#auto_recache = v:true
 
 if dein#load_state('~/.cache/dein')
     let s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/'
