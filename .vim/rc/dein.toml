@@ -112,16 +112,6 @@ endif
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Shougo/vimfiler.vim'
-depends = 'unite.vim'
-hook_add = '''
-nnoremap <silent> ,vf :VimFilerExplorer<CR>
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_enable_auto_cd = 1
-let g:vimfiler_ignore_pattern = ['^\.git$', '^\.DS_Store$', '\.pyc$']
-'''
-
-[[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
