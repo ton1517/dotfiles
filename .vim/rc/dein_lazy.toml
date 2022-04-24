@@ -189,12 +189,22 @@ require'nvim-treesitter.configs'.setup {
       },
     },
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  },
 }
 EOF
 '''
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-textobjects'
+on_event = 'BufRead'
+depends = 'nvim-treesitter'
+
+[[plugins]]
+repo = 'p00f/nvim-ts-rainbow'
 on_event = 'BufRead'
 depends = 'nvim-treesitter'
 

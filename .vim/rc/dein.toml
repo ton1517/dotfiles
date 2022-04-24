@@ -190,12 +190,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 '''
 
 [[plugins]]
-repo = 'luochen1990/rainbow'
-hook_add='''
-let g:rainbow_active = 1
-'''
-
-[[plugins]]
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
