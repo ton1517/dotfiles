@@ -135,3 +135,7 @@ nnoremap ,fr :FlutterHotReload<cr>
 nnoremap ,fR :FlutterHotRestart<cr>
 nnoremap ,fD :FlutterVisualDebug<cr>
 '''
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = 'graphql'
