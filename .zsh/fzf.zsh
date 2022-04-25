@@ -116,31 +116,6 @@ function fzf-ghq() {
 zle -N fzf-ghq
 bindkey '^g^h' fzf-ghq
 
-# カレントディレクトリ内のファイルを選択する
-function fzf-ls() {
-    local current_buffer=$BUFFER
-    local selected_lines="$(ls -A | $(__fzfcmd) | awk '{print $NF}')"
-
-    if [ -n "$selected_lines" ]; then
-        BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
-        CURSOR=$#BUFFER
-    fi
-}
-zle -N fzf-ls
-bindkey '^l^s' fzf-ls
-
-# locateを使ってファイルを検索する
-function fzf-locate() {
-    local current_buffer=$BUFFER
-    local selected_lines="$(locate / | $(__fzfcmd) -q "$LBUFFER")"
-    if [ -n "$selected_lines" ]; then
-        BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
-        CURSOR=$#BUFFER
-    fi
-}
-zle -N fzf-locate
-bindkey '^l^o' fzf-locate
-
 # ファイル検索
 # cd が入力されていた場合は選択したファイルのディレクトリを返す
 function fzf-files() {
@@ -156,7 +131,19 @@ function fzf-files() {
     fi
 }
 zle -N fzf-files
-bindkey '^@' fzf-files
+bindkey '^l^s' fzf-files
+
+# locateを使ってファイルを検索する
+function fzf-locate() {
+    local current_buffer=$BUFFER
+    local selected_lines="$(locate / | $(__fzfcmd) -q "$LBUFFER")"
+    if [ -n "$selected_lines" ]; then
+        BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N fzf-locate
+bindkey '^l^o' fzf-locate
 
 # tmuxが開いているpaneのディレクトリに移動する
 function cdd() {
