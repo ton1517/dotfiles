@@ -5,4 +5,4 @@ zmodule zsh-users/zsh-autosuggestions
 zmodule nnao45/zsh-kubectl-completion
 zmodule rupa/z
 zmodule fzf
-zmodule ~/.zsh --source fzf.zsh
+zmodule ~/.zsh --source fzf.zsh --source exa.zsh
