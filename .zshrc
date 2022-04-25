@@ -11,8 +11,7 @@ source ~/.zsh/zshrc
 # source plugins
 #----------------------------------------
 
-# source ~/.zsh/packages.zsh
-source ~/.zsh/zplug.zsh
+source ~/.zsh/zim.zsh
 
 #----------------------------------------
 # local settings

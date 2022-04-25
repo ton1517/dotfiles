@@ -1,0 +1,8 @@
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+zmodule nnao45/zsh-kubectl-completion
+zmodule rupa/z
+zmodule fzf
+zmodule ~/.zsh --source fzf.zsh

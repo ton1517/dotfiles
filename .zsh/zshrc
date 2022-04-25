@@ -379,9 +379,3 @@ function tmux-change-prefix(){
 function tmux-reset-prefix(){
     tmux-set-prefix C-t
 }
-
-#----------------------------------------
-# fzf
-#----------------------------------------
-
-source ~/.zsh/fzf.zsh
