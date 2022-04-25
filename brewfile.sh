@@ -8,6 +8,7 @@ brews=(
     curl
     diff-so-fancy
     direnv
+    fzf
     gh
     ghq
     git
