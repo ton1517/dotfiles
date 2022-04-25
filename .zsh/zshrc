@@ -1,8 +1,11 @@
 #--------------------------------------------------------------------------------
 # zsh settings
 #--------------------------------------------------------------------------------
-autoload -Uz compinit
-compinit
+
+##you don't have to call compinit because zimfw calls one.
+# autoload -Uz compinit
+# compinit
+
 #cdを付けなくてもディレクトリ名で移動
 setopt auto_cd
 cdpath=(.. ~)
