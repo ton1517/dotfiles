@@ -186,20 +186,6 @@ map <S-r> <Plug>(operator-replace)
 '''
 
 [[plugins]]
-repo = 'mileszs/ack.vim'
-hook_add='''
-let g:ackhighlight = 1
-
-cnoreabbrev Ack Ack!
-nnoremap <Leader>g :Ack!<Space>
-vnoremap <Leader>g y:Ack! <C-r>=fnameescape(@")<CR><CR>
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-'''
-
-[[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
