@@ -189,8 +189,8 @@ repo = 'nvim-telescope/telescope-project.nvim'
 repo = 'nvim-telescope/telescope.nvim'
 depends = ['plenary.nvim']
 hook_add = '''
-nnoremap ,p  <cmd>Telescope find_files<cr>
-nnoremap ,ff <cmd>Telescope find_files<cr>
+nnoremap ,p  <cmd>Telescope find_files find_command=rg,--no-ignore-dot,--hidden,-g,!.git/,--files<cr>
+nnoremap ,ff <cmd>Telescope find_files find_command=rg,--no-ignore-dot,--hidden,-g,!.git/,--files<cr>
 nnoremap ,fo <cmd>Telescope oldfiles<cr>
 nnoremap ,fg <cmd>Telescope live_grep<cr>
 nnoremap ,fG <cmd>Telescope grep_string<cr>
@@ -204,6 +204,18 @@ lua <<EOL
 local actions = require("telescope.actions")
 require("telescope").setup{
   defaults = {
+    vimgrep_arguments = {
+      "rg",
+      "--no-ignore-dot",
+      "--hidden",
+      "-g=!.git/",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case"
+    },
     mappings = {
       i = {
         ["<esc>"] = actions.close,
