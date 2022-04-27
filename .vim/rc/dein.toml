@@ -36,26 +36,6 @@ let g:gitgutter_sign_removed            = ''
 '''
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-hook_add = '''
-nmap <silent> <Leader>r <Plug>(quickrun)
-
-let g:quickrun_config = {
-\   "markdown" : {
-\       'outputter/buffer/close_on_empty' : 1,
-\       'command' : 'open',
-\       'cmdopt'  : '-a',
-\       'args'    : 'Marked',
-\       'exec'    : '%c %o %a %s',
-\   },
-\   "typescript" : {
-\       'command' : 'deno',
-\       'cmdopt' : 'run',
-\   },
-\}
-'''
-
-[[plugins]]
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]

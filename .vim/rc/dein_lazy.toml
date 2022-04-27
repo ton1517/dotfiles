@@ -364,3 +364,24 @@ require("yanky").setup({
 require("telescope").load_extension("yank_history")
 EOF
 '''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_map = ['<Plug>(quickrun)']
+hook_add = '''
+nmap <silent> <Leader>r <Plug>(quickrun)
+
+let g:quickrun_config = {
+\   "markdown" : {
+\       'outputter/buffer/close_on_empty' : 1,
+\       'command' : 'open',
+\       'cmdopt'  : '-a',
+\       'args'    : 'Marked',
+\       'exec'    : '%c %o %a %s',
+\   },
+\   "typescript" : {
+\       'command' : 'deno',
+\       'cmdopt' : 'run',
+\   },
+\}
+'''
