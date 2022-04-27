@@ -388,3 +388,38 @@ let g:quickrun_config = {
 \   },
 \}
 '''
+
+[[plugins]]
+repo = 'windwp/nvim-autopairs'
+on_event = 'InsertEnter'
+hook_post_source = '''
+lua require('nvim-autopairs').setup{}
+'''
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+on_map = '<Plug>(expand_region'
+hook_add='''
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+'''
+
+[[plugins]]
+repo = 'mfussenegger/nvim-ts-hint-textobject'
+depends = 'nvim-treesitter'
+on_lua = 'tsht'
+hook_add = '''
+omap     <silent> m :<C-U>lua require('tsht').nodes()<CR>
+vnoremap <silent> m :lua require('tsht').nodes()<CR>
+'''
+
+[[plugins]]
+repo = 'David-Kunz/treesitter-unit'
+depends = 'nvim-treesitter'
+on_lua = 'treesitter-unit'
+hook_add = '''
+xnoremap iu :lua require"treesitter-unit".select()<CR>
+xnoremap au :lua require"treesitter-unit".select(true)<CR>
+onoremap iu :<c-u>lua require"treesitter-unit".select()<CR>
+onoremap au :<c-u>lua require"treesitter-unit".select(true)<CR>
+'''

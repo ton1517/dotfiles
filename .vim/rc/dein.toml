@@ -132,13 +132,6 @@ let g:loaded_matchparen = 1
 repo = 'itchyny/vim-cursorword'
 
 [[plugins]]
-repo = 'terryma/vim-expand-region'
-hook_add='''
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-'''
-
-[[plugins]]
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
@@ -166,14 +159,6 @@ repo = 'goolord/alpha-nvim'
 depends = 'nvim-web-devicons'
 hook_add = '''
 lua require'alpha'.setup(require'alpha.themes.startify'.config)
-'''
-
-[[plugins]]
-repo = 'windwp/nvim-autopairs'
-hook_add = '''
-lua << EOF
-require('nvim-autopairs').setup{}
-EOF
 '''
 
 [[plugins]]
@@ -230,20 +215,4 @@ require("telescope").setup{
 
 require('telescope').load_extension('project')
 EOL
-'''
-
-[[plugins]]
-repo = 'mfussenegger/nvim-ts-hint-textobject'
-hook_add = '''
-omap     <silent> m :<C-U>lua require('tsht').nodes()<CR>
-vnoremap <silent> m :lua require('tsht').nodes()<CR>
-'''
-
-[[plugins]]
-repo = 'David-Kunz/treesitter-unit'
-hook_add = '''
-xnoremap iu :lua require"treesitter-unit".select()<CR>
-xnoremap au :lua require"treesitter-unit".select(true)<CR>
-onoremap iu :<c-u>lua require"treesitter-unit".select()<CR>
-onoremap au :<c-u>lua require"treesitter-unit".select(true)<CR>
 '''
