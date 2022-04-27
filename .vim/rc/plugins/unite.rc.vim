@@ -75,8 +75,6 @@ nnoremap <silent> ,um :<C-u>Unite file_mru -start-insert<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
-nnoremap <silent> ,uy :<C-u>Unite yankround<CR>
-
 nnoremap <silent> ,ucg  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,ug  :execute 'Unite' 'grep:'.unite#util#path2project_directory(getcwd()).' -buffer-name=search-buffer'<CR>
 nnoremap <silent> ,/ucg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
