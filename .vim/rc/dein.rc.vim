@@ -43,5 +43,11 @@ if dein#check_install()
     call dein#install()
 endif
 
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, { _, val -> delete(val, 'rf') })
+  call dein#recache_runtimepath()
+endif
+
 filetype plugin indent on
 syntax enable
