@@ -158,7 +158,7 @@ nnoremap ,fb <cmd>Telescope buffers<cr>
 nnoremap ,fh <cmd>Telescope help_tags<cr>
 nnoremap ,fp <cmd>lua require('telescope').extensions.project.project{}<cr>
 
-nnoremap ,gs <cmd>Telescope git_status<cr>
+nnoremap ,<C-g><C-s> <cmd>Telescope git_status<cr>
 
 lua <<EOL
 local actions = require("telescope.actions")
