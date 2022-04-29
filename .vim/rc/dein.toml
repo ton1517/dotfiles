@@ -24,15 +24,6 @@ repo = 'vim-scripts/sudo.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_add = '''
-let g:gitgutter_map_keys = 0
-let g:gitgutter_sign_added              = ''
-let g:gitgutter_sign_modified           = ''
-let g:gitgutter_sign_removed            = ''
-'''
-
-[[plugins]]
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
@@ -248,6 +239,36 @@ require('lualine').setup {
       lualine_z = {}
     },
   extensions = {}
+}
+EOF
+'''
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+hook_add = '''
+lua << EOF
+require('gitsigns').setup{
+  signcolumn = true,
+  numhl      = true,
+  linehl     = false,
+  word_diff  = true,
+  on_attach = function(bufnr)
+    local function map(mode, lhs, rhs, opts)
+        opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
+        vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+    map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+
+    -- Actions
+    map('n', '<leader>ga', ':Gitsigns stage_hunk<CR>')
+    map('v', '<leader>ga', ':Gitsigns stage_hunk<CR>')
+    map('n', '<leader>gu', '<cmd>Gitsigns undo_stage_hunk<CR>')
+    map('n', '<leader>gd', '<cmd>Gitsigns diffthis<CR>')
+    map('n', '<leader>gtd', '<cmd>Gitsigns toggle_deleted<CR>')
+  end
 }
 EOF
 '''
