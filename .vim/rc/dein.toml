@@ -280,3 +280,9 @@ require('gitsigns').setup{
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'norcalli/nvim-colorizer.lua'
+hook_add = '''
+lua require('colorizer').setup()
+'''
