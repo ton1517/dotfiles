@@ -24,10 +24,6 @@ repo = 'vim-scripts/sudo.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
-
-[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
 let g:gitgutter_map_keys = 0
@@ -143,19 +139,6 @@ map <S-r> <Plug>(operator-replace)
 '''
 
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
-
-[[plugins]]
-repo = 'maximbaz/lightline-ale'
-hook_add = '''
-let g:lightline#ale#indicator_checking = "\uf110 "
-let g:lightline#ale#indicator_infos = "\uf129 "
-let g:lightline#ale#indicator_warnings = "\uf071 "
-let g:lightline#ale#indicator_errors = "\uf05e "
-let g:lightline#ale#indicator_ok = "\uf00c "
-'''
-
-[[plugins]]
 repo = 'goolord/alpha-nvim'
 depends = 'nvim-web-devicons'
 hook_add = '''
@@ -216,4 +199,55 @@ require("telescope").setup{
 
 require('telescope').load_extension('project')
 EOL
+'''
+
+[[plugins]]
+repo = 'nvim-lualine/lualine.nvim'
+depends = 'nvim-web-devicons'
+hook_add = '''
+lua << EOF
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+    globalstatus = false,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {
+      'branch',
+      'diff',
+      {
+        'diagnostics',
+        sources = { 'nvim_diagnostic', 'coc', 'ale' },
+      },
+    },
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+    tabline = {
+      lualine_a = {'buffers'},
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {}
+    },
+  extensions = {}
+}
+EOF
 '''
