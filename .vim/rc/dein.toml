@@ -244,6 +244,14 @@ EOF
 '''
 
 [[plugins]]
+repo = 'folke/which-key.nvim'
+hook_add = '''
+lua << EOF
+require("which-key").setup {}
+EOF
+'''
+
+[[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 hook_add = '''
 lua << EOF
