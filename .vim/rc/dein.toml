@@ -333,3 +333,6 @@ require("scrollbar").setup({
 })
 EOF
 '''
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
