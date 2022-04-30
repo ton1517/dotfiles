@@ -94,11 +94,14 @@ lua require('aerial').setup({})
 '''
 
 [[plugins]]
-repo = 'AndrewRadev/splitjoin.vim'
-on_cmd = ['SplitjoinJoin', 'SplitjoinSplit']
+repo = 'AckslD/nvim-trevJ.lua'
+depends = 'nvim-treesitter'
+on_lua = 'trevj'
 hook_add = '''
-nmap ,j :SplitjoinJoin<cr>
-nmap ,s :SplitjoinSplit<cr>
+nmap ,j :lua require('trevj').format_at_cursor()<CR>
+'''
+hook_source = '''
+lua require("trevj").setup()
 '''
 
 [[plugins]]
