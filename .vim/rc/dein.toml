@@ -143,9 +143,6 @@ repo = 'kyazdani42/nvim-web-devicons'
 repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
-repo = 'nvim-telescope/telescope-project.nvim'
-
-[[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
 depends = ['plenary.nvim']
 hook_add = '''
@@ -156,7 +153,6 @@ nnoremap ,fg <cmd>Telescope live_grep<cr>
 nnoremap ,fG <cmd>Telescope grep_string<cr>
 nnoremap ,fb <cmd>Telescope buffers<cr>
 nnoremap ,fh <cmd>Telescope help_tags<cr>
-nnoremap ,fp <cmd>lua require('telescope').extensions.project.project{}<cr>
 
 nnoremap ,<C-g><C-s> <cmd>Telescope git_status<cr>
 
@@ -187,8 +183,6 @@ require("telescope").setup{
     },
   },
 }
-
-require('telescope').load_extension('project')
 EOL
 '''
 
