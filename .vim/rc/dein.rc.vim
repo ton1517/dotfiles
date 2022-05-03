@@ -24,14 +24,12 @@ if dein#load_state('~/.cache/dein')
     let s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/'
 
     let s:dein_toml = s:base_dir . 'dein.toml'
-    let s:dein_coc_toml = s:base_dir . 'dein_coc.toml'
     let s:dein_lazy_toml = s:base_dir . 'dein_lazy.toml'
     let s:dein_languagepack_toml = s:base_dir . 'dein_languagepack.toml'
 
-    call dein#begin('~/.cache/dein', [expand('<sfile>'), s:dein_toml, s:dein_coc_toml, s:dein_lazy_toml, s:dein_languagepack_toml])
+    call dein#begin('~/.cache/dein', [expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_languagepack_toml])
 
     call dein#load_toml(s:dein_toml,              {'lazy': 0})
-    call dein#load_toml(s:dein_coc_toml,          {'lazy': 0})
     call dein#load_toml(s:dein_lazy_toml,         {'lazy': 1})
     call dein#load_toml(s:dein_languagepack_toml, {'lazy': 1})
 

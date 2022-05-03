@@ -208,7 +208,7 @@ require('lualine').setup {
       'diff',
       {
         'diagnostics',
-        sources = { 'nvim_diagnostic', 'coc', 'ale' },
+        sources = { 'nvim_diagnostic', 'ale' },
       },
     },
     lualine_c = {'filename'},
