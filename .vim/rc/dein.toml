@@ -301,7 +301,42 @@ EOF
 repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
+hook_add = '''
+lua << EOF
+require("nvim-lsp-installer").setup({
+    ensure_installed = {
+        "dartls",
+        "dockerls",
+        "gopls",
+        "golangci_lint_ls",
+        "graphql",
+        "html",
+        "jsonls",
+        "tsserver",
+        "taplo",
+        "terraformls",
+        "tflint",
+        "volar",
+        "cssls",
+        "yamlls",
+        "bashls",
+    },
+    automatic_installation = true,
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
+EOF
+'''
+
+[[plugins]]
 repo = 'neovim/nvim-lspconfig'
+depends = 'nvim-lsp-installer'
 hook_add = '''
 lua << EOF
 local opts = { noremap=true, silent=true }
@@ -330,9 +365,9 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'gopls' }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
+local servers = require("nvim-lsp-installer").get_installed_servers()
+for _, lsp in ipairs(servers) do
+  require('lspconfig')[lsp.name].setup {
     on_attach = on_attach
   }
 end
