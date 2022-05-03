@@ -113,7 +113,15 @@ nnoremap <silent> ,gu :GundoToggle<CR>
 
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
-on_if = 'has("nvim")'
+on_event = 'BufRead'
+hook_source = '''
+lua << EOF
+require("indent_blankline").setup {
+    show_current_context = true,
+    show_current_context_start = true,
+}
+EOF
+'''
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
