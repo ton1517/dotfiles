@@ -373,3 +373,11 @@ for _, lsp in ipairs(servers) do
 end
 EOF
 '''
+
+[[plugins]]
+repo = 'ray-x/lsp_signature.nvim'
+hook_add = '''
+lua << EOF
+require('lsp_signature').setup()
+EOF
+'''
