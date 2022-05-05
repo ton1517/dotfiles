@@ -130,7 +130,7 @@ bindkey '^g^h' fzf-ghq
 # cd が入力されていた場合は選択したファイルのディレクトリを返す
 function fzf-files() {
     local current_buffer=$BUFFER
-    local selected_lines="$(ag -l -g "" | $(__fzfcmd))"
+    local selected_lines="$(ag -l --hidden --ignore .git -g "" | $(__fzfcmd) --preview 'bat --color always {-1}')"
 
     if [ -n "$selected_lines" ]; then
         if [[ $current_buffer =~ cd ]]; then
