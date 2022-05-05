@@ -2,14 +2,20 @@
 # fzf
 #----------------------------------------
 
-# My Setting
-# ---------------
+#--------------------
+# option
+#--------------------
+
 export FZF_TMUX=1
 export FZF_DEFAULT_OPTS="--color=fg+:11 -m -x --reverse --bind 'ctrl-j:preview-down' --bind 'ctrl-k:preview-up'"
 
 function __fzfcmd() {
     [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -p 80%" || echo "fzf"
 }
+
+#--------------------
+# git
+#--------------------
 
 # gitのローカルブランチを選択する
 function fzf-git-branch-local() {
@@ -64,6 +70,10 @@ function fzf-git-log() {
 }
 zle -N fzf-git-log
 bindkey "^g^l" fzf-git-log
+
+#--------------------
+# misc
+#--------------------
 
 # agで検索し、選択したものをvimで編集する
 function agvim () {
@@ -153,6 +163,10 @@ function cdd() {
         cd $(echo ${selected_line} | awk -F : '{print $2}')
     fi
 }
+
+#--------------------
+# docker
+#--------------------
 
 # dockerコンテナにshで入る
 function fzf-docker-sh() {
