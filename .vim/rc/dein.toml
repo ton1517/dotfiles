@@ -360,14 +360,6 @@ lua <<EOF
     })
   })
 
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'cmp_git' },
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
