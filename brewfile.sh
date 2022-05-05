@@ -9,6 +9,7 @@ brews=(
     diff-so-fancy
     direnv
     exa
+    expect
     fd
     fzf
     gh
