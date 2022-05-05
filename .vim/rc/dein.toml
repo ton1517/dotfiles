@@ -304,17 +304,25 @@ repo = 'wakatime/vim-wakatime'
 repo = 'L3MON4D3/LuaSnip'
 
 [[plugins]]
+repo = 'onsails/lspkind.nvim'
+
+[[plugins]]
 repo = 'hrsh7th/nvim-cmp'
-depends = 'LuaSnip'
+depends = ['LuaSnip', 'lspkind.nvim']
 hook_add = '''
 lua <<EOF
   local cmp = require('cmp')
-
   cmp.setup({
     snippet = {
       expand = function(args)
         require('luasnip').lsp_expand(args.body)
       end,
+    },
+    formatting = {
+      format = require('lspkind').cmp_format({
+        mode = 'symbol',
+        maxwidth = 50,
+      })
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
