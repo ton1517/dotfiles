@@ -311,11 +311,12 @@ repo = 'hrsh7th/nvim-cmp'
 depends = ['LuaSnip', 'lspkind.nvim']
 hook_add = '''
 lua <<EOF
+  local luasnip = require('luasnip')
   local cmp = require('cmp')
   cmp.setup({
     snippet = {
       expand = function(args)
-        require('luasnip').lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     formatting = {
