@@ -353,6 +353,7 @@ lua <<EOF
       }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
+      { name = 'cmp_tabnine' },
       { name = 'luasnip' },
       { name = 'path' },
     }, {
@@ -392,6 +393,10 @@ repo = 'hrsh7th/cmp-cmdline'
 
 [[plugins]]
 repo = 'saadparwaiz1/cmp_luasnip'
+
+[[plugins]]
+repo = 'tzachar/cmp-tabnine'
+build = './install.sh'
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
