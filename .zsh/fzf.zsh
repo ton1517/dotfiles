@@ -36,10 +36,34 @@ function fzf-git-branch-local() {
 zle -N fzf-git-branch-local
 bindkey '^g^b' fzf-git-branch-local
 
+# see https://petitviolet.hatenablog.com/entry/20190708/1562544000
+function select_file_from_git_status() {
+  unbuffer git status -u --short \
+      | $(__fzfcmd) -m --ansi  --preview-window=right:70% --preview 'f() {
+      local original=$@
+      set -- $(echo "$@");
+      if [ $(echo $original | grep -E "^MM" | wc -l) -eq 1 ]; then
+        echo "\e[32m\n----------------------------------------\n# staged diff \n----------------------------------------"
+        git diff --color --cached $2 | delta
+        echo "\e[31m\n----------------------------------------\n# unstaged diff \n----------------------------------------"
+        git diff --color $2 | delta
+      elif [ $(echo $original | grep -E "^M" | wc -l) -eq 1 ]; then
+        git diff --color --cached $2 | delta
+      elif [ $(echo $original | grep -E "^\?\?" | wc -l) -eq 0 ]; then
+        git diff --color $2 | delta
+      elif [ -d $2 ]; then
+        ll $2
+      else
+        git diff --color --no-index /dev/null $2  | delta
+      fi
+    }; f {}' \
+    | awk '{print $NF}'
+}
+
 # gitで変更のあるファイルを選択する
 function fzf-git-status() {
     local current_buffer=$BUFFER
-    local selected_lines="$(git status --short | $(__fzfcmd) --preview 'git diff -- {-1} | delta --file-style=omit --width=${FZF_PREVIEW_COLUMNS:-$COLUMNS}' --preview-window=right:70% | awk '{print $NF}')"
+    local selected_lines="$(select_file_from_git_status)"
 
     if [ -n "$selected_lines" ]; then
         BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
