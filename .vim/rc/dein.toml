@@ -357,6 +357,14 @@ lua <<EOF
       { name = 'cmp_tabnine' },
       { name = 'luasnip' },
       { name = 'path' },
+      {
+          name = 'look',
+          keyword_length = 2,
+          option = {
+              convert_case = true,
+              loud = true
+          }
+      }
     }, {
       { name = 'buffer' },
     })
@@ -398,6 +406,9 @@ repo = 'saadparwaiz1/cmp_luasnip'
 [[plugins]]
 repo = 'tzachar/cmp-tabnine'
 build = './install.sh'
+
+[[plugins]]
+repo = 'octaltree/cmp-look'
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
