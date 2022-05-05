@@ -330,7 +330,16 @@ lua <<EOF
       format = require('lspkind').cmp_format({
         mode = 'symbol',
         maxwidth = 50,
-      })
+        with_text = true,
+        menu = {
+          buffer = '[Buffer]',
+          cmp_tabnine = '[TabNine]',
+          luasnip = '[LuaSnip]',
+          nvim_lsp = '[LSP]',
+          path = '[Path]',
+          look = '[Look]',
+        },
+      }),
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
