@@ -23,5 +23,5 @@ eval "$(pyenv virtualenv-init -)"
 #----------------------------------------
 
 export HOMEBREW_PREFIX=$(brew --prefix)
-
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:$FPATH"
