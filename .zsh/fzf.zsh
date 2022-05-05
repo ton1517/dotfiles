@@ -73,6 +73,20 @@ function fzf-git-status() {
 zle -N fzf-git-status
 bindkey "^g^s" fzf-git-status
 
+# gitで変更のあるファイルを選択してgit addする
+function fzf-git-add() {
+    local current_buffer=$BUFFER
+    local selected_lines="$(select_file_from_git_status)"
+
+    if [ -n "$selected_lines" ]; then
+        BUFFER="git add ${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
+        CURSOR=$#BUFFER
+        zle .accept-line
+    fi
+}
+zle -N fzf-git-add
+bindkey "^g^a" fzf-git-add
+
 # git logを表示し、選択したコミットのハッシュを返す
 function fzf-git-log() {
     local current_buffer=$BUFFER
