@@ -374,12 +374,12 @@ lua <<EOF
       { name = 'luasnip' },
       { name = 'path' },
       {
-          name = 'look',
-          keyword_length = 2,
-          option = {
-              convert_case = true,
-              loud = true
-          }
+        name = 'look',
+        keyword_length = 2,
+        option = {
+            convert_case = true,
+            loud = true
+        }
       }
     }, {
       { name = 'buffer' },
