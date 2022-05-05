@@ -301,7 +301,14 @@ EOF
 repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
+repo = 'rafamadriz/friendly-snippets'
+
+[[plugins]]
 repo = 'L3MON4D3/LuaSnip'
+depends = 'friendly-snippets'
+hook_add = '''
+lua require("luasnip.loaders.from_vscode").lazy_load()
+'''
 
 [[plugins]]
 repo = 'onsails/lspkind.nvim'
