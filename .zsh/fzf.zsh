@@ -36,20 +36,6 @@ function fzf-git-branch-local() {
 zle -N fzf-git-branch-local
 bindkey '^g^b' fzf-git-branch-local
 
-# gitのリモートブランチを選択する
-function fzf-git-branch-remote() {
-    local current_buffer=$BUFFER
-
-    local selected_lines="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/remotes | column -t -s '|' | $(__fzfcmd) | awk '{print $1}')"
-
-    if [ -n "$selected_lines" ]; then
-        BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
-        CURSOR=$#BUFFER
-    fi
-}
-zle -N fzf-git-branch-remote
-# bindkey '^g^b^r' fzf-git-branch-remote
-
 # gitで変更のあるファイルを選択する
 function fzf-git-status() {
     local current_buffer=$BUFFER
