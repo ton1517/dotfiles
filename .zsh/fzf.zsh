@@ -21,7 +21,12 @@ function __fzfcmd() {
 function fzf-git-branch-local() {
     local current_buffer=$BUFFER
 
-    local selected_lines="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/heads | column -t -s '|' | $(__fzfcmd) | awk '{print $1}')"
+    local selected_lines="$(
+        git for-each-ref --color=always --format='%(color:yellow)%(refname:short)|%(color:blue)%(committerdate:relative)|%(color:reset)%(subject)' --sort=-committerdate refs/heads \
+        | column -t -s '|' \
+        | $(__fzfcmd) --ansi --preview 'git log --color=always --format="%C(magenta)%h %C(blue)%cd %C(green)%<(12,trunc)%cn %C(auto)%d %C(auto)%s" --date=short' \
+        | awk '{print $1}'
+    )"
 
     if [ -n "$selected_lines" ]; then
         BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
