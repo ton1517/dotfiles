@@ -8,7 +8,7 @@ export FZF_TMUX=1
 export FZF_DEFAULT_OPTS="--color=fg+:11 -m -x --reverse --bind 'ctrl-j:preview-down' --bind 'ctrl-k:preview-up'"
 
 function __fzfcmd() {
-    [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux" || echo "fzf"
+    [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -p 80%" || echo "fzf"
 }
 
 # gitのローカルブランチを選択する
