@@ -406,25 +406,32 @@ EOF
 
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp'
+depends = 'nvim-cmp'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-buffer'
+depends = 'nvim-cmp'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-path'
+depends = 'nvim-cmp'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-cmdline'
+depends = 'nvim-cmp'
 
 [[plugins]]
 repo = 'saadparwaiz1/cmp_luasnip'
+depends = 'nvim-cmp'
 
 [[plugins]]
 repo = 'tzachar/cmp-tabnine'
+depends = 'nvim-cmp'
 build = './install.sh'
 
 [[plugins]]
 repo = 'octaltree/cmp-look'
+depends = 'nvim-cmp'
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
