@@ -61,7 +61,11 @@ bindkey "^g^s" fzf-git-status
 # git logを表示し、選択したコミットのハッシュを返す
 function fzf-git-log() {
     local current_buffer=$BUFFER
-    local selected_line="$( git log --pretty=format:"%h  %cd  %cn  %s" --date=short | $(__fzfcmd) --preview "git show --color=always {+1} | delta --width=${FZF_PREVIEW_COLUMNS:-$COLUMNS}" | awk '{print $1}')"
+    local selected_line="$(
+        git log --color=always --format="%C(magenta)%h %C(blue)%cd %C(green)%<(12,trunc)%cn %C(auto)%d %C(auto)%s" --date=short \
+        | $(__fzfcmd) --ansi --preview "git show --color=always {+1} | delta --width=${FZF_PREVIEW_COLUMNS:-$COLUMNS}" \
+        | awk '{print $1}'
+    )"
 
     if [ -n "$selected_line" ]; then
         BUFFER="${current_buffer}${selected_line}"
