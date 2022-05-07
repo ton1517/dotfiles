@@ -1,13 +1,4 @@
 [[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
-hook_add = 'source ~/.vim/rc/plugins/unite.rc.vim'
-
-[[plugins]]
-repo = 'Shougo/unite-outline'
-on_source = 'unite.vim'
-
-[[plugins]]
 repo = 'easymotion/vim-easymotion'
 on_map = [['n', '<Plug>']]
 hook_add = '''
