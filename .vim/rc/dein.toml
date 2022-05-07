@@ -41,7 +41,7 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'dense-analysis/ale'
-hook_add='''
+hook_add = '''
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
@@ -90,7 +90,7 @@ repo = 'tpope/vim-repeat'
 
 [[plugins]]
 repo = 'itchyny/vim-parenmatch'
-hook_add='''
+hook_add = '''
 let g:loaded_matchparen = 1
 '''
 

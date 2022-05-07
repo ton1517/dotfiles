@@ -77,7 +77,7 @@ depends = 'vim-textobj-user'
 on_map = [['ox', 'i,', 'a,']]
 
 [[plugins]]
-repo =  'haya14busa/incsearch.vim'
+repo = 'haya14busa/incsearch.vim'
 on_map = ['<Plug>']
 hook_add = '''
 map /  <Plug>(incsearch-forward)
@@ -329,7 +329,7 @@ lua require('nvim-autopairs').setup{}
 [[plugins]]
 repo = 'terryma/vim-expand-region'
 on_map = '<Plug>(expand_region'
-hook_add='''
+hook_add = '''
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 '''
