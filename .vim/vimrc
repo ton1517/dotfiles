@@ -26,7 +26,7 @@ nnoremap <silent> ,tp <C-t>
 " ノーマルモード時にOで改行
 nnoremap O o<ESC>
 " hlsearchのハイライトを消去
-nnoremap <ESC><ESC> :nohlsearch<CR>
+nnoremap <ESC> :nohlsearch<CR><ESC>
 " Ctrl-sで保存
 inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> <Esc>:w<CR>
