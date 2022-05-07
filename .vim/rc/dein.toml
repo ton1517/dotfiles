@@ -89,7 +89,7 @@ let g:ale_go_golangci_lint_options = ''
 repo = 'tpope/vim-repeat'
 
 [[plugins]]
-repo = 'itchyny/vim-parenmatch'
+repo = 'andymass/vim-matchup'
 hook_add = '''
 let g:loaded_matchparen = 1
 '''
