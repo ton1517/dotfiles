@@ -777,3 +777,15 @@ require('cokeline').setup({
 })
 EOF
 '''
+
+[[plugins]]
+repo = 'stevearc/stickybuf.nvim'
+hook_add = '''
+lua << EOF
+require("stickybuf").setup({
+  filetype = {
+    ['neo-tree'] = 'filetype',
+  },
+})
+EOF
+'''
