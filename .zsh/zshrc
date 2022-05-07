@@ -84,65 +84,9 @@ zstyle ':completion:*:default' list-colors ''
 # 補完候補をキャッシュする。
 zstyle ':completion:*' use-cache yes
 
-#----------------------------------------
-# prompt settings
-#----------------------------------------
-
-#branch名を表示する
-autoload -Uz add-zsh-hook
-autoload -Uz colors
-colors
-autoload -Uz vcs_info
-
-zstyle ':vcs_info:*' enable git svn hg bzr
-zstyle ':vcs_info:*' formats '[%b]'
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
-zstyle ':vcs_info:bzr:*' use-simple true
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "+" # 追加の変更点があったときの文字
-zstyle ':vcs_info:git:*' unstagedstr "-"  # 削除の変更点が会った時の文字
-zstyle ':vcs_info:git:*' formats '[%b] %c%u'
-zstyle ':vcs_info:git:*' actionformats '[%b|%a] %c%u'
-
-function git_prompt_stash_count {
-    local COUNT=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
-    if [ "$COUNT" -gt 0 ]; then
-        echo " stash($COUNT)"
-    fi
-}
-
-function _update_vcs_info_msg() {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-    psvar[2]=`git_prompt_stash_count`
-}
-add-zsh-hook precmd _update_vcs_info_msg
-
-# プロンプト
-PROMPT="%F{cyan}[%D{%m/%d %T}] %1(v|%F{green}%1v%f%F{yellow}%2v%f|) [%~]
-%{[31m%}%n%%%{[m%} "
-
-# 複数行でのプロンプトの左側
-PROMPT2="%{[31m%}%_%%%{[m%} "
-
 # 入力ミスの確認
 SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
 
-# ssh接続時はホスト名を表示
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-
-
-#ターミナルのタイトルの設定
-case "${TERM}" in
-kterm*|xterm)
-    precmd() {
-        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-    }
-    ;;
-esac
 #----------------------------------------
 # history settings
 #----------------------------------------
