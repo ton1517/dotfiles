@@ -588,3 +588,12 @@ lspsaga.setup { -- defaults ...
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+hook_add = '''
+lua << EOF
+require('fidget').setup{}
+EOF
+'''
+
