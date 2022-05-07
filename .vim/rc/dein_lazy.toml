@@ -446,11 +446,13 @@ EOF
 
 [[plugins]]
 repo = 'haya14busa/vim-asterisk'
+depends = 'nvim-hlslens'
 on_map = '<Plug>'
 hook_add = '''
-map *  <Plug>(asterisk-z*)
-map #  <Plug>(asterisk-z#)
-map g* <Plug>(asterisk-gz*)
-map g# <Plug>(asterisk-gz#)
 let g:asterisk#keeppos = 1
+
+map *  <Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>
+map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>
+map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>
+map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>
 '''
