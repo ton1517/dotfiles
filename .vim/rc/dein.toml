@@ -6,6 +6,8 @@ repo = 'sainnhe/sonokai'
 hook_add = '''
 let g:sonokai_style = 'default'
 let g:sonokai_disable_italic_comment = 1
+let g:sonokai_diagnostic_text_highlight = 1
+let g:sonokai_diagnostic_virtual_text = 'colored'
 let g:sonokai_better_performance = 1
 
 au MyAutoCmd VimEnter * nested colorscheme sonokai
