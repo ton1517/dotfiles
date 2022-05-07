@@ -459,3 +459,17 @@ nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 '''
+
+[[plugins]]
+repo = 'kevinhwang91/nvim-bqf'
+on_ft = 'qf'
+hook_source = '''
+lua << EOF
+require("bqf").setup{
+  func_map = {
+    pscrollup = "<C-u>",
+    pscrolldown = "<C-d>",
+  }
+}
+EOF
+'''
