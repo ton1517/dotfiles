@@ -132,6 +132,8 @@ nnoremap ,fg <cmd>Telescope live_grep<cr>
 nnoremap ,fG <cmd>Telescope grep_string<cr>
 nnoremap ,fb <cmd>Telescope buffers<cr>
 nnoremap ,fh <cmd>Telescope help_tags<cr>
+nnoremap ,fc <cmd>Telescope command_history<cr>
+nnoremap ,fk <cmd>Telescope keymaps<cr>
 
 nnoremap ,<C-g><C-s> <cmd>Telescope git_status<cr>
 
