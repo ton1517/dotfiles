@@ -630,6 +630,7 @@ map('n', '[b', '<Plug>(cokeline-focus-prev)',  { silent = true })
 map('n', ']b', '<Plug>(cokeline-focus-next)',  { silent = true })
 for i = 1,9 do
   map('n', ('b%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i),  { silent = true })
+  map('n', ('bs%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i),  { silent = true })
 end
 
 local get_hex = require('cokeline/utils').get_hex
