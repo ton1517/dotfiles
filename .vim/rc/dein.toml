@@ -546,7 +546,7 @@ nnoremap <silent>,e <cmd>Lspsaga show_line_diagnostics<cr>
 nnoremap <silent> [e <cmd>Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> ]e <cmd>Lspsaga diagnostic_jump_prev<CR>
 
-nnoremap <silent>rn <cmd>Lspsaga rename<CR>
+nnoremap <silent> ,rn <cmd>Lspsaga rename<CR>
 
 nnoremap <silent> gh <cmd>lua require('lspsaga.provider').lsp_finder()<CR>
 nnoremap <silent> gd <cmd>lua require('lspsaga.provider').preview_definition()<CR>
