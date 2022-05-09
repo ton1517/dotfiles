@@ -322,9 +322,6 @@ EOF
 '''
 
 [[plugins]]
-repo = 'wakatime/vim-wakatime'
-
-[[plugins]]
 repo = 'rafamadriz/friendly-snippets'
 
 [[plugins]]
