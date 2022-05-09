@@ -356,6 +356,9 @@ hook_add = '''
 nnoremap <silent> <Leader>f :Neotree<CR>
 '''
 hook_source = '''
+highlight NeoTreeGitConflict cterm=bold ctermfg=215 gui=bold guifg=#f39660
+highlight NeoTreeGitUntracked ctermfg=215 guifg=#f39660
+
 lua << EOF
 require("neo-tree").setup({
   close_if_last_window = true,
