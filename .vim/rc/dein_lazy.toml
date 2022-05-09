@@ -490,3 +490,10 @@ require'treesitter-context'.setup{
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'famiu/bufdelete.nvim'
+on_cmd="Bdelete"
+hook_add = '''
+nnoremap <silent> bd :Bdelete<cr>
+'''
