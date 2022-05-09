@@ -786,3 +786,6 @@ require("stickybuf").setup({
 })
 EOF
 '''
+
+[[plugins]]
+repo = 'zsugabubus/crazy8.nvim'
