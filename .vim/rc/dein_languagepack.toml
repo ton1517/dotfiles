@@ -126,12 +126,18 @@ let g:terraform_fmt_on_save = 1
 #
 
 [[plugins]]
-repo = 'thosakwe/vim-flutter'
+repo = 'akinsho/flutter-tools.nvim'
+depends = 'plenary.nvim'
 on_ft = 'dart'
+hook_add = '''
+nnoremap ,Fa :FlutterRun --debug --dart-define=FLAVOR=development<cr>
+nnoremap ,Fq :FlutterQuit<cr>
+nnoremap ,Fr :FlutterReload<cr>
+nnoremap ,FR :FlutterRestart<cr>
+nnoremap ,Fo :FlutterOutlineToggle<cr>
+'''
 hook_source = '''
-nnoremap ,fa :FlutterRun --debug --dart-define=FLAVOR=development<cr>
-nnoremap ,fq :FlutterQuit<cr>
-nnoremap ,fr :FlutterHotReload<cr>
-nnoremap ,fR :FlutterHotRestart<cr>
-nnoremap ,fD :FlutterVisualDebug<cr>
+lua << EOF
+  require("flutter-tools").setup{}
+EOF
 '''

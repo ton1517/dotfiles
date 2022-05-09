@@ -465,7 +465,7 @@ hook_add = '''
 lua << EOF
 require("nvim-lsp-installer").setup({
     ensure_installed = {
-        "dartls",
+        -- "dartls",
         "dockerls",
         "gopls",
         "golangci_lint_ls",
