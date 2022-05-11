@@ -24,7 +24,7 @@ function fzf-git-branch-local() {
     local selected_lines="$(
         git for-each-ref --color=always --format='%(color:yellow)%(refname:short)|%(color:blue)%(committerdate:relative)|%(color:reset)%(subject)' --sort=-committerdate refs/heads \
         | column -t -s '|' \
-        | $(__fzfcmd) --ansi --preview 'git log --color=always --format="%C(magenta)%h %C(blue)%cd %C(green)%<(12,trunc)%cn %C(auto)%d %C(auto)%s" --date=short' \
+        | $(__fzfcmd) --ansi --preview 'git log --color=always --format="%C(magenta)%h %C(blue)%cd %C(green)%<(12,trunc)%cn %C(auto)%d %C(auto)%s" --date=short {+1}' \
         | awk '{print $1}'
     )"
 
