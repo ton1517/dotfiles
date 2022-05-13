@@ -338,6 +338,30 @@ repo = 'hrsh7th/nvim-cmp'
 depends = ['LuaSnip', 'lspkind.nvim']
 hook_add = '''
 lua <<EOF
+  local sources = {
+    nvim_lsp = { 
+	  name = 'nvim_lsp',
+	  max_item_count = 10,
+	},
+    cmp_tabnine = { 
+	  name = 'cmp_tabnine',
+	  max_item_count = 5,
+    },
+    luasnip = { name = 'luasnip' },
+    path = { name = 'path' },
+    buffer = { name = 'buffer' },
+    look = {
+      name = 'look',
+      keyword_length = 3,
+      max_item_count = 10,
+      option = {
+      	convert_case = true,
+      	loud = true,
+      },
+    },
+    cmdline = { name = 'cmdline' },
+  }
+
   local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -394,36 +418,29 @@ lua <<EOF
       end, { "i", "s" }),
       }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'cmp_tabnine' },
-      { name = 'luasnip' },
-      { name = 'path' },
-      {
-        name = 'look',
-        keyword_length = 2,
-        option = {
-            convert_case = true,
-            loud = true
-        }
-      }
+      sources.nvim_lsp,
+      sources.cmp_tabnine,
+      sources.luasnip,
+      sources.path,
     }, {
-      { name = 'buffer' },
+      sources.buffer,
+      sources.look,
     })
   })
 
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
+    sources = cmp.config.sources({
+      sources.buffer,
+    })
   })
 
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = 'path' }
+      sources.path,
     }, {
-      { name = 'cmdline' }
+      sources.cmdline,
     })
   })
 EOF
