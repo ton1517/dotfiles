@@ -752,7 +752,7 @@ require('cokeline').setup({
     new_buffers_position = 'next',
   },
   rendering = {
-    max_buffer_width = 30,
+    max_buffer_width = 50,
   },
   default_hl = {
     fg = function(buffer)
