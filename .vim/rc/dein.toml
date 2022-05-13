@@ -26,9 +26,6 @@ repo = 'vim-scripts/sudo.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
-
-[[plugins]]
 repo = 'numToStr/Comment.nvim'
 hook_add = '''
 lua << EOF
