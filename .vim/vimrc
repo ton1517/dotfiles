@@ -150,6 +150,8 @@ set cmdheight=2
 set showcmd
 " タイトルを表示
 set title
+" 補完候補の表示数
+set pumheight=20
 
 set signcolumn=yes
 
