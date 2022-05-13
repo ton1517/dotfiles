@@ -68,13 +68,6 @@ depends = 'vim-textobj-user'
 on_map = [['ox', 'i,', 'a,']]
 
 [[plugins]]
-repo = 'haya14busa/incsearch.vim'
-on_map = ['<Plug>']
-hook_add = '''
-map /  <Plug>(incsearch-forward)
-'''
-
-[[plugins]]
 repo = 'stevearc/aerial.nvim'
 on_cmd = 'AerialOpen'
 hook_add = '''
