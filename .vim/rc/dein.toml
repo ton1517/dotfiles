@@ -519,7 +519,7 @@ local opts = { noremap=true, silent=true }
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
@@ -565,7 +565,6 @@ nnoremap <silent> ]e <cmd>Lspsaga diagnostic_jump_prev<CR>
 nnoremap <silent> ,rn <cmd>Lspsaga rename<CR>
 
 nnoremap <silent> gh <cmd>lua require('lspsaga.provider').lsp_finder()<CR>
-nnoremap <silent> gd <cmd>lua require('lspsaga.provider').preview_definition()<CR>
 
 nnoremap <silent>,ca <cmd>Lspsaga code_action<CR>
 vnoremap <silent>,ca :<C-u>Lspsaga range_code_action<CR>
