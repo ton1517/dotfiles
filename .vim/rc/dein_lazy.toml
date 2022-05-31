@@ -1,13 +1,12 @@
 [[plugins]]
-repo = 'easymotion/vim-easymotion'
-on_map = [['n', '<Plug>']]
+repo = 'phaazon/hop.nvim'
+on_cmd = ['HopWord', 'HopChar2']
 hook_add = '''
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
-let g:EasyMotion_smartcase = 1
-
-nmap <Leader>e <Plug>(easymotion-overwin-w)
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
+nmap <Leader>e :HopWord<cr>
+nmap <Leader>s :HopChar2<cr>
+'''
+hook_source = '''
+lua require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
 '''
 
 [[plugins]]
