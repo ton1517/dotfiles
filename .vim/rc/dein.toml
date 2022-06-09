@@ -105,6 +105,20 @@ map <S-r> <Plug>(operator-replace)
 '''
 
 [[plugins]]
+repo = 'mopp/vim-operator-convert-case'
+depends = ['vim-operator-user', 'vim-repeat']
+hook_add = '''
+nnoremap ,clc <Plug>(operator-convert-case-lower-camel)iw
+nnoremap ,cuc <Plug>(operator-convert-case-upper-camel)iw
+nnoremap ,cls <Plug>(operator-convert-case-lower-snake)iw
+nnoremap ,cus <Plug>(operator-convert-case-upper-snake)iw
+vnoremap ,clc <Plug>(operator-convert-case-lower-camel)gv
+vnoremap ,cuc <Plug>(operator-convert-case-upper-camel)gv
+vnoremap ,cls <Plug>(operator-convert-case-lower-snake)gv
+vnoremap ,cus <Plug>(operator-convert-case-upper-snake)gv
+'''
+
+[[plugins]]
 repo = 'goolord/alpha-nvim'
 depends = 'nvim-web-devicons'
 hook_add = '''
