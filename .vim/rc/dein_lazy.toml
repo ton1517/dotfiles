@@ -67,6 +67,32 @@ depends = 'vim-textobj-user'
 on_map = [['ox', 'i,', 'a,']]
 
 [[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = 'vim-operator-user'
+on_map = '<Plug>(operator-replace)'
+hook_add = '''
+map <S-r> <Plug>(operator-replace)
+'''
+
+[[plugins]]
+repo = 'mopp/vim-operator-convert-case'
+depends = ['vim-operator-user', 'vim-repeat']
+on_map = '<Plug>(operator-convert-case-'
+hook_add = '''
+nnoremap ,clc <Plug>(operator-convert-case-lower-camel)iw
+nnoremap ,cuc <Plug>(operator-convert-case-upper-camel)iw
+nnoremap ,cls <Plug>(operator-convert-case-lower-snake)iw
+nnoremap ,cus <Plug>(operator-convert-case-upper-snake)iw
+vnoremap ,clc <Plug>(operator-convert-case-lower-camel)gv
+vnoremap ,cuc <Plug>(operator-convert-case-upper-camel)gv
+vnoremap ,cls <Plug>(operator-convert-case-lower-snake)gv
+vnoremap ,cus <Plug>(operator-convert-case-upper-snake)gv
+'''
+
+[[plugins]]
 repo = 'stevearc/aerial.nvim'
 on_cmd = 'AerialOpen'
 hook_add = '''
