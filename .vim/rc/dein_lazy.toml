@@ -114,10 +114,10 @@ lua require("trevj").setup()
 '''
 
 [[plugins]]
-repo = 'sjl/gundo.vim'
-on_cmd = ['GundoToggle']
+repo = 'simnalamburt/vim-mundo'
+on_cmd = ['MundoToggle']
 hook_add = '''
-nnoremap <silent> ,gu :GundoToggle<CR>
+nnoremap ,mu :MundoToggle<CR>
 '''
 
 [[plugins]]
