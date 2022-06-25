@@ -476,7 +476,7 @@ require("nvim-lsp-installer").setup({
         -- "dartls",
         "dockerls",
         "gopls",
-        "golangci_lint_ls",
+        -- "golangci_lint_ls",
         "graphql",
         "html",
         "jsonls",
