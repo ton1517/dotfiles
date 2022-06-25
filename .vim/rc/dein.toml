@@ -58,24 +58,24 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
 \   'go': ['golint', 'govet', 'golangci-lint'],
-\   'css': ['stylelint'],
-\   'scss': ['stylelint'],
+\   'css': ['prettier', 'stylelint'],
+\   'scss': ['prettier', 'stylelint'],
 \   'json': ['jq'],
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
-\   'vue': ['eslint', 'stylelint']
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
+\   'vue': ['prettier', 'eslint', 'stylelint']
 \ }
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'dart': ['dart-format'],
 \   'go': ['goimports'],
-\   'css': ['stylelint'],
-\   'scss': ['stylelint'],
+\   'css': ['prettier', 'stylelint'],
+\   'scss': ['prettier', 'stylelint'],
 \   'json': ['jq'],
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
-\   'vue': ['eslint', 'stylelint']
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
+\   'vue': ['prettier', 'eslint', 'stylelint']
 \}
 
 let g:ale_dart_format_options = '--line-length 140'
