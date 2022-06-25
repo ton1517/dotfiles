@@ -552,8 +552,8 @@ repo = 'tami5/lspsaga.nvim'
 depends = 'lsp-colors.nvim'
 hook_add = '''
 nnoremap <silent>,e <cmd>Lspsaga show_line_diagnostics<cr>
-nnoremap <silent> [e <cmd>Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent> ]e <cmd>Lspsaga diagnostic_jump_prev<CR>
+nnoremap <silent> [e <cmd>Lspsaga diagnostic_jump_prev<CR>
+nnoremap <silent> ]e <cmd>Lspsaga diagnostic_jump_next<CR>
 
 nnoremap <silent> ,rn <cmd>Lspsaga rename<CR>
 
