@@ -42,6 +42,7 @@ brews=(
     vim
     watch
     wget
+    yq
     zsh
 )
 
