@@ -12,6 +12,7 @@
     default = current
 [alias]
     co = checkout
+    sw = switch
     st = status
     cm = commit --verbose
     tags = tag -l
