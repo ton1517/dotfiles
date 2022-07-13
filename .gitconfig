@@ -56,6 +56,8 @@
     cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [interactive]
     diffFilter = delta --color-only
+[add.interactive]
+    useBuiltin = false
 [color "diff"]
     oldMoved = 225 bold
     newMoved = 195 bold
