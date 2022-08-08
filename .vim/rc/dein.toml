@@ -468,15 +468,30 @@ repo = 'octaltree/cmp-look'
 depends = 'nvim-cmp'
 
 [[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
+repo = 'williamboman/mason.nvim'
 hook_add = '''
 lua << EOF
-require("nvim-lsp-installer").setup({
+require("mason").setup({
+    automatic_installation = true,
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+EOF
+'''
+
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'
+hook_add = '''
+lua << EOF
+require("mason-lspconfig").setup({
     ensure_installed = {
-        -- "dartls",
         "dockerls",
         "gopls",
-        -- "golangci_lint_ls",
         "graphql",
         "html",
         "jsonls",
@@ -488,22 +503,16 @@ require("nvim-lsp-installer").setup({
         "cssls",
         "yamlls",
         "bashls",
-    },
-    automatic_installation = true,
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
     }
 })
 EOF
 '''
 
+
+
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-depends = ['nvim-lsp-installer', 'cmp-nvim-lsp']
+depends = ['mason.nvim', 'mason-lspconfig.nvim', 'cmp-nvim-lsp']
 hook_add = '''
 lua << EOF
 local opts = { noremap=true, silent=true }
@@ -526,13 +535,15 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = require("nvim-lsp-installer").get_installed_servers()
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp.name].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup_handlers {
+	function(server_name)
+		require('lspconfig')[server_name].setup {
+			on_attach = on_attach,
+			capabilities = capabilities,
+		}
+	end 
+}
 EOF
 '''
 
