@@ -1,18 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
 function symlink() {
     orig=$1
     dest=$2
 
-    if [ "$(readlink $dest)" != "$orig" ]; then
-        ln -Fis $orig $dest
+    if [ "$(readlink "$dest")" != "$orig" ]; then
+        ln -Fis "$orig" "$dest"
     fi
 }
 
 git submodule init
 git submodule update
 
-cd $(dirname $0)
+cd "$(dirname "$0")" || exit
 
 touch ".vim/vimrc.local"
 touch ".zsh/zshrc.local"
@@ -23,7 +23,7 @@ touch "$HOME/.gitconfig.local"
 # symlink dotfile
 for dotfile in .?*
 do
-    if [ $dotfile != ".." ] && [ $dotfile != ".git" ] && [ $dotfile != ".gitmodules" ] && [ $dotfile != ".config" ]
+    if [ "$dotfile" != ".." ] && [ "$dotfile" != ".git" ] && [ "$dotfile" != ".gitmodules" ] && [ "$dotfile" != ".config" ]
     then
         symlink "$PWD/$dotfile" "$HOME/$dotfile";
     fi
@@ -43,16 +43,11 @@ for conffile in .config/*
 do
     symlink "$PWD/$conffile" "$HOME/$conffile"
 done
-ln -sfh ~/.vim $XDG_CONFIG_HOME/nvim
+ln -sfh ~/.vim "$XDG_CONFIG_HOME/nvim"
 
 # install homebrew
-if [[ "$(uname)" == 'Darwin' && ! -n "$(which brew 2> /dev/null)" ]]; then
+if [[ "$(uname)" == 'Darwin' && -z "$(which brew 2> /dev/null)" ]]; then
     sh ./brewfile.sh
-fi
-
-# install zplug
-if [ ! -e ~/.zplug ]; then
-    git clone -b 2.4.1 https://github.com/zplug/zplug ~/.zplug
 fi
 
 # install anyenv
