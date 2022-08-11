@@ -555,6 +555,7 @@ require("mason-lspconfig").setup({
         "cssls",
         "yamlls",
         "bashls",
+        "sumneko_lua",
     }
 })
 EOF
