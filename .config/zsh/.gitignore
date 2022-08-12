@@ -3,3 +3,5 @@
 /zprofile.local
 
 *.zwc
+.zcompdump*
+.chpwd-recent-dirs
