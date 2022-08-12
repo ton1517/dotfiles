@@ -11,7 +11,7 @@ function symlink() {
 
 cd "$(dirname "$0")" || exit
 
-touch ".vim/vimrc.local"
+touch ".config/nvim/vimrc.local"
 touch ".zsh/zshrc.local"
 touch ".zsh/zshenv.local"
 touch ".zsh/zprofile.local"
@@ -32,7 +32,6 @@ for conffile in .config/*
 do
     symlink "$PWD/$conffile" "$HOME/$conffile"
 done
-ln -sfh ~/.vim "$XDG_CONFIG_HOME/nvim"
 
 # install homebrew
 if [[ "$(uname)" == 'Darwin' && -z "$(which brew 2> /dev/null)" ]]; then

@@ -9,8 +9,8 @@ let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim/bin/python'
 " source vimrc
 "----------------------------------------
 
-if filereadable(expand('~/.vim/vimrc'))
-  source ~/.vim/vimrc
+if filereadable(expand('$XDG_CONFIG_HOME/nvim/vimrc'))
+  source $XDG_CONFIG_HOME/nvim/vimrc
 endif
 
 "----------------------------------------
@@ -18,14 +18,14 @@ endif
 "----------------------------------------
 "
 " write additional local settings in ~/.vim/vimrc.local
-if filereadable(expand('~/.vim/vimrc.local'))
-  source ~/.vim/vimrc.local
+if filereadable(expand('$XDG_CONFIG_HOME/nvim/vimrc.local'))
+  source $XDG_CONFIG_HOME/nvim/vimrc.local
 endif
 
 "----------------------------------------
 " source vim plugin settings
 "----------------------------------------
 
-if filereadable(expand('~/.vim/rc/dein.rc.vim'))
-  source ~/.vim/rc/dein.rc.vim
+if filereadable(expand('$XDG_CONFIG_HOME/nvim/rc/dein.rc.vim'))
+  source $XDG_CONFIG_HOME/nvim/rc/dein.rc.vim
 endif
