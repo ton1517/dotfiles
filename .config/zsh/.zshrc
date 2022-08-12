@@ -5,13 +5,13 @@
 # source zshrc
 #----------------------------------------
 
-source ~/.zsh/zshrc
+source $ZDOTDIR/zshrc
 
 #----------------------------------------
 # source plugins
 #----------------------------------------
 
-source ~/.zsh/zim.zsh
+source $ZDOTDIR/zim.zsh
 
 #----------------------------------------
 # local settings
@@ -19,7 +19,7 @@ source ~/.zsh/zim.zsh
 # PC固有の設定を追加するときは
 # ~/.zsh/zshrc.local ファイルを作成し
 # その中に記述すること
-local_settings=~/.zsh/zshrc.local
+local_settings=$ZDOTDIR/zshrc.local
 if [ -e $local_settings ]; then
     source $local_settings
 fi

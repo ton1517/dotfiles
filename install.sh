@@ -12,9 +12,9 @@ function symlink() {
 cd "$(dirname "$0")" || exit
 
 touch ".config/nvim/vimrc.local"
-touch ".zsh/zshrc.local"
-touch ".zsh/zshenv.local"
-touch ".zsh/zprofile.local"
+touch ".config/zsh/zshrc.local"
+touch ".config/zsh/zshenv.local"
+touch ".config/zsh/zprofile.local"
 touch ".config/git/config.local"
 
 # symlink dotfile

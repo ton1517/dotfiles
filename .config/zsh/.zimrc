@@ -7,4 +7,4 @@ zmodule rupa/z
 zmodule fzf
 zmodule romkatv/powerlevel10k --use degit
 
-zmodule ~/.zsh --source fzf.zsh --source exa.zsh --source theme.zsh
+zmodule $ZDOTDIR --source fzf.zsh --source exa.zsh --source theme.zsh
