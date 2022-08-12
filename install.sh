@@ -18,13 +18,7 @@ touch ".config/zsh/zprofile.local"
 touch ".config/git/config.local"
 
 # symlink dotfile
-for dotfile in .?*
-do
-    if [ "$dotfile" != ".." ] && [ "$dotfile" != ".git" ] && [ "$dotfile" != ".gitmodules" ] && [ "$dotfile" != ".config" ]
-    then
-        symlink "$PWD/$dotfile" "$HOME/$dotfile";
-    fi
-done
+symlink "$PWD/.zshenv" "$HOME/.zshenv"
 
 # symlink config file
 mkdir -p "$HOME/.config"
