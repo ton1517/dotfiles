@@ -9,9 +9,6 @@ function symlink() {
     fi
 }
 
-git submodule init
-git submodule update
-
 cd "$(dirname "$0")" || exit
 
 touch ".vim/vimrc.local"
