@@ -4,7 +4,7 @@
     autocrlf = input
     pager = less --tabs=4 -RFX
 [include]
-    path = ~/.gitconfig.local
+    path = $XDG_CONFIG_HOME/git/config.local
 [color]
     ui = true
 [push]

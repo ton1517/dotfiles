@@ -18,7 +18,7 @@ touch ".vim/vimrc.local"
 touch ".zsh/zshrc.local"
 touch ".zsh/zshenv.local"
 touch ".zsh/zprofile.local"
-touch "$HOME/.gitconfig.local"
+touch ".config/git/config.local"
 
 # symlink dotfile
 for dotfile in .?*
