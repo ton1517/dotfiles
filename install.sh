@@ -29,14 +29,6 @@ do
     fi
 done
 
-# symlink bin file
-mkdir -p "$HOME/bin"
-for binfile in bin/*
-do
-    chmod 755 "$PWD/$binfile"
-    symlink "$PWD/$binfile" "$HOME/$binfile"
-done
-
 # symlink config file
 mkdir -p "$HOME/.config"
 for conffile in .config/*
