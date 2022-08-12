@@ -1,5 +1,4 @@
 [core]
-    excludesfile = ~/.gitignore.global
     editor = nvim
     ui = auto
     autocrlf = input
