@@ -124,12 +124,7 @@ nnoremap ,mu :MundoToggle<CR>
 repo = 'lukas-reineke/indent-blankline.nvim'
 on_event = 'BufRead'
 hook_source = '''
-lua << EOF
-require("indent_blankline").setup {
-    show_current_context = true,
-    show_current_context_start = true,
-}
-EOF
+lua require('rc/plugin-config/indent-blankline')
 '''
 
 [[plugins]]
@@ -137,72 +132,7 @@ repo = 'nvim-treesitter/nvim-treesitter'
 on_event = 'BufRead'
 hook_post_update = 'TSUpdate'
 hook_source = '''
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "bash",
-    "c",
-    "c_sharp",
-    "cmake",
-    "cpp",
-    "css",
-    "dart",
-    "dockerfile",
-    "go",
-    "gomod",
-    "gowork",
-    "graphql",
-    "hcl",
-    "html",
-    "java",
-    "javascript",
-    "jsdoc",
-    "json",
-    "json5",
-    "jsonc",
-    "kotlin",
-    "lua",
-    "make",
-    "markdown",
-    "php",
-    "python",
-    "ruby",
-    "rust",
-    "scss",
-    "swift",
-    "toml",
-    "tsx",
-    "typescript",
-    "vim",
-    "vue",
-    "yaml",
-  },
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  },
-  textobjects = {
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>l"] = "@parameter.inner",
-        ["<leader>j"] = "@function.outer",
-      },
-      swap_previous = {
-        ["<leader>h"] = "@parameter.inner",
-        ["<leader>k"] = "@function.outer",
-      },
-    },
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
-  },
-}
-EOF
+lua require('rc/plugin-config/nvim-treesitter')
 '''
 
 [[plugins]]
@@ -273,43 +203,7 @@ nnoremap <C-p> <Plug>(YankyCycleBackward)
 nnoremap ,fy <cmd>Telescope yank_history<cr>
 '''
 hook_source = '''
-lua << EOF
-local mapping = require("yanky.telescope.mapping")
-require("yanky").setup({
-  ring = {
-    history_length = 100,
-    storage = "shada",
-    sync_with_numbered_registers = true,
-  },
-  system_clipboard = {
-    sync_with_ring = true,
-  },
-  highlight = {
-    on_put = true,
-    on_yank = true,
-    timer = 100,
-  },
-  preserve_cursor_position = {
-    enabled = true,
-  },
-  picker = {
-    telescope = {
-      mappings = {
-        default = mapping.put("p"),
-        i = {
-          ["<c-p>"] = mapping.put("p"),
-          ["<c-k>"] = mapping.put("P"),
-        },
-        n = {
-          ["p"] = mapping.put("p"),
-          ["P"] = mapping.put("P"),
-        },
-      },
-    },
-  },
-})
-require("telescope").load_extension("yank_history")
-EOF
+lua require('rc/plugin-config/yanky')
 '''
 
 [[plugins]]
@@ -382,83 +276,7 @@ hook_source = '''
 highlight NeoTreeGitConflict cterm=bold ctermfg=215 gui=bold guifg=#f39660
 highlight NeoTreeGitUntracked ctermfg=215 guifg=#f39660
 
-lua << EOF
-require("neo-tree").setup({
-  close_if_last_window = true,
-  enable_git_status = true,
-  enable_diagnostics = true,
-  default_component_configs = {
-    git_status = {
-      symbols = {
-        deleted   = "✖",
-        renamed   = "",
-        untracked = "?",
-        ignored   = "/",
-        unstaged  = "*",
-        staged    = "o",
-        conflict  = "",
-      }
-    },
-  },
-  window = {
-    position = "left",
-    width = 35,
-    mapping_options = {
-      noremap = true,
-      nowait = true,
-    },
-    mappings = {
-      ["<space>"] = {
-          "toggle_node",
-          nowait = true,
-      },
-      ["<2-LeftMouse>"] = "open",
-      ["<cr>"] = "open",
-      ["S"] = "none",
-      ["s"] = "none",
-      ["t"] = "open_tabnew",
-      ["C"] = "close_node",
-      ["h"] = "close_node",
-      ["l"] = "open",
-      ["e"] = "open",
-      ["a"] = {
-        "add",
-        config = {
-          show_path = "none" -- "none", "relative", "absolute"
-        }
-      },
-      ["A"] = "add_directory",
-      ["d"] = "delete",
-      ["r"] = "rename",
-      ["y"] = "copy_to_clipboard",
-      ["x"] = "cut_to_clipboard",
-      ["p"] = "paste_from_clipboard",
-      ["c"] = "copy",
-      ["m"] = "move",
-      ["q"] = "close_window",
-      ["R"] = "refresh",
-      ["?"] = "show_help",
-    }
-  },
-  nesting_rules = {},
-  filesystem = {
-    filtered_items = {
-      visible = true,
-      hide_dotfiles = false,
-      hide_gitignored = false,
-      hide_hidden = false,
-      never_show = {
-        ".DS_Store",
-        "thumbs.db",
-        ".git",
-      },
-    },
-    follow_current_file = true,
-    hijack_netrw_behavior = "open_default",
-    use_libuv_file_watcher = true,
-  }
-})
-EOF
+lua require('rc/plugin-config/neo-tree')
 '''
 
 [[plugins]]
@@ -490,14 +308,7 @@ nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 repo = 'kevinhwang91/nvim-bqf'
 on_ft = 'qf'
 hook_source = '''
-lua << EOF
-require("bqf").setup{
-  func_map = {
-    pscrollup = "<C-u>",
-    pscrolldown = "<C-d>",
-  }
-}
-EOF
+lua require('rc/plugin-config/nvim-bqf')
 '''
 
 [[plugins]]
@@ -505,16 +316,7 @@ repo = 'lewis6991/nvim-treesitter-context'
 on_event = 'BufRead'
 depends = 'nvim-treesitter'
 hook_source = '''
-lua << EOF
-require'treesitter-context'.setup{
-  enable = true,
-  throttle = true,
-  max_lines = 0,
-  patterns = {
-    default = { 'class', 'function', 'method' },
-  },
-}
-EOF
+lua require('rc/plugin-config/nvim-treesitter-context')
 '''
 
 [[plugins]]

@@ -28,9 +28,7 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'numToStr/Comment.nvim'
 hook_add = '''
-lua << EOF
-require('Comment').setup()
-EOF
+lua require('Comment').setup()
 '''
 
 [[plugins]]
@@ -124,44 +122,7 @@ nnoremap ,fk <cmd>Telescope keymaps<cr>
 
 nnoremap ,<C-g><C-s> <cmd>Telescope git_status<cr>
 
-lua <<EOL
-local actions = require("telescope.actions")
-require("telescope").setup{
-  defaults = {
-    vimgrep_arguments = {
-      "rg",
-      "--no-ignore-dot",
-      "--hidden",
-      "-g=!.git/",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case"
-    },
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close,
-        ["<C-d>"] = actions.delete_buffer,
-      },
-      n = {
-        ["<C-c>"] = actions.close,
-        ["q"] = actions.close,
-      },
-    },
-  },
-  extensions = {
-    frecency = {
-      show_scores = true,
-      show_unindexed = true,
-      ignore_patterns = {"*.git/*", "*/tmp/*"},
-      disable_devicons = false,
-      default_workspace = 'CWD',
-    },
-  },
-}
-EOL
+lua require('rc/plugin-config/telescope')
 '''
 
 [[plugins]]
@@ -171,92 +132,26 @@ repo = 'tami5/sqlite.lua'
 repo = 'nvim-telescope/telescope-frecency.nvim'
 depends = ['telescope.nvim', 'sqlite.lua', 'nvim-web-devicons']
 hook_add = '''
-lua <<EOL
-require('telescope').load_extension('frecency')
-EOL
+lua require('telescope').load_extension('frecency')
 '''
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 depends = 'nvim-web-devicons'
 hook_add = '''
-lua << EOF
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
-    always_divide_middle = true,
-    globalstatus = false,
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {
-      'branch',
-      'diff',
-      {
-        'diagnostics',
-        sources = { 'nvim_diagnostic', 'ale' },
-      },
-    },
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
-}
-EOF
+lua require('rc/plugin-config/lualine')
 '''
 
 [[plugins]]
 repo = 'folke/which-key.nvim'
 hook_add = '''
-lua << EOF
-require("which-key").setup {}
-EOF
+lua require("which-key").setup {}
 '''
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 hook_add = '''
-lua << EOF
-require('gitsigns').setup{
-  signcolumn = true,
-  numhl      = true,
-  linehl     = false,
-  word_diff  = false,
-  on_attach = function(bufnr)
-    local function map(mode, lhs, rhs, opts)
-        opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
-        vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
-    end
-
-    -- Navigation
-    map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
-    map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
-
-    -- Actions
-    map('n', '<leader>ga', ':Gitsigns stage_hunk<CR>')
-    map('v', '<leader>ga', ':Gitsigns stage_hunk<CR>')
-    map('n', '<leader>gu', '<cmd>Gitsigns undo_stage_hunk<CR>')
-    map('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>')
-    map('n', '<leader>gd', '<cmd>Gitsigns diffthis<CR>')
-    map('n', '<leader>gtd', '<cmd>Gitsigns toggle_deleted<CR>')
-  end
-}
-EOF
+lua require('rc/plugin-config/gitsigns')
 '''
 
 [[plugins]]
@@ -268,100 +163,14 @@ lua require('colorizer').setup()
 [[plugins]]
 repo = 'kevinhwang91/nvim-hlslens'
 hook_add = '''
-lua << EOF
-local kopts = {noremap = true, silent = true}
-
-vim.api.nvim_set_keymap('n', 'n',
-    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', 'N',
-    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-EOF
+lua require('rc/plugin-config/nvim-hlslens')
 '''
 
 [[plugins]]
 repo = 'petertriho/nvim-scrollbar'
 depends = ['nvim-hlslens', 'gitsigns.nvim']
 hook_add = '''
-lua << EOF
-require("scrollbar.handlers.search").setup()
-require("scrollbar").setup({
-	show = true,
-	set_highlights = true,
-	handle = {
-		color = "#777777",
-	},
-	marks = {
-		Search = { color = "#ff9e64" },
-		Error = { color = "#db4b4b" },
-		Warn = { color = "#e0af68" },
-		Info = { color = "#0db9d7" },
-		Hint = { color = "#1abc9c" },
-		Misc = { color = "#9d7cd8" },
-		GitAdd = {
-			color = "#9ed072",
-			text = { "+" },
-			priority = 5,
-			cterm = nil,
-			highlight = "CursorColumn",
-		},
-		GitDelete = {
-			color = "#fc5d7c",
-			text = { "-" },
-			priority = 5,
-			cterm = nil,
-			highlight = "CursorColumn",
-		},
-		GitChange = {
-			color = "#76cce0",
-			text = { "*" },
-			priority = 5,
-			cterm = nil,
-			highlight = "CursorColumn",
-		},
-	},
-	handlers = {
-		diagnostic = true,
-		search = true,
-	},
-})
-
-local gitsign = require('gitsigns')
-local gitsign_hunks = require('gitsigns.hunks')
-
-require('scrollbar.handlers').register('git', function(bufnr)
-    local nb_lines = vim.api.nvim_buf_line_count(bufnr)
-    local colors_type = {
-        add = 'GitAdd',
-        delete = 'GitDelete',
-        change = 'GitChange',
-        changedelete = 'GitChange'
-    }
-
-    local lines = {}
-    local hunks = gitsign.get_hunks(bufnr)
-    if hunks then
-        for _, hunk in ipairs(hunks) do
-            hunk.vend = math.min(hunk.added.start, hunk.removed.start) + hunk.added.count + hunk.removed.count
-            local signs = gitsign_hunks.calc_signs(hunk, 0, nb_lines)
-            for _, sign in ipairs(signs) do
-                table.insert(lines, {
-                    line = sign.lnum,
-                    type = colors_type[sign.type]
-                })
-            end
-        end
-    end
-    return lines
-end)
-
-
-EOF
+lua require('rc/plugin-config/nvim-scrollbar')
 '''
 
 [[plugins]]
@@ -381,113 +190,7 @@ repo = 'onsails/lspkind.nvim'
 repo = 'hrsh7th/nvim-cmp'
 depends = ['LuaSnip', 'lspkind.nvim']
 hook_add = '''
-lua <<EOF
-  local sources = {
-    nvim_lsp = { 
-	  name = 'nvim_lsp',
-	  max_item_count = 10,
-	},
-    cmp_tabnine = { 
-	  name = 'cmp_tabnine',
-	  max_item_count = 5,
-    },
-    luasnip = { name = 'luasnip' },
-    path = { name = 'path' },
-    buffer = { name = 'buffer' },
-    look = {
-      name = 'look',
-      keyword_length = 3,
-      max_item_count = 10,
-      option = {
-      	convert_case = true,
-      	loud = true,
-      },
-    },
-    cmdline = { name = 'cmdline' },
-  }
-
-  local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-  end
-
-  local luasnip = require('luasnip')
-  local cmp = require('cmp')
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
-    },
-    formatting = {
-      format = require('lspkind').cmp_format({
-        mode = 'symbol',
-        maxwidth = 50,
-        with_text = true,
-        menu = {
-          buffer = '[Buffer]',
-          cmp_tabnine = '[TabNine]',
-          luasnip = '[LuaSnip]',
-          nvim_lsp = '[LSP]',
-          path = '[Path]',
-          look = '[Look]',
-        },
-      }),
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-              cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-          elseif has_words_before() then
-              cmp.complete()
-          else
-              fallback()
-          end
-      end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-              cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-          else
-              fallback()
-          end
-      end, { "i", "s" }),
-      }),
-    sources = cmp.config.sources({
-      sources.nvim_lsp,
-      sources.cmp_tabnine,
-      sources.luasnip,
-      sources.path,
-    }, {
-      sources.buffer,
-      sources.look,
-    })
-  })
-
-  cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      sources.buffer,
-    })
-  })
-
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      sources.path,
-    }, {
-      sources.cmdline,
-    })
-  })
-EOF
+lua require('rc/plugin-config/nvim-cmp')
 '''
 
 [[plugins]]
@@ -522,90 +225,26 @@ depends = 'nvim-cmp'
 [[plugins]]
 repo = 'williamboman/mason.nvim'
 hook_add = '''
-lua << EOF
-require("mason").setup({
-    automatic_installation = true,
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-EOF
+lua require('rc/plugin-config/mason')
 '''
 
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
 hook_add = '''
-lua << EOF
-require("mason-lspconfig").setup({
-    ensure_installed = {
-        "dockerls",
-        "gopls",
-        "graphql",
-        "html",
-        "jsonls",
-        "tsserver",
-        "taplo",
-        "terraformls",
-        "tflint",
-        "volar",
-        "cssls",
-        "yamlls",
-        "bashls",
-        "sumneko_lua",
-    }
-})
-EOF
+lua require('rc/plugin-config/mason-lspconfig')
 '''
-
-
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 depends = ['mason.nvim', 'mason-lspconfig.nvim', 'cmp-nvim-lsp']
 hook_add = '''
-lua << EOF
-local opts = { noremap=true, silent=true }
-
-vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-
-vim.api.nvim_set_keymap('n', ',wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-vim.api.nvim_set_keymap('n', ',wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-vim.api.nvim_set_keymap('n', ',wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-
-vim.api.nvim_set_keymap('n', '<S-f>', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
-
-local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
-end
-
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local mason_lspconfig = require('mason-lspconfig')
-mason_lspconfig.setup_handlers {
-	function(server_name)
-		require('lspconfig')[server_name].setup {
-			on_attach = on_attach,
-			capabilities = capabilities,
-		}
-	end 
-}
-EOF
+lua require('rc/plugin-config/nvim-lspconfig')
 '''
 
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
 hook_add = '''
-lua << EOF
-require('lsp_signature').setup()
-EOF
+lua require('lsp_signature').setup()
 '''
 
 [[plugins]]
@@ -632,231 +271,26 @@ nnoremap <silent> ? <cmd>Lspsaga signature_help<cr>
 nnoremap <silent> <C-u> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
 nnoremap <silent> <C-d> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
 
-lua << EOF
-local lspsaga = require 'lspsaga'
-lspsaga.setup { -- defaults ...
-  debug = false,
-  use_saga_diagnostic_sign = true,
-  -- diagnostic sign
-  error_sign = "",
-  warn_sign = "",
-  hint_sign = "",
-  infor_sign = "",
-  diagnostic_header_icon = "   ",
-  -- code action title icon
-  code_action_icon = " ",
-  code_action_prompt = {
-    enable = true,
-    sign = false,
-    virtual_text = false,
-  },
-  finder_definition_icon = "  ",
-  finder_reference_icon = "  ",
-  max_preview_lines = 10,
-  finder_action_keys = {
-    open = "<CR>",
-    vsplit = "s",
-    split = "i",
-    quit = "<ESC>",
-    scroll_down = "<C-d>",
-    scroll_up = "<C-u>",
-  },
-  code_action_keys = {
-    quit = "<ESC>",
-    exec = "<CR>",
-  },
-  rename_action_keys = {
-    quit = "<ESC>",
-    exec = "<CR>",
-  },
-  definition_preview_icon = "  ",
-  border_style = "single",
-  rename_prompt_prefix = "➤",
-  rename_output_qflist = {
-    enable = false,
-    auto_open_qflist = false,
-  },
-  server_filetype_map = {},
-  diagnostic_prefix_format = "%d. ",
-  diagnostic_message_format = "%m %c",
-  highlight_prefix = false,
-}
-EOF
+lua require('rc/plugin-config/lspsaga')
 '''
 
 [[plugins]]
 repo = 'j-hui/fidget.nvim'
 hook_add = '''
-lua << EOF
-require('fidget').setup{}
-EOF
+lua require('fidget').setup{}
 '''
 
 [[plugins]]
 repo = 'noib3/nvim-cokeline'
 depends = 'nvim-web-devicons'
 hook_add = '''
-lua << EOF
-local map = vim.api.nvim_set_keymap
-map('n', '[b', '<Plug>(cokeline-focus-prev)',  { silent = true })
-map('n', ']b', '<Plug>(cokeline-focus-next)',  { silent = true })
-for i = 1,9 do
-  map('n', ('b%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i),  { silent = true })
-  map('n', ('bs%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i),  { silent = true })
-end
-
-local get_hex = require('cokeline/utils').get_hex
-local mappings = require('cokeline/mappings')
-
-local comments_fg = get_hex('Comment', 'fg')
-local errors_fg = get_hex('DiagnosticError', 'fg')
-local warnings_fg = get_hex('DiagnosticWarn', 'fg')
-
-local components = {
-  space = {
-    text = ' ',
-    truncation = { priority = 1 }
-  },
-
-  separator = {
-    text = function(buffer)
-      return (buffer.is_focused and ' ')
-        or (buffer.filetype == 'neo-tree' and '  ')
-        or (buffer.index ~= 1 and ' ▎')
-        or '  '
-    end,
-    bg = get_hex('Normal', 'bg'),
-    truncation = { priority = 1 }
-  },
-
-  number = {
-    text = function(buffer)
-      return buffer.index
-    end,
-    fg = comments_fg,
-    truncation = { priority = 1 }
-  },
-
-  devicon = {
-    text = function(buffer)
-      return buffer.devicon.icon
-    end,
-    fg = function(buffer)
-      return buffer.devicon.color
-    end,
-    truncation = { priority = 2 }
-  },
-
-  unique_prefix = {
-    text = function(buffer)
-      return buffer.unique_prefix
-    end,
-    fg = comments_fg,
-    style = 'italic',
-    truncation = {
-      priority = 3,
-      direction = 'left',
-    },
-  },
-
-  filename = {
-    text = function(buffer)
-      return buffer.filename
-    end,
-    fg = function(buffer)
-      return buffer.is_focused and '#78dce8' or nil
-    end,
-    style = function(buffer)
-      return buffer.is_focused and 'bold,underline' or nil
-    end,
-    truncation = {
-      priority = 2,
-      direction = 'left',
-    },
-  },
-
-  diagnostics = {
-    text = function(buffer)
-      return
-        (buffer.diagnostics.errors ~= 0 and '  ' .. buffer.diagnostics.errors)
-        or (buffer.diagnostics.warnings ~= 0 and '  ' .. buffer.diagnostics.warnings)
-        or ''
-    end,
-    fg = function(buffer)
-      return
-        (buffer.diagnostics.errors ~= 0 and errors_fg)
-        or (buffer.diagnostics.warnings ~= 0 and warnings_fg)
-        or nil
-    end,
-    truncation = { priority = 1 },
-  },
-
-  close_or_unsaved = {
-    text = function(buffer)
-      return buffer.is_modified and '●' or ''
-    end,
-    fg = function(buffer)
-      return buffer.is_modified and warnings_fg or nil
-    end,
-    delete_buffer_on_left_click = true,
-    truncation = { priority = 1 },
-  },
-}
-
-require('cokeline').setup({
-  buffers = {
-    new_buffers_position = 'next',
-  },
-  rendering = {
-    max_buffer_width = 50,
-  },
-  default_hl = {
-    fg = function(buffer)
-      return
-        buffer.is_focused
-        and get_hex('Normal', 'fg')
-         or get_hex('Comment', 'fg')
-    end,
-    bg = function(buffer)
-      return buffer.is_focused and '#404040' or nil
-    end
-  },
-  sidebar = {
-    filetype = 'neo-tree',
-    components = {
-      components.separator,
-      components.space,
-      { text = 'neo-tree' },
-    }
-  },
-  components = {
-    components.separator,
-    components.space,
-    components.number,
-    components.space,
-    components.devicon,
-    components.space,
-    components.unique_prefix,
-    components.filename,
-    components.diagnostics,
-    components.space,
-    components.close_or_unsaved,
-    components.space,
-  },
-})
-EOF
+lua require('rc/plugin-config/nvim-cokeline')
 '''
 
 [[plugins]]
 repo = 'stevearc/stickybuf.nvim'
 hook_add = '''
-lua << EOF
-require("stickybuf").setup({
-  filetype = {
-    ['neo-tree'] = 'filetype',
-  },
-})
-EOF
+lua require('rc/plugin-config/stickybuf')
 '''
 
 [[plugins]]
