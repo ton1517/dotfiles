@@ -35,9 +35,6 @@ nnoremap <C-s> <Esc>:w<CR>
 nnoremap j gj
 nnoremap k gk
 
-" 行末までヤンク
-nnoremap Y y$
-
 
 "
 " ウィンドウ関連操作
@@ -66,16 +63,11 @@ set ignorecase
 set smartcase
 " 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
 set wrapscan
-" インクリメンタルサーチ
-set incsearch
-" 検索パターンにマッチしたテキストのハイライト
-set hlsearch
 
 "----------------------------------------
 " edit settings
 "----------------------------------------
 
-set hidden
 set updatetime=100
 set shortmess+=c
 
@@ -83,8 +75,6 @@ set shortmess+=c
 set tabstop=4
 " タブを挿入するときの幅
 set shiftwidth=4
-" <Tab>と<BS>を押した時の挙動をいい感じにする
-set smarttab
 " タブをスペースに展開する
 set expandtab
 " 自動的にインデントする
@@ -99,8 +89,6 @@ endif
 set backspace=indent,eol,start
 " 括弧入力時に対応する括弧を表示
 set showmatch
-" コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
-set wildmenu
 
 set formatoptions=tcqmMro
 
@@ -121,33 +109,23 @@ set foldlevel=99
 set clipboard+=unnamed
 
 " バックアップをとらない
-set nobackup
 set nowritebackup
 set noswapfile
 "----------------------------------------
 " display settings
 "----------------------------------------
 
-syntax on
 " 256色カラー
 set t_Co=256
 
 " 行番号を非表示 (number:表示)
 set number
-" ルーラーを表示 (noruler:非表示)
-set ruler
 " タブや改行を表示 (list:表示)
 set list
 " どの文字でタブや改行を表示するかを設定
 set listchars=tab:\|\-,extends:⇢,precedes:⇠,trail:»
-" 長い行を折り返して表示 (nowrap:折り返さない)
-set wrap
-" 常にステータス行を表示 (詳細は:he laststatus)
-set laststatus=2
 " コマンドラインの高さ (Windows用gvim使用時はgvimrcを編集すること)
 set cmdheight=2
-" コマンドをステータス行に表示
-set showcmd
 " タイトルを表示
 set title
 " 補完候補の表示数
@@ -167,17 +145,12 @@ hi NonText ctermbg=NONE ctermfg=darkgray
 hi SpecialKey ctermbg=NONE ctermfg=yellow
 
 " 高速化
-set ttyfast
 set lazyredraw
 
 " カラー
-if (has("termguicolors"))
-    set termguicolors
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-
-set background=dark
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "----------------------------------------
 " ex settings
@@ -185,8 +158,6 @@ set background=dark
 
 "自動保存
 set autowrite
-"外部で変更があった場合自動的にファイルを読みなおす
-set autoread
 "頻繁に読み直すように
 augroup vimrc-checktime
     autocmd!
