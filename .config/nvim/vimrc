@@ -76,12 +76,6 @@ set shiftwidth=4
 set expandtab
 " 自動的にインデントする
 set cindent
-" コメントのオートインデントといい感じに
-if has("autocmd")
-    autocmd FileType *
-                \ let &l:comments
-                \=join(filter(split(&l:comments, ','), 'v:val =~ "^[sme]"'), ',')
-endif
 " バックスペースでインデントや改行を削除できるようにする
 set backspace=indent,eol,start
 " 括弧入力時に対応する括弧を表示
