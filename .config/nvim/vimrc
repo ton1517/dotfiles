@@ -20,9 +20,6 @@ vnoremap <C-h> ^
 nnoremap <C-l> $
 vnoremap <C-l> $
 
-" タグジャンプ
-nnoremap <silent> ,tn <C-]>
-nnoremap <silent> ,tp <C-t>
 " ノーマルモード時にOで改行
 nnoremap O o<ESC>
 " hlsearchのハイライトを消去
