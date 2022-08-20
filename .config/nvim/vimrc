@@ -69,9 +69,9 @@ set updatetime=100
 set shortmess+=c
 
 " タブの画面上での幅
-set tabstop=4
+set tabstop=2
 " タブを挿入するときの幅
-set shiftwidth=4
+set shiftwidth=2
 " タブをスペースに展開する
 set expandtab
 " 自動的にインデントする
