@@ -43,19 +43,6 @@ require 'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
   },
-  textobjects = {
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>l"] = "@parameter.inner",
-        ["<leader>j"] = "@function.outer",
-      },
-      swap_previous = {
-        ["<leader>h"] = "@parameter.inner",
-        ["<leader>k"] = "@function.outer",
-      },
-    },
-  },
   rainbow = {
     enable = true,
     extended_mode = true,
