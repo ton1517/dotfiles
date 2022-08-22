@@ -142,6 +142,7 @@ depends = 'nvim-treesitter'
 
 [[plugins]]
 repo = 'hotwatermorning/auto-git-diff'
+on_event = 'BufRead'
 on_ft = ['gitrebase']
 hook_add = '''
 function! s:setup_auto_git_diff() abort
@@ -154,6 +155,7 @@ autocmd FileType gitrebase call <SID>setup_auto_git_diff()
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
+on_event = 'BufRead'
 on_ft = ['gitcommit']
 
 [[plugins]]
