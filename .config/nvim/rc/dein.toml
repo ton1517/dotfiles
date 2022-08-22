@@ -20,9 +20,6 @@ repo = 'tpope/vim-fugitive'
 repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
-repo = 'vim-scripts/sudo.vim'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
