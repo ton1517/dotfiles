@@ -108,7 +108,6 @@ depends = ['plenary.nvim']
 hook_add = '''
 nnoremap ,p  <cmd>Telescope find_files find_command=rg,--no-ignore-dot,--hidden,-g,!.git/,--files<cr>
 nnoremap ,ff <cmd>Telescope find_files find_command=rg,--no-ignore-dot,--hidden,-g,!.git/,--files<cr>
-nnoremap ,fm <cmd>Telescope frecency<cr>
 nnoremap ,fo <cmd>Telescope oldfiles<cr>
 nnoremap ,fg <cmd>Telescope live_grep<cr>
 nnoremap ,fG <cmd>Telescope grep_string<cr>
@@ -120,16 +119,6 @@ nnoremap ,fk <cmd>Telescope keymaps<cr>
 nnoremap ,<C-g><C-s> <cmd>Telescope git_status<cr>
 
 lua require('rc/plugin-config/telescope')
-'''
-
-[[plugins]]
-repo = 'tami5/sqlite.lua'
-
-[[plugins]]
-repo = 'nvim-telescope/telescope-frecency.nvim'
-depends = ['telescope.nvim', 'sqlite.lua', 'nvim-web-devicons']
-hook_add = '''
-lua require('telescope').load_extension('frecency')
 '''
 
 [[plugins]]
