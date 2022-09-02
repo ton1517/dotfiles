@@ -7,8 +7,6 @@ for i = 1, 9 do
 end
 
 local get_hex = require('cokeline/utils').get_hex
-local mappings = require('cokeline/mappings')
-
 local comments_fg = get_hex('Comment', 'fg')
 local errors_fg = get_hex('DiagnosticError', 'fg')
 local warnings_fg = get_hex('DiagnosticWarn', 'fg')
