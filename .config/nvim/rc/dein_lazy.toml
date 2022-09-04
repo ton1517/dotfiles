@@ -322,3 +322,12 @@ on_cmd="Bdelete"
 hook_add = '''
 nnoremap <silent> bd :Bdelete<cr>
 '''
+
+# Use treesitter to auto close and auto rename html tag
+[[plugins]]
+repo = 'windwp/nvim-ts-autotag'
+depends = 'nvim-treesitter'
+on_ft = ['html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript', 'xml']
+hook_source = '''
+lua require('nvim-ts-autotag').setup()
+'''
