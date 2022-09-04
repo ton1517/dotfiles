@@ -86,8 +86,9 @@ hook_add = '''
 let g:loaded_matchparen = 1
 '''
 
+# highlight the word under the cursor.
 [[plugins]]
-repo = 'itchyny/vim-cursorword'
+repo = 'xiyaowong/nvim-cursorword'
 
 [[plugins]]
 repo = 'goolord/alpha-nvim'
