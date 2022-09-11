@@ -17,6 +17,7 @@ brews=(
     git
     git-delta
     htop
+    httpie
     imagemagick
     jhead
     jpeg
