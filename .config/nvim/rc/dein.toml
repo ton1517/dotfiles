@@ -285,3 +285,9 @@ repo = 'NMAC427/guess-indent.nvim'
 hook_add = '''
 lua require('guess-indent').setup {}
 '''
+
+[[plugins]]
+repo = 'levouh/tint.nvim'
+hook_add = '''
+lua require("tint").setup()
+'''
