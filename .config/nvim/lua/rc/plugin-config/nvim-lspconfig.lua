@@ -21,9 +21,19 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local mason_lspconfig = require('mason-lspconfig')
 mason_lspconfig.setup_handlers {
     function(server_name)
-        require('lspconfig')[server_name].setup {
+        local opts = {
             on_attach = on_attach,
             capabilities = capabilities,
         }
+
+        if server_name == "sumneko_lua" then
+            opts.settings = {
+                Lua = {
+                    diagnostics = { globals = { 'vim' } },
+                }
+            }
+        end
+
+        require('lspconfig')[server_name].setup(opts)
     end
 }
