@@ -135,9 +135,6 @@ set cursorline
 hi NonText ctermbg=NONE ctermfg=darkgray
 hi SpecialKey ctermbg=NONE ctermfg=yellow
 
-" 高速化
-set lazyredraw
-
 " カラー
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
