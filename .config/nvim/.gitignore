@@ -1,3 +1,3 @@
-/vimrc.local
 .backup
 .cache
+lua/rc/local.lua

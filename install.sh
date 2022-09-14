@@ -11,7 +11,6 @@ function symlink() {
 
 cd "$(dirname "$0")" || exit
 
-touch ".config/nvim/vimrc.local"
 touch ".config/zsh/zshrc.local"
 touch ".config/zsh/zshenv.local"
 touch ".config/zsh/zprofile.local"
