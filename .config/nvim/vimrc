@@ -137,28 +137,7 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-"----------------------------------------
-" ex settings
-"----------------------------------------
-
-"自動保存
-set autowrite
-"頻繁に読み直すように
-augroup vimrc-checktime
-    autocmd!
-    autocmd WinEnter * checktime
-augroup END
-
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
 
 set mouse=a
-
-"----------------------------------------
-" language
-"----------------------------------------
-
-augroup fileTypeIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.dart setlocal tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
