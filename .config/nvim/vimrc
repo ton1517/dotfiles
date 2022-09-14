@@ -51,44 +51,26 @@ nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
 "----------------------------------------
-" search settings
-"----------------------------------------
-
-"検索時に大文字小文字を無視 (noignorecase:無視しない)
-set ignorecase
-"両方が含まれている場合は大文字小文字を区別
-set smartcase
-" 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
-set wrapscan
-
-"----------------------------------------
-" edit settings
+" settings
 "----------------------------------------
 
 set updatetime=100
 set shortmess+=c
 
-" タブの画面上での幅
 set tabstop=2
-" タブを挿入するときの幅
 set shiftwidth=2
-" タブをスペースに展開する
 set expandtab
-" 自動的にインデントする
 set cindent
-" バックスペースでインデントや改行を削除できるようにする
-set backspace=indent,eol,start
-" 括弧入力時に対応する括弧を表示
 set showmatch
 
 set formatoptions=tcqmMro
 
-" ビープ音を鳴らさないように
 set visualbell
 
 " インクリメント時の挙動 デフォでは0や0xで始まる数字は8進，16進とみなされる
 " 16進のみ許可し，他の数字は10進として扱う．
 set nf=hex
+
 " 画面端まで行かなくてもスクロールできる
 set scrolloff=10
 
@@ -96,36 +78,23 @@ set scrolloff=10
 set foldmethod=indent
 set foldlevel=99
 
-" クリップボードを共有
 set clipboard+=unnamed
 
-" バックアップをとらない
 set nowritebackup
 set noswapfile
-"----------------------------------------
-" display settings
-"----------------------------------------
 
-" 行番号を非表示 (number:表示)
 set number
-" タブや改行を表示 (list:表示)
 set list
-" どの文字でタブや改行を表示するかを設定
 set listchars=tab:\|\-,extends:⇢,precedes:⇠,trail:»
-" コマンドラインの高さ (Windows用gvim使用時はgvimrcを編集すること)
 set cmdheight=2
-" タイトルを表示
 set title
-" 補完候補の表示数
 set pumheight=20
-
 set signcolumn=yes
 
 " disable conceal
 set conceallevel=0
 set concealcursor=""
 
-" カーソルのある行を強調表示
 set cursorline
 
 " 特殊文字の色設定
@@ -141,3 +110,6 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set fileformats=unix,dos,mac
 
 set mouse=a
+
+set ignorecase
+set smartcase
