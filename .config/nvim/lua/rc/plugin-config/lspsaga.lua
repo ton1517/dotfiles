@@ -1,3 +1,21 @@
+local keymap = vim.keymap.set
+keymap('n', ',e', '<cmd>Lspsaga show_line_diagnostics<cr>')
+keymap('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
+keymap('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>')
+
+keymap('n', ',rn', '<cmd>Lspsaga rename<CR>')
+
+keymap('n', 'gh', "<cmd>lua require('lspsaga.provider').lsp_finder()<CR>")
+
+keymap('n', ',ca', '<cmd>Lspsaga code_action<CR>')
+keymap('v', ',ca', ':<C-u>Lspsaga range_code_action<CR>')
+
+keymap('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
+keymap('n', '?', '<cmd>Lspsaga signature_help<cr>')
+
+keymap('n', '<C-u>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>")
+keymap('n', '<C-d>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>")
+
 local lspsaga = require 'lspsaga'
 lspsaga.setup { -- defaults ...
     debug = false,

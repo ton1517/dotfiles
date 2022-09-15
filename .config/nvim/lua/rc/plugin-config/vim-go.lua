@@ -1,20 +1,4 @@
-#
-# python
-#
-
-[[plugins]]
-repo = "jmcantrell/vim-virtualenv"
-on_ft = ["python", "python3"]
-
-#
-# golang
-#
-
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-hook_source = '''
-
+vim.cmd([[
 augroup go
   autocmd!
   autocmd FileType go nmap <leader>t  <Plug>(go-test-func)
@@ -60,29 +44,4 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
-'''
-
-[[plugins]]
-repo = 'buoto/gotests-vim'
-on_ft = 'go'
-
-#
-# dart / flutter
-#
-
-[[plugins]]
-repo = 'akinsho/flutter-tools.nvim'
-depends = 'plenary.nvim'
-on_ft = 'dart'
-hook_add = '''
-nnoremap ,Fa :FlutterRun --debug --dart-define=FLAVOR=development<cr>
-nnoremap ,Fq :FlutterQuit<cr>
-nnoremap ,Fr :FlutterReload<cr>
-nnoremap ,FR :FlutterRestart<cr>
-nnoremap ,Fo :FlutterOutlineToggle<cr>
-'''
-hook_source = '''
-lua << EOF
-  require("flutter-tools").setup{}
-EOF
-'''
+]])
