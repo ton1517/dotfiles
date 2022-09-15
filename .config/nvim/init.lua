@@ -1,3 +1,4 @@
+require('rc/disable-standard-plugins')
 require('rc/keymap')
 require('rc/option')
 pcall(require, 'rc/local')
