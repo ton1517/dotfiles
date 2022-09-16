@@ -5,7 +5,7 @@ augroup packer_user_config
 augroup end
 ]])
 
-local packer = require('rc/packer')
+local packer = require('config.packer')
 local get_keys = packer.get_keys
 local packer_bootstrap = packer.ensure_packer()
 
@@ -31,7 +31,7 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require('rc/plugin-config/nvim-treesitter')
+      require('config.plugins.nvim-treesitter')
     end,
   }
   -- A fancy, configurable, notification manager for NeoVim
@@ -60,7 +60,7 @@ return packer.startup(function(use)
   use {
     'dense-analysis/ale',
     config = function()
-      require('rc/plugin-config/ale')
+      require('config.plugins.ale')
     end,
   }
   -- enable repeating supported plugin maps with "."
@@ -82,7 +82,7 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function()
-      require('rc/plugin-config/telescope')
+      require('config.plugins.telescope')
     end,
   }
   -- A blazing fast and easy to configure Neovim statusline written in Lua.
@@ -90,7 +90,7 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('rc/plugin-config/lualine')
+      require('config.plugins.lualine')
     end,
   }
   -- displays a popup with possible key bindings of the command you started typing.
@@ -104,7 +104,7 @@ return packer.startup(function(use)
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require('rc/plugin-config/gitsigns')
+      require('config.plugins.gitsigns')
     end,
   }
   -- The fastest Neovim colorizer.
@@ -118,7 +118,7 @@ return packer.startup(function(use)
   use {
     'kevinhwang91/nvim-hlslens',
     config = function()
-      require('rc/plugin-config/nvim-hlslens')
+      require('config.plugins.nvim-hlslens')
     end,
   }
   -- Extensible Neovim Scrollbar
@@ -126,7 +126,7 @@ return packer.startup(function(use)
     'petertriho/nvim-scrollbar',
     requires = { 'kevinhwang91/nvim-hlslens', 'lewis6991/gitsigns.nvim' },
     config = function()
-      require('rc/plugin-config/nvim-scrollbar')
+      require('config.plugins.nvim-scrollbar')
     end,
   }
   -- Snippets collection for a set of different programming languages for faster development.
@@ -146,7 +146,7 @@ return packer.startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = { 'L3MON4D3/LuaSnip', 'onsails/lspkind.nvim' },
     config = function()
-      require('rc/plugin-config/nvim-cmp')
+      require('config.plugins.nvim-cmp')
     end,
   }
   -- nvim-cmp source for neovim's built-in language server client.
@@ -167,14 +167,14 @@ return packer.startup(function(use)
   use {
     'williamboman/mason.nvim',
     config = function()
-      require('rc/plugin-config/mason')
+      require('config.plugins.mason')
     end,
   }
   -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
   use {
     'williamboman/mason-lspconfig.nvim',
     config = function()
-      require('rc/plugin-config/mason-lspconfig')
+      require('config.plugins.mason-lspconfig')
     end,
   }
   -- Quickstart configs for Nvim LSP
@@ -182,7 +182,7 @@ return packer.startup(function(use)
     'neovim/nvim-lspconfig',
     requires = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp' },
     config = function()
-      require('rc/plugin-config/nvim-lspconfig')
+      require('config.plugins.nvim-lspconfig')
     end,
   }
   -- LSP signature hint as you type
@@ -199,7 +199,7 @@ return packer.startup(function(use)
     'tami5/lspsaga.nvim',
     requires = 'folke/lsp-colors.nvim',
     config = function()
-      require('rc/plugin-config/lspsaga')
+      require('config.plugins.lspsaga')
     end
   }
   -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
@@ -215,14 +215,14 @@ return packer.startup(function(use)
     'noib3/nvim-cokeline',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('rc/plugin-config/nvim-cokeline')
+      require('config.plugins.nvim-cokeline')
     end
   }
   -- Neovim plugin for locking a buffer to a window
   use {
     'stevearc/stickybuf.nvim',
     config = function()
-      require('rc/plugin-config/stickybuf')
+      require('config.plugins.stickybuf')
     end
   }
   -- Automatic indentation style detection for Neovim
@@ -246,7 +246,7 @@ return packer.startup(function(use)
     'fatih/vim-go',
     ft = 'go',
     config = function()
-      require('rc/plugin-config/vim-go')
+      require('config.plugins.vim-go')
     end
   }
   -- Vim plugin for https://github.com/cweill/gotests
@@ -257,7 +257,7 @@ return packer.startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     ft = 'dart',
     config = function()
-      require('rc/plugin-config/flutter-tools')
+      require('config.plugins.flutter-tools')
     end
   }
   -- EasyMotion-like plugin allowing you to jump anywhere in a document with as few keystrokes as possible.
@@ -382,7 +382,7 @@ return packer.startup(function(use)
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufRead',
     config = function()
-      require('rc/plugin-config/indent-blankline')
+      require('config.plugins.indent-blankline')
     end,
   }
   -- Rainbow parentheses for neovim using tree-sitter.
@@ -434,7 +434,7 @@ return packer.startup(function(use)
       vim.keymap.set('n', ',fy', '<cmd>Telescope yank_history<cr>')
     end,
     config = function()
-      require('rc/plugin-config/yanky')
+      require('config.plugins.yanky')
     end,
   }
   -- Run commands quickly.
@@ -498,7 +498,7 @@ return packer.startup(function(use)
       highlight NeoTreeGitConflict cterm=bold ctermfg=215 gui=bold guifg=#f39660
       highlight NeoTreeGitUntracked ctermfg=215 guifg=#f39660
       ]])
-      require('rc/plugin-config/neo-tree')
+      require('config.plugins.neo-tree')
     end,
   }
   -- asterisk.vim provides improved * motions.
@@ -533,7 +533,7 @@ return packer.startup(function(use)
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
     config = function()
-      require('rc/plugin-config/nvim-bqf')
+      require('config.plugins.nvim-bqf')
     end,
   }
   -- Show code context
@@ -542,7 +542,7 @@ return packer.startup(function(use)
     requires = 'nvim-treesitter/nvim-treesitter',
     event = 'BufRead',
     config = function()
-      require('rc/plugin-config/nvim-treesitter-context')
+      require('config.plugins.nvim-treesitter-context')
     end,
   }
   -- Delete Neovim buffers without losing window layout
