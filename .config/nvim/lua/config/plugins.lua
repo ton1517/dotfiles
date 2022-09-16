@@ -1,17 +1,7 @@
-vim.cmd([[
-augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerSync
-augroup end
-]])
-
-local packer = require('config.packer')
-local get_keys = packer.get_keys
-local packer_bootstrap = packer.ensure_packer()
-
-return packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
-
+local get_keys = require('config.packer.util').get_keys
+return function(use)
+  -- packer.nvim
+  use {'wbthomason/packer.nvim', opt = true }
   -- color scheme
   use {
     'sainnhe/sonokai',
@@ -562,10 +552,4 @@ return packer.startup(function(use)
       require('nvim-ts-autotag').setup()
     end,
   }
-
-  -- Automaticaly set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+end
