@@ -15,8 +15,8 @@ return function(use)
   use 'tpope/vim-fugitive'
   -- GitHub extension for fugitive.vim
   use 'tpope/vim-rhubarb'
-  -- Delete/change/add parentheses/quotes/XML-tags/much more with ease
-  use 'tpope/vim-surround'
+  -- Add/change/delete surrounding delimiter pairs with ease.
+  use { 'kylechui/nvim-surround', config = config('nvim-surround') }
   -- Smart and Powerful commenting plugin for neovim
   use { 'numToStr/Comment.nvim', config = config('comment-nvim') }
   -- EditorConfig plugin for Vim
