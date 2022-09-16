@@ -55,4 +55,13 @@ M.get_keys = function(modes, keys)
     return combinations
 end
 
+local pluginBaseDir = 'config.plugins.'
+M.get_config = function(pluginName)
+    return require(pluginBaseDir .. pluginName).config
+end require('hlslens').start()
+
+M.get_setup = function(pluginName)
+    return require(pluginBaseDir .. pluginName).setup
+end
+
 return M

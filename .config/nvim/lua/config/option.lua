@@ -2,6 +2,8 @@ local fn = vim.fn
 local opt = vim.opt
 local g = vim.g
 
+vim.cmd([[colorscheme sonokai]])
+
 opt.updatetime = 100
 opt.shortmess:append({ c = true })
 opt.tabstop = 2
