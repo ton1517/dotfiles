@@ -31,6 +31,8 @@ return function(use)
 	use({ "goolord/alpha-nvim", requires = "kyazdani42/nvim-web-devicons", config = config("alpha-nvim") })
 	-- a highly extendable fuzzy finder over lists.
 	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim", config = config("telescope") })
+	-- A Telescope extension that provides extra functionality for Packer.nvim
+	use({ "nvim-telescope/telescope-packer.nvim", after = "telescope.nvim" })
 	-- A blazing fast and easy to configure Neovim statusline written in Lua.
 	use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons", config = config("lualine") })
 	-- displays a popup with possible key bindings of the command you started typing.

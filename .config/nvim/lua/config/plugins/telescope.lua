@@ -14,6 +14,12 @@ M.config = function()
 	keymap("n", ",fc", "<cmd>Telescope command_history<cr>")
 	keymap("n", ",fk", "<cmd>Telescope keymaps<cr>")
 	keymap("n", ",<C-g><C-s>", "<cmd>Telescope git_status<cr>")
+	keymap("n", ",fp", function()
+		vim.cmd([[packadd packer.nvim]])
+		require("config.packer")
+		require("telescope").load_extension("packer")
+		require("telescope").extensions.packer.packer()
+	end)
 
 	local actions = require("telescope.actions")
 	require("telescope").setup({
