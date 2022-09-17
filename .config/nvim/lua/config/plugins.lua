@@ -21,8 +21,6 @@ return function(use)
   use { 'numToStr/Comment.nvim', config = config('comment-nvim') }
   -- EditorConfig plugin for Vim
   use 'editorconfig/editorconfig-vim'
-  -- Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
-  use { 'dense-analysis/ale', config = config('ale') }
   -- enable repeating supported plugin maps with "."
   use 'tpope/vim-repeat'
   -- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
@@ -72,12 +70,15 @@ return function(use)
   use { 'williamboman/mason.nvim', config = config('mason') }
   -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
   use { 'williamboman/mason-lspconfig.nvim', config = config('mason-lspconfig') }
+  -- Install and upgrade third party tools automatically
+  use { "WhoIsSethDaniel/mason-tool-installer.nvim", after = "mason.nvim", config = config("mason-tool-installer") }
   -- Quickstart configs for Nvim LSP
   use {
     'neovim/nvim-lspconfig',
     requires = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp' },
     config = config('nvim-lspconfig'),
   }
+  use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" }, config = config('null-ls') }
   -- LSP signature hint as you type
   use { 'ray-x/lsp_signature.nvim', config = config('lsp_signature') }
   -- Automatically creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin lsp client.
