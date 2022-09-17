@@ -41,15 +41,6 @@ M.config = function()
 				},
 			},
 		},
-		extensions = {
-			frecency = {
-				show_scores = true,
-				show_unindexed = true,
-				ignore_patterns = { "*.git/*", "*/tmp/*" },
-				disable_devicons = false,
-				default_workspace = "CWD",
-			},
-		},
 	})
 end
 
