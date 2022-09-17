@@ -1,7 +1,6 @@
 local M = {}
 
-M.setup = function()
-end
+M.setup = function() end
 
 M.config = function()
 	vim.cmd([[

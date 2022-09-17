@@ -1,10 +1,9 @@
 local M = {}
 
-M.setup = function()
-end
+M.setup = function() end
 
 M.config = function()
-  require('colorizer').setup()
+	require("colorizer").setup()
 end
 
 return M

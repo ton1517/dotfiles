@@ -1,10 +1,9 @@
 local M = {}
 
-M.setup = function()
-end
+M.setup = function() end
 
 M.config = function()
-  require('nvim-ts-autotag').setup()
+	require("nvim-ts-autotag").setup()
 end
 
 return M

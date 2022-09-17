@@ -1,10 +1,7 @@
 local M = {}
 
-M.setup = function()
-end
+M.setup = function() end
 
-M.config = function()
-end
+M.config = function() end
 
 return M
-
