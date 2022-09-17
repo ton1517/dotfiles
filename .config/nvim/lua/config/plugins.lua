@@ -27,8 +27,8 @@ return function(use)
   use 'tpope/vim-repeat'
   -- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
   use 'andymass/vim-matchup'
-  -- highlight the word under the cursor.
-  use 'xiyaowong/nvim-cursorword'
+  -- automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
+  use 'RRethy/vim-illuminate'
   -- alpha is a fast and fully programmable greeter for neovim.
   use { 'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons', config = config('alpha-nvim') }
   -- a highly extendable fuzzy finder over lists.
