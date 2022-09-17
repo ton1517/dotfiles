@@ -204,4 +204,6 @@ return function(use)
       'rescript', 'xml' },
     config = config('nvim-ts-autotag'),
   }
+  -- Move to the edge!
+  use { 'haya14busa/vim-edgemotion', keys = '<Plug>(edgemotion-', setup = setup('vim-edgemotion') }
 end
