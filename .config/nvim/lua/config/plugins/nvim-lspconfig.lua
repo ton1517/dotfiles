@@ -16,19 +16,6 @@ M.config = function()
 
 	keymap("n", "<S-f>", "<cmd>lua vim.lsp.buf.format { async = true }<CR>")
 
-	local server_settings = {
-		sumneko_lua = {
-			Lua = {
-				format = {
-					enable = false,
-				},
-				diagnostics = {
-					globals = { "vim" },
-				},
-			},
-		},
-	}
-
 	local on_attach = function(_, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 		vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
@@ -38,13 +25,25 @@ M.config = function()
 	local mason_lspconfig = require("mason-lspconfig")
 	mason_lspconfig.setup_handlers({
 		function(server_name)
-			local opts = { on_attach = on_attach, capabilities = capabilities }
+			require("lspconfig")[server_name].setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+		end,
 
-			if server_settings[server_name] then
-				opts.settings = server_settings[server_name]
-			end
-
-			require("lspconfig")[server_name].setup(opts)
+		["sumneko_lua"] = function()
+			require("lua-dev").setup({})
+			require("lspconfig").sumneko_lua.setup({
+				settings = {
+					Lua = {
+						format = {
+							enable = false,
+						},
+					},
+				},
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
 		end,
 	})
 end
