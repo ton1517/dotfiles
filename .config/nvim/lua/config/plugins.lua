@@ -240,4 +240,16 @@ return function(use)
 	})
 	-- Move to the edge!
 	use({ "haya14busa/vim-edgemotion", keys = "<Plug>(edgemotion-", setup = setup("vim-edgemotion") })
+	-- A minimal typescript-language-server integration plugin to set up the language server via nvim-lspconfig and add commands for convenience.
+	use({
+		"jose-elias-alvarez/typescript.nvim",
+		ft = {
+			"javascript",
+			"javascriptreact",
+			"javascript.jsx",
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx",
+		},
+	})
 end
