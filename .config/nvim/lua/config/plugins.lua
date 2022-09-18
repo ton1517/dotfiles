@@ -98,8 +98,6 @@ return function(use)
 	use({ "stevearc/stickybuf.nvim", config = config("stickybuf") })
 	-- Automatic indentation style detection for Neovim
 	-- use({ "NMAC427/guess-indent.nvim", config = config("guess-indent") })
-	-- Tint inactive windows in Neovim using window-local highlight namespaces.
-	use({ "levouh/tint.nvim", config = config("tint") })
 	-- Vim plugin for working with python virtualenvs
 	use({ "jmcantrell/vim-virtualenv", ft = { "python", "python3" } })
 	-- Go development plugin for Vim
