@@ -203,13 +203,6 @@ return function(use)
 	})
 	-- Better quickfix window in Neovim, polish old quickfix window.
 	use({ "kevinhwang91/nvim-bqf", ft = "qf", config = config("nvim-bqf") })
-	-- Show code context
-	use({
-		"nvim-treesitter/nvim-treesitter-context",
-		requires = "nvim-treesitter/nvim-treesitter",
-		event = "BufRead",
-		config = config("nvim-treesitter-context"),
-	})
 	-- Delete Neovim buffers without losing window layout
 	use({ "famiu/bufdelete.nvim", cmd = "Bdelete", setup = setup("bufdelete") })
 	-- Use treesitter to auto close and auto rename html tag
