@@ -100,10 +100,8 @@ return function(use)
 	-- use({ "NMAC427/guess-indent.nvim", config = config("guess-indent") })
 	-- Vim plugin for working with python virtualenvs
 	use({ "jmcantrell/vim-virtualenv", ft = { "python", "python3" } })
-	-- Go development plugin for Vim
-	use({ "fatih/vim-go", ft = "go", config = config("vim-go") })
-	-- Vim plugin for https://github.com/cweill/gotests
-	use({ "buoto/gotests-vim", ft = "go" })
+	-- A modern go neovim plugin based on treesitter, nvim-lsp and dap debugger.
+	use({ "ray-x/go.nvim", requires = "williamboman/mason.nvim", ft = "go", config = config("go-nvim") })
 	-- Tools to help create flutter apps in neovim using the native lsp
 	use({
 		"akinsho/flutter-tools.nvim",
