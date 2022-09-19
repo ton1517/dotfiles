@@ -195,12 +195,7 @@ return function(use)
 		config = config("neo-tree"),
 	})
 	-- asterisk.vim provides improved * motions.
-	use({
-		"haya14busa/vim-asterisk",
-		requires = "kevinhwang91/nvim-hlslens",
-		keys = "<Plug>(asterisk-",
-		setup = setup("vim-asterisk"),
-	})
+	use({ "haya14busa/vim-asterisk", requires = "kevinhwang91/nvim-hlslens", setup = setup("vim-asterisk") })
 	-- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists to help you solve all the trouble your code is causing.
 	use({
 		"folke/trouble.nvim",
