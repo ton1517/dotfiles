@@ -89,7 +89,7 @@ return function(use)
 	-- Automatically creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin lsp client.
 	use("folke/lsp-colors.nvim")
 	-- light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
-	use({ "tami5/lspsaga.nvim", requires = "folke/lsp-colors.nvim", config = config("lspsaga") })
+	use({ "glepnir/lspsaga.nvim", requires = "folke/lsp-colors.nvim", config = config("lspsaga") })
 	-- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
 	use({ "j-hui/fidget.nvim", config = config("fidget") })
 	-- A Neovim bufferline for people with addictive personalities
