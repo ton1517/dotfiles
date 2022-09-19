@@ -29,7 +29,7 @@ M.config = function()
 		sources = {
 			-- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 			-- Code Actions
-			null_ls.builtins.code_actions.gitsigns,
+			-- null_ls.builtins.code_actions.gitsigns,
 
 			-- Diagnostics
 			null_ls.builtins.diagnostics.actionlint,
