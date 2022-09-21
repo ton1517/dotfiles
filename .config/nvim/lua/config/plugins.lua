@@ -5,6 +5,8 @@ local setup = require("config.packer.util").get_setup
 return function(use)
 	-- packer.nvim
 	use({ "wbthomason/packer.nvim", opt = true })
+	-- Speed up loading Lua modules in Neovim to improve startup time.
+	use("lewis6991/impatient.nvim")
 	-- color scheme
 	use({ "sainnhe/sonokai", config = config("sonokai") })
 	-- Treesitter configurations and abstraction layer for Neovim.
