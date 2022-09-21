@@ -50,27 +50,32 @@ return function(use)
 		config = config("nvim-scrollbar"),
 	})
 	-- Snippets collection for a set of different programming languages for faster development.
-	use("rafamadriz/friendly-snippets")
+	use({ "rafamadriz/friendly-snippets", opt = true })
 	-- Snippet Engine for Neovim written in Lua.
-	use({ "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets", config = config("friendly-snippets") })
+	use({ "L3MON4D3/LuaSnip", opt = true, config = config("friendly-snippets") })
 	-- vscode-like pictograms for neovim lsp completion items
 	use("onsails/lspkind.nvim")
 	-- A completion plugin for neovim coded in Lua.
-	use({ "hrsh7th/nvim-cmp", requires = { "L3MON4D3/LuaSnip", "onsails/lspkind.nvim" }, config = config("nvim-cmp") })
+	use({
+		"hrsh7th/nvim-cmp",
+		wants = { "friendly-snippets", "LuaSnip", "lspkind.nvim" },
+		event = "InsertEnter",
+		config = config("nvim-cmp"),
+	})
 	-- nvim-cmp source for neovim's built-in language server client.
-	use({ "hrsh7th/cmp-nvim-lsp", requires = "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
 	-- nvim-cmp source for buffer words.
-	use({ "hrsh7th/cmp-buffer", requires = "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 	-- nvim-cmp source for filesystem paths.
-	use({ "hrsh7th/cmp-path", requires = "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 	-- nvim-cmp source for vim's cmdline.
-	use({ "hrsh7th/cmp-cmdline", requires = "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 	-- luasnip completion source for nvim-cmp
-	use({ "saadparwaiz1/cmp_luasnip", requires = "hrsh7th/nvim-cmp" })
+	use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
 	-- TabNine plugin for hrsh7th/nvim-cmp
-	use({ "tzachar/cmp-tabnine", requires = "hrsh7th/nvim-cmp", run = "./install.sh" })
+	use({ "tzachar/cmp-tabnine", after = "nvim-cmp", run = "./install.sh" })
 	-- look source for nvim-cmp
-	use({ "octaltree/cmp-look", requires = "hrsh7th/nvim-cmp" })
+	use({ "octaltree/cmp-look", after = "nvim-cmp" })
 	-- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
 	use({ "williamboman/mason.nvim", config = config("mason") })
 	-- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
