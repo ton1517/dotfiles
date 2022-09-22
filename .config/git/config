@@ -75,6 +75,7 @@
     reflog = delta
     show = delta
 [delta]
+    dark                          = true
     syntax-theme                  = "Monokai Extended"
     navigate                      = true
     file-style                    = bright-yellow
@@ -90,14 +91,14 @@
     commit-decoration-style       = blue box
     keep-plus-minus-markers       = false
     line-numbers                  = true
-    line-numbers-plus-style       = "#3d753d" bold
+    line-numbers-left-style       = black
+    line-numbers-right-style      = black
+    line-numbers-plus-style       = "#99cc99" bold
     line-numbers-zero-style       = "#777777"
     line-numbers-minus-style      = "#c25353" bold
-    plus-style                    = syntax "#224222"
-    plus-non-emph-style           = syntax "#224222"
-    plus-emph-style               = syntax "#3d753d"
-    plus-empty-line-marker-style  = syntax "#224222"
-    minus-style                   = syntax "#6e2b2b"
-    minus-non-emph-style          = syntax "#6e2b2b"
-    minus-emph-style              = syntax "#c25353"
-    minus-empty-line-marker-style = syntax "#6e2b2b"
+    minus-emph-style              = syntax bold "#780000"
+    minus-style                   = syntax "#400000"
+    plus-emph-style               = syntax bold "#007800"
+    plus-style                    = syntax "#004000"
+    whitespace-error-style        = "#280050" reverse
+    zero-style                    = syntax
