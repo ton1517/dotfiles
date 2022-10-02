@@ -5,3 +5,5 @@
 *.zwc
 .zcompdump*
 .chpwd-recent-dirs
+.zcompcache
+.zsh_sessions
