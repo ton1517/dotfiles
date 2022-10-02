@@ -18,7 +18,6 @@ M.config = function()
 	require("lspsaga").init_lsp_saga({
 		symbol_in_winbar = {
 			enable = true,
-			click_support = true,
 		},
 		code_action_icon = " ",
 		finder_action_keys = {
