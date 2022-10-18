@@ -32,7 +32,7 @@ M.config = function()
 		end,
 
 		["sumneko_lua"] = function()
-			require("lua-dev").setup({})
+			require("neodev").setup({})
 			require("lspconfig").sumneko_lua.setup({
 				settings = {
 					Lua = {
