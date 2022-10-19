@@ -16,6 +16,7 @@ M.config = function()
 	keymap("n", ",o", "<cmd>LSoutlineToggle<CR>", opts)
 
 	require("lspsaga").init_lsp_saga({
+		finder_request_timeout = 15000,
 		symbol_in_winbar = {
 			enable = true,
 		},
