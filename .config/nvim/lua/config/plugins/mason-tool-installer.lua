@@ -22,6 +22,7 @@ M.config = function()
 			"lua-language-server",
 			"eslint-lsp",
 			"stylelint-lsp",
+			"prisma-language-server",
 
 			-- Linter
 			"actionlint",

@@ -31,6 +31,7 @@ M.config = function()
 			"markdown",
 			"php",
 			"python",
+			"prisma",
 			"ruby",
 			"rust",
 			"scss",
