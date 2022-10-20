@@ -8,7 +8,6 @@ M.config = function()
 			-- LSP
 			"clangd",
 			"gopls",
-			"graphql-language-service-cli",
 			"dockerfile-language-server",
 			"html-lsp",
 			"json-lsp",
