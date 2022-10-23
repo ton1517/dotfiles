@@ -4,7 +4,6 @@ M.setup = function() end
 
 M.config = function()
 	local keymap = vim.keymap.set
-	keymap("n", ",p", "<cmd>Telescope find_files find_command=rg,--no-ignore-dot,--hidden,-g,!.git/,--files<cr>")
 	keymap("n", ",ff", "<cmd>Telescope find_files find_command=rg,--no-ignore-dot,--hidden,-g,!.git/,--files<cr>")
 	keymap("n", ",fo", "<cmd>Telescope oldfiles<cr>")
 	keymap("n", ",fg", "<cmd>Telescope live_grep<cr>")
