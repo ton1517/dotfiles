@@ -49,6 +49,20 @@ M.config = function()
 				},
 			},
 		},
+		extensions = {
+			gitmoji = {
+				action = function(entry)
+					-- entry = {
+					--     display = "🎨 Improve structure / format of the code.",
+					--     index = 1,
+					--     ordinal = "Improve structure / format of the code.",
+					--     value = "🎨"
+					-- }
+					local pos = vim.api.nvim_win_get_cursor(0)
+					vim.api.nvim_buf_set_text(0, 0, 0, 0, 0, { entry.value .. " " })
+				end,
+			},
+		},
 	})
 end
 
