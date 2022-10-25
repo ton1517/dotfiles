@@ -18,7 +18,7 @@ M.config = function()
 	require("lspsaga").init_lsp_saga({
 		finder_request_timeout = 15000,
 		symbol_in_winbar = {
-			enable = true,
+			enable = false,
 		},
 		code_action_icon = " ",
 		finder_action_keys = {
