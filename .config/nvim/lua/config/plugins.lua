@@ -249,4 +249,6 @@ return function(use)
 	})
 	-- Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
 	use({ "folke/neodev.nvim", module = "neodev" })
+	-- (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress.
+	use({ "kkoomen/vim-doge", run = ":call doge#install()" })
 end
