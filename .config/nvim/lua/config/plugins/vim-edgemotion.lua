@@ -1,8 +1,9 @@
 local M = {}
 
 M.setup = function()
-	vim.keymap.set("", "<C-j>", "<Plug>(edgemotion-j)")
-	vim.keymap.set("", "<C-k>", "<Plug>(edgemotion-k)")
+	local opt = { silent = true }
+	vim.keymap.set("", "<C-j>", "<Plug>(edgemotion-j)", opt)
+	vim.keymap.set("", "<C-k>", "<Plug>(edgemotion-k)", opt)
 end
 
 M.config = function() end

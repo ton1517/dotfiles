@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function()
-	vim.keymap.set("n", "<Leader>f", ":Neotree<CR>")
+	vim.keymap.set("n", "<Leader>f", ":Neotree<CR>", { silent = true })
 end
 
 M.config = function()
