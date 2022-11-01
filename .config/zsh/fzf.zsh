@@ -36,6 +36,24 @@ function fzf-git-branch-local() {
 zle -N fzf-git-branch-local
 bindkey '^g^b' fzf-git-branch-local
 
+function fzf-git-branch-remotes() {
+    local current_buffer=$BUFFER
+
+    local selected_lines="$(
+        git for-each-ref --color=always --format='%(color:yellow)%(refname:short)|%(color:blue)%(committerdate:relative)|%(color:reset)%(subject)' --sort=-committerdate refs/remotes \
+        | column -t -s '|' \
+        | $(__fzfcmd) --ansi --preview 'git log --color=always --format="%C(magenta)%h %C(blue)%cd %C(green)%<(12,trunc)%cn %C(auto)%d %C(auto)%s" --date=short {+1}' \
+        | awk '{print $1}'
+    )"
+
+    if [ -n "$selected_lines" ]; then
+        BUFFER="${current_buffer}$(echo "$selected_lines" | tr '\n' ' ')"
+        CURSOR=$#BUFFER
+    fi
+}
+zle -N fzf-git-branch-remotes
+bindkey '^g^r^b' fzf-git-branch-remotes
+
 # see https://petitviolet.hatenablog.com/entry/20190708/1562544000
 function select_file_from_git_status() {
   unbuffer git status -u --short \
