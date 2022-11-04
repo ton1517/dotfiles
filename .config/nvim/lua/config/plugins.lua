@@ -150,8 +150,6 @@ return function(use)
 		keys = keys({ "n", "v" }, "<Plug>(operator-convert-case-"),
 		setup = setup("vim-operator-convert-case"),
 	})
-	-- A code outline window for skimming and quick navigation
-	use({ "stevearc/aerial.nvim", cmd = "AerialOpen", setup = setup("aerial"), config = config("aerial") })
 	-- Nvim-plugin for doing the opposite of join-line (J) of arguments, powered by treesitter
 	use({
 		"AckslD/nvim-trevJ.lua",
