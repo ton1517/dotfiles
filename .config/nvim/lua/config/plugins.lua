@@ -236,17 +236,7 @@ return function(use)
 	-- Move to the edge!
 	use({ "haya14busa/vim-edgemotion", keys = "<Plug>(edgemotion-", setup = setup("vim-edgemotion") })
 	-- A minimal typescript-language-server integration plugin to set up the language server via nvim-lspconfig and add commands for convenience.
-	use({
-		"jose-elias-alvarez/typescript.nvim",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"javascript.jsx",
-			"typescript",
-			"typescriptreact",
-			"typescript.tsx",
-		},
-	})
+	use({ "jose-elias-alvarez/typescript.nvim", module = "typescript" })
 	-- Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
 	use({ "folke/neodev.nvim", module = "neodev" })
 	-- (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress.

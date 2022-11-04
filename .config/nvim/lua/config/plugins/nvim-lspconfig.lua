@@ -45,6 +45,16 @@ M.config = function()
 				capabilities = capabilities,
 			})
 		end,
+
+		["tsserver"] = function()
+			require("lspconfig")["tsserver"].setup({})
+			require("typescript").setup({
+				server = {
+					on_attach = on_attach,
+					capabilities = capabilities,
+				},
+			})
+		end,
 	})
 end
 
