@@ -247,4 +247,12 @@ return function(use)
 		setup = setup("sniprun"),
 		config = config("sniprun"),
 	})
+	-- markdown preview plugin for (neo)vim
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+		ft = { "markdown" },
+	})
 end
