@@ -178,8 +178,6 @@ return function(use)
 	})
 	-- Improved Yank and Put functionalities for Neovim
 	use({ "gbprod/yanky.nvim", requires = "nvim-telescope/telescope.nvim", config = config("yanky") })
-	-- Run commands quickly.
-	use({ "thinca/vim-quickrun", keys = "<Plug>(quickrun)", setup = setup("vim-quickrun") })
 	-- A super powerful autopair plugin for Neovim that supports multiple characters.
 	use({ "windwp/nvim-autopairs", event = "InsertEnter", config = config("nvim-autopairs") })
 	-- Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
@@ -241,4 +239,12 @@ return function(use)
 	use({ "kkoomen/vim-doge", run = ":call doge#install()" })
 	-- nvim plugin written in lua to help with debugging.
 	use({ "PatschD/zippy.nvim", module = "zippy", setup = setup("zippy") })
+	-- Sniprun is a code runner plugin for neovim written in Lua and Rust.
+	use({
+		"michaelb/sniprun",
+		run = "bash ./install.sh",
+		module = "sniprun",
+		setup = setup("sniprun"),
+		config = config("sniprun"),
+	})
 end
