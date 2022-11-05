@@ -239,4 +239,6 @@ return function(use)
 	use({ "folke/neodev.nvim", module = "neodev" })
 	-- (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress.
 	use({ "kkoomen/vim-doge", run = ":call doge#install()" })
+	-- nvim plugin written in lua to help with debugging.
+	use({ "PatschD/zippy.nvim", module = "zippy", setup = setup("zippy") })
 end
