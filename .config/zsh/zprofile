@@ -1,19 +1,1 @@
-#----------------------------------------
-# anyenv
-# https://github.com/anyenv/anyenv
-#----------------------------------------
 
-if [ -d $HOME/.anyenv  ] ; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-
-    # see https://naoblo.net/archives/1046
-    ANYENV_RC="$HOME/.anyenv-rc.sh"
-    if [ -f $ANYENV_RC ]; then
-        source $ANYENV_RC
-    else
-        anyenv init - --no-rehash > $ANYENV_RC
-    fi
-fi
-
-# pyenv
-eval "$(pyenv virtualenv-init -)"

@@ -18,6 +18,7 @@ touch ".config/git/config.local"
 
 # symlink dotfile
 symlink "$PWD/.zshenv" "$HOME/.zshenv"
+symlink "$PWD/.tool-versions" "$HOME/.tool-versions"
 
 # symlink config file
 mkdir -p "$HOME/.config"
@@ -31,24 +32,7 @@ if [[ "$(uname)" == 'Darwin' && -z "$(which brew 2> /dev/null)" ]]; then
     sh ./brewfile.sh
 fi
 
-# install anyenv
- if [ ! -e ~/.anyenv ]; then
-    git clone https://github.com/anyenv/anyenv ~/.anyenv
-
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
-    anyenv init
-    anyenv install --init
-
-    mkdir -p ~/.anyenv/plugins
-
-    git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
-    git clone https://github.com/znz/anyenv-git.git ~/.anyenv/plugins/anyenv-git
-
-    anyenv install pyenv
-    git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.anyenv/envs/pyenv/plugins/pyenv-virtualenv
-
-    anyenv install rbenv
-    anyenv install nodenv
-    anyenv install goenv
+# install asdf plugins
+if type "asdf" > /dev/null 2>&1; then
+  sh ./install-asdf-plugins.sh
 fi

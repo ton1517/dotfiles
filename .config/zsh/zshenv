@@ -106,12 +106,19 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export FPATH="${HOMEBREW_PREFIX}/share/zsh/functions:${HOMEBREW_PREFIX}/share/zsh/site-functions:$FPATH"
 
 #----------------------------------------
+# asdf
+#----------------------------------------
+
+export ASDF_DIR="$HOMEBREW_PREFIX/opt/asdf/libexec"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/.asdfrc"
+export ASDF_NPM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/asdf/.default-npm-packages"
+export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/asdf/.default-python-packages"
+export ASDF_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/asdf/.default-gems"
+
+#----------------------------------------
 # other
 #----------------------------------------
 
 # go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
-
-export GOENV_DISABLE_GOPATH=1
-export GOENV_DISABLE_GOROOT=1

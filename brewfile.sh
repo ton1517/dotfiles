@@ -1,9 +1,13 @@
 #!/bin/bash
 
 brews=(
+    asdf
+    autoconf
+    automake
     awscli
     bat
     brew-pip
+    coreutils
     ctags
     curl
     diff-so-fancy
@@ -12,10 +16,12 @@ brews=(
     expect
     fd
     fzf
+    gawk
     gh
     ghq
     git
     git-delta
+    gpg
     htop
     httpie
     imagemagick
@@ -23,6 +29,9 @@ brews=(
     jpeg
     jq
     less
+    libtool
+    libxslt
+    libyaml
     lua
     luajit
     lv
@@ -30,9 +39,11 @@ brews=(
     neovim
     nkf
     oath-toolkit
+    openssl
     pngquant
     python
     python3
+    readline
     ripgrep
     shellcheck
     source-highlight
@@ -40,6 +51,8 @@ brews=(
     tig
     tmux
     tree
+    unixodbc
+    unzip
     vim
     watch
     wget
