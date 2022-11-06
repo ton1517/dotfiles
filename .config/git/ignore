@@ -30,3 +30,5 @@ GRTAGS
 GPATH
 
 .vscode/
+
+.envrc
