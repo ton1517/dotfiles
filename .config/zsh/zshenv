@@ -1,4 +1,20 @@
 #----------------------------------------
+# path settings for mac path_helper
+#----------------------------------------
+
+# Macの/etc/zprofileに
+# eval `/usr/libexec/path_helper -s`
+# という処理が入っており、このzshenvでpathを設定した後に実行されるため
+# pathの順序が上書きされる
+# それを回避するため、/etc/のrcファイルを読み込まないようにし、
+# 自分で path_helper を実行することでpathの順序を制御する
+unsetopt GLOBAL_RCS
+
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+fi
+
+#----------------------------------------
 # path settings
 #----------------------------------------
 
