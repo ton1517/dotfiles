@@ -3,7 +3,7 @@
 -- :LuaCacheClear
 -- :LuaCacheLog
 -- :LuaCacheProfile
-pcall(requrie, "impatient")
+pcall(require, "impatient")
 
 -- my config
 require("config.disable-standard-plugins")
