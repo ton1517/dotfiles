@@ -4,17 +4,22 @@ M.setup = function() end
 
 M.config = function()
 	local keymap = vim.keymap.set
-	keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-	keymap("n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-	keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-	keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-	keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+	local opt = { noremap = true, silent = true }
+	keymap("n", "gd", vim.lsp.buf.definition, opt)
+	keymap("n", "gy", vim.lsp.buf.type_definition, opt)
+	keymap("n", "gD", vim.lsp.buf.declaration, opt)
+	keymap("n", "gr", vim.lsp.buf.references, opt)
+	keymap("n", "gi", vim.lsp.buf.implementation, opt)
 
-	keymap("n", ",wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
-	keymap("n", ",wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
-	keymap("n", ",wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+	keymap("n", ",wa", vim.lsp.buf.add_workspace_folder, opt)
+	keymap("n", ",wr", vim.lsp.buf.remove_workspace_folder, opt)
+	keymap("n", ",wl", function()
+		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	end, opt)
 
-	keymap("n", "<S-f>", "<cmd>lua vim.lsp.buf.format { async = true }<CR>")
+	keymap("n", "<S-f>", function()
+		vim.lsp.buf.format({ async = true })
+	end, opt)
 
 	local on_attach = function(_, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
