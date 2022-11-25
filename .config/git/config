@@ -20,7 +20,9 @@
     df-side = !git -c delta.side-by-side=true diff
     dfs = diff --staged
     dfs-side = !git -c delta.side-by-side=true diff --staged
-    diff-branch = diff --stat -p develop...HEAD
+    diff-develop-branch = diff --stat -p develop...HEAD
+    diff-master-branch = diff --stat -p master...HEAD
+    diff-main-branch = diff --stat -p main...HEAD
     ls = ls-files -v
     stage = add
     unstage = reset HEAD
