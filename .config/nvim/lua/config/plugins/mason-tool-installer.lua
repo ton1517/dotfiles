@@ -20,7 +20,7 @@ M.config = function()
 			"bash-language-server",
 			"lua-language-server",
 			"eslint-lsp",
-			"stylelint-lsp",
+			-- "stylelint-lsp",
 			"prisma-language-server",
 
 			-- Linter
