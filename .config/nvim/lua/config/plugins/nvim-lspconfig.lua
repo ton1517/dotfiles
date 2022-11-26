@@ -52,9 +52,20 @@ M.config = function()
 		end,
 
 		["tsserver"] = function()
-			require("lspconfig")["tsserver"].setup({})
 			require("typescript").setup({
 				server = {
+					init_options = {
+						preferences = {
+							includeInlayParameterNameHints = "all",
+							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayVariableTypeHints = true,
+							includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayEnumMemberValueHints = true,
+						},
+					},
 					on_attach = on_attach,
 					capabilities = capabilities,
 				},
