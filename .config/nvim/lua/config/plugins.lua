@@ -262,4 +262,13 @@ return function(use)
 		setup = setup("lsp-inlayhints"),
 		config = config("lsp-inlayhints"),
 	})
+	-- The Refactoring library based off the Refactoring book by Martin Fowler
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+		module = "refactoring",
+	})
 end
