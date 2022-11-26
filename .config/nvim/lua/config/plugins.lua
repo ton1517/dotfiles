@@ -255,4 +255,11 @@ return function(use)
 		end,
 		ft = { "markdown" },
 	})
+	-- Partial implementation of LSP inlay hint.
+	use({
+		"lvimuser/lsp-inlayhints.nvim",
+		module = "lsp-inlayhints",
+		setup = setup("lsp-inlayhints"),
+		config = config("lsp-inlayhints"),
+	})
 end
