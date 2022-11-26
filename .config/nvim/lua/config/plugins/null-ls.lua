@@ -26,6 +26,7 @@ M.config = function()
 	end
 
 	null_ls.setup({
+		diagnostics_format = "#{m} (#{s}: #{c})",
 		sources = {
 			-- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 			-- Code Actions

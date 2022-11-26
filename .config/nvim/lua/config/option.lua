@@ -45,3 +45,12 @@ if (not fn.has("gui_running")) and (g["&term"] ~= "screen" and g["&term"] ~= "tm
 	g["&t_8f"] = "<Esc>[38;2;%lu;%lu;%lum"
 	g["&t_8b"] = "<Esc>[48;2;%lu;%lu;%lum"
 end
+
+-- メッセージにsourceとcodeを表示する
+vim.diagnostic.config({
+	virtual_text = {
+		format = function(diagnostic)
+			return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+		end,
+	},
+})
