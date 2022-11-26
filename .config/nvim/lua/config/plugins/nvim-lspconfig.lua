@@ -55,6 +55,10 @@ M.config = function()
 			require("typescript").setup({
 				server = {
 					init_options = {
+						tsserver = {
+							path = require("mason.settings").current.install_root_dir
+								.. "/packages/typescript-language-server/node_modules/typescript/lib/",
+						},
 						preferences = {
 							includeInlayParameterNameHints = "all",
 							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
