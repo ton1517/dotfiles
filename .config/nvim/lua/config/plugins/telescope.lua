@@ -23,6 +23,10 @@ M.config = function()
 		require("telescope").load_extension("packer")
 		require("telescope").extensions.packer.packer()
 	end)
+	keymap({ "n", "v" }, ",fr", function()
+		require("refactoring")
+		require("telescope").extensions.refactoring.refactors()
+	end)
 
 	local actions = require("telescope.actions")
 	require("telescope").setup({
