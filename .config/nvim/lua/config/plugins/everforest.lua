@@ -11,6 +11,21 @@ M.config = function()
 	vim.g.everforest_diagnostic_virtual_text = 1
 	vim.g.everforest_current_word = "underline"
 
+	vim.cmd([[
+    function! s:everforest_custom() abort
+      let l:palette = everforest#get_palette('medium', {})
+      call everforest#highlight('NormalNC', l:palette.fg, l:palette.bg_dim)
+      call everforest#highlight('EndOfBuffer', l:palette.fg, l:palette.none)
+      call everforest#highlight('WinbarNC', l:palette.fg, l:palette.bg_dim)
+      call everforest#highlight('WinSeparator', l:palette.bg4, l:palette.bg_dim)
+    endfunction
+    
+    augroup EverforestCustom
+      autocmd!
+      autocmd ColorScheme everforest call s:everforest_custom()
+    augroup END
+  ]])
+
 	vim.cmd([[colorscheme everforest]])
 end
 
