@@ -2,6 +2,7 @@ local fn = vim.fn
 local opt = vim.opt
 local g = vim.g
 
+opt.laststatus = 3
 opt.updatetime = 100
 opt.shortmess:append({ c = true })
 opt.tabstop = 2
