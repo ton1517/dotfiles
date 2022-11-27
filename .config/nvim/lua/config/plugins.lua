@@ -273,4 +273,12 @@ return function(use)
 		},
 		module = "refactoring",
 	})
+	-- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+	use({
+		"sindrets/diffview.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		setup = setup("diffview"),
+		config = config("diffview"),
+		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+	})
 end
