@@ -8,7 +8,9 @@ return function(use)
 	-- Speed up loading Lua modules in Neovim to improve startup time.
 	use("lewis6991/impatient.nvim")
 	-- color scheme
-	use({ "sainnhe/sonokai", config = config("sonokai") })
+	-- use({ "sainnhe/sonokai", config = config("sonokai") })
+  -- NeoVim dark colorscheme inspired by the colors of the famous painting by Katsushika Hokusai.
+	use({ "rebelot/kanagawa.nvim", config = config("kanagawa") })
 	-- Treesitter configurations and abstraction layer for Neovim.
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = config("nvim-treesitter") })
 	-- A fancy, configurable, notification manager for NeoVim
