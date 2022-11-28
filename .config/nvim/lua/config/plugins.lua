@@ -286,4 +286,10 @@ return function(use)
 		"nvim-zh/colorful-winsep.nvim",
 		config = config("colorful-winsep"),
 	})
+	use({
+		"stevearc/aerial.nvim",
+		config = function()
+			require("aerial").setup()
+		end,
+	})
 end
