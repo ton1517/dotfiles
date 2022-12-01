@@ -16,7 +16,7 @@ return function(use)
 	-- A fancy, configurable, notification manager for NeoVim
 	use({ "rcarriga/nvim-notify", config = config("nvim-notify") })
 	-- A Git wrapper so awesome, it should be illegal
-	use("tpope/vim-fugitive")
+	use({ "tpope/vim-fugitive", config = config("fugitive") })
 	-- GitHub extension for fugitive.vim
 	use("tpope/vim-rhubarb")
 	-- Add/change/delete surrounding delimiter pairs with ease.
