@@ -27,6 +27,10 @@ M.config = function()
 				},
 			},
 		},
+		source_selector = {
+			winbar = true,
+			statusline = true,
+		},
 		window = {
 			position = "left",
 			width = 35,
