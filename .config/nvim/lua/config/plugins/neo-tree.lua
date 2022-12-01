@@ -2,6 +2,7 @@ local M = {}
 
 M.setup = function()
 	vim.keymap.set("n", "<Leader>f", ":Neotree<CR>", { silent = true })
+	vim.keymap.set("n", "<C-g>f", ":Neotree git_status<CR>", { silent = true })
 end
 
 M.config = function()
@@ -18,10 +19,10 @@ M.config = function()
 				symbols = {
 					deleted = "✖",
 					renamed = "",
-					untracked = "?",
-					ignored = "/",
-					unstaged = "*",
-					staged = "o",
+					untracked = "",
+					ignored = "",
+					unstaged = "",
+					staged = "",
 					conflict = "",
 				},
 			},
@@ -82,6 +83,15 @@ M.config = function()
 			follow_current_file = true,
 			hijack_netrw_behavior = "open_default",
 			use_libuv_file_watcher = true,
+		},
+		git_status = {
+			window = {
+				mappings = {
+					["gA"] = "git_add_all",
+					["gu"] = "git_unstage_file",
+					["ga"] = "git_add_file",
+				},
+			},
 		},
 	})
 end
