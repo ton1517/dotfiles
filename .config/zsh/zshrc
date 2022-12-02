@@ -66,6 +66,14 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
 fi
 
 #----------------------------------------
+# edit-command-line
+#----------------------------------------
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey "^O" edit-command-line
+
+#----------------------------------------
 # completion style
 #----------------------------------------
 
