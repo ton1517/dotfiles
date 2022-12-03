@@ -24,11 +24,14 @@ opt.fileformats = "unix,dos,mac"
 opt.mouse = "a"
 opt.ignorecase = true
 opt.smartcase = true
+opt.inccommand = "split"
+opt.breakindent = true
 -- インクリメント時の挙動 デフォでは0や0xで始まる数字は8進，16進とみなされる
 -- 16進のみ許可し，他の数字は10進として扱う．
 opt.nf = "hex"
 -- 画面端まで行かなくてもスクロールできる
 opt.scrolloff = 10
+opt.sidescrolloff = 5
 -- インデントで折りたたみ
 opt.foldmethod = "indent"
 opt.foldlevel = 99
