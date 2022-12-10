@@ -152,13 +152,13 @@ return function(use)
 		keys = keys({ "n", "v" }, "<Plug>(operator-convert-case-"),
 		setup = setup("vim-operator-convert-case"),
 	})
-	-- Nvim-plugin for doing the opposite of join-line (J) of arguments, powered by treesitter
+	-- Neovim plugin for splitting/joining blocks of code
 	use({
-		"AckslD/nvim-trevJ.lua",
+		"Wansmer/treesj",
 		requires = "nvim-treesitter/nvim-treesitter",
-		module = "trevj",
-		setup = setup("nvim-trevj"),
-		config = config("nvim-trevj"),
+		cmd = "TSJToggle",
+		setup = setup("treesj"),
+		config = config("treesj"),
 	})
 	-- A Vim plugin to visualizes the Vim undo tree.
 	use({ "simnalamburt/vim-mundo", cmd = "MundoToggle", setup = setup("vim-mundo") })
