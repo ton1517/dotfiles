@@ -292,4 +292,17 @@ return function(use)
 			require("aerial").setup()
 		end,
 	})
+	-- An extensible framework for interacting with tests within NeoVim.
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-neotest/neotest-go",
+			"haydenmeade/neotest-jest",
+		},
+		module = "neotest",
+		setup = setup("neotest"),
+		config = config("neotest"),
+	})
 end
