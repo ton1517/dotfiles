@@ -103,8 +103,14 @@ return function(use)
 	use({ "glepnir/lspsaga.nvim", requires = "folke/lsp-colors.nvim", config = config("lspsaga") })
 	-- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
 	use({ "j-hui/fidget.nvim", config = config("fidget") })
-	-- A Neovim bufferline for people with addictive personalities
-	use({ "noib3/nvim-cokeline", requires = "kyazdani42/nvim-web-devicons", config = config("nvim-cokeline") })
+	-- A snazzy bufferline for Neovim
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v3.*",
+		requires = "nvim-tree/nvim-web-devicons",
+		config = config("bufferline"),
+		setup = setup("bufferline"),
+	})
 	-- Neovim plugin for locking a buffer to a window
 	use({ "stevearc/stickybuf.nvim", config = config("stickybuf") })
 	-- Automatic indentation style detection for Neovim
