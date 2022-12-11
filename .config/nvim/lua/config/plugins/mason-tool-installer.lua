@@ -29,6 +29,7 @@ M.config = function()
 			"golangci-lint",
 			"markdownlint",
 			"shellcheck",
+			"codespell",
 
 			-- Formatter
 			"luaformatter",
