@@ -24,3 +24,9 @@ vim.g.loaded_vimballPlugin = 1
 vim.g.loaded_logipat = 1
 vim.g.loaded_rrhelper = 1
 vim.g.skip_loading_mswin = 1
+
+-- disable provider
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_node_provider = 0
