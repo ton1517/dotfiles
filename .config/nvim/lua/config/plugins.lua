@@ -55,6 +55,8 @@ return function(use)
 		requires = { "kevinhwang91/nvim-hlslens", "lewis6991/gitsigns.nvim" },
 		config = config("nvim-scrollbar"),
 	})
+	-- About Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
+	use({ "zbirenbaum/copilot.lua", event = "VimEnter", config = config("copilot") })
 	-- Snippets collection for a set of different programming languages for faster development.
 	use({ "rafamadriz/friendly-snippets", opt = true })
 	-- Snippet Engine for Neovim written in Lua.
@@ -82,6 +84,13 @@ return function(use)
 	use({ "tzachar/cmp-tabnine", after = "nvim-cmp", run = "./install.sh" })
 	-- look source for nvim-cmp
 	use({ "octaltree/cmp-look", after = "nvim-cmp" })
+	-- Lua plugin to turn github copilot into a cmp source
+	use({
+		"zbirenbaum/copilot-cmp",
+		after = "nvim-cmp",
+		requires = "zbirenbaum/copilot.lua",
+		config = config("copilot-cmp"),
+	})
 	-- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
 	use({ "williamboman/mason.nvim", config = config("mason") })
 	-- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
