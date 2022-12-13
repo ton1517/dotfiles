@@ -33,8 +33,14 @@ return function(use)
 	use("RRethy/vim-illuminate")
 	-- alpha is a fast and fully programmable greeter for neovim.
 	use({ "goolord/alpha-nvim", requires = "kyazdani42/nvim-web-devicons", config = config("alpha-nvim") })
+	-- FZF sorter for telescope written in c
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	-- a highly extendable fuzzy finder over lists.
-	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim", config = config("telescope") })
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
+		config = config("telescope"),
+	})
 	-- A Telescope extension that provides extra functionality for Packer.nvim
 	use({ "nvim-telescope/telescope-packer.nvim", after = "telescope.nvim" })
 	-- A Telescope integration of gitmoji.
