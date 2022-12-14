@@ -64,15 +64,15 @@ return function(use)
 	-- About Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
 	use({ "zbirenbaum/copilot.lua", event = "VimEnter", config = config("copilot") })
 	-- Snippets collection for a set of different programming languages for faster development.
-	use({ "rafamadriz/friendly-snippets", opt = true })
+	use({ "rafamadriz/friendly-snippets" })
 	-- Snippet Engine for Neovim written in Lua.
-	use({ "L3MON4D3/LuaSnip", opt = true, config = config("friendly-snippets") })
+	use({ "L3MON4D3/LuaSnip", config = config("LuaSnip") })
 	-- vscode-like pictograms for neovim lsp completion items
 	use("onsails/lspkind.nvim")
 	-- A completion plugin for neovim coded in Lua.
 	use({
 		"hrsh7th/nvim-cmp",
-		wants = { "friendly-snippets", "LuaSnip", "lspkind.nvim" },
+		requires = { "friendly-snippets", "LuaSnip", "lspkind.nvim" },
 		event = "InsertEnter",
 		config = config("nvim-cmp"),
 	})
