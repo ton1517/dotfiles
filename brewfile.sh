@@ -37,6 +37,7 @@ brews=(
     lv
     moreutils
     neovim
+    ncurses
     nkf
     oath-toolkit
     openssl
