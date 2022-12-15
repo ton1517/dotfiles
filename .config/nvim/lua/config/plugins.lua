@@ -302,11 +302,6 @@ return function(use)
 		config = config("diffview"),
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 	})
-	-- Make your nvim window separators colorful
-	use({
-		"nvim-zh/colorful-winsep.nvim",
-		config = config("colorful-winsep"),
-	})
 	use({
 		"stevearc/aerial.nvim",
 		config = function()
