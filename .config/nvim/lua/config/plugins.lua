@@ -258,8 +258,8 @@ return function(use)
 	use({ "jose-elias-alvarez/typescript.nvim", module = "typescript" })
 	-- Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
 	use({ "folke/neodev.nvim", module = "neodev" })
-	-- (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress.
-	use({ "kkoomen/vim-doge", run = ":call doge#install()" })
+	-- Generate JSDoc to your JavaScript code.
+	use({ "heavenshell/vim-jsdoc", run = "make install" })
 	-- nvim plugin written in lua to help with debugging.
 	use({ "PatschD/zippy.nvim", module = "zippy", setup = setup("zippy") })
 	-- Sniprun is a code runner plugin for neovim written in Lua and Rust.
