@@ -13,7 +13,7 @@ M.config = function()
 
 	vim.cmd([[
     function! s:everforest_custom() abort
-      let l:palette = everforest#get_palette('medium', {})
+      let l:palette = everforest#get_palette('hard', {})
       call everforest#highlight('NormalNC', l:palette.fg, l:palette.bg_dim)
       call everforest#highlight('EndOfBuffer', l:palette.fg, l:palette.none)
       call everforest#highlight('WinbarNC', l:palette.fg, l:palette.bg_dim)
