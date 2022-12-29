@@ -9,9 +9,12 @@ return {
 		"tsakirist/telescope-lazy.nvim",
 		-- -- A Telescope integration of gitmoji.
 		"olacin/telescope-gitmoji.nvim",
+		"gbprod/yanky.nvim",
 	},
+	lazy = true,
+	cmd = { "Telescope" },
 
-	config = function()
+	init = function()
 		local keymap = vim.keymap.set
 		keymap("n", ",ff", "<cmd>Telescope find_files find_command=rg,--no-ignore-dot,--hidden,-g,!.git/,--files<cr>")
 		keymap("n", ",fo", "<cmd>Telescope oldfiles<cr>")
@@ -22,6 +25,7 @@ return {
 		keymap("n", ",fc", "<cmd>Telescope command_history<cr>")
 		keymap("n", ",fk", "<cmd>Telescope keymaps<cr>")
 		keymap("n", ",fn", "<cmd>Telescope notify<cr>")
+		keymap("n", ",fy", "<cmd>Telescope yank_history<cr>")
 		keymap("n", "<C-g><C-s>", "<cmd>Telescope git_status<cr>")
 		keymap("n", ",fe", function()
 			require("telescope").extensions.gitmoji.gitmoji()
@@ -31,7 +35,9 @@ return {
 			require("refactoring")
 			require("telescope").extensions.refactoring.refactors()
 		end, { desc = "Telescope refactoring" })
+	end,
 
+	config = function()
 		local actions = require("telescope.actions")
 		require("telescope").setup({
 			defaults = {
@@ -85,5 +91,6 @@ return {
 		})
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("lazy")
+		require("telescope").load_extension("yank_history")
 	end,
 }

@@ -3,6 +3,7 @@ return {
 	"akinsho/bufferline.nvim",
 	version = "v3.*",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	event = "BufAdd",
 
 	init = function()
 		local keymap = vim.keymap.set

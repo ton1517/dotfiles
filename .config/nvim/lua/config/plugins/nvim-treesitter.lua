@@ -2,6 +2,7 @@ return {
 	-- Treesitter configurations and abstraction layer for Neovim.
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	event = "BufReadPost",
 
 	config = function()
 		require("nvim-treesitter.configs").setup({

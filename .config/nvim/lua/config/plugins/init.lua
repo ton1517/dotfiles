@@ -8,7 +8,7 @@ return {
 	-- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
 	"andymass/vim-matchup",
 	-- automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
-	"RRethy/vim-illuminate",
+	{ "RRethy/vim-illuminate", event = "BufReadPost" },
 	-- Automatically creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin lsp client.
 	"folke/lsp-colors.nvim",
 	-- Vim plugin for working with python virtualenvs
