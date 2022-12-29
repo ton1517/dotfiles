@@ -23,8 +23,6 @@ return function(use)
 	use({ "kylechui/nvim-surround", config = config("nvim-surround") })
 	-- Smart and Powerful commenting plugin for neovim
 	use({ "numToStr/Comment.nvim", config = config("comment-nvim") })
-	-- EditorConfig plugin for Vim
-	use("editorconfig/editorconfig-vim")
 	-- enable repeating supported plugin maps with "."
 	use("tpope/vim-repeat")
 	-- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
@@ -134,21 +132,12 @@ return function(use)
 	use({ "jmcantrell/vim-virtualenv", ft = { "python", "python3" } })
 	-- A modern go neovim plugin based on treesitter, nvim-lsp and dap debugger.
 	use({ "ray-x/go.nvim", requires = "williamboman/mason.nvim", ft = "go", config = config("go-nvim") })
-	-- Tools to help create flutter apps in neovim using the native lsp
-	use({
-		"akinsho/flutter-tools.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		ft = "dart",
-		config = config("flutter-tools"),
-	})
 	-- EasyMotion-like plugin allowing you to jump anywhere in a document with as few keystrokes as possible.
 	use({ "phaazon/hop.nvim", cmd = { "HopWord", "HopChar2" }, setup = setup("hop"), config = config("hop") })
 	-- A simple Vim plugin to switch segments of text with predefined replacements
 	use({ "AndrewRadev/switch.vim", cmd = "Switch", setup = setup("switch") })
 	-- easy text manupilation for vim
 	use({ "t9md/vim-textmanip", keys = keys({ "n", "x", "o" }, "<Plug>"), setup = setup("vim-textmanip") })
-	-- Help folks to align text, eqns, declarations, tables, etc
-	use({ "vim-scripts/Align", cmd = "Align", setup = setup("align") })
 	-- Text objects for indented blocks of lines
 	use({
 		"kana/vim-textobj-indent",
@@ -205,13 +194,6 @@ return function(use)
 	use({ "windwp/nvim-autopairs", event = "InsertEnter", config = config("nvim-autopairs") })
 	-- Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
 	use({ "terryma/vim-expand-region", keys = { { "v", "<Plug>(expand_region" } }, setup = setup("vim-expand-region") })
-	-- Region selection with hints on the AST nodes of a document powered by treesitter
-	use({
-		"mfussenegger/nvim-treehopper",
-		requires = "nvim-treesitter/nvim-treesitter",
-		module = "tsht",
-		setup = setup("nvim-treehopper"),
-	})
 	-- Neovim plugin to manage the file system and other tree like structures.
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
