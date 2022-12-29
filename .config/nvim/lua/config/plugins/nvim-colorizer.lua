@@ -1,9 +1,8 @@
-local M = {}
+return {
+	-- The fastest Neovim colorizer.
+	"norcalli/nvim-colorizer.lua",
 
-M.setup = function() end
-
-M.config = function()
-	require("colorizer").setup()
-end
-
-return M
+	config = function()
+		require("colorizer").setup()
+	end,
+}

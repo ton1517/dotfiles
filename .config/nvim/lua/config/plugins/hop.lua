@@ -1,12 +1,14 @@
-local M = {}
+return {
+	-- EasyMotion-like plugin allowing you to jump anywhere in a document with as few keystrokes as possible.
+	"phaazon/hop.nvim",
+	cmd = { "HopWord", "HopChar2" },
 
-M.setup = function()
-	vim.keymap.set("n", "<Leader>e", ":HopWord<cr>")
-	vim.keymap.set("n", "<Leader>s", ":HopChar2<cr>")
-end
+	init = function()
+		vim.keymap.set("n", "<Leader>e", ":HopWord<cr>")
+		vim.keymap.set("n", "<Leader>s", ":HopChar2<cr>")
+	end,
 
-M.config = function()
-	require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-end
-
-return M
+	config = function()
+		require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+	end,
+}

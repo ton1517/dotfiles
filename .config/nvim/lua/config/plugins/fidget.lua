@@ -1,9 +1,8 @@
-local M = {}
+return {
+	-- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
+	"j-hui/fidget.nvim",
 
-M.setup = function() end
-
-M.config = function()
-	require("fidget").setup({})
-end
-
-return M
+	config = function()
+		require("fidget").setup({})
+	end,
+}

@@ -1,14 +1,14 @@
-local M = {}
+return {
+	-- Better quickfix window in Neovim, polish old quickfix window.
+	"kevinhwang91/nvim-bqf",
+	ft = "qf",
 
-M.setup = function() end
-
-M.config = function()
-	require("bqf").setup({
-		func_map = {
-			pscrollup = "<C-u>",
-			pscrolldown = "<C-d>",
-		},
-	})
-end
-
-return M
+	config = function()
+		require("bqf").setup({
+			func_map = {
+				pscrollup = "<C-u>",
+				pscrolldown = "<C-d>",
+			},
+		})
+	end,
+}

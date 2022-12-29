@@ -1,13 +1,12 @@
-local M = {}
+return {
+	-- Neovim plugin for locking a buffer to a window
+	"stevearc/stickybuf.nvim",
 
-M.setup = function() end
-
-M.config = function()
-	require("stickybuf").setup({
-		filetype = {
-			["neo-tree"] = "filetype",
-		},
-	})
-end
-
-return M
+	config = function()
+		require("stickybuf").setup({
+			filetype = {
+				["neo-tree"] = "filetype",
+			},
+		})
+	end,
+}

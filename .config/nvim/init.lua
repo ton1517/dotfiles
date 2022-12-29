@@ -11,3 +11,5 @@ require("config.keymap")
 require("config.command")
 require("config.option")
 pcall(require, "config.local")
+
+require("config.lazy")

@@ -1,9 +1,9 @@
-local M = {}
+return {
+	-- A simple Vim plugin to switch segments of text with predefined replacements
+	"AndrewRadev/switch.vim",
+	cmd = "Switch",
 
-M.setup = function()
-	vim.keymap.set("n", "-", ":Switch<cr>")
-end
-
-M.config = function() end
-
-return M
+	init = function()
+		vim.keymap.set("n", "-", ":Switch<cr>")
+	end,
+}

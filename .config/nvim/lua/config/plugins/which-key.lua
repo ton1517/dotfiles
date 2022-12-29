@@ -1,9 +1,8 @@
-local M = {}
+return {
+	-- displays a popup with possible key bindings of the command you started typing.
+	"folke/which-key.nvim",
 
-M.setup = function() end
-
-M.config = function()
-	require("which-key").setup({})
-end
-
-return M
+	config = function()
+		require("which-key").setup({})
+	end,
+}

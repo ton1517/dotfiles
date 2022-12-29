@@ -1,9 +1,9 @@
-local M = {}
+return {
+	-- Delete Neovim buffers without losing window layout
+	"famiu/bufdelete.nvim",
+	cmd = "Bdelete",
 
-M.setup = function()
-	vim.keymap.set("n", "bd", ":Bdelete<cr>")
-end
-
-M.config = function() end
-
-return M
+	init = function()
+		vim.keymap.set("n", "bd", ":Bdelete<cr>")
+	end,
+}

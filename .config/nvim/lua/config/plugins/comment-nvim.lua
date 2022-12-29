@@ -1,9 +1,7 @@
-local M = {}
-
-M.setup = function() end
-
-M.config = function()
-	require("Comment").setup()
-end
-
-return M
+return {
+	-- Smart and Powerful commenting plugin for neovim
+	"numToStr/Comment.nvim",
+	config = function()
+		require("Comment").setup()
+	end,
+}

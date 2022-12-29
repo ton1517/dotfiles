@@ -1,13 +1,12 @@
-local M = {}
+return {
+	-- LSP signature hint as you type
+	"ray-x/lsp_signature.nvim",
 
-M.setup = function() end
-
-M.config = function()
-	require("lsp_signature").setup({
-		floating_window = false,
-		toggle_key = "<C-k>",
-		hint_prefix = " ",
-	})
-end
-
-return M
+	config = function()
+		require("lsp_signature").setup({
+			floating_window = false,
+			toggle_key = "<C-k>",
+			hint_prefix = " ",
+		})
+	end,
+}

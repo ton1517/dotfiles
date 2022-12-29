@@ -1,9 +1,8 @@
-local M = {}
-
-M.setup = function() end
-
-M.config = function()
-	require("alpha").setup(require("alpha.themes.startify").config)
-end
-
-return M
+return {
+	-- alpha is a fast and fully programmable greeter for neovim.
+	"goolord/alpha-nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		require("alpha").setup(require("alpha.themes.startify").config)
+	end,
+}

@@ -1,9 +1,9 @@
-local M = {}
+return {
+	-- nvim plugin written in lua to help with debugging.
+	"PatschD/zippy.nvim",
+	lazy = true,
 
-M.setup = function()
-	vim.keymap.set("n", "<leader>lg", "<cmd>lua require('zippy').insert_print()<CR>")
-end
-
-M.config = function() end
-
-return M
+	init = function()
+		vim.keymap.set("n", "<leader>lg", "<cmd>lua require('zippy').insert_print()<CR>")
+	end,
+}

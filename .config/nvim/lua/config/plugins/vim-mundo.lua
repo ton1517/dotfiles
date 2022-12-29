@@ -1,9 +1,9 @@
-local M = {}
+return {
+	-- A Vim plugin to visualizes the Vim undo tree.
+	"simnalamburt/vim-mundo",
+	cmd = "MundoToggle",
 
-M.setup = function()
-	vim.keymap.set("n", ",mu", ":MundoToggle<CR>")
-end
-
-M.config = function() end
-
-return M
+	init = function()
+		vim.keymap.set("n", ",mu", ":MundoToggle<CR>")
+	end,
+}

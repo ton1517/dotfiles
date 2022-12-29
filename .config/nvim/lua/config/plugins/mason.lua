@@ -1,18 +1,17 @@
-local M = {}
+return {
+	-- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
+	"williamboman/mason.nvim",
 
-M.setup = function() end
-
-M.config = function()
-	require("mason").setup({
-		automatic_installation = true,
-		ui = {
-			icons = {
-				package_installed = "✓",
-				package_pending = "➜",
-				package_uninstalled = "✗",
+	config = function()
+		require("mason").setup({
+			automatic_installation = true,
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
+				},
 			},
-		},
-	})
-end
-
-return M
+		})
+	end,
+}

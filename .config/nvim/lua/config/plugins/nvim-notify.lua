@@ -1,9 +1,8 @@
-local M = {}
+return {
+	-- A fancy, configurable, notification manager for NeoVim
+	"rcarriga/nvim-notify",
 
-M.setup = function() end
-
-M.config = function()
-	vim.notify = require("notify")
-end
-
-return M
+	config = function()
+		vim.notify = require("notify")
+	end,
+}

@@ -1,136 +1,163 @@
-local M = {}
-
-M.setup = function() end
-
-M.config = function()
-	local sources = {
-		nvim_lsp = {
-			name = "nvim_lsp",
-			max_item_count = 10,
-		},
-		copilot = {
-			name = "copilot",
-			max_item_count = 10,
-		},
-		cmp_tabnine = {
-			name = "cmp_tabnine",
-			max_item_count = 5,
-		},
-		luasnip = { name = "luasnip" },
-		path = { name = "path" },
-		buffer = { name = "buffer" },
-		look = {
-			name = "look",
-			keyword_length = 3,
-			max_item_count = 10,
-			option = {
-				convert_case = true,
-				loud = true,
-			},
-		},
-		cmdline = { name = "cmdline" },
-	}
-	local has_words_before = function()
-		if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
-			return false
-		end
-		local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-		return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
-	end
-
-	local luasnip = require("luasnip")
-	local cmp = require("cmp")
-	cmp.setup({
-		snippet = {
-			expand = function(args)
-				luasnip.lsp_expand(args.body)
+return {
+	-- A completion plugin for neovim coded in Lua.
+	"hrsh7th/nvim-cmp",
+	dependencies = {
+		"L3MON4D3/LuaSnip",
+		-- vscode-like pictograms for neovim lsp completion items
+		"onsails/lspkind.nvim",
+		-- nvim-cmp source for neovim's built-in language server client.
+		"hrsh7th/cmp-nvim-lsp",
+		-- nvim-cmp source for buffer words.
+		"hrsh7th/cmp-buffer",
+		-- nvim-cmp source for filesystem paths.
+		"hrsh7th/cmp-path",
+		-- nvim-cmp source for vim's cmdline.
+		"hrsh7th/cmp-cmdline",
+		-- luasnip completion source for nvim-cmp
+		"saadparwaiz1/cmp_luasnip",
+		-- TabNine plugin for hrsh7th/nvim-cmp
+		{ "tzachar/cmp-tabnine", build = "./install.sh" },
+		-- look source for nvim-cmp
+		"octaltree/cmp-look",
+		-- Lua plugin to turn github copilot into a cmp source
+		{
+			"zbirenbaum/copilot-cmp",
+			dependencies = { "zbirenbaum/copilot.lua" },
+			config = function()
+				require("copilot_cmp").setup()
 			end,
 		},
-		formatting = {
-			format = require("lspkind").cmp_format({
-				mode = "symbol",
-				maxwidth = 50,
-				with_text = true,
-				menu = {
-					buffer = "[Buffer]",
-					copilot = "[Copilot]",
-					cmp_tabnine = "[TabNine]",
-					luasnip = "[LuaSnip]",
-					nvim_lsp = "[LSP]",
-					path = "[Path]",
-					look = "[Look]",
-				},
-			}),
-		},
-		mapping = cmp.mapping.preset.insert({
-			["<C-b>"] = cmp.mapping.scroll_docs(-4),
-			["<C-f>"] = cmp.mapping.scroll_docs(4),
-			["<C-Space>"] = cmp.mapping.complete(),
-			["<C-e>"] = cmp.mapping.abort(),
-			["<CR>"] = cmp.mapping.confirm({
-				behavior = cmp.ConfirmBehavior.Replace,
-				select = false,
-			}),
-			["<Tab>"] = vim.schedule_wrap(function(fallback)
-				if cmp.visible() and has_words_before() then
-					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-				else
-					fallback()
-				end
-			end),
-			["<S-Tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
-				elseif luasnip.jumpable(-1) then
-					luasnip.jump(-1)
-				else
-					fallback()
-				end
-			end, { "i", "s" }),
-		}),
-		sources = cmp.config.sources({
-			sources.nvim_lsp,
-			sources.copilot,
-			sources.cmp_tabnine,
-			sources.luasnip,
-			sources.path,
-		}, {
-			sources.buffer,
-			sources.look,
-		}),
-		sorting = {
-			priority_weight = 2,
-			comparators = {
-				require("copilot_cmp.comparators").prioritize,
-				require("copilot_cmp.comparators").score,
-				cmp.config.compare.offset,
-				cmp.config.compare.exact,
-				cmp.config.compare.score,
-				cmp.config.compare.recently_used,
-				cmp.config.compare.locality,
-				cmp.config.compare.kind,
-				cmp.config.compare.sort_text,
-				cmp.config.compare.length,
-				cmp.config.compare.order,
+	},
+	event = "InsertEnter",
+
+	config = function()
+		local sources = {
+			nvim_lsp = {
+				name = "nvim_lsp",
+				max_item_count = 10,
 			},
-		},
-	})
+			copilot = {
+				name = "copilot",
+				max_item_count = 10,
+			},
+			cmp_tabnine = {
+				name = "cmp_tabnine",
+				max_item_count = 5,
+			},
+			luasnip = { name = "luasnip" },
+			path = { name = "path" },
+			buffer = { name = "buffer" },
+			look = {
+				name = "look",
+				keyword_length = 3,
+				max_item_count = 10,
+				option = {
+					convert_case = true,
+					loud = true,
+				},
+			},
+			cmdline = { name = "cmdline" },
+		}
+		local has_words_before = function()
+			if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+				return false
+			end
+			local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+			return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+		end
 
-	cmp.setup.cmdline("/", {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = cmp.config.sources({
-			sources.buffer,
-		}),
-	})
+		local luasnip = require("luasnip")
+		local cmp = require("cmp")
+		cmp.setup({
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
+			},
+			formatting = {
+				format = require("lspkind").cmp_format({
+					mode = "symbol",
+					maxwidth = 50,
+					with_text = true,
+					menu = {
+						buffer = "[Buffer]",
+						copilot = "[Copilot]",
+						cmp_tabnine = "[TabNine]",
+						luasnip = "[LuaSnip]",
+						nvim_lsp = "[LSP]",
+						path = "[Path]",
+						look = "[Look]",
+					},
+				}),
+			},
+			mapping = cmp.mapping.preset.insert({
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<C-Space>"] = cmp.mapping.complete(),
+				["<C-e>"] = cmp.mapping.abort(),
+				["<CR>"] = cmp.mapping.confirm({
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = false,
+				}),
+				["<Tab>"] = vim.schedule_wrap(function(fallback)
+					if cmp.visible() and has_words_before() then
+						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+					else
+						fallback()
+					end
+				end),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					elseif luasnip.jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
+			}),
+			sources = cmp.config.sources({
+				sources.nvim_lsp,
+				sources.copilot,
+				sources.cmp_tabnine,
+				sources.luasnip,
+				sources.path,
+			}, {
+				sources.buffer,
+				sources.look,
+			}),
+			sorting = {
+				priority_weight = 2,
+				comparators = {
+					require("copilot_cmp.comparators").prioritize,
+					require("copilot_cmp.comparators").score,
+					cmp.config.compare.offset,
+					cmp.config.compare.exact,
+					cmp.config.compare.score,
+					cmp.config.compare.recently_used,
+					cmp.config.compare.locality,
+					cmp.config.compare.kind,
+					cmp.config.compare.sort_text,
+					cmp.config.compare.length,
+					cmp.config.compare.order,
+				},
+			},
+		})
 
-	cmp.setup.cmdline(":", {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = cmp.config.sources({
-			sources.path,
-		}, {
-			sources.cmdline,
-		}),
-	})
-end
+		cmp.setup.cmdline("/", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				sources.buffer,
+			}),
+		})
 
-return M
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				sources.path,
+			}, {
+				sources.cmdline,
+			}),
+		})
+	end,
+}

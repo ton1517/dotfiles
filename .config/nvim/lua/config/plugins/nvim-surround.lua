@@ -1,9 +1,8 @@
-local M = {}
+return {
+	-- Add/change/delete surrounding delimiter pairs with ease.
+	"kylechui/nvim-surround",
 
-M.setup = function() end
-
-M.config = function()
-	require("nvim-surround").setup({})
-end
-
-return M
+	config = function()
+		require("nvim-surround").setup({})
+	end,
+}
