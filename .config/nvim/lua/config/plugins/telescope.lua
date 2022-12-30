@@ -92,5 +92,6 @@ return {
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("lazy")
 		require("telescope").load_extension("yank_history")
+		require("telescope").load_extension("notify")
 	end,
 }
