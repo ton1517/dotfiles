@@ -1,6 +1,4 @@
 return {
-	-- Speed up loading Lua modules in Neovim to improve startup time.
-	"lewis6991/impatient.nvim",
 	-- enable repeating supported plugin maps with "."
 	"tpope/vim-repeat",
 	-- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
