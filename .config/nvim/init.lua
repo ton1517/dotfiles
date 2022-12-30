@@ -8,7 +8,6 @@ pcall(require, "impatient")
 -- my config
 require("config.disable-standard-plugins")
 require("config.keymap")
-require("config.command")
 require("config.option")
 pcall(require, "config.local")
 
