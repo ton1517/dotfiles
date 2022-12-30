@@ -1,7 +1,6 @@
 return {
 	-- light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
 	"glepnir/lspsaga.nvim",
-	dependencies = { "folke/lsp-colors.nvim" },
 
 	config = function()
 		local keymap = vim.keymap.set

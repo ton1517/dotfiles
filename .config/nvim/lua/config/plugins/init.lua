@@ -9,8 +9,6 @@ return {
 	"andymass/vim-matchup",
 	-- automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
 	{ "RRethy/vim-illuminate", event = "BufReadPost" },
-	-- Automatically creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin lsp client.
-	"folke/lsp-colors.nvim",
 	-- Vim plugin for working with python virtualenvs
 	{ "jmcantrell/vim-virtualenv", ft = { "python", "python3" } },
 	-- Rainbow parentheses for neovim using tree-sitter.
