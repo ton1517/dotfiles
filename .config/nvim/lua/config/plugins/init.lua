@@ -1,12 +1,10 @@
 return {
 	-- Speed up loading Lua modules in Neovim to improve startup time.
 	"lewis6991/impatient.nvim",
-	-- GitHub extension for fugitive.vim
-	"tpope/vim-rhubarb",
 	-- enable repeating supported plugin maps with "."
 	"tpope/vim-repeat",
 	-- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
-	"andymass/vim-matchup",
+	{ "andymass/vim-matchup", event = "BufReadPost" },
 	-- automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
 	{ "RRethy/vim-illuminate", event = "BufReadPost" },
 	-- Vim plugin for working with python virtualenvs
@@ -21,5 +19,9 @@ return {
 	-- Dev init for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
 	{ "folke/neodev.nvim", lazy = true },
 	-- Generate JSDoc to your JavaScript code.
-	{ "heavenshell/vim-jsdoc", build = "make install" },
+	{
+		"heavenshell/vim-jsdoc",
+		build = "make install",
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	},
 }
