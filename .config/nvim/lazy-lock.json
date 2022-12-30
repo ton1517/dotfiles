@@ -16,6 +16,7 @@
   "committia.vim": { "branch": "master", "commit": "0b4df1a7f48ffbc23b009bd14d58ee1be541917c" },
   "copilot-cmp": { "branch": "master", "commit": "84d5a0e8e4d1638e7554899cb7b642fa24cf463f" },
   "copilot.lua": { "branch": "master", "commit": "81eb5d1bc2eddad5ff0b4e3c1c4be5c09bdfaa63" },
+  "dial.nvim": { "branch": "master", "commit": "61afb28f61ba090a67a88186f7bc8a94212e509a" },
   "diffview.nvim": { "branch": "main", "commit": "18f83302f71889b39403919b8be00d7244d1fcfc" },
   "everforest": { "branch": "master", "commit": "34c9fbc6f9777c4b1e5a65e590f0fa614c1e747c" },
   "fidget.nvim": { "branch": "main", "commit": "44585a0c0085765195e6961c15529ba6c5a2a13b" },
