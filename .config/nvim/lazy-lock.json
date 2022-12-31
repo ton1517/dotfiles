@@ -61,6 +61,7 @@
   "plenary.nvim": { "branch": "master", "commit": "4b7e52044bbb84242158d977a50c4cbcd85070c7" },
   "refactoring.nvim": { "branch": "master", "commit": "2c72385b627e46bb66f23b8a11da40b4bb127506" },
   "sniprun": { "branch": "master", "commit": "79806dad094770a1563ac0227c9692f7592df744" },
+  "ssr.nvim": { "branch": "main", "commit": "e6a11a702483d26f767f937575d549ac73b2fea3" },
   "stickybuf.nvim": { "branch": "master", "commit": "cde97217a7e81ea4488e0c32b8ae6c9d181156c8" },
   "switch.vim": { "branch": "main", "commit": "900c5d3ee79b1771c5e07bf7290068ea35881756" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "fab3e2212e206f4f8b3bbaa656e129443c9b802e" },
