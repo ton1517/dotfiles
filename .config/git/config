@@ -15,6 +15,7 @@
     st = status
     cm = commit --verbose
     tags = tag -l
+    cp = cherry-pick
     br = branch
     df = diff
     df-side = !git -c delta.side-by-side=true diff
