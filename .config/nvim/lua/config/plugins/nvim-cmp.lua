@@ -78,7 +78,6 @@ return {
 				format = require("lspkind").cmp_format({
 					mode = "symbol",
 					maxwidth = 50,
-					with_text = true,
 					menu = {
 						buffer = "[Buffer]",
 						copilot = "[Copilot]",
@@ -87,6 +86,9 @@ return {
 						nvim_lsp = "[LSP]",
 						path = "[Path]",
 						look = "[Look]",
+					},
+					symbol_map = {
+						Copilot = "",
 					},
 				}),
 			},
