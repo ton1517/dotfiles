@@ -11,11 +11,19 @@ return {
 	config = function()
 		local keymap = vim.keymap.set
 		local opt = { noremap = true, silent = true }
+		keymap("n", ",e", vim.diagnostic.open_float, opt)
+		keymap("n", "[e", vim.diagnostic.goto_prev, opt)
+		keymap("n", "]e", vim.diagnostic.goto_next, opt)
+
 		keymap("n", "gd", vim.lsp.buf.definition, opt)
 		keymap("n", "gy", vim.lsp.buf.type_definition, opt)
 		keymap("n", "gD", vim.lsp.buf.declaration, opt)
 		keymap("n", "gr", vim.lsp.buf.references, opt)
 		keymap("n", "gi", vim.lsp.buf.implementation, opt)
+		keymap("n", "K", vim.lsp.buf.hover, opt)
+		-- keymap("n", "<C-k>", vim.lsp.buf.signature_help, opt)
+		keymap("n", ",rn", vim.lsp.buf.rename, opt)
+		keymap("n", ",ca", vim.lsp.buf.code_action, opt)
 
 		keymap("n", ",wa", vim.lsp.buf.add_workspace_folder, opt)
 		keymap("n", ",wr", vim.lsp.buf.remove_workspace_folder, opt)
