@@ -11,9 +11,7 @@ return {
 	config = function()
 		local keymap = vim.keymap.set
 		local opt = { noremap = true, silent = true }
-		keymap("n", "gd", vim.lsp.buf.definition, opt)
 		keymap("n", "gy", vim.lsp.buf.type_definition, opt)
-		keymap("n", "gD", vim.lsp.buf.declaration, opt)
 		keymap("n", "gr", vim.lsp.buf.references, opt)
 		keymap("n", "gi", vim.lsp.buf.implementation, opt)
 
