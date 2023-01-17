@@ -10,10 +10,7 @@ return {
 					enabled = false,
 				},
 				suggestion = {
-					enabled = true,
-					auto_trigger = false,
-					debounce = 75,
-					keymap = {},
+					enabled = false,
 				},
 				filetypes = {
 					yaml = false,
