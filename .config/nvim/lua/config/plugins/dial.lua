@@ -3,18 +3,20 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-	lazy = true,
+
+	keys = {
+		{ "<Plug>(dial-increment)", mode = { "n", "x" } },
+		{ "<Plug>(dial-decrement)", mode = { "n", "x" } },
+	},
 
 	init = function()
 		local keymap = vim.keymap.set
 		local opt = { silent = true, noremap = true }
 
-		keymap("n", "<C-a>", require("dial.map").inc_normal(), opt)
-		keymap("n", "<C-x>", require("dial.map").dec_normal(), opt)
-		keymap("v", "<C-a>", require("dial.map").inc_visual(), opt)
-		keymap("v", "<C-x>", require("dial.map").dec_visual(), opt)
-		keymap("v", "g<C-a>", require("dial.map").inc_gvisual(), opt)
-		keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), opt)
+		keymap({ "n", "x" }, "<C-a>", "<Plug>(dial-increment)", opt)
+		keymap({ "n", "x" }, "<C-x>", "<Plug>(dial-decrement)", opt)
+		keymap({ "x" }, "g<C-a>", "g<Plug>(dial-increment)", opt)
+		keymap({ "x" }, "g<C-x>", "g<Plug>(dial-decrement)", opt)
 	end,
 
 	config = function()
