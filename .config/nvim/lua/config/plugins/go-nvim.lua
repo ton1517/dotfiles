@@ -3,6 +3,7 @@ return {
 	"ray-x/go.nvim",
 	dependencies = "williamboman/mason.nvim",
 	ft = "go",
+	enabled = false,
 
 	config = function()
 		local path = require("mason-core.path")
