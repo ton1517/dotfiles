@@ -1,6 +1,8 @@
 return {
 	-- A completion plugin for neovim coded in Lua.
 	"hrsh7th/nvim-cmp",
+	event = { "InsertEnter", "CmdlineEnter" },
+
 	dependencies = {
 		"L3MON4D3/LuaSnip",
 		-- vscode-like pictograms for neovim lsp completion items
@@ -28,7 +30,6 @@ return {
 			end,
 		},
 	},
-	event = "InsertEnter",
 
 	config = function()
 		local sources = {
