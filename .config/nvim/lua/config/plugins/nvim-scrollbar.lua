@@ -38,6 +38,9 @@ return {
 				search = true,
 				gitsigns = true,
 			},
+			excluded_filetypes = {
+				"neo-tree",
+			},
 		})
 	end,
 }
