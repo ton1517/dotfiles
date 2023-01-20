@@ -2,9 +2,11 @@ return {
 	-- Install and upgrade third party tools automatically
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	dependencies = { "williamboman/mason.nvim" },
+	cmd = "MasonToolsInstall",
 
 	config = function()
 		require("mason-tool-installer").setup({
+			run_on_start = false,
 			ensure_installed = {
 				-- LSP
 				"clangd",
