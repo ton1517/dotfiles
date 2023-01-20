@@ -15,6 +15,8 @@ return {
 		"hrsh7th/cmp-path",
 		-- nvim-cmp source for vim's cmdline.
 		"hrsh7th/cmp-cmdline",
+		-- nvim-cmp source for getting completions from command-line or search histories.
+		"dmitmel/cmp-cmdline-history",
 		-- luasnip completion source for nvim-cmp
 		"saadparwaiz1/cmp_luasnip",
 		-- TabNine plugin for hrsh7th/nvim-cmp
@@ -58,6 +60,7 @@ return {
 				},
 			},
 			cmdline = { name = "cmdline" },
+			cmdline_history = { name = "cmdline_history" },
 		}
 		local has_words_before = function()
 			if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
@@ -163,6 +166,7 @@ return {
 				sources.path,
 			}, {
 				sources.cmdline,
+				sources.cmdline_history,
 			}),
 		})
 	end,

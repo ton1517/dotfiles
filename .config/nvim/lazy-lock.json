@@ -8,6 +8,7 @@
   "bufferline.nvim": { "branch": "main", "commit": "028a87933d99f8bb88f2f70a4def3ff9574f3594" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063" },
+  "cmp-cmdline-history": { "branch": "master", "commit": "003573b72d4635ce636234a826fa8c4ba2895ffe" },
   "cmp-look": { "branch": "master", "commit": "b39c50bcdf6199dddda56adc466c2bd9c951a960" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "59224771f91b86d1de12570b4070fe4ad7cd1eeb" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
