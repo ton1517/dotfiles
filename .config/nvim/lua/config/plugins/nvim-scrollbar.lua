@@ -2,7 +2,7 @@ return {
 	-- Extensible Neovim Scrollbar
 	"petertriho/nvim-scrollbar",
 	dependencies = { "kevinhwang91/nvim-hlslens", "lewis6991/gitsigns.nvim" },
-	event = "BufReadPost",
+	event = "VeryLazy",
 
 	config = function()
 		require("scrollbar.handlers.search").setup()

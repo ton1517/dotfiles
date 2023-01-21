@@ -1,7 +1,7 @@
 return {
 	-- Improved Yank and Put functionalities for Neovim
 	"gbprod/yanky.nvim",
-	event = "BufReadPost",
+	event = "VeryLazy",
 
 	config = function()
 		vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")

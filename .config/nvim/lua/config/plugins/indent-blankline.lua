@@ -1,7 +1,7 @@
 return {
 	-- This plugin adds indentation guides to all lines (including empty lines).
 	"lukas-reineke/indent-blankline.nvim",
-	event = "BufReadPre",
+	event = "VeryLazy",
 
 	config = function()
 		require("indent_blankline").setup({

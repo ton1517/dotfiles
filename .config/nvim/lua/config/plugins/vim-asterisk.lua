@@ -2,6 +2,7 @@ return {
 	-- asterisk.vim provides improved * motions.
 	"haya14busa/vim-asterisk",
 	dependencies = "kevinhwang91/nvim-hlslens",
+	event = "VeryLazy",
 
 	init = function()
 		vim.g["asterisk#keeppos"] = 1

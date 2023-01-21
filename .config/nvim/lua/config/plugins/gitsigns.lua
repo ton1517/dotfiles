@@ -1,7 +1,7 @@
 return {
 	-- Super fast git decorations implemented purely in lua/teal.
 	"lewis6991/gitsigns.nvim",
-	event = "BufReadPre",
+	event = "VeryLazy",
 
 	config = function()
 		require("gitsigns").setup({

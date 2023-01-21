@@ -1,7 +1,7 @@
 return {
 	-- Quickstart configs for Nvim LSP
 	"neovim/nvim-lspconfig",
-	event = "BufReadPre",
+	event = "VeryLazy",
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",

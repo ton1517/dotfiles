@@ -1,7 +1,7 @@
 return {
 	-- About Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
 	"zbirenbaum/copilot.lua",
-	event = "VimEnter",
+	event = "VeryLazy",
 
 	config = function()
 		vim.defer_fn(function()
