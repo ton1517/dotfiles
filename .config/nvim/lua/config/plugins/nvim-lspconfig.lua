@@ -28,6 +28,13 @@ return {
 		local on_attach = function(_, bufnr)
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 			vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+
+			require("lsp_signature").on_attach({
+				bind = true,
+				floating_window = false,
+				toggle_key = "<C-k>",
+				hint_prefix = " ",
+			}, bufnr)
 		end
 		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
