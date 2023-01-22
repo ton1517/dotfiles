@@ -73,9 +73,9 @@ return {
 									.. "/packages/typescript-language-server/node_modules/typescript/lib/",
 							},
 							preferences = {
-								includeInlayParameterNameHints = "all",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-								includeInlayFunctionParameterTypeHints = true,
+								-- includeInlayParameterNameHints = "all",
+								-- includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+								-- includeInlayFunctionParameterTypeHints = true,
 								includeInlayVariableTypeHints = true,
 								includeInlayVariableTypeHintsWhenTypeMatchesName = true,
 								includeInlayPropertyDeclarationTypeHints = true,
