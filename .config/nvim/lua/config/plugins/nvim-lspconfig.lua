@@ -25,7 +25,7 @@ return {
 			vim.lsp.buf.format({ async = true })
 		end, opt)
 
-		local on_attach = function(_, bufnr)
+		local on_attach = function(client, bufnr)
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 			vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
 
@@ -35,6 +35,8 @@ return {
 				toggle_key = "<C-k>",
 				hint_prefix = " ",
 			}, bufnr)
+
+			require("lsp-inlayhints").on_attach(client, bufnr)
 		end
 		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
