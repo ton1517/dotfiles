@@ -73,6 +73,8 @@ return {
 									.. "/packages/typescript-language-server/node_modules/typescript/lib/",
 							},
 							preferences = {
+								includeCompletionsForModuleExports = false,
+								includeCompletionsWithSnippetText = false,
 								-- includeInlayParameterNameHints = "all",
 								-- includeInlayParameterNameHintsWhenArgumentMatchesName = true,
 								-- includeInlayFunctionParameterTypeHints = true,
