@@ -76,6 +76,14 @@ return {
 			experimental = {
 				ghost_text = true,
 			},
+			window = {
+				completion = {
+					border = "rounded",
+				},
+				documentation = {
+					border = "rounded",
+				},
+			},
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
