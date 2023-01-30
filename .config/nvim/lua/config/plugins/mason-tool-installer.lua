@@ -25,7 +25,6 @@ return {
 				"eslint-lsp",
 				-- "stylelint-lsp",
 				"prisma-language-server",
-				"vtsls",
 
 				-- Linter
 				"actionlint",
