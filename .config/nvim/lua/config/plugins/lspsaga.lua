@@ -45,12 +45,7 @@ return {
 				},
 			},
 			rename = {
-				quit = { "<C-c>", "<ESC>" },
-				exec = "<CR>",
-				mark = "x",
-				confirm = "<CR>",
-				in_select = true,
-				whole_project = false,
+				quit = "<ESC>",
 			},
 			ui = {
 				border = "rounded",
