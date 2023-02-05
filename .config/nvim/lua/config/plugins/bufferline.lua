@@ -14,7 +14,7 @@ return {
 		keymap("n", "bp", "<CMD>BufferLineTogglePin<CR>", opt)
 
 		for i = 1, 9 do
-			keymap("n", ("b%s"):format(i), ("<Cmd>BufferLineGoToBuffer %s<CR>"):format(i), opt)
+			keymap("n", ("b%s"):format(i), ("<cmd>lua require('bufferline').go_to_buffer(%s, true)<cr>"):format(i), opt)
 		end
 	end,
 
