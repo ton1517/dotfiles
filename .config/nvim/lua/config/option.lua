@@ -21,6 +21,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.fileformats = "unix,dos,mac"
 vim.opt.mouse = "a"
+vim.opt.mousemodel = "extend"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = "split"
