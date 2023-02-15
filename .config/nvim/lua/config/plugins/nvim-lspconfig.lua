@@ -63,9 +63,9 @@ return {
 				})
 			end,
 
-			["sumneko_lua"] = function()
+			["lua_ls"] = function()
 				require("neodev").setup({})
-				require("lspconfig").sumneko_lua.setup({
+				require("lspconfig").lua_ls.setup({
 					settings = {
 						Lua = {
 							format = {
