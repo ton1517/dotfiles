@@ -7,6 +7,8 @@ return {
 		require("indent_blankline").setup({
 			show_current_context = true,
 			show_current_context_start = true,
+			context_char = "║",
 		})
+		vim.cmd([[ hi IndentBlanklineContextChar guifg=#7fbbb3 ]])
 	end,
 }
