@@ -14,7 +14,6 @@ vim.opt.visualbell = true
 vim.opt.number = true
 vim.opt.list = true
 vim.opt.listchars = "tab:|-,extends:⇢,precedes:⇠,trail:»"
-vim.opt.cmdheight = 0
 vim.opt.title = true
 vim.opt.pumheight = 20
 vim.opt.signcolumn = "yes"
@@ -49,3 +48,19 @@ if (not fn.has("gui_running")) and (g["&term"] ~= "screen" and g["&term"] ~= "tm
 	g["&t_8f"] = "<Esc>[38;2;%lu;%lu;%lum"
 	g["&t_8b"] = "<Esc>[48;2;%lu;%lu;%lum"
 end
+
+-- cmdheight
+vim.opt.cmdheight = 0
+local augroup = vim.api.nvim_create_augroup("CmdheihgtOnRecodring", {})
+vim.api.nvim_create_autocmd("RecordingEnter", {
+	group = augroup,
+	callback = function()
+		vim.opt.cmdheight = 1
+	end,
+})
+vim.api.nvim_create_autocmd("RecordingLeave", {
+	group = augroup,
+	callback = function()
+		vim.opt.cmdheight = 0
+	end,
+})
