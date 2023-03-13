@@ -5,9 +5,14 @@ return {
 
 	config = function()
 		require("stickybuf").setup({
-			filetype = {
-				["neo-tree"] = "filetype",
-			},
+			get_auto_pin = function(bufnr)
+				local filetype = vim.bo[bufnr].filetype
+				if filetype == "neo-tree" then
+					return "filetype"
+				end
+
+				return require("stickybuf").should_auto_pin(bufnr)
+			end,
 		})
 	end,
 }
