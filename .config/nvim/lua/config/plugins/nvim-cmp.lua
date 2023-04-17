@@ -19,8 +19,6 @@ return {
 		"dmitmel/cmp-cmdline-history",
 		-- luasnip completion source for nvim-cmp
 		"saadparwaiz1/cmp_luasnip",
-		-- TabNine plugin for hrsh7th/nvim-cmp
-		{ "tzachar/cmp-tabnine", build = "./install.sh" },
 		-- look source for nvim-cmp
 		"octaltree/cmp-look",
 		-- Lua plugin to turn github copilot into a cmp source
@@ -42,10 +40,6 @@ return {
 			copilot = {
 				name = "copilot",
 				max_item_count = 10,
-			},
-			cmp_tabnine = {
-				name = "cmp_tabnine",
-				max_item_count = 5,
 			},
 			luasnip = { name = "luasnip" },
 			path = { name = "path" },
@@ -96,7 +90,6 @@ return {
 					menu = {
 						buffer = "[Buffer]",
 						copilot = "[Copilot]",
-						cmp_tabnine = "[TabNine]",
 						luasnip = "[LuaSnip]",
 						nvim_lsp = "[LSP]",
 						path = "[Path]",
@@ -136,7 +129,6 @@ return {
 			sources = cmp.config.sources({
 				sources.nvim_lsp,
 				sources.copilot,
-				sources.cmp_tabnine,
 				sources.luasnip,
 				sources.path,
 			}, {
