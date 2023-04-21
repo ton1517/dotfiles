@@ -19,7 +19,6 @@ return {
 				"terraform-ls",
 				"tflint",
 				"css-lsp",
-				"yaml-language-server",
 				"bash-language-server",
 				"lua-language-server",
 				"eslint-lsp",
@@ -30,13 +29,11 @@ return {
 				"actionlint",
 				"luacheck",
 				"golangci-lint",
-				"markdownlint",
 				"shellcheck",
 				"codespell",
 
 				-- Formatter
 				"luaformatter",
-				"yamlfmt",
 				"goimports",
 				"prettier",
 				"stylua",
