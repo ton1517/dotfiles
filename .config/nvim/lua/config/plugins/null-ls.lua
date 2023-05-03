@@ -39,6 +39,7 @@ return {
 				null_ls.builtins.diagnostics.markdownlint,
 				null_ls.builtins.diagnostics.shellcheck,
 				null_ls.builtins.diagnostics.codespell,
+				null_ls.builtins.diagnostics.flake8,
 
 				-- Formatting
 				null_ls.builtins.formatting.clang_format,
@@ -54,6 +55,7 @@ return {
 				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.yamlfmt,
+				null_ls.builtins.formatting.black,
 			},
 			on_attach = on_attach,
 		})

@@ -31,12 +31,14 @@ return {
 				"golangci-lint",
 				"shellcheck",
 				"codespell",
+				"flake8",
 
 				-- Formatter
 				"luaformatter",
 				"goimports",
 				"prettier",
 				"stylua",
+				"black",
 			},
 		})
 	end,
