@@ -24,7 +24,6 @@ return {
 		-- Lua plugin to turn github copilot into a cmp source
 		{
 			"zbirenbaum/copilot-cmp",
-			branch = "formatting-fixes",
 			dependencies = { "zbirenbaum/copilot.lua" },
 			config = function()
 				require("copilot_cmp").setup()
@@ -69,7 +68,7 @@ return {
 		local cmp = require("cmp")
 		cmp.setup({
 			experimental = {
-				ghost_text = true,
+				ghost_text = {},
 			},
 			window = {
 				completion = {
