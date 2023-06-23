@@ -45,6 +45,8 @@
     delete-merged-branches = !git branch --merged | grep -vE '^\\*|main$|master$|develop$' | xargs -I {} git branch -d {}
     rebase-develop= !git checkout develop && git pull --ff-only && git checkout - && git rebase develop
     rebase-master= !git checkout master && git pull --ff-only && git checkout - && git rebase master
+    # temporarily commit the changes
+    tmp = commit -n -m "tmp"
 [diff]
     tool = nvimdiff
     indentHeuristic = true
