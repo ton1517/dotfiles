@@ -2,6 +2,10 @@ return {
 	-- light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
 	"glepnir/lspsaga.nvim",
 	event = { "LspAttach" },
+	dependencies = {
+		{ "nvim-tree/nvim-web-devicons" },
+		{ "nvim-treesitter/nvim-treesitter" },
+	},
 
 	config = function()
 		local keymap = vim.keymap.set
