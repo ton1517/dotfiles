@@ -7,7 +7,7 @@ return {
 		{ "<S-h>", "<Plug>(textmanip-move-left)", mode = "x" },
 		{ "<S-l>", "<Plug>(textmanip-move-right)", mode = "x" },
 
-		{ "<Space>d", "<Plug>(textmanip-duplicate-down)", mode = { "n", "x" } },
-		{ "<Space>D", "<Plug>(textmanip-duplicate-up)", mode = { "n", "x" } },
+		{ "<leader>d", "<Plug>(textmanip-duplicate-down)", mode = { "n", "x" } },
+		{ "<leader>D", "<Plug>(textmanip-duplicate-up)", mode = { "n", "x" } },
 	},
 }
