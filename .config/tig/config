@@ -10,3 +10,4 @@ set main-view = line-number:true,interval=1 id date author commit-title:graph=ye
 # settings for large repository
 # set main-options = -n 1000
 set commit-order = default
+set main-view-date-local = true
