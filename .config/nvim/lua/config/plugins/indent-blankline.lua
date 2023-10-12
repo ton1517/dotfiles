@@ -1,14 +1,21 @@
 return {
 	-- This plugin adds indentation guides to all lines (including empty lines).
 	"lukas-reineke/indent-blankline.nvim",
+	dependencies = "nvim-treesitter/nvim-treesitter",
 	event = "VeryLazy",
+	main = "ibl",
 
 	config = function()
-		require("indent_blankline").setup({
-			show_current_context = true,
-			show_current_context_start = true,
-			context_char = "║",
+		local hooks = require("ibl.hooks")
+		hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+			vim.api.nvim_set_hl(0, "ScopeHighlight", { fg = "#7fbbb3" })
+		end)
+
+		require("ibl").setup({
+			scope = {
+				char = "║",
+				highlight = "ScopeHighlight",
+			},
 		})
-		vim.cmd([[ hi IndentBlanklineContextChar guifg=#7fbbb3 ]])
 	end,
 }
