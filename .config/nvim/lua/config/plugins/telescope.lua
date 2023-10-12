@@ -35,6 +35,9 @@ return {
 			require("refactoring")
 			require("telescope").extensions.refactoring.refactors()
 		end, { desc = "Telescope refactoring" })
+		keymap("n", ",fa", function()
+			require("telescope").extensions.aerial.aerial()
+		end, { desc = "Telescope aerial" })
 	end,
 
 	config = function()
