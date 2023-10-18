@@ -10,6 +10,8 @@
 [push]
     default = current
     autoSetupRemote = true
+[fetch]
+    prune = true
 [alias]
     co = checkout
     sw = switch
