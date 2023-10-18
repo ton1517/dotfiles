@@ -9,6 +9,7 @@
     ui = true
 [push]
     default = current
+    autoSetupRemote = true
 [alias]
     co = checkout
     sw = switch
