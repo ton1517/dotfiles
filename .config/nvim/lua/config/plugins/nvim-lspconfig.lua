@@ -36,7 +36,13 @@ return {
 		end, opt)
 
 		keymap("n", "<S-f>", function()
-			vim.lsp.buf.format({ async = true })
+			vim.lsp.buf.format({
+				filter = function(client)
+					return client.name ~= "tsserver"
+				end,
+				async = true,
+				timeout_ms = 3000,
+			})
 		end, opt)
 
 		local on_attach = function(client, bufnr)
