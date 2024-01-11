@@ -32,7 +32,7 @@ if [[ "$(uname)" == 'Darwin' && -z "$(which brew 2> /dev/null)" ]]; then
     sh ./brewfile.sh
 fi
 
-# install asdf plugins
-if type "asdf" > /dev/null 2>&1; then
-  sh ./install-asdf-plugins.sh
+# install mise languages
+if type "mise" > /dev/null 2>&1; then
+  mise install -y
 fi

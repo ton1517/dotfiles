@@ -314,12 +314,10 @@ export DIRENV_LOG_FORMAT=""
 eval "$(direnv hook zsh)"
 
 #----------------------------------------
-# asdf
+# mise
 #----------------------------------------
 
-if [ -e "$ASDF_DIR/asdf.sh" ]; then
-. "$ASDF_DIR/asdf.sh"
-fi
+eval "$(mise activate zsh)"
 
 #----------------------------------------
 # tmux settings

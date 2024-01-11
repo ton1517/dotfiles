@@ -1,7 +1,6 @@
 #!/bin/bash
 
 brews=(
-    asdf
     autoconf
     automake
     awscli
@@ -35,6 +34,7 @@ brews=(
     lua
     luajit
     lv
+    mise
     moreutils
     neovim
     ncurses

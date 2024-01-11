@@ -23,7 +23,7 @@ return {
 					cvs = false,
 					["."] = false,
 				},
-				copilot_node_command = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/18.12.1/bin/node",
+				copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/mise/installs/node/18.12.1/bin/node",
 				server_opts_overrides = {},
 			})
 		end, 100)
