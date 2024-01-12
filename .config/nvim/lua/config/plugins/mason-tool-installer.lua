@@ -21,7 +21,7 @@ return {
 				"css-lsp",
 				"bash-language-server",
 				"lua-language-server",
-				"eslint-lsp",
+				"eslint_d",
 				-- "stylelint-lsp",
 				"prisma-language-server",
 

@@ -110,16 +110,6 @@ return {
 					},
 				})
 			end,
-
-			["eslint"] = function()
-				require("lspconfig")["eslint"].setup({
-					on_attach = function(client, bufnr)
-						on_attach(client, bufnr)
-						client.server_capabilities.documentFormattingProvider = true
-					end,
-					capabilities = capabilities,
-				})
-			end,
 		})
 	end,
 }
