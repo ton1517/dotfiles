@@ -36,7 +36,7 @@ return {
 				-- Formatter
 				"luaformatter",
 				"goimports",
-				"prettier",
+				"prettierd",
 				"stylua",
 				"black",
 			},

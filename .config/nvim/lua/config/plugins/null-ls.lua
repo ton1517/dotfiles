@@ -48,11 +48,10 @@ return {
 				null_ls.builtins.formatting.goimports,
 				null_ls.builtins.formatting.jq,
 				null_ls.builtins.formatting.markdownlint,
-				null_ls.builtins.formatting.prettier.with({
+				null_ls.builtins.formatting.prettierd.with({
 					condition = function(utils)
 						return utils.has_file({ ".prettierrc", ".prettierrc.js" })
 					end,
-					prefer_local = "node_modules/.bin",
 				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.yamlfmt,
