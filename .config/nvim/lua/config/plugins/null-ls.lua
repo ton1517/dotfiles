@@ -2,7 +2,10 @@ return {
 	-- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 	"nvimtools/none-ls.nvim",
 	event = "VeryLazy",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvimtools/none-ls-extras.nvim",
+	},
 	config = function()
 		local null_ls = require("null-ls")
 
@@ -39,16 +42,16 @@ return {
 				null_ls.builtins.diagnostics.golangci_lint,
 				null_ls.builtins.diagnostics.markdownlint,
 				null_ls.builtins.diagnostics.codespell,
-				null_ls.builtins.diagnostics.flake8,
-				null_ls.builtins.diagnostics.eslint_d,
+				require("none-ls.diagnostics.flake8"),
+				require("none-ls.diagnostics.eslint_d"),
 
 				-- Formatting
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.dart_format,
 				null_ls.builtins.formatting.goimports,
-				null_ls.builtins.formatting.jq,
+				require("none-ls.formatting.jq"),
 				null_ls.builtins.formatting.markdownlint,
-				null_ls.builtins.formatting.eslint_d,
+				require("none-ls.formatting.eslint_d"),
 				null_ls.builtins.formatting.prettierd.with({
 					condition = function(utils)
 						return utils.has_file({ ".prettierrc", ".prettierrc.js" })
