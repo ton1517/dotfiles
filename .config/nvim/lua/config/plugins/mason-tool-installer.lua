@@ -29,7 +29,6 @@ return {
 				"actionlint",
 				"luacheck",
 				"golangci-lint",
-				"shellcheck",
 				"codespell",
 				"flake8",
 
