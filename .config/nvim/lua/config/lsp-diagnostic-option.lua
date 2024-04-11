@@ -10,6 +10,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 -- メッセージにsourceとcodeを表示する
 vim.diagnostic.config({
+	severity_sort = true,
 	float = {
 		border = border_style,
 	},
