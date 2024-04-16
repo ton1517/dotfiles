@@ -1,31 +1,59 @@
 return {
 	-- About Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
 	"zbirenbaum/copilot.lua",
-	event = "VeryLazy",
+	event = "InsertEnter",
 
 	config = function()
-		vim.defer_fn(function()
-			require("copilot").setup({
-				panel = {
-					enabled = false,
+		vim.keymap.set("i", "<Tab>", function()
+			if require("copilot.suggestion").is_visible() then
+				require("copilot.suggestion").accept()
+			else
+				vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+			end
+		end)
+
+		require("copilot").setup({
+			panel = {
+				enabled = true,
+				auto_refresh = true,
+				keymap = {
+					jump_prev = "[[",
+					jump_next = "]]",
+					accept = "<CR>",
+					refresh = "gr",
+					open = "<Leader>cp",
 				},
-				suggestion = {
-					enabled = false,
+				layout = {
+					position = "right", -- | top | left | right
+					ratio = 0.4,
 				},
-				filetypes = {
-					yaml = false,
-					markdown = false,
-					help = false,
-					gitcommit = false,
-					gitrebase = false,
-					hgcommit = false,
-					svn = false,
-					cvs = false,
-					["."] = false,
+			},
+			suggestion = {
+				enabled = true,
+				auto_trigger = true,
+				debounce = 75,
+				keymap = {
+					accept = false,
+					accept_word = "<C-e>",
+					accept_line = "<C-l>",
+					next = "<C-n>",
+					prev = "<C-p>",
+					dismiss = "<C-c>",
 				},
-				copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/mise/installs/node/18.12.1/bin/node",
-				server_opts_overrides = {},
-			})
-		end, 100)
+			},
+			filetypes = {
+				yaml = false,
+				markdown = false,
+				help = false,
+				gitcommit = false,
+				gitrebase = false,
+				hgcommit = false,
+				svn = false,
+				cvs = false,
+				["."] = false,
+			},
+			copilot_node_command = "node",
+			server_opts_overrides = {},
+		})
 	end,
 }
