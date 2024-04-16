@@ -55,9 +55,6 @@ return {
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
 		cmp.setup({
-			experimental = {
-				ghost_text = {},
-			},
 			window = {
 				completion = {
 					border = "rounded",
