@@ -21,24 +21,12 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		-- look source for nvim-cmp
 		"octaltree/cmp-look",
-		-- Lua plugin to turn github copilot into a cmp source
-		{
-			"zbirenbaum/copilot-cmp",
-			dependencies = { "zbirenbaum/copilot.lua" },
-			config = function()
-				require("copilot_cmp").setup()
-			end,
-		},
 	},
 
 	config = function()
 		local sources = {
 			nvim_lsp = {
 				name = "nvim_lsp",
-				max_item_count = 10,
-			},
-			copilot = {
-				name = "copilot",
 				max_item_count = 10,
 			},
 			luasnip = { name = "luasnip" },
@@ -89,14 +77,10 @@ return {
 					maxwidth = 50,
 					menu = {
 						buffer = "[Buffer]",
-						copilot = "[Copilot]",
 						luasnip = "[LuaSnip]",
 						nvim_lsp = "[LSP]",
 						path = "[Path]",
 						look = "[Look]",
-					},
-					symbol_map = {
-						Copilot = "",
 					},
 				}),
 			},
@@ -128,7 +112,6 @@ return {
 			}),
 			sources = cmp.config.sources({
 				sources.nvim_lsp,
-				sources.copilot,
 				sources.luasnip,
 				sources.path,
 			}, {
@@ -138,8 +121,6 @@ return {
 			sorting = {
 				priority_weight = 2,
 				comparators = {
-					require("copilot_cmp.comparators").prioritize,
-					require("copilot_cmp.comparators").score,
 					cmp.config.compare.offset,
 					cmp.config.compare.exact,
 					cmp.config.compare.score,
