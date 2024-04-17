@@ -40,7 +40,6 @@ return {
 				-- Diagnostics
 				null_ls.builtins.diagnostics.actionlint,
 				null_ls.builtins.diagnostics.golangci_lint,
-				null_ls.builtins.diagnostics.markdownlint,
 				null_ls.builtins.diagnostics.codespell,
 				require("none-ls.diagnostics.flake8"),
 				require("none-ls.diagnostics.eslint_d"),
@@ -50,7 +49,6 @@ return {
 				null_ls.builtins.formatting.dart_format,
 				null_ls.builtins.formatting.goimports,
 				require("none-ls.formatting.jq"),
-				null_ls.builtins.formatting.markdownlint,
 				require("none-ls.formatting.eslint_d"),
 				null_ls.builtins.formatting.prettierd.with({
 					condition = function(utils)
@@ -58,7 +56,6 @@ return {
 					end,
 				}),
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.yamlfmt,
 				null_ls.builtins.formatting.black,
 			},
 			on_attach = on_attach,
