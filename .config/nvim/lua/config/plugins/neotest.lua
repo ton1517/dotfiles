@@ -41,10 +41,10 @@ return {
 				}),
 			},
 			icons = {
-				failed = " ",
-				passed = "﫠",
-				running = "",
-				skipped = "",
+				failed = " ",
+				passed = " ",
+				running = "󰑮",
+				skipped = "",
 				unknown = "",
 			},
 			summary = {

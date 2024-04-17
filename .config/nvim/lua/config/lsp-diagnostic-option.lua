@@ -23,9 +23,9 @@ vim.diagnostic.config({
 
 -- show diagnostic sign with icon.
 local signs = {
-	Error = " ",
-	Warn = " ",
-	Hint = " ",
+	Error = " ",
+	Warn = " ",
+	Hint = " ",
 	Info = " ",
 }
 for type, icon in pairs(signs) do

@@ -36,8 +36,7 @@ return {
 			},
 			ui = {
 				border = "rounded",
-				code_action = " ",
-				diagnostic = " ",
+				code_action = " ",
 			},
 		})
 	end,

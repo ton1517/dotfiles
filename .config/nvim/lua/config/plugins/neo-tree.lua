@@ -27,11 +27,11 @@ return {
 				git_status = {
 					symbols = {
 						deleted = "✖",
-						renamed = "",
+						renamed = "",
 						untracked = "",
 						ignored = "",
-						unstaged = "",
-						staged = "",
+						unstaged = "",
+						staged = "",
 						conflict = "",
 					},
 				},
