@@ -9,6 +9,7 @@ return {
 			run_on_start = false,
 			ensure_installed = {
 				-- LSP
+				"biome",
 				"clangd",
 				"gopls",
 				"dockerfile-language-server",
