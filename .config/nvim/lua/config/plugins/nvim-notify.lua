@@ -24,7 +24,7 @@ return {
 			vim.api.nvim_win_set_config(win, { zindex = 100 })
 		end,
 	},
-	config = function()
+	init = function()
 		vim.notify = require("notify")
 	end,
 }
