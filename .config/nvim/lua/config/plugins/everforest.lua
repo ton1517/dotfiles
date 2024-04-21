@@ -18,6 +18,8 @@ return {
       call everforest#highlight('EndOfBuffer', l:palette.fg, l:palette.none)
       call everforest#highlight('WinbarNC', l:palette.fg, l:palette.bg_dim)
       call everforest#highlight('WinSeparator', l:palette.bg4, l:palette.bg_dim)
+
+      call everforest#highlight('CursorLineSign', l:palette.none, l:palette.fg)
     endfunction
     
     augroup EverforestCustom

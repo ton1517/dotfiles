@@ -18,6 +18,7 @@ vim.opt.title = true
 vim.opt.pumheight = 20
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 vim.opt.fileformats = "unix,dos,mac"
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "extend"
