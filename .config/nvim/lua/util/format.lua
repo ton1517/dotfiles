@@ -1,3 +1,5 @@
+local ms = require("vim.lsp.protocol").Methods
+
 local M = {}
 
 --- whether to format on save
@@ -19,13 +21,28 @@ function M.format(opts)
 		return
 	end
 
-	vim.lsp.buf.format({
-		filter = function(client)
-			local supports_format = client.supports_method("textDocument/formatting")
-			local excluded = vim.tbl_contains(M.exclude, client.name)
+	local filter = function(client)
+		local supports_format = client.supports_method(ms.textDocument_formatting)
+		local excluded = vim.tbl_contains(M.exclude, client.name)
 
-			return supports_format and not excluded
-		end,
+		return supports_format and not excluded
+	end
+
+	local enabled_clients = vim.tbl_filter(
+		filter,
+		vim.lsp.get_clients({
+			bufnr = vim.api.nvim_get_current_buf(),
+			method = ms.textDocument_formatting,
+		})
+	)
+
+	-- If there is not enabled client, warning message will be shown, so don’t execute format.
+	if #enabled_clients < 1 then
+		return
+	end
+
+	vim.lsp.buf.format({
+		filter = filter,
 		async = (opts and opts.async) or false,
 		timeout_ms = (opts and opts.timeout_ms) or M.timeout_ms,
 	})
