@@ -2,7 +2,7 @@
 
 local formatter = require("util.format")
 formatter.setup({
-	exclude = { "tsserver" },
+	exclude = { "tsserver", "biome" },
 })
 
 vim.api.nvim_create_user_command("FormatOnSaveEnable", formatter.enable, { nargs = 0 })

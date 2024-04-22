@@ -48,6 +48,19 @@ return {
 				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.black,
+				null_ls.builtins.formatting.biome.with({
+					condition = function(utils)
+						return utils.has_file({ "biome.json", "biome.jsonc" })
+					end,
+					args = {
+						"check",
+						"--apply",
+						"--formatter-enabled=true",
+						"--organize-imports-enabled=true",
+						"--skip-errors",
+						"$FILENAME",
+					},
+				}),
 			},
 		})
 	end,
