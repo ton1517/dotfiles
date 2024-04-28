@@ -47,6 +47,7 @@ return {
 					end,
 				}),
 				null_ls.builtins.formatting.stylua,
+				null_ls.builtins.formatting.yamlfmt,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.biome.with({
 					condition = function(utils)
