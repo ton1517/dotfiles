@@ -15,37 +15,45 @@ M.timeout_ms = 3000
 M.exclude = {}
 
 --- format bia LSP
---- @param opts? {force?:boolean, async?:boolean, timeout_ms?:number}
+--- @param opts? {client_name?: string, force?:boolean, async?:boolean}
 function M.format(opts)
 	if opts and not opts.force and not M.formats_on_save then
 		return
 	end
 
-	local filter = function(client)
-		local supports_format = client.supports_method(ms.textDocument_formatting)
-		local excluded = vim.tbl_contains(M.exclude, client.name)
-
-		return supports_format and not excluded
-	end
-
-	local enabled_clients = vim.tbl_filter(
-		filter,
-		vim.lsp.get_clients({
+	local clients = nil
+	if opts and opts.client_name then
+		clients = vim.lsp.get_clients({
+			bufnr = vim.api.nvim_get_current_buf(),
+			method = ms.textDocument_formatting,
+			name = opts.client_name,
+		})
+	else
+		clients = vim.lsp.get_clients({
 			bufnr = vim.api.nvim_get_current_buf(),
 			method = ms.textDocument_formatting,
 		})
-	)
+	end
 
-	-- If there is not enabled client, warning message will be shown, so don’t execute format.
-	if #enabled_clients < 1 then
+	if #clients == 0 then
 		return
 	end
 
-	vim.lsp.buf.format({
-		filter = filter,
-		async = (opts and opts.async) or false,
-		timeout_ms = (opts and opts.timeout_ms) or M.timeout_ms,
-	})
+	for _, client in ipairs(clients) do
+		local excluded = vim.tbl_contains(M.exclude, client.name)
+		if excluded then
+			goto continue
+		end
+
+		if client.supports_method(ms.textDocument_formatting) then
+			vim.lsp.buf.format({
+				name = client.name,
+				async = opts and opts.async or false,
+				timeout_ms = M.timeout_ms,
+			})
+		end
+		::continue::
+	end
 end
 
 --- enable format on save
@@ -69,12 +77,18 @@ function M.setup(opts)
 	M.exclude = opts and opts.exclude or M.exclude
 
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-	require("util.lsp").on_attach(function(_, bufnr)
+	require("util.lsp").on_attach(function(client, bufnr)
+		local excluded = vim.tbl_contains(M.exclude, client.name)
+		if excluded then
+			return
+		end
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = augroup,
 			buffer = bufnr,
-			callback = M.format,
+			callback = function()
+				M.format({ client_name = client.name })
+			end,
 		})
 	end)
 end
