@@ -15,17 +15,6 @@ return {
 				-- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 				-- Code Actions
 				-- null_ls.builtins.code_actions.gitsigns,
-
-				-- Diagnostics
-				null_ls.builtins.diagnostics.actionlint,
-				null_ls.builtins.diagnostics.golangci_lint,
-				null_ls.builtins.diagnostics.codespell,
-				require("none-ls.diagnostics.flake8"),
-				require("none-ls.diagnostics.eslint_d").with({
-					condition = function(utils)
-						return utils.has_file({ ".eslintrc.json", ".eslintrc.js", ".eslint.config.js" })
-					end,
-				}),
 			},
 		})
 	end,
