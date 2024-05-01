@@ -1,21 +1,9 @@
--- LSP formatter
-
-local formatter = require("util.format")
-formatter.setup({
-	exclude = { "tsserver", "biome" },
-})
-
-vim.api.nvim_create_user_command("FormatOnSaveEnable", formatter.enable, { nargs = 0 })
-vim.api.nvim_create_user_command("FormatOnSaveDisable", formatter.disable, { nargs = 0 })
-
 -- LSP keymap
 
 local keymap = vim.keymap.set
 local opt = { noremap = true, silent = true }
 
-keymap("n", "<S-f>", function()
-	formatter.format({ force = true, async = true })
-end, opt)
+keymap({ "n", "v" }, "<S-f>", ":Format<CR>", opt)
 
 keymap("n", ",e", vim.diagnostic.open_float, opt)
 keymap("n", "[e", vim.diagnostic.goto_prev, opt)
