@@ -21,6 +21,7 @@ return {
 				typescript = js_formatters,
 				typescriptreact = js_formatters,
 				json = { { "biome-check", "jq" } },
+				jsonc = { "biome-check" },
 				lua = { "stylua" },
 				python = { "black" },
 				yaml = { "yamlfmt" },
