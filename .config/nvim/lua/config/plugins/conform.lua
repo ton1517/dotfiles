@@ -28,7 +28,6 @@ return {
 			},
 			formatters = {
 				["biome-check"] = {
-					cwd = util.root_file({ "biome.json", "biome.jsonc" }),
 					require_cwd = true,
 				},
 				eslint_d = {
