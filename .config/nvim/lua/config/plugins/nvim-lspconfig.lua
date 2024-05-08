@@ -6,6 +6,8 @@ return {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
+		-- A Neovim plugin that provides the SchemaStore catalog for use with jsonls and yamlls.
+		"b0o/schemastore.nvim",
 	},
 
 	config = function()
@@ -56,6 +58,33 @@ return {
 						},
 						capabilities = capabilities,
 					},
+				})
+			end,
+
+			["jsonls"] = function()
+				require("lspconfig").jsonls.setup({
+					settings = {
+						json = {
+							schemas = require("schemastore").json.schemas(),
+							validate = { enable = true },
+						},
+					},
+					capabilities = capabilities,
+				})
+			end,
+
+			["yamlls"] = function()
+				require("lspconfig").yamlls.setup({
+					settings = {
+						yaml = {
+							schemaStore = {
+								enable = false,
+								url = "",
+							},
+							schemas = require("schemastore").yaml.schemas(),
+						},
+					},
+					capabilities = capabilities,
 				})
 			end,
 		})

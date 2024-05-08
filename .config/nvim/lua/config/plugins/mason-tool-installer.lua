@@ -23,6 +23,7 @@ return {
 				"bash-language-server",
 				"lua-language-server",
 				"eslint_d",
+				"yaml-language-server",
 				-- "stylelint-lsp",
 				"prisma-language-server",
 
