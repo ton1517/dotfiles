@@ -44,6 +44,14 @@ return {
 		local actions = require("telescope.actions")
 		require("telescope").setup({
 			defaults = {
+				layout_config = {
+					height = 0.95,
+					width = 0.95,
+				},
+				path_display = {
+					truncate = 3,
+				},
+				dynamic_preview_title = true,
 				vimgrep_arguments = {
 					"rg",
 					"--no-ignore-dot",
