@@ -25,6 +25,7 @@ return {
 				lua = { "stylua" },
 				python = { "black" },
 				yaml = { "yamlfmt" },
+				rust = { "rustfmt" },
 			},
 			formatters = {
 				["biome-check"] = {

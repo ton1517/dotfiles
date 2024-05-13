@@ -8,6 +8,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-neotest/neotest-go",
 		"haydenmeade/neotest-jest",
+		"mrcjkb/rustaceanvim",
 	},
 	lazy = true,
 
@@ -41,6 +42,7 @@ return {
 						return vim.fn.getcwd()
 					end,
 				}),
+				require("rustaceanvim.neotest"),
 			},
 			icons = {
 				failed = " ",
