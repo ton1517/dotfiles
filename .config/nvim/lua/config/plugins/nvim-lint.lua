@@ -4,6 +4,9 @@ return {
 		"BufReadPre",
 		"BufNewFile",
 	},
+	dependencies = {
+		"williamboman/mason.nvim",
+	},
 	config = function()
 		local lint = require("lint")
 
