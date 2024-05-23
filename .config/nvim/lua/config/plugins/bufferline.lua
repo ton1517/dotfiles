@@ -1,7 +1,6 @@
 return {
 	-- A snazzy bufferline for Neovim
-	-- "akinsho/bufferline.nvim",
-	"Theyashsawarkar/bufferline.nvim",
+	"akinsho/bufferline.nvim",
 	version = "*",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	event = "BufAdd",
