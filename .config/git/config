@@ -1,75 +1,75 @@
 [core]
-    editor = nvim
-    ui = auto
-    autocrlf = input
-    pager = less --tabs=4 -RFX
-    ignorecase = false
+	editor = nvim
+	ui = auto
+	autocrlf = input
+	pager = less --tabs=4 -RFX
+	ignorecase = false
 [include]
-    path = $XDG_CONFIG_HOME/git/config.local
+	path = $XDG_CONFIG_HOME/git/config.local
 [color]
-    ui = true
+	ui = true
 [push]
-    default = current
-    autoSetupRemote = true
+	default = current
+	autoSetupRemote = true
 [fetch]
-    prune = true
+	prune = true
 [alias]
-    co = checkout
-    sw = switch
-    st = status
-    cm = commit --verbose
-    tags = tag -l
-    cp = cherry-pick
-    br = branch
-    df = diff
-    df-side = !git -c delta.side-by-side=true diff
-    dfs = diff --staged
-    dfs-side = !git -c delta.side-by-side=true diff --staged
-    diff-develop-branch = diff --stat -p develop...HEAD
-    diff-master-branch = diff --stat -p master...HEAD
-    diff-main-branch = diff --stat -p main...HEAD
-    ls = ls-files -v
-    stage = add
-    unstage = reset HEAD
-    # ignoreファイルを表示
-    ignored-list = ls-files --others -i --exclude-standard
-    #コミットメッセージを変えずにamend
-    amend = commit --amend --no-edit
-    #すでに削除されているファイルを全てgit rmする 
-    rmall = !git rm $(git ls-files -d)
-    #gitの管理下にあるファイルを無視する
-    skip = update-index --skip-worktree
-    #skipされているファイルを表示
-    skipped-list = !git ls-files -v . | grep '^S' | awk '{ print $2}'
-    #もとに戻す
-    noskip = update-index --no-skip-worktree
-    alias = !git config --get-regexp alias |  sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\ = \\2/'
-    lg = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-    su = submodule update
-    delete-merged-branches = !git branch --merged | grep -vE '^\\*|main$|master$|develop$' | xargs -I {} git branch -d {}
-    rebase-develop= !git checkout develop && git pull --ff-only && git checkout - && git rebase develop
-    rebase-master= !git checkout master && git pull --ff-only && git checkout - && git rebase master
-    # temporarily commit the changes
-    tmp = commit -n -m "tmp"
+	co = checkout
+	sw = switch
+	st = status
+	cm = commit --verbose
+	tags = tag -l
+	cp = cherry-pick
+	br = branch
+	df = diff
+	df-side = !git -c delta.side-by-side=true diff
+	dfs = diff --staged
+	dfs-side = !git -c delta.side-by-side=true diff --staged
+	diff-develop-branch = diff --stat -p develop...HEAD
+	diff-master-branch = diff --stat -p master...HEAD
+	diff-main-branch = diff --stat -p main...HEAD
+	ls = ls-files -v
+	stage = add
+	unstage = reset HEAD
+	# ignoreファイルを表示
+	ignored-list = ls-files --others -i --exclude-standard
+	#コミットメッセージを変えずにamend
+	amend = commit --amend --no-edit
+	#すでに削除されているファイルを全てgit rmする 
+	rmall = !git rm $(git ls-files -d)
+	#gitの管理下にあるファイルを無視する
+	skip = update-index --skip-worktree
+	#skipされているファイルを表示
+	skipped-list = !git ls-files -v . | grep '^S' | awk '{ print $2}'
+	#もとに戻す
+	noskip = update-index --no-skip-worktree
+	alias = !git config --get-regexp alias |  sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\ = \\2/'
+	lg = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	su = submodule update
+	delete-merged-branches = !git branch --merged | grep -vE '^\\*|main$|master$|develop$' | xargs -I {} git branch -d {}
+	rebase-develop= !git checkout develop && git pull --ff-only && git checkout - && git rebase develop
+	rebase-master= !git checkout master && git pull --ff-only && git checkout - && git rebase master
+	# temporarily commit the changes
+	tmp = commit -n -m "tmp"
 [diff]
-    tool = nvimdiff
-    indentHeuristic = true
-    colorMoved=plain
+	tool = nvimdiff
+	indentHeuristic = true
+	colorMoved=plain
 [difftool]
-    prompt = false
+	prompt = false
 [mergetool]
-    keepBackup = false
+	keepBackup = false
 [difftool "nvimdiff"]
-    cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+	cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
 [mergetool "nvimdiff"]
-    cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
+	cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [add.interactive]
-    useBuiltin = false
+	useBuiltin = false
 [color "diff"]
-    oldMoved = 225 bold
-    newMoved = 195 bold
+	oldMoved = 225 bold
+	newMoved = 195 bold
 [commit]
 	verbose = true
 [pull]
@@ -80,37 +80,37 @@
 [user]
 	useConfigOnly = true
 [pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
 [delta]
-    dark                          = true
-    syntax-theme                  = "Monokai Extended"
-    navigate                      = true
-    file-style                    = bright-yellow
-    file-decoration-style         = bright-yellow ul ol bold
-    file-added-label              = [+]
-    file-copied-label             = [==]
-    file-modified-label           = [*]
-    file-removed-label            = [-]
-    file-renamed-label            = [->]
-    hunk-header-style             = file line-number syntax
-    hunk-header-decoration-style  = blue box
-    hunk-header-line-number-style = cyan
-    commit-decoration-style       = blue box
-    keep-plus-minus-markers       = false
-    line-numbers                  = true
-    line-numbers-left-style       = black
-    line-numbers-right-style      = black
-    line-numbers-plus-style       = "#99cc99" bold
-    line-numbers-zero-style       = "#777777"
-    line-numbers-minus-style      = "#c25353" bold
-    minus-emph-style              = syntax bold "#780000"
-    minus-style                   = syntax "#400000"
-    plus-emph-style               = syntax bold "#007800"
-    plus-style                    = syntax "#004000"
-    whitespace-error-style        = "#280050" reverse
-    zero-style                    = syntax
+	dark                          = true
+	syntax-theme                  = "Monokai Extended"
+	navigate                      = true
+	file-style                    = bright-yellow
+	file-decoration-style         = bright-yellow ul ol bold
+	file-added-label              = [+]
+	file-copied-label             = [==]
+	file-modified-label           = [*]
+	file-removed-label            = [-]
+	file-renamed-label            = [->]
+	hunk-header-style             = file line-number syntax
+	hunk-header-decoration-style  = blue box
+	hunk-header-line-number-style = cyan
+	commit-decoration-style       = blue box
+	keep-plus-minus-markers       = false
+	line-numbers                  = true
+	line-numbers-left-style       = black
+	line-numbers-right-style      = black
+	line-numbers-plus-style       = "#99cc99" bold
+	line-numbers-zero-style       = "#777777"
+	line-numbers-minus-style      = "#c25353" bold
+	minus-emph-style              = syntax bold "#780000"
+	minus-style                   = syntax "#400000"
+	plus-emph-style               = syntax bold "#007800"
+	plus-style                    = syntax "#004000"
+	whitespace-error-style        = "#280050" reverse
+	zero-style                    = syntax
 [rerere]
-    enabled = true
+	enabled = true
