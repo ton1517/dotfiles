@@ -3,6 +3,7 @@
     ui = auto
     autocrlf = input
     pager = less --tabs=4 -RFX
+    ignorecase = false
 [include]
     path = $XDG_CONFIG_HOME/git/config.local
 [color]
