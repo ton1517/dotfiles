@@ -112,3 +112,5 @@
     plus-style                    = syntax "#004000"
     whitespace-error-style        = "#280050" reverse
     zero-style                    = syntax
+[rerere]
+    enabled = true
