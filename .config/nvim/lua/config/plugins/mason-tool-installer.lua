@@ -15,7 +15,7 @@ return {
 				"dockerfile-language-server",
 				"html-lsp",
 				"json-lsp",
-				"typescript-language-server",
+				"vtsls",
 				"taplo",
 				"terraform-ls",
 				"tflint",

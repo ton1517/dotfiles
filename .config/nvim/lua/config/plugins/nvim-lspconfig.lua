@@ -8,6 +8,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		-- A Neovim plugin that provides the SchemaStore catalog for use with jsonls and yamlls.
 		"b0o/schemastore.nvim",
+		"yioneko/nvim-vtsls",
 	},
 
 	config = function()
@@ -35,29 +36,34 @@ return {
 				})
 			end,
 
-			["tsserver"] = function()
-				require("typescript").setup({
-					server = {
-						init_options = {
-							tsserver = {
-								path = require("mason.settings").current.install_root_dir
-									.. "/packages/typescript-language-server/node_modules/typescript/lib/",
-							},
-							preferences = {
-								includeCompletionsForModuleExports = false,
-								includeCompletionsWithSnippetText = false,
-								-- includeInlayParameterNameHints = "all",
-								-- includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-								-- includeInlayFunctionParameterTypeHints = true,
-								includeInlayVariableTypeHints = true,
-								includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-								includeInlayPropertyDeclarationTypeHints = true,
-								includeInlayFunctionLikeReturnTypeHints = true,
-								includeInlayEnumMemberValueHints = true,
+			["vtsls"] = function()
+				require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+				require("lspconfig").vtsls.setup({
+					settings = {
+						vtsls = {
+							experimental = {
+								completion = {
+									enableServerSideFuzzyMatch = true,
+									entriesLimit = 10,
+								},
 							},
 						},
-						capabilities = capabilities,
+						typescript = {
+							inlayHints = {
+								parameterNames = { enabled = "literals" },
+								parameterTypes = { enabled = true },
+								variableTypes = { enabled = true },
+								propertyDeclarationTypes = { enabled = true },
+								functionLikeReturnTypes = { enabled = true },
+								enumMemberValues = { enabled = true },
+							},
+							tsserver = {
+								maxTsServerMemory = 8192,
+								-- log = "terse",
+							},
+						},
 					},
+					capabilities = capabilities,
 				})
 			end,
 
