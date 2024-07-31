@@ -11,7 +11,7 @@ brews=(
     curl
     diff-so-fancy
     direnv
-    exa
+    eza
     expect
     fd
     fzf

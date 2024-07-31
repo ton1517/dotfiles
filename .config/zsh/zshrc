@@ -217,7 +217,7 @@ alias mv='mv -i'
 #圧縮ファイルを実行すると解凍するように
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
-if (( ! ${+commands[exa]} )); then
+if (( ! ${+commands[eza]} )); then
     #lsを色付き表示
     case $(uname) in
         *BSD|Darwin)
