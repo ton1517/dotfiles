@@ -25,6 +25,7 @@ brews=(
     httpie
     imagemagick
     jhead
+    jordanbaird-ice
     jpeg
     jq
     less
@@ -65,7 +66,6 @@ casks=(
     alacritty
     alfred
     authy
-    bartender
     bettertouchtool
     charles
     dash
