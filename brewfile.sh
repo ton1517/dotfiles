@@ -65,10 +65,12 @@ brews=(
 casks=(
     alacritty
     alfred
+    alt-tab
     authy
     bettertouchtool
     charles
     dash
+    deepl
     docker
     google-japanese-ime
     istat-menus
