@@ -11,8 +11,8 @@ brews=(
     curl
     diff-so-fancy
     direnv
-    eza
     expect
+    eza
     fd
     fzf
     gawk
@@ -37,8 +37,8 @@ brews=(
     lv
     mise
     moreutils
-    neovim
     ncurses
+    neovim
     nkf
     oath-toolkit
     openssl
@@ -75,8 +75,8 @@ casks=(
     google-japanese-ime
     istat-menus
     karabiner-elements
-    visual-studio-code
     stay
+    visual-studio-code
 )
 
 # install homebrew
