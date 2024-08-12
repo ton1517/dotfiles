@@ -4,7 +4,6 @@ return {
 	event = { "InsertEnter", "CmdlineEnter" },
 
 	dependencies = {
-		"L3MON4D3/LuaSnip",
 		-- vscode-like pictograms for neovim lsp completion items
 		"onsails/lspkind.nvim",
 		-- nvim-cmp source for neovim's built-in language server client.
@@ -17,8 +16,6 @@ return {
 		"hrsh7th/cmp-cmdline",
 		-- nvim-cmp source for getting completions from command-line or search histories.
 		"dmitmel/cmp-cmdline-history",
-		-- luasnip completion source for nvim-cmp
-		"saadparwaiz1/cmp_luasnip",
 		-- look source for nvim-cmp
 		"octaltree/cmp-look",
 	},
@@ -29,7 +26,6 @@ return {
 				name = "nvim_lsp",
 				max_item_count = 10,
 			},
-			luasnip = { name = "luasnip" },
 			path = { name = "path" },
 			buffer = { name = "buffer" },
 			look = {
@@ -45,7 +41,6 @@ return {
 			cmdline_history = { name = "cmdline_history" },
 		}
 
-		local luasnip = require("luasnip")
 		local cmp = require("cmp")
 		cmp.setup({
 			window = {
@@ -56,18 +51,12 @@ return {
 					border = "rounded",
 				},
 			},
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
 			formatting = {
 				format = require("lspkind").cmp_format({
 					mode = "symbol",
 					maxwidth = 50,
 					menu = {
 						buffer = "[Buffer]",
-						luasnip = "[LuaSnip]",
 						nvim_lsp = "[LSP]",
 						path = "[Path]",
 						look = "[Look]",
@@ -87,7 +76,6 @@ return {
 			}),
 			sources = cmp.config.sources({
 				sources.nvim_lsp,
-				sources.luasnip,
 				sources.path,
 			}, {
 				sources.buffer,
