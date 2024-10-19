@@ -144,7 +144,7 @@ function fzf-history() {
         tac="tail -r"
     fi
 
-    local selected_line="$(history -n 1 | eval $tac | $(__fzfcmd) --query "$LBUFFER" | head -n 1)"
+    local selected_line="$(history -n 1 | eval $tac | $(__fzfcmd) --no-sort --query "$LBUFFER" | head -n 1)"
 
     if [ -n "${selected_line}" ]; then
         BUFFER="${selected_line}"
