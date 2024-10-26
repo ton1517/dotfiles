@@ -114,3 +114,5 @@
 	zero-style                    = syntax
 [rerere]
 	enabled = true
+[init]
+	defaultBranch = main
