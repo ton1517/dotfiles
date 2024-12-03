@@ -19,7 +19,6 @@ require("lazy").setup("config.plugins", {
 				"gzip",
 				"matchit",
 				"matchparen",
-				"netrwPlugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
