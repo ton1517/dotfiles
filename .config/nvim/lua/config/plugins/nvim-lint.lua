@@ -11,8 +11,8 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			yaml = { "actionlint" },
-			markdown = { "markdownlint" },
+			-- yaml = { "actionlint" },
+			-- markdown = { "markdownlint" },
 			python = { "flake8" },
 			go = { "golangcilint" },
 		}
