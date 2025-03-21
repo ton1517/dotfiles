@@ -2,7 +2,12 @@
 require("config.disable-standard-plugins")
 require("config.keymap")
 require("config.option")
-require("config.lsp")
-pcall(require, "config.local")
+
+if vim.g.vscode then
+	require("config.vscode-keymap")
+else
+	require("config.lsp")
+	pcall(require, "config.local")
+end
 
 require("config.lazy")

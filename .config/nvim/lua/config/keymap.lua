@@ -22,13 +22,16 @@ keymap("n", "k", "gk", { noremap = true })
 
 -- ウィンドウ関連操作
 keymap("n", "s", "<Nop>", { noremap = true })
-keymap("n", "ss", "<C-w>s", { noremap = true })
-keymap("n", "sv", "<C-w>v", { noremap = true })
-keymap("n", "sj", "<C-w>j", { noremap = true })
-keymap("n", "sk", "<C-w>k", { noremap = true })
-keymap("n", "sl", "<C-w>l", { noremap = true })
-keymap("n", "sh", "<C-w>h", { noremap = true })
-keymap("n", "sJ", "<C-w>J", { noremap = true })
-keymap("n", "sK", "<C-w>K", { noremap = true })
-keymap("n", "sL", "<C-w>L", { noremap = true })
-keymap("n", "sH", "<C-w>H", { noremap = true })
+
+if not vim.g.vscode then
+	keymap("n", "ss", "<C-w>s", { noremap = true })
+	keymap("n", "sv", "<C-w>v", { noremap = true })
+	keymap("n", "sj", "<C-w>j", { noremap = true })
+	keymap("n", "sk", "<C-w>k", { noremap = true })
+	keymap("n", "sl", "<C-w>l", { noremap = true })
+	keymap("n", "sh", "<C-w>h", { noremap = true })
+	keymap("n", "sJ", "<C-w>J", { noremap = true })
+	keymap("n", "sK", "<C-w>K", { noremap = true })
+	keymap("n", "sL", "<C-w>L", { noremap = true })
+	keymap("n", "sH", "<C-w>H", { noremap = true })
+end
