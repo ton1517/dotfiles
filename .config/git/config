@@ -4,6 +4,8 @@
 	autocrlf = input
 	pager = less --tabs=4 -RFX
 	ignorecase = false
+	fsmonitor = true
+	untrackedCache = true
 [include]
 	path = $XDG_CONFIG_HOME/git/config.local
 [color]
@@ -11,8 +13,11 @@
 [push]
 	default = current
 	autoSetupRemote = true
+	followTags = true
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 [alias]
 	co = checkout
 	sw = switch
@@ -55,6 +60,9 @@
 	tool = nvimdiff
 	indentHeuristic = true
 	colorMoved=plain
+	algorithm = histogram
+	mnemonicPrefix = true
+	renames = true
 [difftool]
 	prompt = false
 [mergetool]
@@ -76,7 +84,7 @@
 	ff = only
 [merge]
 	tool = nvimdiff
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 [user]
 	useConfigOnly = true
 [pager]
@@ -114,5 +122,18 @@
 	zero-style                    = syntax
 [rerere]
 	enabled = true
+	autoupdate = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
 [init]
 	defaultBranch = main
+[help]
+	autocorrect = prompt
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
