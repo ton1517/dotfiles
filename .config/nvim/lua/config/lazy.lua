@@ -23,6 +23,7 @@ if vim.g.vscode then
 		require("config.plugins.vim-repeat"),
 		require("config.plugins.vim-textmanip"),
 		require("config.plugins.vim-textobj"),
+		require("config.plugins.treesj"),
 	}, {
 		performance = {
 			rtp = {
