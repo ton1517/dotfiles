@@ -24,6 +24,7 @@ if vim.g.vscode then
 		require("config.plugins.vim-textmanip"),
 		require("config.plugins.vim-textobj"),
 		require("config.plugins.treesj"),
+		require("config.plugins.zippy"),
 	}, {
 		performance = {
 			rtp = {
