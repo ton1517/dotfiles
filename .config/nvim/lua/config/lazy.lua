@@ -18,7 +18,6 @@ if vim.g.vscode then
 		require("config.plugins.nvim-surround"),
 		require("config.plugins.switch"),
 		require("config.plugins.vim-expand-region"),
-		require("config.plugins.vim-illuminate"),
 		require("config.plugins.vim-operator-replace"),
 		require("config.plugins.vim-repeat"),
 		require("config.plugins.vim-textmanip"),
