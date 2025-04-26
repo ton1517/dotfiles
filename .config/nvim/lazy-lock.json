@@ -11,7 +11,6 @@
   "cmp-look": { "branch": "master", "commit": "971e65a6be0e75c3438fe7b176d4fc020cb89d7b" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
-  "codeium.vim": { "branch": "main", "commit": "000de972de76f357c03da14f4f8dd9a969d4fe8c" },
   "committia.vim": { "branch": "master", "commit": "c8c0f255e8090ed90dd9d5dd2e8672994f8e3671" },
   "conform.nvim": { "branch": "master", "commit": "f9ef25a7ef00267b7d13bfc00b0dea22d78702d5" },
   "dial.nvim": { "branch": "master", "commit": "1fc4475c66b794aad3dde39414f73b2e2b26230e" },
