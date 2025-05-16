@@ -1,5 +1,5 @@
-nodejs 22.15.0
+nodejs 22.15.1
 ruby 3.1.2
 python 3.11.0
-golang 1.19.3
+golang 1.24.3
 rust 1.78.0
