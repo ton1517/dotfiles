@@ -1,5 +1,8 @@
 npm-check-updates
 typescript
+typescript-language-server
 typesync
 yarn
 pnpm
+@anthropic-ai/claude-code
+@typescript/native-preview
