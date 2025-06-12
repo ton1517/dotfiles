@@ -324,9 +324,8 @@ eval "$(mise activate zsh)"
 #----------------------------------------
 
 #tmuxの自動起動
-if [ -z "$PS1" ] ; then return ; fi
-
-if [ -z $TMUX ] ; then
+# インタラクティブシェル かつ VSCodeでない かつ tmuxの中でない場合のみ起動
+if [ -n "$PS1" ] && [ "$TERM_PROGRAM" != "vscode" ] && [ -z "$TMUX" ] ; then
     tmuxls=`tmux ls`
     if [ -z $tmuxls ] ; then
             tmux
