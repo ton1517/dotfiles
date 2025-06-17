@@ -39,6 +39,10 @@ return {
 			},
 			cmdline = { name = "cmdline" },
 			cmdline_history = { name = "cmdline_history" },
+			lazydev = {
+				name = "lazydev",
+				group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+			},
 		}
 
 		local cmp = require("cmp")
@@ -75,6 +79,7 @@ return {
 				}),
 			}),
 			sources = cmp.config.sources({
+				sources.lazydev,
 				sources.nvim_lsp,
 				sources.path,
 			}, {

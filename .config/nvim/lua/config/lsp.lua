@@ -73,20 +73,6 @@ vim.lsp.config("*", {
 	capabilities = capabilities,
 })
 
--- lua_ls configuration
-vim.lsp.config("lua_ls", {
-	settings = {
-		Lua = {
-			format = {
-				enable = false,
-			},
-		},
-	},
-	on_attach = function()
-		require("neodev").setup({})
-	end,
-})
-
 -- vtsls configuration
 vim.lsp.config("vtsls", {
 	settings = {
