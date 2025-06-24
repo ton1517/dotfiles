@@ -28,6 +28,10 @@ keymap("n", ",wl", function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, opt)
 
+keymap("n", "<leader>i", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+end, opt)
+
 -- LSP style config
 
 local border_style = "rounded"
@@ -56,4 +60,91 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.INFO] = " ",
 		},
 	},
+})
+
+------------------------------
+-- Language config
+------------------------------
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+-- Configure default capabilities for all servers
+vim.lsp.config("*", {
+	capabilities = capabilities,
+})
+
+-- lua_ls configuration
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			format = {
+				enable = false,
+			},
+		},
+	},
+	on_attach = function()
+		require("neodev").setup({})
+	end,
+})
+
+-- vtsls configuration
+vim.lsp.config("vtsls", {
+	settings = {
+		vtsls = {
+			experimental = {
+				completion = {
+					enableServerSideFuzzyMatch = true,
+					entriesLimit = 10,
+				},
+			},
+		},
+		typescript = {
+			inlayHints = {
+				parameterNames = { enabled = "literals" },
+				parameterTypes = { enabled = true },
+				variableTypes = { enabled = true },
+				propertyDeclarationTypes = { enabled = true },
+				functionLikeReturnTypes = { enabled = true },
+				enumMemberValues = { enabled = true },
+			},
+			tsserver = {
+				maxTsServerMemory = 8192,
+				-- log = "terse",
+			},
+		},
+	},
+	on_attach = function()
+		-- Setup vtsls specific configurations if needed
+		if not require("lspconfig.configs").vtsls then
+			require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+		end
+	end,
+})
+
+-- jsonls configuration
+vim.lsp.config("jsonls", {
+	settings = {
+		json = {
+			schemas = require("schemastore").json.schemas(),
+			validate = { enable = true },
+		},
+	},
+})
+
+-- yamlls configuration
+vim.lsp.config("yamlls", {
+	settings = {
+		yaml = {
+			schemaStore = {
+				enable = false,
+				url = "",
+			},
+			schemas = require("schemastore").yaml.schemas(),
+		},
+	},
+})
+
+-- rust_analyzer handled by rustaceanvim
+vim.lsp.config("rust_analyzer", {
+	-- Minimal config, actual setup is handled by rustaceanvim
 })
