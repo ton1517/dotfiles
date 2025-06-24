@@ -35,3 +35,38 @@ if not vim.g.vscode then
 	keymap("n", "sL", "<C-w>L", { noremap = true })
 	keymap("n", "sH", "<C-w>H", { noremap = true })
 end
+
+-- プロジェクトルートからのパスをクリップボードにコピー
+keymap("n", "<leader>cp", function()
+	-- 現在のファイルの絶対パスを取得
+	local filepath = vim.fn.expand("%:p")
+
+	-- Gitのルートディレクトリを優先的に取得
+	local git_root = vim.fn.system(
+		"git -C " .. vim.fn.shellescape(vim.fn.expand("%:p:h")) .. " rev-parse --show-toplevel 2>/dev/null"
+	)
+	git_root = git_root:gsub("\n", "")
+
+	local root
+	if git_root ~= "" and vim.fn.isdirectory(git_root) == 1 then
+		root = git_root
+	else
+		-- Gitルートが見つからない場合は現在の作業ディレクトリを使用
+		root = vim.fn.getcwd()
+	end
+
+	-- rootが/で終わっていない場合は追加
+	if not root:match("/$") then
+		root = root .. "/"
+	end
+
+	-- 相対パスを計算
+	local relative_path = filepath
+	if filepath:sub(1, #root) == root then
+		relative_path = filepath:sub(#root + 1)
+	end
+
+	-- クリップボードにコピー
+	vim.fn.setreg("+", relative_path)
+	vim.notify("Copied: " .. relative_path)
+end, { noremap = true, silent = true, desc = "Copy relative path to clipboard" })
