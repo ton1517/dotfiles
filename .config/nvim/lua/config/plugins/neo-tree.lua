@@ -11,6 +11,7 @@ return {
 
 	init = function()
 		vim.keymap.set("n", "<Leader>f", ":Neotree<CR>", { silent = true })
+		vim.keymap.set("n", "<Leader>b", ":Neotree buffers<CR>", { silent = true })
 		vim.keymap.set("n", "<C-g>f", ":Neotree git_status<CR>", { silent = true })
 	end,
 
