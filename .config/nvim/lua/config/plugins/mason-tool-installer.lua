@@ -1,7 +1,7 @@
 return {
 	-- Install and upgrade third party tools automatically
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	dependencies = { "williamboman/mason.nvim" },
+	dependencies = { "mason-org/mason.nvim" },
 	cmd = "MasonToolsInstall",
 
 	config = function()

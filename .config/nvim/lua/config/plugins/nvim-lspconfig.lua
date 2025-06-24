@@ -3,8 +3,8 @@ return {
 	"neovim/nvim-lspconfig",
 	event = "VeryLazy",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		-- A Neovim plugin that provides the SchemaStore catalog for use with jsonls and yamlls.
 		"b0o/schemastore.nvim",

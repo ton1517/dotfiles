@@ -1,7 +1,7 @@
 return {
 	-- A modern go neovim plugin based on treesitter, nvim-lsp and dap debugger.
 	"ray-x/go.nvim",
-	dependencies = "williamboman/mason.nvim",
+	dependencies = "mason-org/mason.nvim",
 	ft = "go",
 	enabled = false,
 

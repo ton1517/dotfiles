@@ -5,7 +5,7 @@ return {
 		"BufNewFile",
 	},
 	dependencies = {
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 	},
 	config = function()
 		local lint = require("lint")
