@@ -24,6 +24,7 @@ typeset -U path
 path=(
       $HOME/bin(N-/)
       $HOME/local/bin(N-/)
+      $HOME/.local/bin(N-/)
       /opt/homebrew/bin(N-/)
       /opt/local/bin(N-/)
       /usr/local/bin(N-/)
