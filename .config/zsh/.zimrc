@@ -6,5 +6,6 @@ zmodule nnao45/zsh-kubectl-completion
 zmodule rupa/z
 zmodule fzf
 zmodule romkatv/powerlevel10k --use degit
+zmodule git@github.com:g-plane/pnpm-shell-completion.git --on-pull './zplug.zsh'
 
 zmodule $ZDOTDIR --source fzf.zsh --source eza.zsh --source theme.zsh
