@@ -1,0 +1,20 @@
+# Font settings
+font-family = "HackGen35 Console NF"
+font-size = 12
+
+# Terminal type
+term = xterm-256color
+
+# Scrollback history (bytes, ~100000 lines)
+scrollback-limit = 10000000
+
+# Window settings
+window-decoration = none
+maximize = true
+
+# macOS: option key as alt (Both = true)
+macos-option-as-alt = true
+
+theme = Everforest Dark Hard
+
+font-thicken

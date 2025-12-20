@@ -72,6 +72,7 @@ casks=(
     dash
     deepl
     docker
+    ghostty@tip
     google-japanese-ime
     istat-menus
     karabiner-elements
