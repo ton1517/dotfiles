@@ -102,8 +102,6 @@ export DELTA_PAGER="less --tabs=4 -RFX"
 #----------------------------------------
 
 export HOMEBREW_PREFIX="/opt/homebrew"
-export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
-export HOMEBREW_NO_AUTO_UPDATE=1
 export FPATH="${HOMEBREW_PREFIX}/share/zsh/functions:${HOMEBREW_PREFIX}/share/zsh/site-functions:$FPATH"
 
 #----------------------------------------
