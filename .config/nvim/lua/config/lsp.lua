@@ -6,20 +6,29 @@ local opt = { noremap = true, silent = true }
 keymap({ "n", "v" }, "<S-f>", ":Format<CR>", opt)
 
 keymap("n", ",e", vim.diagnostic.open_float, opt)
-keymap("n", "[e", vim.diagnostic.goto_prev, opt)
-keymap("n", "]e", vim.diagnostic.goto_next, opt)
+keymap("n", "[e", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end, opt)
+keymap("n", "]e", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, opt)
 keymap("n", "[E", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end)
+	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR, float = true })
+end, opt)
 keymap("n", "]E", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
-end)
+	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR, float = true })
+end, opt)
 
 keymap("n", "gy", vim.lsp.buf.type_definition, opt)
 keymap("n", "gr", vim.lsp.buf.references, opt)
 keymap("n", "gi", vim.lsp.buf.implementation, opt)
 
-keymap("n", "K", vim.lsp.buf.hover, opt)
+keymap("n", "K", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end, opt)
+keymap("i", "K", function()
+	vim.lsp.buf.signature_help({ border = "rounded" })
+end, opt)
 keymap("n", ",rn", vim.lsp.buf.rename, opt)
 
 keymap("n", ",wa", vim.lsp.buf.add_workspace_folder, opt)
@@ -35,12 +44,6 @@ end, opt)
 -- LSP style config
 
 local border_style = "rounded"
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = border_style,
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-	border = border_style,
-})
 
 vim.diagnostic.config({
 	severity_sort = true,
