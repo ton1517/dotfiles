@@ -324,7 +324,6 @@
   typeset -g POWERLEVEL9K_TERRAFORM_VERSION_FOREGROUND=38
 
   #[ aws: aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) ]#
-  typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awless|terraform|pulumi|terragrunt'
   typeset -g POWERLEVEL9K_AWS_CLASSES=(
       '*'       DEFAULT)
   typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=208
