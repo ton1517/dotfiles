@@ -348,3 +348,25 @@ function tmux-change-prefix(){
 function tmux-reset-prefix(){
     tmux-set-prefix C-t
 }
+
+#----------------------------------------
+# AWS
+#----------------------------------------
+
+# AWS profileをfzfで選択してSSO loginも実行
+function aws-login() {
+    local selected_profile="$(aws configure list-profiles | $(__fzfcmd) --preview 'aws configure list --profile {}')"
+
+    if [ -n "$selected_profile" ]; then
+        export AWS_PROFILE="$selected_profile"
+        echo "Switched to AWS_PROFILE=$selected_profile"
+        aws sso login
+    fi
+}
+
+# AWS SSO logoutしてAWS_PROFILEもクリア
+function aws-logout() {
+    aws sso logout
+    unset AWS_PROFILE AWS_DEFAULT_PROFILE
+    echo "AWS SSO logged out and AWS_PROFILE unset"
+}

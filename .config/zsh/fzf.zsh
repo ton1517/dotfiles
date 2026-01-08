@@ -268,27 +268,3 @@ function fzf-docker-ps() {
 }
 zle -N fzf-docker-ps
 bindkey '^d^p' fzf-docker-ps
-
-#--------------------
-# aws
-#--------------------
-
-# AWS profileをfzfで選択してSSO loginも実行
-function fzf-aws-profile() {
-    local selected_profile="$(aws configure list-profiles | $(__fzfcmd) --preview 'aws configure list --profile {}')"
-
-    if [ -n "$selected_profile" ]; then
-        export AWS_PROFILE="$selected_profile"
-        echo "Switched to AWS_PROFILE=$selected_profile"
-        aws sso login
-    fi
-}
-zle -N fzf-aws-profile
-bindkey '^a^p' fzf-aws-profile
-
-# AWS SSO logoutしてAWS_PROFILEもクリア
-function aws-logout() {
-    aws sso logout
-    unset AWS_PROFILE AWS_DEFAULT_PROFILE
-    echo "AWS SSO logged out and AWS_PROFILE unset"
-}
