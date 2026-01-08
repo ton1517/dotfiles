@@ -67,17 +67,17 @@ casks=(
     alacritty
     alfred
     alt-tab
-    authy
     bettertouchtool
     charles
-    dash
     deepl
     docker
     ghostty@tip
     google-japanese-ime
     istat-menus
     karabiner-elements
+    obsidian
     stay
+    tableplus
     visual-studio-code
 )
 
