@@ -41,7 +41,6 @@ return {
 				"ruby",
 				"rust",
 				"scss",
-				"swift",
 				"toml",
 				"tsx",
 				"typescript",
