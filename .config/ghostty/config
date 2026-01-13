@@ -18,3 +18,5 @@ macos-option-as-alt = true
 theme = Everforest Dark Hard
 
 font-thicken
+
+confirm-close-surface= false
