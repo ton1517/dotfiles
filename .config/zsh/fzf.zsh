@@ -105,6 +105,28 @@ function fzf-git-add() {
 zle -N fzf-git-add
 bindkey "^g^a" fzf-git-add
 
+# gitのworktreeを選択してcdする
+function fzf-git-worktree() {
+    local selected_line="$(
+        git worktree list \
+        | awk '{
+            path = $1
+            branch = $3
+            gsub(/[\[\]]/, "", branch)
+            printf "\033[33m%-20s\033[0m %s\n", branch, path
+        }' \
+        | $(__fzfcmd) --ansi --preview 'git -C {2} log --oneline --color=always -10' \
+        | awk '{print $2}'
+    )"
+
+    if [ -n "$selected_line" ]; then
+        BUFFER="cd ${selected_line}"
+        zle .accept-line
+    fi
+}
+zle -N fzf-git-worktree
+bindkey '^g^w' fzf-git-worktree
+
 # git logを表示し、選択したコミットのハッシュを返す
 function fzf-git-log() {
     local current_buffer=$BUFFER
