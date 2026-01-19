@@ -7,7 +7,7 @@
 	fsmonitor = true
 	untrackedCache = true
 [include]
-	path = $XDG_CONFIG_HOME/git/config.local
+	path = ./config.local
 [color]
 	ui = true
 [push]
