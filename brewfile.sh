@@ -59,6 +59,7 @@ brews=(
     watch
     wget
     witr
+    workmux
     yazi
     yq
     zsh
