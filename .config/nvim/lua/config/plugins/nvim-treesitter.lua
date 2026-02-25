@@ -1,11 +1,11 @@
 return {
 	-- Treesitter configurations and abstraction layer for Neovim.
 	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
 	build = ":TSUpdate",
-	event = "VeryLazy",
 
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		require("nvim-treesitter").setup({
 			ensure_installed = {
 				"bash",
 				"c",
@@ -36,8 +36,9 @@ return {
 				"markdown",
 				"markdown_inline",
 				"php",
-				"python",
+				"pkl",
 				"prisma",
+				"python",
 				"ruby",
 				"rust",
 				"scss",
