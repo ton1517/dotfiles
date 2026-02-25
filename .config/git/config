@@ -4,7 +4,7 @@
 	autocrlf = input
 	pager = less --tabs=4 -RFX
 	ignorecase = false
-	fsmonitor = true
+	fsmonitor = false
 	untrackedCache = true
 [include]
 	path = ./config.local
