@@ -265,6 +265,7 @@ alias v='nvim'
 alias vim='nvim'
 alias g='git'
 alias tf='terraform'
+alias wm='workmux'
 
 alias zmv='noglob zmv -W'
 
