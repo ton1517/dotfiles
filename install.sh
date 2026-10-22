@@ -4,12 +4,24 @@ function symlink() {
     orig=$1
     dest=$2
 
+    # 実体のディレクトリがあるとその中にリンクが作られてしまうため退避する
+    if [ -d "$dest" ] && [ ! -L "$dest" ]; then
+        mv "$dest" "$dest.bak" && echo "backup: $dest -> $dest.bak"
+    fi
+
     if [ "$(readlink "$dest")" != "$orig" ]; then
-        ln -Fis "$orig" "$dest"
+        ln -sni "$orig" "$dest"
     fi
 }
 
 cd "$(dirname "$0")" || exit
+
+# OSごとのファイル名に使う (darwin / wsl)
+if [ -n "$WSL_DISTRO_NAME" ]; then
+    os=wsl
+else
+    os=$(uname | tr '[:upper:]' '[:lower:]')
+fi
 
 touch ".config/zsh/zshrc.local"
 touch ".config/zsh/zshenv.local"
@@ -18,7 +30,6 @@ touch ".config/git/config.local"
 
 # symlink dotfile
 symlink "$PWD/.zshenv" "$HOME/.zshenv"
-symlink "$PWD/.tool-versions" "$HOME/.tool-versions"
 
 # symlink config file
 mkdir -p "$HOME/.config"
@@ -27,9 +38,17 @@ do
     symlink "$PWD/$conffile" "$HOME/$conffile"
 done
 
-# install homebrew
-if [[ "$(uname)" == 'Darwin' && -z "$(which brew 2> /dev/null)" ]]; then
-    sh ./brewfile.sh
+# OS固有のセットアップ (Homebrewのインストールなど)
+if [ -e "setup/$os.sh" ]; then
+    source "setup/$os.sh"
+fi
+
+# install brew packages
+if type "brew" > /dev/null 2>&1; then
+    brew bundle --file=Brewfile
+    if [ -e "Brewfile.$os" ]; then
+        brew bundle --file="Brewfile.$os"
+    fi
 fi
 
 # install mise languages
