@@ -15,6 +15,21 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 #----------------------------------------
+# homebrew
+#----------------------------------------
+
+# HOMEBREW_PREFIX, PATH, MANPATH などを設定する
+for brew in /opt/homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+    if [ -x $brew ]; then
+        eval "$($brew shellenv)"
+        break
+    fi
+done
+unset brew
+
+export FPATH="${HOMEBREW_PREFIX}/share/zsh/functions:${HOMEBREW_PREFIX}/share/zsh/site-functions:$FPATH"
+
+#----------------------------------------
 # path settings
 #----------------------------------------
 
@@ -26,12 +41,14 @@ path=(
       $HOME/local/bin(N-/)
       $HOME/.local/bin(N-/)
       /opt/homebrew/bin(N-/)
+      /home/linuxbrew/.linuxbrew/bin(N-/)
       /opt/local/bin(N-/)
       /usr/local/bin(N-/)
       /usr/bin(N-/)
       /bin(N-/)
       /sbin(N-/)
       /opt/homebrew/sbin(N-/)
+      /home/linuxbrew/.linuxbrew/sbin(N-/)
       /usr/local/sbin(N-/)
       /opt/local/sbin(N-/)
       /usr/sbin(N-/)
@@ -48,6 +65,7 @@ typeset -U manpath
 manpath=(
          $HOME/local/share/man(N-/)
          /opt/homebrew/share/man(N-/)
+         /home/linuxbrew/.linuxbrew/share/man(N-/)
          /opt/local/share/man(N-/)
          /usr/local/share/man(N-/)
          /usr/share/man(N-/)
@@ -96,13 +114,6 @@ export LV="-c -l"
 export LESS="-R"
 
 export DELTA_PAGER="less --tabs=4 -RFX"
-
-#----------------------------------------
-# homebrew
-#----------------------------------------
-
-export HOMEBREW_PREFIX="/opt/homebrew"
-export FPATH="${HOMEBREW_PREFIX}/share/zsh/functions:${HOMEBREW_PREFIX}/share/zsh/site-functions:$FPATH"
 
 #----------------------------------------
 # mise
