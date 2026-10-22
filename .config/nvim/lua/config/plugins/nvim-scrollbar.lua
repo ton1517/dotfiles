@@ -1,6 +1,9 @@
 return {
 	-- Extensible Neovim Scrollbar
 	"petertriho/nvim-scrollbar",
+	-- v2は設定の互換性がないため、正式リリース(2026-11-16)まではv1に固定する
+	-- see https://github.com/petertriho/nvim-scrollbar/issues/121
+	branch = "v1",
 	dependencies = { "kevinhwang91/nvim-hlslens", "lewis6991/gitsigns.nvim" },
 	event = "VeryLazy",
 
