@@ -36,7 +36,8 @@ vim.opt.sidescrolloff = 5
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 -- clipboard
-vim.opt.clipboard = "unnamed"
+-- Macはpbcopy、WSLはwin32yank.exeが自動で使われる
+vim.opt.clipboard = "unnamedplus"
 -- no backup
 vim.opt.writebackup = false
 vim.opt.swapfile = false
