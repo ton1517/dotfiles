@@ -2,6 +2,19 @@
 [ -z "$PS1" ] && return
 
 #----------------------------------------
+# OS settings
+#----------------------------------------
+# OS固有の設定は os/darwin.zsh, os/wsl.zsh に記述すること
+if [ -n "$WSL_DISTRO_NAME" ]; then
+    os_settings=$ZDOTDIR/os/wsl.zsh
+else
+    os_settings=$ZDOTDIR/os/${OSTYPE%%[-0-9]*}.zsh
+fi
+if [ -e $os_settings ]; then
+    source $os_settings
+fi
+
+#----------------------------------------
 # source zshrc
 #----------------------------------------
 
