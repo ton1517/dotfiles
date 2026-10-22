@@ -29,13 +29,11 @@ return {
 
 				-- Linter
 				"actionlint",
-				"luacheck",
 				"golangci-lint",
 				"codespell",
 				"flake8",
 
 				-- Formatter
-				"luaformatter",
 				"goimports",
 				"prettierd",
 				"stylua",
