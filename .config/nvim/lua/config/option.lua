@@ -1,6 +1,3 @@
-local fn = vim.fn
-local g = vim.g
-
 vim.opt.laststatus = 3
 vim.opt.updatetime = 100
 vim.opt.shortmess:append({ c = true })
@@ -46,10 +43,6 @@ vim.opt.conceallevel = 0
 vim.opt.concealcursor = ""
 -- true color
 vim.opt.termguicolors = true
-if (not fn.has("gui_running")) and (g["&term"] ~= "screen" and g["&term"] ~= "tmux") then
-	g["&t_8f"] = "<Esc>[38;2;%lu;%lu;%lum"
-	g["&t_8b"] = "<Esc>[48;2;%lu;%lu;%lum"
-end
 
 -- cmdheight
 vim.opt.cmdheight = 0
