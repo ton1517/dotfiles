@@ -3,6 +3,13 @@
 local keymap = vim.keymap.set
 local opt = { noremap = true, silent = true }
 
+-- デフォルトの gr* マッピングがあると gr が待たされるため削除する
+-- (同等の機能は gr, gi, gy, ,rn, ,ca に割り当て済み)
+for _, lhs in ipairs({ "grn", "grr", "gri", "grt", "grx" }) do
+	pcall(vim.keymap.del, "n", lhs)
+end
+pcall(vim.keymap.del, { "n", "x" }, "gra")
+
 keymap({ "n", "v" }, "<S-f>", ":Format<CR>", opt)
 
 keymap("n", ",e", vim.diagnostic.open_float, opt)
@@ -25,9 +32,6 @@ keymap("n", "gi", vim.lsp.buf.implementation, opt)
 
 keymap("n", "K", function()
 	vim.lsp.buf.hover({ border = "rounded" })
-end, opt)
-keymap("i", "K", function()
-	vim.lsp.buf.signature_help({ border = "rounded" })
 end, opt)
 keymap("n", ",rn", vim.lsp.buf.rename, opt)
 
@@ -102,12 +106,6 @@ vim.lsp.config("vtsls", {
 			},
 		},
 	},
-	on_attach = function()
-		-- Setup vtsls specific configurations if needed
-		if not require("lspconfig.configs").vtsls then
-			require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-		end
-	end,
 })
 
 -- jsonls configuration
