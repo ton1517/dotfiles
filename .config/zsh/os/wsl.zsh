@@ -14,11 +14,13 @@ function open() {
 #----------------------------------------
 
 # WSLではログイン時にssh-agentが起動しないため、起動していなければ起動する
-# (起動したagentのソケットはzshrcで ~/.ssh/ssh_auth_sock にリンクされる)
+# 全シェルで同じagentを使うため、ソケットを ~/.ssh/ssh_auth_sock に固定する
 if [[ ! -S $SSH_AUTH_SOCK ]]; then
-    SSH_AUTH_SOCK=$HOME/.ssh/ssh_auth_sock ssh-add -l > /dev/null 2>&1
+    export SSH_AUTH_SOCK=$HOME/.ssh/ssh_auth_sock
+    ssh-add -l > /dev/null 2>&1
     # 2: agentに接続できない
     if (( $? == 2 )); then
-        eval "$(ssh-agent -s)" > /dev/null
+        rm -f $SSH_AUTH_SOCK
+        eval "$(ssh-agent -s -a $SSH_AUTH_SOCK)" > /dev/null
     fi
 fi
