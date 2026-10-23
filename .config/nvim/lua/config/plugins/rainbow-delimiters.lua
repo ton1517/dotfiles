@@ -1,7 +1,8 @@
 return {
 	"hiphish/rainbow-delimiters.nvim",
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
-	event = "VeryLazy",
+	-- FileTypeで有効になるため遅延読み込みしない (起動時に開いたファイルに適用されなくなる)
+	lazy = false,
 
 	config = function()
 		local rainbow_delimiters = require("rainbow-delimiters")
@@ -13,15 +14,6 @@ return {
 			query = {
 				[""] = "rainbow-delimiters",
 				lua = "rainbow-blocks",
-			},
-			highlight = {
-				"rainbowcol1",
-				"rainbowcol2",
-				"rainbowcol3",
-				"rainbowcol4",
-				"rainbowcol5",
-				"rainbowcol6",
-				"rainbowcol7",
 			},
 		}
 	end,
