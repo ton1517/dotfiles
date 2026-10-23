@@ -24,7 +24,7 @@ return {
 						return "]c"
 					end
 					vim.schedule(function()
-						gs.next_hunk()
+						gs.nav_hunk("next")
 					end)
 					return "<Ignore>"
 				end, { expr = true, desc = "Gitsigns next hunk" })
@@ -34,7 +34,7 @@ return {
 						return "[c"
 					end
 					vim.schedule(function()
-						gs.prev_hunk()
+						gs.nav_hunk("prev")
 					end)
 					return "<Ignore>"
 				end, { expr = true, desc = "Gitsigns prev hunk" })
@@ -44,7 +44,8 @@ return {
 				map("n", "<C-g>A", gs.stage_buffer, { desc = "Gitsigns stage buffer" })
 				map({ "n", "v" }, "<C-g>r", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Gitsigns reset hunk" })
 				map("n", "<C-g>R", gs.reset_buffer, { desc = "Gitsigns reset buffer" })
-				map("n", "<C-g>u", gs.undo_stage_hunk, { desc = "Gitsigns undo stage hunk" })
+				-- ステージ済みのhunk上で stage_hunk を実行するとアンステージされる
+				map("n", "<C-g>u", gs.stage_hunk, { desc = "Gitsigns unstage hunk" })
 				map("n", "<C-g>p", gs.preview_hunk, { desc = "Gitsigns preview hunk" })
 				map("n", "<C-g>b", function()
 					gs.blame_line({ full = true })
@@ -54,7 +55,7 @@ return {
 				map("n", "<C-g>D", function()
 					gs.diffthis("~")
 				end, { desc = "Gitsigns diffthis~" })
-				map("n", "<C-g>td", gs.toggle_deleted, { desc = "Gitsigns toggle deleted" })
+				map("n", "<C-g>td", gs.preview_hunk_inline, { desc = "Gitsigns preview hunk inline" })
 			end,
 		})
 	end,
