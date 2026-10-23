@@ -52,7 +52,6 @@
   "pkl-neovim": { "branch": "main", "commit": "20bfa7232262f36da45470170e7a954e487f4ac6" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "b55decda611755171bc5bf8f4c99603a75de4b41" },
-  "refactoring.nvim": { "branch": "master", "commit": "684b3484796ea44595bebbfddee4fa4dbfc90939" },
   "rustaceanvim": { "branch": "main", "commit": "2a330e0a66b232f1c75a54d0f73a8fd15a88a39e" },
   "schemastore.nvim": { "branch": "main", "commit": "98c0d97389a1d46d7ee442161e05e4175d3763ec" },
   "snacks.nvim": { "branch": "main", "commit": "882c996cf28183f4d63640de0b4c02ec886d01f2" },
