@@ -10,7 +10,12 @@ return {
 
 	config = function()
 		require("mason-lspconfig").setup({
-			automatic_enable = true,
+			automatic_enable = {
+				exclude = {
+					-- フォーマットは conform.nvim で行うため、LSPとしては起動しない
+					"stylua",
+				},
+			},
 		})
 	end,
 }
